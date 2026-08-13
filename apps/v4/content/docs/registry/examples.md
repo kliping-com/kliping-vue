@@ -5,15 +5,15 @@ description: "Examples of registry items: styles, components, css vars, etc."
 
 ## registry:style
 
-### Custom style that extends shadcn-vue
+### Style kustom yang memperluas shadcn-vue
 
-The following registry item is a custom style that extends shadcn-vue. On `npx shadcn-vue init`, it will:
+Item registry berikut adalah style kustom yang memperluas shadcn-vue. Saat `npx shadcn-vue init` dijalankan, ia akan:
 
-- Install `@iconify/vue` as a dependency.
-- Add the `Login01` block and `calendar` component to the project.
-- Add the `editor` from a remote registry.
-- Set the `font-sans` variable to `Inter, sans-serif`.
-- Install a `brand` color in light and dark mode.
+- Memasang `@iconify/vue` sebagai dependency.
+- Menambahkan block `Login01` dan komponen `calendar` ke project.
+- Menambahkan `editor` dari registry jarak jauh.
+- Mengisi variabel `font-sans` dengan `Inter, sans-serif`.
+- Memasang warna `brand` untuk mode terang dan gelap.
 
 ```json showLineNumbers title="example-style.json"
 {
@@ -40,17 +40,17 @@ The following registry item is a custom style that extends shadcn-vue. On `npx s
 }
 ```
 
-### Custom style from scratch
+### Style kustom dari nol
 
-The following registry item is a custom style that doesn't extend shadcn-vue. See the `extends: none` field.
+Item registry berikut adalah style kustom yang tidak memperluas shadcn-vue — perhatikan field `extends: none`.
 
-It can be used to create a new style from scratch i.e custom components, css vars, dependencies, etc.
+Ia bisa dipakai membangun style baru dari nol: komponen sendiri, CSS variable sendiri, dependency sendiri, dan seterusnya.
 
-On `npx shadcn-vue add`, the following will:
+Saat `npx shadcn-vue add` dijalankan, ia akan:
 
-- Install `tailwind-merge` and `clsx` as dependencies.
-- Add the `utils` registry item from the shadcn-vue registry.
-- Add the `button`, `input`, `label`, and `select` components from a remote registry.
+- Memasang `tailwind-merge` dan `clsx` sebagai dependency.
+- Menambahkan item registry `utils` dari registry shadcn-vue.
+- Menambahkan komponen `button`, `input`, `label`, dan `select` dari registry jarak jauh.
 - Install new css vars: `main`, `bg`, `border`, `text`, `ring`.
 
 ```json showLineNumbers title="example-style.json"
@@ -91,7 +91,7 @@ On `npx shadcn-vue add`, the following will:
 
 ## registry:theme
 
-### Custom theme
+### Tema kustom
 
 ```json showLineNumbers title="example-theme.json"
 {
@@ -123,9 +123,9 @@ On `npx shadcn-vue add`, the following will:
 }
 ```
 
-### Custom colors
+### Warna kustom
 
-The following style will init using shadcn-vue defaults and then add a custom `brand` color.
+Style berikut melakukan inisialisasi dengan nilai bawaan shadcn-vue, lalu menambahkan warna `brand` kustom.
 
 ```json showLineNumbers title="example-style.json"
 {
@@ -145,9 +145,9 @@ The following style will init using shadcn-vue defaults and then add a custom `b
 
 ## registry:block
 
-### Custom block
+### Block kustom
 
-This blocks installs the `Login01` block from the shadcn-vue registry.
+Contoh ini memasang block `Login01` dari registry shadcn-vue.
 
 ```json showLineNumbers title="Login01.json"
 {
@@ -172,14 +172,14 @@ This blocks installs the `Login01` block from the shadcn-vue registry.
 }
 ```
 
-### Install a block and override primitives
+### Memasang block sambil mengganti primitifnya
 
-You can install a block fromt the shadcn-vue registry and override the primitives using your custom ones.
+Anda bisa memasang block dari registry shadcn-vue lalu mengganti komponen primitifnya dengan buatan Anda sendiri.
 
-On `npx shadcn-vue add`, the following will:
+Saat `npx shadcn-vue add` dijalankan, ia akan:
 
-- Add the `Login01` block from the shadcn-vue registry.
-- Override the `button`, `input`, and `label` primitives with the ones from the remote registry.
+- Menambahkan block `Login01` dari registry shadcn-vue.
+- Mengganti primitif `button`, `input`, dan `label` dengan versi dari registry jarak jauh.
 
 ```json showLineNumbers title="example-style.json"
 {
@@ -197,9 +197,9 @@ On `npx shadcn-vue add`, the following will:
 
 ## CSS Variables
 
-### Custom Theme Variables
+### Variabel Tema Kustom
 
-Add custom theme variables to the `theme` object.
+Tambahkan variabel tema kustom ke objek `theme`.
 
 ```json showLineNumbers title="example-theme.json"
 {
@@ -215,7 +215,7 @@ Add custom theme variables to the `theme` object.
 }
 ```
 
-### Override Tailwind CSS variables
+### Menimpa CSS variable Tailwind
 
 ```json showLineNumbers title="example-theme.json"
 {
@@ -235,9 +235,9 @@ Add custom theme variables to the `theme` object.
 }
 ```
 
-## Add custom CSS
+## Menambahkan CSS Kustom
 
-### Base styles
+### Style dasar
 
 ```json showLineNumbers title="example-base.json"
 {
@@ -277,9 +277,9 @@ Add custom theme variables to the `theme` object.
 }
 ```
 
-## Add custom utilities
+## Menambahkan Utility Kustom
 
-### Simple utility
+### Utility sederhana
 
 ```json showLineNumbers title="example-component.json"
 {
@@ -294,7 +294,7 @@ Add custom theme variables to the `theme` object.
 }
 ```
 
-### Complex utility
+### Utility yang lebih rumit
 
 ```json showLineNumbers title="example-utility.json"
 {
@@ -313,7 +313,7 @@ Add custom theme variables to the `theme` object.
 }
 ```
 
-### Functional utilities
+### Utility fungsional
 
 ```json showLineNumbers title="example-functional.json"
 {
@@ -328,9 +328,9 @@ Add custom theme variables to the `theme` object.
 }
 ```
 
-## Add custom animations
+## Menambahkan Animasi Kustom
 
-Note: you need to define both `@keyframes` in css and `theme` in cssVars to use animations.
+Catatan: untuk memakai animasi, Anda perlu mendefinisikan `@keyframes` di CSS sekaligus `theme` di dalam cssVars.
 
 ```json showLineNumbers title="example-component.json"
 {

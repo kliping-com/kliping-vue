@@ -3,7 +3,7 @@ title: registry.json
 description: Schema for running your own component registry.
 ---
 
-The `registry.json` schema is used to define your custom component registry.
+Skema `registry.json` dipakai untuk mendefinisikan registry komponen buatan Anda.
 
 ```json showLineNumbers title="registry.json"
 {
@@ -27,13 +27,13 @@ The `registry.json` schema is used to define your custom component registry.
 }
 ```
 
-## Definitions
+## Definisi
 
-You can see the JSON Schema for `registry.json` [here](https://shadcn-vue.com/schema/registry.json).
+JSON Schema untuk `registry.json` bisa Anda lihat [di sini](https://kliping.pro/schema/registry.json).
 
 ### $schema
 
-The `$schema` property is used to specify the schema for the `registry.json` file.
+Properti `$schema` menentukan skema untuk berkas `registry.json`.
 
 ```json showLineNumbers title="registry.json"
 {
@@ -43,7 +43,7 @@ The `$schema` property is used to specify the schema for the `registry.json` fil
 
 ### name
 
-The `name` property is used to specify the name of your registry. This is used for data attributes and other metadata.
+Properti `name` menentukan nama registry Anda. Nilainya dipakai untuk atribut data dan metadata lainnya.
 
 ```json showLineNumbers title="registry.json"
 {
@@ -53,7 +53,7 @@ The `name` property is used to specify the name of your registry. This is used f
 
 ### homepage
 
-The homepage of your registry. This is used for data attributes and other metadata.
+Halaman utama registry Anda. Nilainya dipakai untuk atribut data dan metadata lainnya.
 
 ```json showLineNumbers title="registry.json"
 {
@@ -63,7 +63,7 @@ The homepage of your registry. This is used for data attributes and other metada
 
 ### items
 
-The `items` in your registry. Each item must implement the [registry-item schema specification](https://shadcn-vue.com/schema/registry-item.json).
+Daftar `items` di registry Anda. Tiap item harus mengikuti [spesifikasi skema registry-item](https://kliping.pro/schema/registry-item.json).
 
 ```json showLineNumbers title="registry.json"
 {
@@ -84,4 +84,4 @@ The `items` in your registry. Each item must implement the [registry-item schema
 }
 ```
 
-See the [registry-item schema documentation](/docs/registry/registry-item-json) for more information.
+Keterangan lengkapnya ada di [dokumentasi skema registry-item](/docs/registry/registry-item-json).

@@ -1,6 +1,6 @@
 ---
 title: scroll-fade
-description: Utilities for adding a fade effect to the edges of a scroll container.
+description: Utility untuk memberi efek pudar di tepi area gulir.
 ---
 
 ::component-preview
@@ -12,15 +12,15 @@ previewClass: h-auto
 
 ## Instalasi
 
-If your project was set up with `npx shadcn-vue@latest init`, you already have `scroll-fade`. It ships with the `shadcn-vue` package, which the CLI imports in your global CSS file.
+Kalau project Anda disiapkan lewat `npx shadcn-vue@latest init`, `scroll-fade` sudah tersedia. Utility ini ikut dalam paket `shadcn-vue`, yang di-import CLI ke file CSS global Anda.
 
-Otherwise, install the `shadcn-vue` package:
+Kalau belum, pasang paket `shadcn-vue`:
 
 ```bash
 npm install shadcn-vue
 ```
 
-Then import the shared utilities in your global CSS file:
+Lalu import utility bersamanya di file CSS global Anda:
 
 ```css
 @import "tailwindcss";
@@ -29,24 +29,24 @@ Then import the shared utilities in your global CSS file:
 
 ## Penggunaan
 
-| Class                             | Styles                                                                                                              |
+| Class                             | Style                                                                                                               |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | `scroll-fade`                     | `mask-image: var(--scroll-fade-mask, var(--scroll-fade-block));` <br /> `animation-timeline: scroll(self y);`       |
 | `scroll-fade-y`                   | `mask-image: var(--scroll-fade-mask, var(--scroll-fade-block));` <br /> `animation-timeline: scroll(self y);`       |
 | `scroll-fade-x`                   | `mask-image: var(--scroll-fade-mask, var(--scroll-fade-inline));` <br /> `animation-timeline: scroll(self inline);` |
-| `scroll-fade-t`                   | Fade mask on the top edge. <br /> `animation-timeline: scroll(self y);`                                             |
-| `scroll-fade-b`                   | Fade mask on the bottom edge. <br /> `animation-timeline: scroll(self y);`                                          |
-| `scroll-fade-l`                   | Fade mask on the left edge. <br /> `animation-timeline: scroll(self x);`                                            |
-| `scroll-fade-r`                   | Fade mask on the right edge. <br /> `animation-timeline: scroll(self x);`                                           |
-| `scroll-fade-s`                   | Fade mask on the start edge, mirrors in RTL. <br /> `animation-timeline: scroll(self inline);`                      |
-| `scroll-fade-e`                   | Fade mask on the end edge, mirrors in RTL. <br /> `animation-timeline: scroll(self inline);`                        |
+| `scroll-fade-t`                   | Mask pudar di tepi atas. <br /> `animation-timeline: scroll(self y);`                                               |
+| `scroll-fade-b`                   | Mask pudar di tepi bawah. <br /> `animation-timeline: scroll(self y);`                                              |
+| `scroll-fade-l`                   | Mask pudar di tepi kiri. <br /> `animation-timeline: scroll(self x);`                                               |
+| `scroll-fade-r`                   | Mask pudar di tepi kanan. <br /> `animation-timeline: scroll(self x);`                                              |
+| `scroll-fade-s`                   | Mask pudar di tepi awal, ikut terbalik pada RTL. <br /> `animation-timeline: scroll(self inline);`                  |
+| `scroll-fade-e`                   | Mask pudar di tepi akhir, ikut terbalik pada RTL. <br /> `animation-timeline: scroll(self inline);`                 |
 | `scroll-fade-<number>`            | `--scroll-fade-size: calc(var(--spacing) * <number>);`                                                              |
 | `scroll-fade-[<value>]`           | `--scroll-fade-size: <value>;`                                                                                      |
 | `scroll-fade-{t,b,s,e}-<number>`  | `--scroll-fade-{t,b,s,e}-size: calc(var(--spacing) * <number>);`                                                    |
 | `scroll-fade-{t,b,s,e}-[<value>]` | `--scroll-fade-{t,b,s,e}-size: <value>;`                                                                            |
 | `scroll-fade-none`                | `--scroll-fade-mask: none;`                                                                                         |
 
-Add `scroll-fade` or `scroll-fade-y` to the scroll container, i.e. the element that has `overflow-y-auto`.
+Tambahkan `scroll-fade` atau `scroll-fade-y` pada wadah gulirnya — yaitu elemen yang punya `overflow-y-auto`.
 
 ```vue
 <template>
@@ -56,19 +56,19 @@ Add `scroll-fade` or `scroll-fade-y` to the scroll container, i.e. the element t
 </template>
 ```
 
-The fade is scroll-aware and tracks the scroll position:
+Efek pudarnya mengikuti posisi gulir:
 
-- At rest, the top edge is crisp and the bottom edge fades to hint at more content.
-- As you scroll, a fade appears at the top and both edges stay faded mid-scroll.
-- At the end, the bottom edge sharpens to show you have reached the last item.
+- Saat diam, tepi atas tetap tajam sementara tepi bawah memudar sebagai isyarat masih ada konten lain.
+- Saat digulir, tepi atas ikut memudar, dan di tengah gulir kedua tepinya sama-sama pudar.
+- Di ujung akhir, tepi bawah kembali tajam untuk menandakan Anda sudah sampai item terakhir.
 
-The fade is applied with `mask-image`, so it dissolves the content itself rather than overlaying a color. The mask uses a linear fade from transparent to black, so it adapts to any background without configuration. If your scroll area sits inside a card, put the background and border on a wrapper and `scroll-fade` on the inner scroller, so the fade dissolves the content and not the card.
+Efek pudarnya diterapkan lewat `mask-image`, jadi ia melarutkan kontennya sendiri, bukan menimpanya dengan warna. Mask-nya memakai gradasi linear dari transparan ke hitam, sehingga menyesuaikan latar apa pun tanpa perlu diatur. Kalau area gulir Anda berada di dalam sebuah card, taruh latar dan garis tepinya di elemen pembungkus, dan `scroll-fade` di area gulir bagian dalam — supaya yang larut adalah kontennya, bukan card-nya.
 
-The [`ScrollArea`](/docs/components/scroll-area) and [`MessageScroller`](/docs/components/message-scroller) components can use `scroll-fade` on their scrollable viewport.
+Komponen [`ScrollArea`](/docs/components/scroll-area) dan [`MessageScroller`](/docs/components/message-scroller) bisa memakai `scroll-fade` pada area gulirnya.
 
-## No Overflow, No Fade
+## Tidak Melimpah, Tidak Memudar
 
-If the content does not overflow, no fade is shown. You can apply `scroll-fade` to any list without checking whether it scrolls.
+Kalau kontennya tidak melebihi wadah, efek pudarnya tidak muncul. Jadi `scroll-fade` bisa Anda pasang di daftar mana pun tanpa perlu mengecek apakah daftar itu bisa digulir.
 
 ::component-preview
 ---
@@ -77,9 +77,9 @@ previewClass: h-auto
 ---
 ::
 
-## Horizontal Scrolling
+## Gulir Mendatar
 
-Use `scroll-fade-x` on containers that scroll horizontally, i.e. the element that has `overflow-x-auto`.
+Pakai `scroll-fade-x` pada wadah yang bergulir mendatar — yaitu elemen yang punya `overflow-x-auto`.
 
 ::component-preview
 ---
@@ -96,11 +96,11 @@ previewClass: h-64
 </template>
 ```
 
-The horizontal fade is direction-aware. In RTL layouts, the crisp edge and the fade follow the reading direction with no extra classes needed. `scroll-fade-<number>` and `scroll-fade-none` work the same for both axes.
+Efek pudar mendatarnya sadar arah baca. Pada tata letak RTL, tepi yang tajam dan yang memudar otomatis mengikuti arah baca tanpa class tambahan. `scroll-fade-<angka>` dan `scroll-fade-none` bekerja sama untuk kedua sumbu.
 
-## Edge Fades
+## Pudar per Tepi
 
-Use edge utilities when only one edge should track the scroll position.
+Pakai utility per tepi kalau hanya satu tepi yang perlu mengikuti posisi gulir.
 
 ::component-preview
 ---
@@ -117,11 +117,11 @@ previewClass: h-auto
 </template>
 ```
 
-The edge utilities are scroll-aware. Start edges fade in after you scroll away from the start, and end edges fade out when you reach the end. Use `scroll-fade-t`, `scroll-fade-b`, `scroll-fade-l`, and `scroll-fade-r` for physical edges. Use `scroll-fade-s` and `scroll-fade-e` for logical inline edges that mirror in RTL.
+Utility per tepi ini mengikuti posisi gulir. Tepi awal mulai memudar setelah Anda menggulir menjauh dari awal, dan tepi akhir berhenti memudar begitu Anda sampai di ujung. Pakai `scroll-fade-t`, `scroll-fade-b`, `scroll-fade-l`, dan `scroll-fade-r` untuk tepi fisik; pakai `scroll-fade-s` dan `scroll-fade-e` untuk tepi logis yang ikut terbalik pada RTL.
 
-## Fade Size
+## Ukuran Pudar
 
-The fade depth defaults to `12%` of the container, capped at `40px` so tall scrollers stay subtle. Use `scroll-fade-<number>` to set a fixed size on the spacing scale instead, the same way `scroll-mt-<number>` works.
+Kedalaman pudarnya secara bawaan `12%` dari tinggi wadah, dibatasi maksimal `40px` supaya area gulir yang tinggi tetap terlihat halus. Pakai `scroll-fade-<angka>` kalau Anda ingin menetapkan ukuran tetap dari skala spacing, sama seperti cara kerja `scroll-mt-<angka>`.
 
 ::component-preview
 ---
@@ -138,7 +138,7 @@ previewClass: h-auto
 </template>
 ```
 
-For one-off values, use an arbitrary length or percentage:
+Untuk nilai sekali pakai, gunakan panjang atau persentase bebas:
 
 ```vue
 <template>
@@ -148,7 +148,7 @@ For one-off values, use an arbitrary length or percentage:
 </template>
 ```
 
-To fade opposite edges by different amounts, use the per-edge modifiers `scroll-fade-t-<number>`, `scroll-fade-b-<number>`, `scroll-fade-s-<number>`, and `scroll-fade-e-<number>`. They override `scroll-fade-<number>` on the edge they target and accept arbitrary values too.
+Untuk memudarkan tepi yang berseberangan dengan takaran berbeda, pakai modifier per tepi: `scroll-fade-t-<angka>`, `scroll-fade-b-<angka>`, `scroll-fade-s-<angka>`, dan `scroll-fade-e-<angka>`. Semuanya menimpa `scroll-fade-<angka>` pada tepi yang disasar, dan menerima nilai bebas juga.
 
 ```vue
 <template>
@@ -158,9 +158,9 @@ To fade opposite edges by different amounts, use the per-edge modifiers `scroll-
 </template>
 ```
 
-Use the logical `s`/`e` modifiers for horizontal scrollers so the sizes mirror in RTL.
+Untuk area gulir mendatar, pakai modifier logis `s`/`e` supaya ukurannya ikut terbalik pada RTL.
 
-The fade eases in and out over a fixed scroll distance rather than appearing instantly. That distance is the `--scroll-fade-reveal` variable, `96px` by default and independent of the fade depth. Lower it for a snappier reveal or raise it for a more gradual one:
+Efek pudarnya muncul dan hilang secara bertahap sepanjang jarak gulir tertentu, bukan seketika. Jarak itu diatur variabel `--scroll-fade-reveal`, bawaannya `96px` dan terpisah dari kedalaman pudarnya. Perkecil supaya lebih cepat muncul, perbesar supaya lebih bertahap:
 
 ```vue
 <template>
@@ -170,9 +170,9 @@ The fade eases in and out over a fixed scroll distance rather than appearing ins
 </template>
 ```
 
-## Disabling the Fade
+## Mematikan Efek Pudar
 
-Use `scroll-fade-none` to remove the fade. It works in any class order, so the typical use is responsive or stateful:
+Pakai `scroll-fade-none` untuk menghilangkan efek pudarnya. Urutan class-nya tidak berpengaruh, jadi biasanya dipakai secara responsif atau bergantung state:
 
 ```vue
 <template>
@@ -189,15 +189,15 @@ previewClass: h-auto
 ---
 ::
 
-## Fallback
+## Kalau Browser Belum Mendukung
 
-The scroll-aware behavior is implemented with [CSS scroll-driven animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll-driven_animations), with no JavaScript and no scroll listeners. In browsers that do not support scroll-driven animations, `scroll-fade` falls back to a static fade on both edges, and edge utilities fall back to a static fade on the selected edge.
+Perilaku yang mengikuti gulir ini dibangun dengan [animasi CSS berbasis gulir](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll-driven_animations) — tanpa JavaScript dan tanpa scroll listener. Di browser yang belum mendukungnya, `scroll-fade` turun menjadi pudar statis di kedua tepi, dan utility per tepi menjadi pudar statis di tepi yang dipilih.
 
-Since the mask is applied to the scroll container itself, a visible scrollbar fades with the content at the edges. Pair `scroll-fade` with `scrollbar-none`, which ships in the same package, if you want to hide the scrollbar entirely.
+Karena mask-nya dipasang di wadah gulirnya sendiri, scrollbar yang terlihat ikut memudar bersama konten di tepinya. Padukan `scroll-fade` dengan `scrollbar-none` — tersedia di paket yang sama — kalau Anda ingin menyembunyikan scrollbar sepenuhnya.
 
 ## RTL
 
-`scroll-fade-x` follows the reading direction. At rest, the start edge is crisp and the end edge fades. In RTL layouts that means a crisp right edge and a fade on the left, mirrored from LTR.
+`scroll-fade-x` mengikuti arah baca. Saat diam, tepi awal tajam dan tepi akhir memudar. Pada tata letak RTL itu berarti tepi kanan yang tajam dan tepi kiri yang memudar — kebalikan dari LTR.
 
 ::component-preview
 ---

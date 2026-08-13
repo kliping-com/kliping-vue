@@ -3,7 +3,7 @@ title: registry-item.json
 description: Specification for registry items.
 ---
 
-The `registry-item.json` schema is used to define your custom registry items.
+Skema `registry-item.json` dipakai untuk mendefinisikan item registry buatan Anda.
 
 ```json showLineNumbers title="registry-item.json"
 {
@@ -25,13 +25,13 @@ The `registry-item.json` schema is used to define your custom registry items.
 }
 ```
 
-## Definitions
+## Definisi
 
-You can see the JSON Schema for `registry-item.json` [here](https://shadcn-vue.com/schema/registry-item.json).
+JSON Schema untuk `registry-item.json` bisa Anda lihat [di sini](https://kliping.pro/schema/registry-item.json).
 
 ### $schema
 
-The `$schema` property is used to specify the schema for the `registry-item.json` file.
+Properti `$schema` menentukan skema untuk berkas `registry-item.json`.
 
 ```json showLineNumbers title="registry-item.json"
 {
@@ -41,7 +41,7 @@ The `$schema` property is used to specify the schema for the `registry-item.json
 
 ### name
 
-The `name` property is used to specify the name of your registry item.
+Properti `name` menentukan nama item registry Anda.
 
 ```json showLineNumbers title="registry-item.json"
 {
@@ -51,7 +51,7 @@ The `name` property is used to specify the name of your registry item.
 
 ### title
 
-A human-readable title for your registry item. Keep it short and descriptive.
+Judul item registry Anda dalam bahasa yang mudah dibaca. Buat singkat tapi jelas.
 
 ```json showLineNumbers title="registry-item.json"
 {
@@ -61,7 +61,7 @@ A human-readable title for your registry item. Keep it short and descriptive.
 
 ### description
 
-A description of your registry item. This can be longer and more detailed than the `title`.
+Keterangan item registry Anda. Boleh lebih panjang dan rinci dibanding `title`.
 
 ```json showLineNumbers title="registry-item.json"
 {
@@ -71,7 +71,7 @@ A description of your registry item. This can be longer and more detailed than t
 
 ### type
 
-The `type` property is used to specify the type of your registry item.
+Properti `type` menentukan jenis item registry Anda.
 
 ```json showLineNumbers title="registry-item.json"
 {
@@ -79,7 +79,7 @@ The `type` property is used to specify the type of your registry item.
 }
 ```
 
-The following types are supported:
+Jenis yang didukung:
 
 | Type                 | Description                                      |
 | -------------------- | ------------------------------------------------ |
@@ -93,9 +93,9 @@ The following types are supported:
 
 ### author
 
-The `author` property is used to specify the author of the registry item.
+Properti `author` menentukan pembuat item registry-nya.
 
-It can be unique to the registry item or the same as the author of the registry.
+Nilainya boleh khusus untuk item itu, atau sama dengan pembuat registry-nya.
 
 ```json showLineNumbers title="registry-item.json"
 {
@@ -105,9 +105,9 @@ It can be unique to the registry item or the same as the author of the registry.
 
 ### dependencies
 
-The `dependencies` property is used to specify the dependencies of your registry item. This is for `npm` packages.
+Properti `dependencies` menentukan dependency item registry Anda. Isinya paket `npm`.
 
-Use `@version` to specify the version of your registry item.
+Pakai `@versi` untuk mengunci versi item registry Anda.
 
 ```json showLineNumbers title="registry-item.json"
 {
@@ -122,10 +122,10 @@ Use `@version` to specify the version of your registry item.
 
 ### registryDependencies
 
-Used for registry dependencies. Can be names or URLs.
+Dipakai untuk dependency registry. Isinya boleh berupa nama atau URL.
 
-- For `shadcn/ui` registry items such as `button`, `input`, `select`, etc use the name eg. `['button', 'input', 'select']`.
-- For custom registry items use the URL of the registry item eg. `['https://example.com/r/hello-world.json']`.
+- Untuk item registry bawaan seperti `button`, `input`, atau `select`, cukup tulis namanya, misalnya `['button', 'input', 'select']`.
+- Untuk item registry kustom, tulis URL-nya, misalnya `['https://example.com/r/hello-world.json']`.
 
 ```json showLineNumbers title="registry-item.json"
 {
@@ -138,13 +138,13 @@ Used for registry dependencies. Can be names or URLs.
 }
 ```
 
-Note: The CLI will automatically resolve remote registry dependencies.
+Catatan: CLI otomatis menyelesaikan dependency registry jarak jauh.
 
 ### files
 
-The `files` property is used to specify the files of your registry item. Each file has a `path`, `type` and `target` (optional) property.
+Properti `files` menentukan berkas-berkas item registry Anda. Tiap berkas punya properti `path`, `type`, dan `target` (opsional).
 
-**The `target` property is required for `registry:page` and `registry:file` types.**
+**Properti `target` wajib diisi untuk jenis `registry:page` dan `registry:file`.**
 
 ```json showLineNumbers title="registry-item.json"
 {
@@ -173,27 +173,27 @@ The `files` property is used to specify the files of your registry item. Each fi
 
 #### path
 
-The `path` property is used to specify the path to the file in your registry. This path is used by the build script to parse, transform and build the registry JSON payload.
+Properti `path` menentukan lokasi berkas di dalam registry Anda. Path ini dipakai script build untuk membaca, mengubah, dan menyusun payload JSON registry-nya.
 
 #### type
 
-The `type` property is used to specify the type of the file. See the [type](#type) section for more information.
+Properti `type` menentukan jenis berkasnya. Keterangan lengkapnya ada di bagian [type](#type).
 
 #### target
 
-The `target` property is used to indicate where the file should be placed in a project. This is optional and only required for `registry:page` and `registry:file` types.
+Properti `target` menunjukkan di mana berkas itu ditempatkan dalam sebuah project. Sifatnya opsional, dan hanya wajib untuk jenis `registry:page` dan `registry:file`.
 
-By default, the `shadcn-vue` cli will read a project's `components.json` file to determine the target path. For some files, such as routes or config you can specify the target path manually.
+Secara bawaan, CLI membaca berkas `components.json` project untuk menentukan path tujuannya. Untuk berkas tertentu seperti route atau konfigurasi, path tujuannya bisa Anda tentukan sendiri.
 
-Use `~` to refer to the root of the project e.g `~/foo.config.js`.
+Pakai `~` untuk merujuk root project, misalnya `~/foo.config.js`.
 
 ### tailwind
 
-**DEPRECATED:** Use `cssVars.theme` instead for Tailwind v4 projects.
+**SUDAH TIDAK DIPAKAI:** untuk project Tailwind v4, gunakan `cssVars.theme`.
 
-The `tailwind` property is used for tailwind configuration such as `theme`, `plugins` and `content`.
+Properti `tailwind` dipakai untuk konfigurasi Tailwind seperti `theme`, `plugins`, dan `content`.
 
-You can use the `tailwind.config` property to add colors, animations and plugins to your registry item.
+Properti `tailwind.config` bisa Anda pakai untuk menambahkan warna, animasi, dan plugin ke item registry Anda.
 
 ```json showLineNumbers title="registry-item.json"
 {
@@ -222,7 +222,7 @@ You can use the `tailwind.config` property to add colors, animations and plugins
 
 ### cssVars
 
-Use to define CSS variables for your registry item.
+Dipakai untuk mendefinisikan CSS variable bagi item registry Anda.
 
 ```json showLineNumbers title="registry-item.json"
 {
@@ -240,7 +240,7 @@ Use to define CSS variables for your registry item.
 
 ### css
 
-Use `css` to add new rules to the project's CSS file eg. `@layer base`, `@layer components`, `@utility`, `@keyframes`, etc.
+Pakai `css` untuk menambahkan aturan baru ke berkas CSS project, misalnya `@layer base`, `@layer components`, `@utility`, atau `@keyframes`.
 
 ```json showLineNumbers title="registry-item.json"
 {
@@ -275,7 +275,7 @@ Use `css` to add new rules to the project's CSS file eg. `@layer base`, `@layer 
 
 ### docs
 
-Use `docs` to show custom documentation or message when installing your registry item via the CLI.
+Pakai `docs` untuk menampilkan dokumentasi atau pesan khusus saat item registry Anda dipasang lewat CLI.
 
 ```json showLineNumbers title="registry-item.json"
 {
@@ -285,7 +285,7 @@ Use `docs` to show custom documentation or message when installing your registry
 
 ### categories
 
-Use `categories` to organize your registry item.
+Pakai `categories` untuk mengelompokkan item registry Anda.
 
 ```json showLineNumbers title="registry-item.json"
 {
@@ -295,7 +295,7 @@ Use `categories` to organize your registry item.
 
 ### meta
 
-Use `meta` to add additional metadata to your registry item. You can add any key/value pair that you want to be available to the registry item.
+Pakai `meta` untuk menambahkan metadata tambahan pada item registry Anda. Pasangan key/value apa pun boleh Anda tambahkan.
 
 ```json showLineNumbers title="registry-item.json"
 {
