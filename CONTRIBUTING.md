@@ -1,20 +1,15 @@
-# Contributing
+# Panduan Kontribusi
 
-Thanks for your interest in contributing to shadcn-vue.com. We're happy to have you here.
+Terima kasih sudah tertarik ikut membangun Kliping. Senang Anda ada di sini.
 
-Please take a moment to review this document before submitting your first pull request. We also strongly recommend that you check for open issues and pull requests to see if someone else is working on something similar.
+Sebelum mengirim pull request pertama, luangkan waktu sebentar membaca dokumen ini. Kami
+juga menyarankan Anda mengecek issue dan pull request yang sedang terbuka, siapa tahu ada
+orang lain yang sudah mengerjakan hal serupa.
 
-If you need any help, feel free to reach out to the core team on [Discord](https://chat.unovue.com/).
+## Tentang repo ini
 
-## About this repository
-
-This repository is a monorepo.
-
-- We use [pnpm](https://pnpm.io) and [`workspaces`](https://pnpm.io/workspaces) for development.
-
-## Structure
-
-This repository is structured as follows:
+Repo ini adalah monorepo yang dikelola dengan [pnpm](https://pnpm.io) dan
+[workspaces](https://pnpm.io/workspaces).
 
 ```
 apps
@@ -29,122 +24,119 @@ packages
 └── cli
 ```
 
-| Path                        | Description                                |
-| ----------------------------| -------------------------------------------|
-| `apps/v4`       | The Nuxt application for the website. |
-| `apps/v4/components`      | The Vue components for the website.               |
-| `apps/v4/content`      | The content for the website.               |
-| `apps/v4/registry` | The registry for the components.           |
-| `packages/cli`              | The `shadcn-vue` package.                  |
+| Path | Keterangan |
+| --- | --- |
+| `apps/v4` | Aplikasi Nuxt untuk website dan dokumentasi. |
+| `apps/v4/components` | Komponen Vue untuk website itu sendiri. |
+| `apps/v4/content` | Isi dokumentasi dalam format markdown. |
+| `apps/v4/registry` | Sumber komponen yang bisa diklip. |
+| `packages/cli` | Paket CLI `shadcn-vue`. |
 
-## Development
+## Menjalankan secara lokal
 
-### Start by cloning the repository:
+Clone repo:
 
+```bash
+git clone git@github.com:kliping-com/kliping-vue.git
 ```
-git clone git@github.com:unovue/shadcn-vue.git
-```
 
-### Install dependencies
+Pasang dependensi:
 
-```
+```bash
 pnpm install
 ```
 
-### Run a workspace
+Jalankan website:
 
-You can use the `pnpm --filter=[WORKSPACE]` command to start the development process for a workspace or some of the shortcut command that we have setup.
-
-#### Examples
-
-1. To run the `shadcn-vue.com` website:
-
-```
+```bash
 pnpm dev
 ```
 
-2. To run the `shadcn-vue` cli package:
+Untuk menjalankan paket CLI:
 
-```
+```bash
 pnpm dev:cli
 ```
 
-## Documentation
+Anda juga bisa menyasar satu workspace langsung dengan `pnpm --filter=[WORKSPACE]`.
 
-The documentation for this project is located in the `v4` workspace. You can run the documentation locally by running the following command:
+## Dokumentasi
 
-```bash
-pnpm dev
-```
+Dokumentasi tinggal di workspace `v4` dan ditulis dengan [Nuxt Content](https://content.nuxt.com/).
+File-filenya ada di `apps/v4/content`. Jalankan `pnpm dev` untuk melihat hasilnya secara lokal.
 
-Documentation is written using [md](https://content.nuxt.com/). You can find the documentation files in the `apps/v4/content` directory.
+**Dokumentasi Kliping ditulis dalam Bahasa Indonesia.** Beberapa panduan gaya:
 
-## Components
+- Gunakan **"Anda"**, bukan "kamu" — nadanya lebih pas untuk dokumentasi.
+- Istilah teknis yang tidak punya padanan baku tetap ditulis dalam bahasa Inggris:
+  *component*, *props*, *slot*, *emit*, *block*.
+- Jelaskan dari dasar. Banyak pembaca kami baru mulai belajar Vue.
+- Tulis ulang secara natural, jangan menerjemahkan kata per kata.
 
-We use a registry system for developing components. You can find the source code for the components under `apps/v4/registry`. The components are organized by styles.
+Contoh yang kami hindari dan yang kami tuju:
 
-```bash
-apps
-└── v4
-    └── registry
-        └── new-york-v4
-            ├── example
-            └── ui
-```
+| Hindari | Tulis begini |
+| --- | --- |
+| "Komponen ini adalah sebuah komponen yang digunakan untuk..." | "Accordion menampilkan konten yang bisa dibuka dan ditutup..." |
+| "Install dependencies" | "Pasang dependensi" |
+| "This component supports..." | "Komponen ini mendukung..." |
 
-When adding or modifying components, please ensure that:
+## Komponen
 
-1. You make the changes for every style.
-2. You update the documentation.
-3. You run `pnpm registry:build` to update the registry.
+Kami memakai sistem registry untuk mengembangkan komponen. Kode sumbernya ada di
+`apps/v4/registry`, dikelompokkan per style.
 
-## Commit Convention
+Saat menambah atau mengubah komponen, pastikan:
 
-Before you create a Pull Request, please check whether your commits comply with
-the commit conventions used in this repository.
+1. Perubahan diterapkan ke semua style yang relevan.
+2. Dokumentasinya ikut diperbarui.
+3. Anda menjalankan `pnpm registry:build` untuk memperbarui registry.
 
-When you create a commit we kindly ask you to follow the convention
-`category(scope or module): message` in your commit message while using one of
-the following categories:
+Jangan mengedit isi `apps/v4/__registry__/` dan `apps/v4/public/r/` secara manual — keduanya
+dihasilkan otomatis oleh script build.
 
-- `feat / feature`: all changes that introduce completely new code or new
-  features
-- `fix`: changes that fix a bug (ideally you will additionally reference an
-  issue if present)
-- `refactor`: any code related change that is not a fix nor a feature
-- `docs`: changing existing or creating new documentation (i.e. README, docs for
-  usage of a lib or cli usage)
-- `build`: all changes regarding the build of the software, changes to
-  dependencies or the addition of new dependencies
-- `test`: all changes regarding tests (adding new tests or changing existing
-  ones)
-- `ci`: all changes regarding the configuration of continuous integration (i.e.
-  github actions, ci system)
-- `chore`: all changes to the repository that do not fit into any of the above
-  categories
+## Konvensi commit
 
-  e.g. `feat(components): add new prop to the avatar component`
+Sebelum membuat pull request, pastikan commit Anda mengikuti konvensi
+`kategori(scope atau modul): pesan`, dengan salah satu kategori berikut:
 
-If you are interested in the detailed specification you can visit
-https://www.conventionalcommits.org/ or check out the
-[Angular Commit Message Guidelines](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines).
+- `feat` / `feature` — kode atau fitur yang benar-benar baru.
+- `fix` — perbaikan bug. Kalau ada issue terkait, sebutkan nomornya.
+- `refactor` — perubahan kode yang bukan perbaikan bug maupun fitur baru.
+- `docs` — menulis atau memperbarui dokumentasi.
+- `build` — perubahan pada proses build atau dependensi.
+- `test` — menambah atau mengubah test.
+- `ci` — perubahan konfigurasi continuous integration.
+- `chore` — perubahan lain yang tidak masuk kategori mana pun di atas.
 
-## Requests for new components
+Contoh: `feat(components): tambah prop baru pada komponen avatar`
 
-If you have a request for a new component, please open a discussion on GitHub. We'll be happy to help you out.
+Spesifikasi lengkapnya ada di [Conventional Commits](https://www.conventionalcommits.org/).
+
+## Mengusulkan komponen baru
+
+Punya ide komponen baru? Buka diskusi di GitHub. Kami senang membahasnya bersama Anda.
 
 ## CLI
 
-The `shadcn-vue` package is a CLI for adding components to your project. You can find the documentation for the CLI [here](https://shadcn-vue.com/docs/cli).
+Paket `shadcn-vue` di `packages/cli` adalah CLI untuk menambahkan komponen ke project.
+Dokumentasi pemakaiannya ada di [halaman CLI](https://kliping.pro/docs/cli).
 
-Any changes to the CLI should be made in the `packages/cli` directory. If you can, it would be great if you could add tests for your changes.
+Untuk saat ini Kliping masih memakai CLI dari upstream, jadi perubahan di sini sebaiknya
+dijaga tetap kompatibel. Kalau Anda mengubah sesuatu, akan sangat membantu bila disertai test.
 
 ## Testing
 
-Tests are written using [Vitest](https://vitest.dev). You can run all the tests from the root of the repository.
+Test ditulis dengan [Vitest](https://vitest.dev) dan dijalankan dari root repo:
 
 ```bash
 pnpm test
 ```
 
-Please ensure that the tests are passing when submitting a pull request. If you're adding new features, please include tests.
+Pastikan semua test lulus sebelum mengirim pull request. Kalau Anda menambah fitur baru,
+sertakan test-nya juga.
+
+## Lisensi
+
+Dengan berkontribusi ke Kliping, Anda setuju kontribusi Anda dilisensikan di bawah
+[lisensi MIT](/LICENSE).
