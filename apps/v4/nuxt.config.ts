@@ -1,4 +1,37 @@
+import { readdirSync } from 'node:fs'
+import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import tailwindcss from '@tailwindcss/vite'
+
+/**
+ * Concrete URLs for every docs page.
+ *
+ * Nitro cannot expand a `/docs/**` route rule into real URLs by itself: it only
+ * prerenders routes it was handed or found by crawling. Crawling is off (it
+ * wandered into /view and /preview for every registry item and never finished),
+ * and @nuxt/content registers only its sql dump for prerendering, not the pages.
+ * Without this list the docs would quietly fall back to SSR.
+ */
+function docsRoutes(dir: string = fileURLToPath(new URL('./content/docs', import.meta.url)), base = '/docs'): string[] {
+  return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    // Dot-prefixed files are excluded from the collection in content.config.ts.
+    if (entry.name.startsWith('.'))
+      return []
+
+    // Ordering prefixes are stripped from the URL: `01.introduction.md` is
+    // served as `introduction`, and `index.md` stands in for its own folder.
+    const name = entry.name.replace(/^\d+\./, '')
+
+    if (entry.isDirectory())
+      return docsRoutes(join(dir, entry.name), `${base}/${name}`)
+
+    if (!name.endsWith('.md'))
+      return []
+
+    const slug = name.slice(0, -3)
+    return [slug === 'index' ? base : `${base}/${slug}`]
+  })
+}
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -112,9 +145,9 @@ export default defineNuxtConfig({
     prerender: {
       // Off on purpose. The crawler followed links into /view/[name] and
       // /preview/[base]/[name], one route per registry item per base, and the
-      // build never finished. Routes to prerender are declared explicitly above.
+      // build never finished. Everything to prerender is listed explicitly.
       crawlLinks: false,
-      routes: ['/'],
+      routes: ['/', ...docsRoutes()],
       failOnError: false,
       autoSubfolderIndex: false,
     },
