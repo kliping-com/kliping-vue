@@ -79,13 +79,26 @@ export default defineNuxtConfig({
   routeRules: {
     // Static assets - immutable, long cache
     '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
-    // Pages - prerender as static (reset on each deploy)
-    '/docs/**': { prerender: true },
-    '/blocks/**': { prerender: true },
-    '/charts/**': { prerender: true },
-    '/examples/**': { prerender: true },
-    '/colors/**': { prerender: true },
-    '/themes': { prerender: true },
+    // Pages - edge-cached at CF (SSR on first hit, cached after)
+    // Dihapus: prerender: true karena menyebabkan build timeout 30 menit
+    '/docs/**': {
+      headers: { 'cache-control': 'public, s-maxage=3600, stale-while-revalidate=86400' },
+    },
+    '/blocks/**': {
+      headers: { 'cache-control': 'public, s-maxage=3600, stale-while-revalidate=86400' },
+    },
+    '/charts/**': {
+      headers: { 'cache-control': 'public, s-maxage=3600, stale-while-revalidate=86400' },
+    },
+    '/examples/**': {
+      headers: { 'cache-control': 'public, s-maxage=3600, stale-while-revalidate=86400' },
+    },
+    '/colors/**': {
+      headers: { 'cache-control': 'public, s-maxage=3600, stale-while-revalidate=86400' },
+    },
+    '/themes': {
+      headers: { 'cache-control': 'public, s-maxage=3600, stale-while-revalidate=86400' },
+    },
     // JSON API - edge-cached at CF, survives across Worker invocations
     '/api/**': {
       headers: {
@@ -103,7 +116,7 @@ export default defineNuxtConfig({
     preset: 'cloudflare-module',
     compressPublicAssets: true,
     prerender: {
-      crawlLinks: true,
+      crawlLinks: false, // Diubah: true -> false untuk fix build timeout
       routes: ['/'],
       failOnError: false,
       autoSubfolderIndex: false,
@@ -112,7 +125,7 @@ export default defineNuxtConfig({
       deployConfig: true,
       nodeCompat: true,
       wrangler: {
-        name: 'kliping-vue',
+        name: 'shadcn-vue-nuxt',
         d1_databases: [
           {
             binding: 'DB',
@@ -143,7 +156,7 @@ export default defineNuxtConfig({
         // still hits Bunny at runtime — hence the preconnect.
         { rel: 'preconnect', href: 'https://fonts.bunny.net', crossorigin: '' },
       ],
-      meta: [{ name: 'keywords', content: 'Kliping,Vue,Nuxt,Tailwind CSS,Komponen UI,Komponen Vue,UI Library Indonesia' }],
+      meta: [{ name: 'keywords', content: 'Nuxt,Vue,Tailwind CSS,Components,shadcn' }],
     },
   },
   fonts: {
