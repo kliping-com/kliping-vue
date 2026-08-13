@@ -38,6 +38,9 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-05-05',
   devtools: { enabled: true },
   srcDir: '.',
+  // Server sourcemaps are on by default and cost bundling time plus a .map file
+  // next to every chunk. Nothing reads them in production.
+  sourcemap: { server: false, client: false },
   css: ['~/assets/css/main.css', 'vue-sonner/style.css'],
   modules: ['@nuxtjs/color-mode', '@nuxt/content', 'nuxt-shiki', '@nuxt/image', '@nuxt/fonts'],
   components: [
@@ -141,7 +144,12 @@ export default defineNuxtConfig({
   },
   nitro: {
     preset: 'cloudflare-module',
-    compressPublicAssets: true,
+    // Off for Cloudflare. It compresses responses at the edge on its own, so
+    // gzipping and brotli-ing every public asset at build time buys nothing and
+    // costs real minutes — public/ alone is 21 MB, most of it registry JSON.
+    // It also tripled the uploaded file count, which matters against the
+    // 20,000-file limit on Workers static assets.
+    compressPublicAssets: false,
     prerender: {
       // Off on purpose. The crawler followed links into /view/[name] and
       // /preview/[base]/[name], one route per registry item per base, and the
