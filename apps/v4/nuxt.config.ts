@@ -115,13 +115,20 @@ export default defineNuxtConfig({
   routeRules: {
     // Static assets - immutable, long cache
     '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
-    // Pages - prerender as static (reset on each deploy)
+    // Docs are the one surface worth paying build time for: they are the bulk of
+    // the site, they rarely change between deploys, and they are what search
+    // engines index. Everything else renders on demand.
     '/docs/**': { prerender: true },
-    '/blocks/**': { prerender: true },
-    '/charts/**': { prerender: true },
-    '/examples/**': { prerender: true },
-    '/colors/**': { prerender: true },
-    '/themes': { prerender: true },
+    // Rendered per request and cached at the edge. Prerendering these meant
+    // crawling into /view and /preview for all 138 registry items, which is what
+    // pushed the Cloudflare build past its time limit.
+    '/blocks/**': { swr: 3600 },
+    '/charts/**': { swr: 3600 },
+    '/examples/**': { swr: 3600 },
+    '/colors/**': { swr: 3600 },
+    '/themes': { swr: 3600 },
+    '/view/**': { swr: 3600 },
+    '/preview/**': { swr: 3600 },
     // JSON API - edge-cached at CF, survives across Worker invocations
     '/api/**': {
       headers: {
@@ -144,8 +151,11 @@ export default defineNuxtConfig({
     // 20,000-file limit on Workers static assets.
     compressPublicAssets: false,
     prerender: {
-      crawlLinks: true,
-      routes: ['/'],
+      // Off on purpose. The crawler followed links into /view/[name] and
+      // /preview/[base]/[name], one route per registry item per base, and the
+      // build never finished. Everything to prerender is listed explicitly.
+      crawlLinks: false,
+      routes: ['/', ...docsRoutes()],
       failOnError: false,
       autoSubfolderIndex: false,
     },
@@ -153,7 +163,7 @@ export default defineNuxtConfig({
       deployConfig: true,
       nodeCompat: true,
       wrangler: {
-        name: 'shadcn-vue-nuxt',
+        name: 'kliping-vue',
         d1_databases: [
           {
             binding: 'DB',
@@ -184,7 +194,7 @@ export default defineNuxtConfig({
         // still hits Bunny at runtime — hence the preconnect.
         { rel: 'preconnect', href: 'https://fonts.bunny.net', crossorigin: '' },
       ],
-      meta: [{ name: 'keywords', content: 'Nuxt,Vue,Tailwind CSS,Components,shadcn' }],
+      meta: [{ name: 'keywords', content: 'Kliping,Vue,Nuxt,Tailwind CSS,Komponen UI,Komponen Vue,UI Library Indonesia' }],
     },
   },
   fonts: {
