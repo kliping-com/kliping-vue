@@ -108,7 +108,7 @@ Then import them in the main CSS file:
 
 ${fontsourceCss.value}`
 
-  return `Install shadcn/typeset in this project.
+  return `Install Kliping Typeset in this project.
 
 Typeset is a single stylesheet that styles rendered markdown: wrap the output in a \`typeset\` container and everything inside (headings, lists, tables, code, blockquotes, math) is styled. Everything outside is untouched.
 

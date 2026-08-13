@@ -3,9 +3,9 @@ import { IconArrowRight } from '@tabler/icons-vue'
 import { Button } from '@/styles/reka-rhea/ui/button'
 import CardsDemo from '~/components/examples/cards/CardsDemo.vue'
 
-const title = 'The Foundation for your Design System'
+const title = 'Fondasi untuk Design System Anda'
 const description
-  = 'A set of beautifully designed components that you can customize, extend, and build on. Start here then make it your own. Open Source. Open Code.'
+  = 'Kumpulan komponen Vue yang rapi, siap Anda klip, ubah, dan kembangkan. Mulai dari sini, lalu jadikan milik Anda sendiri. Open source, open code.'
 
 useSeoMeta({
   title,
@@ -27,7 +27,7 @@ useSeoMeta({
       <PageActions>
         <Button as-child size="sm" class="h-[31px] rounded-lg">
           <NuxtLink href="/create">
-            Build Your Own <IconArrowRight data-icon="inline-end" />
+            Buat Versi Anda <IconArrowRight data-icon="inline-end" />
           </NuxtLink>
         </Button>
       </PageActions>

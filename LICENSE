@@ -1,6 +1,12 @@
 MIT License
 
+Copyright (c) 2026 Kliping
+
+Based on shadcn-vue (https://github.com/unovue/shadcn-vue)
 Copyright (c) 2023 unovue
+
+Originally based on shadcn/ui (https://ui.shadcn.com)
+Copyright (c) 2023 shadcn
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

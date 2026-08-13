@@ -15,9 +15,9 @@ const items = computed(() => {
   }))
 })
 
-const title = 'New Project'
+const title = 'Project Baru'
 const description
-  = 'Customize everything. Pick your component library, icons, base color, theme, fonts and create your own version of shadcn/ui.'
+  = 'Atur semuanya sendiri. Pilih library komponen, ikon, warna dasar, tema, dan font — lalu buat versi Kliping Anda sendiri.'
 
 useSeoMeta({
   title,

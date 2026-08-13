@@ -130,7 +130,7 @@ const pageNumbers = computed<(number | 'ellipsis')[]>(() => {
 
 function getHomepageUrl(homepage: string) {
   const url = new URL(homepage)
-  url.searchParams.set('utm_source', 'shadcn-vue.com')
+  url.searchParams.set('utm_source', 'kliping.pro')
   url.searchParams.set('utm_medium', 'referral')
   url.searchParams.set('utm_campaign', 'directory')
   return url.toString()

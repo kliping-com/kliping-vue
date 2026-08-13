@@ -10,7 +10,7 @@ import {
   DialogTitle,
 } from '@/registry/new-york-v4/ui/dialog'
 
-const STORAGE_KEY = 'shadcn-vue-welcome-dismissed'
+const STORAGE_KEY = 'kliping-welcome-dismissed'
 
 const hasSeenWelcome = useLocalStorage(STORAGE_KEY, false)
 const open = ref(false)
@@ -42,10 +42,10 @@ function handleOpenChange(value: boolean) {
     <DialogContent class="max-w-md">
       <DialogHeader>
         <DialogTitle class="text-xl">
-          Welcome to shadcn-vue
+          Selamat datang di Kliping
         </DialogTitle>
         <DialogDescription class="text-base">
-          Build your perfect theme and get started with a new project.
+          Rancang tema Anda sendiri, lalu mulai project baru dari sana.
         </DialogDescription>
       </DialogHeader>
 
@@ -56,10 +56,10 @@ function handleOpenChange(value: boolean) {
           </div>
           <div>
             <h4 class="font-medium">
-              Customize your theme
+              Atur tema Anda
             </h4>
             <p class="text-muted-foreground text-sm">
-              Use the pickers on the right to choose your style, colors, fonts, and more.
+              Pakai pemilih di sebelah kanan untuk menentukan style, warna, font, dan lainnya.
             </p>
           </div>
         </div>
@@ -70,10 +70,10 @@ function handleOpenChange(value: boolean) {
           </div>
           <div>
             <h4 class="font-medium">
-              Preview components
+              Lihat pratinjau komponen
             </h4>
             <p class="text-muted-foreground text-sm">
-              Browse components and blocks in the left sidebar to see how they look with your theme.
+              Telusuri komponen dan block di sidebar kiri untuk melihat tampilannya dengan tema Anda.
             </p>
           </div>
         </div>
@@ -84,10 +84,10 @@ function handleOpenChange(value: boolean) {
           </div>
           <div>
             <h4 class="font-medium">
-              Create your project
+              Buat project Anda
             </h4>
             <p class="text-muted-foreground text-sm">
-              Click "Create Project" to get the CLI commands for your customized setup.
+              Klik "Buat Project" untuk mendapatkan perintah CLI sesuai konfigurasi Anda.
             </p>
           </div>
         </div>
@@ -95,7 +95,7 @@ function handleOpenChange(value: boolean) {
 
       <DialogFooter>
         <Button @click="handleDismiss">
-          Get Started
+          Mulai
         </Button>
       </DialogFooter>
     </DialogContent>

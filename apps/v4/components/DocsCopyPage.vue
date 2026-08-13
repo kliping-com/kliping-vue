@@ -30,8 +30,8 @@ const route = useRoute()
 
 function getPromptUrl(baseURL: string, url: string) {
   return `${baseURL}?q=${encodeURIComponent(
-    `I’m looking at this shadcn-vue documentation: ${url}.
-Help me understand how to use it. Be ready to explain concepts, give examples, or help debug based on it.
+    `Saya sedang membaca dokumentasi Kliping ini: ${url}.
+Bantu saya memahami cara memakainya. Siap menjelaskan konsep, memberi contoh, atau membantu debug berdasarkan halaman tersebut. Jawab dalam Bahasa Indonesia.
   `,
   )}`
 }

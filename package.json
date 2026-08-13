@@ -1,11 +1,15 @@
 {
-  "name": "shadcn-vue",
+  "name": "kliping-vue",
   "type": "module",
   "version": "2.8.2",
   "private": true,
   "packageManager": "pnpm@10.25.0",
+  "description": "Komponen UI Vue siap klip, siap pakai. Dokumentasi Bahasa Indonesia.",
+  "author": "Kliping",
   "license": "MIT",
-  "repository": "unovue/shadcn-vue",
+  "homepage": "https://kliping.pro",
+  "repository": "kliping-com/kliping-vue",
+  "bugs": "https://github.com/kliping-com/kliping-vue/issues",
   "workspaces": [
     "packages/*"
   ],

@@ -1,25 +1,25 @@
 export const siteConfig = {
-  name: 'shadcn/vue',
-  url: 'https://shadcn-vue.com',
-  ogImage: 'https://shadcn-vue.com/og.jpg',
+  name: 'Kliping',
+  url: 'https://kliping.pro',
+  ogImage: 'https://kliping.pro/opengraph-image.png',
   description:
-    'A set of beautifully-designed, accessible components and a code distribution platform. Works with your favorite frameworks. Open Source. Open Code.',
+    'Komponen Vue siap klip, siap pakai. Gunting, tempel, kodenya jadi milik Anda — bukan dependency. Dokumentasi lengkap Bahasa Indonesia.',
   links: {
-    twitter: 'https://twitter.com/unovue',
-    github: 'https://github.com/unovue/shadcn-vue',
+    github: 'https://github.com/kliping-com/kliping-vue',
+    upstream: 'https://github.com/unovue/shadcn-vue',
   },
   navItems: [
     {
       href: '/',
-      label: 'Home',
+      label: 'Beranda',
     },
     {
       href: '/docs/installation',
-      label: 'Docs',
+      label: 'Dokumentasi',
     },
     {
       href: '/docs/components',
-      label: 'Components',
+      label: 'Komponen',
     },
     {
       href: '/blocks',
@@ -27,19 +27,19 @@ export const siteConfig = {
     },
     {
       href: '/charts/area',
-      label: 'Charts',
+      label: 'Grafik',
     },
     {
       href: '/docs/directory',
-      label: 'Directory',
+      label: 'Direktori',
     },
     {
       href: '/colors',
-      label: 'Colors',
+      label: 'Warna',
     },
     {
       href: '/create',
-      label: 'Create',
+      label: 'Buat',
     },
     {
       href: '/typeset',

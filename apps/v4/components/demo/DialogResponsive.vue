@@ -69,7 +69,7 @@ const open = ref(false)
           </Label>
           <Input
             id="link"
-            default-value="https://www.shadcn-vue.com/docs/installation"
+            default-value="https://kliping.pro/docs/installation"
             read-only
           />
         </div>

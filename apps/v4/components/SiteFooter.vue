@@ -7,15 +7,24 @@ import { siteConfig } from '@/lib/config'
     <div class="container-wrapper px-4 xl:px-6">
       <div class="flex h-(--footer-height) items-center justify-between">
         <div class="w-full px-1 text-center text-xs leading-loose text-muted-foreground sm:text-sm">
-          Ported by
+          Dibangun oleh
           <a
-            :href="siteConfig.links.twitter"
+            :href="siteConfig.links.github"
             target="_blank"
             rel="noreferrer"
             class="font-medium underline underline-offset-4"
           >
-            unovue</a>
-          . The source code is available on
+            Kliping</a>
+          , fork dari
+          <a
+            :href="siteConfig.links.upstream"
+            target="_blank"
+            rel="noreferrer"
+            class="font-medium underline underline-offset-4"
+          >
+            shadcn-vue
+          </a>
+          . Kode sumbernya terbuka di
           <a
             :href="siteConfig.links.github"
             target="_blank"

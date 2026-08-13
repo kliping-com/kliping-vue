@@ -112,7 +112,7 @@ export default defineNuxtConfig({
       deployConfig: true,
       nodeCompat: true,
       wrangler: {
-        name: 'shadcn-vue-nuxt',
+        name: 'kliping-vue',
         d1_databases: [
           {
             binding: 'DB',
@@ -143,7 +143,7 @@ export default defineNuxtConfig({
         // still hits Bunny at runtime — hence the preconnect.
         { rel: 'preconnect', href: 'https://fonts.bunny.net', crossorigin: '' },
       ],
-      meta: [{ name: 'keywords', content: 'Nuxt,Vue,Tailwind CSS,Components,shadcn' }],
+      meta: [{ name: 'keywords', content: 'Kliping,Vue,Nuxt,Tailwind CSS,Komponen UI,Komponen Vue,UI Library Indonesia' }],
     },
   },
   fonts: {
