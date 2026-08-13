@@ -1,6 +1,6 @@
 ---
 title: Hover Card
-description: For sighted users to preview content available behind a link.
+description: Menampilkan pratinjau konten di balik sebuah tautan bagi pengguna yang melihat layar.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/hover-card
@@ -10,11 +10,11 @@ links:
 ::component-preview
 ---
 name: HoverCardDemo
-description: A hover card component.
+description: Komponen hover card.
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -41,7 +41,7 @@ npx shadcn-vue@latest add hover-card
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -49,18 +49,18 @@ npx shadcn-vue@latest add hover-card
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/hover-card) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/hover-card) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">

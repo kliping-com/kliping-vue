@@ -1,6 +1,6 @@
 ---
 title: Select
-description: Displays a list of options for the user to pick from—triggered by a button.
+description: Menampilkan daftar pilihan untuk dipilih pengguna, dibuka lewat sebuah tombol.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/select
@@ -10,11 +10,11 @@ links:
 ::component-preview
 ---
 name: SelectDemo
-description: A select component.
+description: Komponen select.
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -41,7 +41,7 @@ npx shadcn-vue@latest add select
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -49,18 +49,18 @@ npx shadcn-vue@latest add select
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/select) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/select) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -99,22 +99,22 @@ import {
 </template>
 ```
 
-## Examples
+## Contoh
 
 ### Scrollable
 
 ::component-preview
 ---
 name: SelectScrollable
-description: A scrollable select component with timezone options.
+description: Komponen select yang bisa digulir, berisi pilihan zona waktu.
 ---
 ::
 
-### Multiple
+### Pilihan Ganda
 
 ::component-preview
 ---
 name: SelectMultipleDemo
-description: A multiple select component
+description: Komponen select yang bisa memilih lebih dari satu.
 ---
 ::

@@ -1,6 +1,6 @@
 ---
 title: Breadcrumb
-description: Displays the path to the current resource using a hierarchy of links.
+description: Menampilkan jalur menuju halaman saat ini lewat susunan tautan berjenjang.
 component: true
 ---
 
@@ -8,11 +8,11 @@ component: true
 ---
 name: BreadcrumbDemo
 class: '[&_.preview]:p-2'
-description: A breadcrumb with a collapsible dropdown.
+description: Breadcrumb dengan dropdown yang bisa dilipat.
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -39,18 +39,18 @@ npx shadcn-vue@latest add breadcrumb
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/breadcrumb) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/breadcrumb) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -87,11 +87,11 @@ import {
 </template>
 ```
 
-## Examples
+## Contoh
 
-### Custom separator
+### Pemisah Kustom
 
-Use a custom component as `children` for `<BreadcrumbSeparator />` to create a custom separator.
+Sisipkan komponen Anda sendiri sebagai isi `<BreadcrumbSeparator />` untuk membuat pemisah kustom.
 
 ::component-preview
 ---
@@ -129,7 +129,7 @@ import { SlashIcon } from '@lucide/vue'
 ----
 
 ### Dropdown
-You can compose `<BreadcrumbItem />` with a `<DropdownMenu />` to create a dropdown in the breadcrumb.
+Padukan `<BreadcrumbItem />` dengan `<DropdownMenu />` untuk membuat dropdown di dalam breadcrumb.
 
 ::component-preview
 ---
@@ -166,9 +166,9 @@ import {
 
 ----
 
-### Collapsed
+### Terlipat
 
-We provide a `<BreadcrumbEllipsis />` component to show a collapsed state when the breadcrumb is too long.
+Tersedia komponen `<BreadcrumbEllipsis />` untuk menampilkan keadaan terlipat saat breadcrumb terlalu panjang.
 
 ::component-preview
 ---
@@ -197,8 +197,8 @@ import { BreadcrumbEllipsis } from "@/components/ui/breadcrumb"
 
 ----
 
-### Link component
-To use a custom link component from your routing library, you can use the `as-child` prop on `<BreadcrumbLink />`.
+### Komponen Link
+Untuk memakai komponen link dari library routing Anda, gunakan prop `as-child` pada `<BreadcrumbLink />`.
 
 ::component-preview
 ---
@@ -230,10 +230,10 @@ import { NuxtLink } from '#components'
 
 ----
 
-### Responsive
-Here's an example of a responsive breadcrumb that composes `<BreadcrumbItem />` with `<BreadcrumbEllipsis />`, ` <DropdownMenu />`, and `<Drawer />`.
+### Responsif
+Berikut contoh breadcrumb responsif yang memadukan `<BreadcrumbItem />` dengan `<BreadcrumbEllipsis />`, `<DropdownMenu />`, dan `<Drawer />`.
 
-It displays a dropdown on desktop and a drawer on mobile.
+Tampilannya berupa dropdown di desktop dan drawer di mobile.
 
 ::component-preview
 ---

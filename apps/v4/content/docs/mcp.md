@@ -1,13 +1,13 @@
 ---
-title: MCP Server
-description: Use the shadcn MCP server to browse, search, and install components from registries.
+title: Server MCP
+description: Memakai server MCP untuk menelusuri, mencari, dan memasang komponen dari registry.
 ---
 
-The shadcn MCP Server allows AI assistants to interact with items from registries. You can browse available components, search for specific ones, and install them directly into your project using natural language.
+Server MCP memungkinkan asisten AI berinteraksi dengan item di dalam registry. Anda bisa menelusuri komponen yang tersedia, mencari yang spesifik, dan memasangnya langsung ke project — cukup lewat bahasa sehari-hari.
 
-For example, you can ask an AI assistant to "Build a landing page using components from the acme registry" or "Find me a login form from the shadcn registry".
+Contohnya, Anda bisa meminta asisten AI: "Bangun halaman landing memakai komponen dari registry acme" atau "Carikan form login dari registry shadcn".
 
-Registries are configured in your project's `components.json` file.
+Registry diatur di berkas `components.json` project Anda.
 
 ```json  title="components.json" showLineNumbers
 {
@@ -19,9 +19,9 @@ Registries are configured in your project's `components.json` file.
 
 ---
 
-## Quick Start
+## Mulai Cepat
 
-Select your MCP client and follow the instructions to configure the shadcn MCP server. If you'd like to do it manually, see the [Configuration](#configuration) section.
+Pilih klien MCP yang Anda pakai, lalu ikuti langkah pengaturan server MCP-nya. Kalau Anda ingin mengaturnya sendiri secara manual, lihat bagian [Konfigurasi](#konfigurasi).
 
 ::::tabs{default-value="claude" class="mt-4"}
 
@@ -50,58 +50,58 @@ Select your MCP client and follow the instructions to configure the shadcn MCP s
 :::
 
 ::tabs-content{value="claude"}
-**Run the following command** in your project:
+**Jalankan perintah berikut** di project Anda:
 
 ```bash
 npx shadcn-vue@latest mcp init --client claude
 ```
 
-**Restart Claude Code** and try the following prompts:
-- Show me all available components in the shadcn registry
-- Add the button, dialog and card components to my project
-- Create a contact form using components from the shadcn registry
+**Mulai ulang Claude Code**, lalu coba perintah berikut:
+- Tunjukkan semua komponen yang tersedia di registry shadcn
+- Tambahkan komponen button, dialog, dan card ke project saya
+- Buatkan form kontak memakai komponen dari registry shadcn
 
-**Note:** You can use `/mcp` command in Claude Code to debug the MCP server.
+**Catatan:** perintah `/mcp` di Claude Code bisa Anda pakai untuk men-debug server MCP-nya.
 ::
 
 ::tabs-content{value="cursor"}
-**Run the following command** in your project:
+**Jalankan perintah berikut** di project Anda:
 
 ```bash
 npx shadcn-vue@latest mcp init --client cursor
 ```
 
-Open **Cursor Settings** and **Enable the MCP server** for shadcn. Then try the following prompts:
-- Show me all available components in the shadcn registry
-- Add the button, dialog and card components to my project
-- Create a contact form using components from the shadcn registry
+Buka **Cursor Settings** lalu **aktifkan server MCP**-nya. Setelah itu coba perintah berikut:
+- Tunjukkan semua komponen yang tersedia di registry shadcn
+- Tambahkan komponen button, dialog, dan card ke project saya
+- Buatkan form kontak memakai komponen dari registry shadcn
 ::
 
 ::tabs-content{value="vscode"}
-**Run the following command** in your project:
+**Jalankan perintah berikut** di project Anda:
 
 ```bash
 npx shadcn-vue@latest mcp init --client vscode
 ```
 
-Open `.vscode/mcp.json` and click **Start** next to the shadcn server. Then try the following prompts with GitHub Copilot:
-- Show me all available components in the shadcn registry
-- Add the button, dialog and card components to my project
-- Create a contact form using components from the shadcn registry
+Buka `.vscode/mcp.json` lalu klik **Start** di samping server-nya. Setelah itu coba perintah berikut lewat GitHub Copilot:
+- Tunjukkan semua komponen yang tersedia di registry shadcn
+- Tambahkan komponen button, dialog, dan card ke project saya
+- Buatkan form kontak memakai komponen dari registry shadcn
 ::
 
 :::tabs-content{value="codex"}
   ::callout{type="warning"}
-  **Note:** The `shadcn-vue` CLI cannot automatically update `~/.codex/config.toml`. You'll need to add the configuration manually for Codex.
+  **Catatan:** CLI `shadcn-vue` tidak bisa memperbarui `~/.codex/config.toml` secara otomatis. Untuk Codex, konfigurasinya perlu Anda tambahkan sendiri.
   ::
 
-**Run the following command** in your project:
+**Jalankan perintah berikut** di project Anda:
 
 ```bash
 npx shadcn-vue@latest mcp init --client codex
 ```
 
-**Then, add the following configuration** to `~/.codex/config.toml`:
+**Lalu tambahkan konfigurasi berikut** ke `~/.codex/config.toml`:
 
 ```json title=".mcp.json" showLineNumbers
 [mcp_servers.shadcn]
@@ -109,73 +109,73 @@ command = "npx"
 args = ["shadcn-vue@latest", "mcp"]
 ```
 
-**Restart Codex** and try the following prompts:
-- Show me all available components in the shadcn registry
-- Add the button, dialog and card components to my project
-- Create a contact form using components from the shadcn registry
+**Mulai ulang Codex**, lalu coba perintah berikut:
+- Tunjukkan semua komponen yang tersedia di registry shadcn
+- Tambahkan komponen button, dialog, dan card ke project saya
+- Buatkan form kontak memakai komponen dari registry shadcn
 :::
 ::tabs-content{value="opencode"}
 
-You need to make sure opencode is installed. 
+Pastikan opencode sudah terpasang. 
 
 To install check [Opencode Documentation](https://opencode.ai/)
 
-**Run the following command** in your project:
+**Jalankan perintah berikut** di project Anda:
 ```bash
 npx shadcn-vue@latest mcp init --client opencode
 ```
-**Restart opencode** and try the following prompts:
-- Show me all available components in the shadcn registry
-- Add the button, dialog and card components to my project
-- Create a contact form using components from the shadcn registry
+**Mulai ulang opencode**, lalu coba perintah berikut:
+- Tunjukkan semua komponen yang tersedia di registry shadcn
+- Tambahkan komponen button, dialog, dan card ke project saya
+- Buatkan form kontak memakai komponen dari registry shadcn
 
-**Note:** You can use `Ctrl+x s` to see the status of the mcp servers.
+**Catatan:** tekan `Ctrl+x s` untuk melihat status server MCP-nya.
 ::
 
 ::::
 
 ---
 
-## What is MCP?
+## Apa Itu MCP?
 
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io) is an open protocol that enables AI assistants to securely connect to external data sources and tools. With the shadcn MCP server, your AI assistant gains direct access to:
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io) adalah protokol terbuka yang memungkinkan asisten AI terhubung secara aman ke sumber data dan tool di luar dirinya. Lewat server MCP ini, asisten AI Anda mendapat akses langsung untuk:
 
-- **Browse Components** - List all available components, blocks, and templates from any configured registry
+- **Menelusuri komponen** — melihat semua komponen, block, dan template yang tersedia di registry mana pun yang sudah diatur.
 - **Search Across Registries** - Find specific components by name or functionality across multiple sources
-- **Install with Natural Language** - Add components using simple conversational prompts like "add a login form"
-- **Support for Multiple Registries** - Access public registries, private company libraries, and third-party sources
+- **Memasang lewat bahasa sehari-hari** — menambahkan komponen cukup dengan kalimat biasa, misalnya "tambahkan form login".
+- **Mendukung banyak registry** — mengakses registry publik, pustaka internal perusahaan, maupun sumber pihak ketiga.
 
 ---
 
-## How It Works
+## Cara Kerjanya
 
-The MCP server acts as a bridge between your AI assistant, component registries and the shadcn CLI.
+Server MCP berperan sebagai jembatan antara asisten AI Anda, registry komponen, dan CLI-nya.
 
-1. **Registry Connection** - MCP connects to configured registries (shadcn/ui, private registries, third-party sources)
-2. **Natural Language** - You describe what you need in plain English
-3. **AI Processing** - The assistant translates your request into registry commands
-4. **Component Delivery** - Resources are fetched and installed in your project
+1. **Sambungan ke registry** — MCP terhubung ke registry yang sudah diatur: bawaan, registry privat, maupun sumber pihak ketiga.
+2. **Bahasa sehari-hari** — Anda cukup menjelaskan apa yang dibutuhkan dengan kalimat biasa.
+3. **Pemrosesan AI** — asisten menerjemahkan permintaan Anda menjadi perintah registry.
+4. **Pengantaran komponen** — berkasnya diambil lalu dipasang ke project Anda.
 
 ---
 
-## Supported Registries
+## Registry yang Didukung
 
-The shadcn MCP server works out of the box with any shadcn-compatible registry.
+Server MCP ini langsung bisa dipakai dengan registry mana pun yang kompatibel.
 
-- **shadcn/ui Registry** - The default registry with all shadcn/ui components
-- **Third-Party Registries** - Any registry following the shadcn registry specification
+- **Registry bawaan** — berisi seluruh komponen shadcn/ui.
+- **Registry pihak ketiga** — registry mana pun yang mengikuti spesifikasi registry shadcn.
 - **Private Registries** - Your company's internal component libraries
-- **Namespaced Registries** - Multiple registries configured with `@namespace` syntax
+- **Registry ber-namespace** — beberapa registry sekaligus, diatur lewat sintaks `@namespace`.
 
 ---
 
-## Configuration
+## Konfigurasi
 
-You can use any MCP client to interact with the shadcn MCP server. Here are the instructions for the most popular ones.
+Klien MCP mana pun bisa Anda pakai untuk berinteraksi dengan server ini. Berikut langkahnya untuk yang paling populer.
 
 ### Claude Code
 
-To use the shadcn MCP server with Claude Code, add the following configuration to your project's `.mcp.json` file:
+Untuk memakai server MCP ini di Claude Code, tambahkan konfigurasi berikut ke berkas `.mcp.json` project Anda:
 
 ```json title=".mcp.json" showLineNumbers
 {
@@ -188,13 +188,13 @@ To use the shadcn MCP server with Claude Code, add the following configuration t
 }
 ```
 
-After adding the configuration, restart Claude Code and run `/mcp` to see the shadcn MCP server in the list. If you see `Connected`, you're good to go.
+Setelah konfigurasinya ditambahkan, mulai ulang Claude Code lalu jalankan `/mcp` untuk melihat server-nya di daftar. Kalau statusnya `Connected`, berarti sudah siap.
 
-See the [Claude Code MCP documentation](https://docs.anthropic.com/en/docs/claude-code/mcp) for more details.
+Detail selengkapnya ada di [dokumentasi MCP Claude Code](https://docs.anthropic.com/en/docs/claude-code/mcp).
 
 ### Cursor
 
-To configure MCP in Cursor, add the shadcn server to your project's `.cursor/mcp.json` configuration file:
+Untuk mengatur MCP di Cursor, tambahkan server-nya ke berkas konfigurasi `.cursor/mcp.json` project Anda:
 
 ```json title=".cursor/mcp.json" showLineNumbers
 {
@@ -207,15 +207,15 @@ To configure MCP in Cursor, add the shadcn server to your project's `.cursor/mcp
 }
 ```
 
-After adding the configuration, enable the shadcn MCP server in Cursor Settings.
+Setelah konfigurasinya ditambahkan, aktifkan server MCP-nya lewat Cursor Settings.
 
-Once enabled, you should see a green dot next to the shadcn server in the MCP server list and a list of available tools.
+Begitu aktif, akan muncul titik hijau di samping nama server-nya pada daftar server MCP, beserta daftar tool yang tersedia.
 
-See the [Cursor MCP documentation](https://docs.cursor.com/en/context/mcp#using-mcp-json) for more details.
+Detail selengkapnya ada di [dokumentasi MCP Cursor](https://docs.cursor.com/en/context/mcp#using-mcp-json).
 
 ### VS Code
 
-To configure MCP in VS Code with GitHub Copilot, add the shadcn server to your project's `.vscode/mcp.json` configuration file:
+Untuk mengatur MCP di VS Code bersama GitHub Copilot, tambahkan server-nya ke berkas konfigurasi `.vscode/mcp.json` project Anda:
 
 ```json title=".vscode/mcp.json" showLineNumbers
 {
@@ -228,17 +228,17 @@ To configure MCP in VS Code with GitHub Copilot, add the shadcn server to your p
 }
 ```
 
-After adding the configuration, open `.vscode/mcp.json` and click **Start** next to the shadcn server.
+Setelah konfigurasinya ditambahkan, buka `.vscode/mcp.json` lalu klik **Start** di samping nama server-nya.
 
-See the [VS Code MCP documentation](https://code.visualstudio.com/docs/copilot/chat/mcp-servers) for more details.
+Detail selengkapnya ada di [dokumentasi MCP VS Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
 
 ### Codex
 
 ::callout{type="warning"}
-**Note:** The `shadcn-vue` CLI cannot automatically update `~/.codex/config.toml`. You'll need to add the configuration manually.
+**Catatan:** CLI `shadcn-vue` tidak bisa memperbarui `~/.codex/config.toml` secara otomatis. Konfigurasinya perlu Anda tambahkan sendiri.
 ::
 
-To configure MCP in Codex, add the shadcn server to `~/.codex/config.toml`:
+Untuk mengatur MCP di Codex, tambahkan server-nya ke `~/.codex/config.toml`:
 
 ```toml title="~/.codex/config.toml" showLineNumbers
 [mcp_servers.shadcn]
@@ -246,11 +246,11 @@ command = "npx"
 args = ["shadcn-vue@latest", "mcp"]
 ```
 
-After adding the configuration, restart Codex to load the MCP server.
+Setelah konfigurasinya ditambahkan, mulai ulang Codex supaya server MCP-nya termuat.
 
 ### Opencode
 
-To configure MCP in opencode add the shadcn server to `opencode.json`:
+Untuk mengatur MCP di opencode, tambahkan server-nya ke `opencode.json`:
 
 ```json title="opencode.json" showLineNumbers
 {
@@ -264,15 +264,15 @@ To configure MCP in opencode add the shadcn server to `opencode.json`:
     }
 }
 ```
-See the [Opencode Documentation](https://opencode.ai/docs/mcp-servers/) for more details.
+Detail selengkapnya ada di [dokumentasi Opencode](https://opencode.ai/docs/mcp-servers/).
 
 ---
 
-## Configuring Registries
+## Mengatur Registry
 
-The MCP server supports multiple registries through your project's `components.json` configuration. This allows you to access components from various sources including private registries and third-party providers.
+Server MCP mendukung banyak registry sekaligus lewat konfigurasi `components.json` di project Anda. Dengan begitu Anda bisa mengambil komponen dari berbagai sumber, termasuk registry privat dan penyedia pihak ketiga.
 
-Configure additional registries in your `components.json`:
+Daftarkan registry tambahan di `components.json` Anda:
 
 ```json title="components.json" showLineNumbers
 {
@@ -289,89 +289,89 @@ Configure additional registries in your `components.json`:
 ```
 
 ::callout{type="info"}
-**Note:** No configuration is needed to access the standard shadcn/ui registry.
+**Catatan:** untuk mengakses registry standar, tidak perlu konfigurasi apa pun.
 ::
 
 ---
 
-## Authentication
+## Autentikasi
 
-For private registries requiring authentication, set environment variables in your `.env.local`:
+Untuk registry privat yang butuh autentikasi, isi variabel lingkungannya di `.env.local`:
 
 ```bash title=".env.local"
 REGISTRY_TOKEN=your_token_here
 API_KEY=your_api_key_here
 ```
 
-For more details on registry authentication, see the [Authentication documentation](/docs/registry/authentication).
+Keterangan lengkap soal autentikasi registry ada di [dokumentasi Autentikasi](/docs/registry/authentication).
 
 ---
 
-## Example Prompts
+## Contoh Perintah
 
-Once the MCP server is configured, you can use natural language to interact with registries. Try one of the following prompts:
+Setelah server MCP-nya diatur, Anda bisa berinteraksi dengan registry memakai bahasa sehari-hari. Coba salah satu perintah berikut:
 
-### Browse & Search
+### Menelusuri & Mencari
 
-- Show me all available components in the shadcn registry
-- Find me a login form from the shadcn registry
+- Tunjukkan semua komponen yang tersedia di registry shadcn
+- Carikan form login dari registry shadcn
 
-### Install Items
+### Memasang Item
 
-- Add the button component to my project
+- Tambahkan komponen button ke project saya
 - Create a login form using shadcn components
-- Install the Cursor rules from the acme registry
+- Pasang aturan Cursor dari registry acme
 
-### Work with Namespaces
+### Bekerja dengan Namespace
 
 - Show me components from acme registry
 - Install @internal/auth-form
-- Build me a landing page using hero, features and testimonials sections from the acme registry
+- Bangunkan halaman landing memakai section hero, features, dan testimonials dari registry acme
 
 ---
 
-## Troubleshooting
+## Mengatasi Masalah
 
-### MCP Not Responding
+### MCP Tidak Merespons
 
-If the MCP server isn't responding to prompts:
+Kalau server MCP tidak merespons perintah Anda:
 
-1. **Check Configuration** - Verify the MCP server is properly configured and enabled in your MCP client
-2. **Restart MCP Client** - Restart your MCP client after configuration changes
-3. **Verify Installation** - Ensure `shadcn-vue` is installed in your project
-4. **Check Network** - Confirm you can access the configured registries
+1. **Periksa konfigurasi** — pastikan server MCP sudah diatur dengan benar dan aktif di klien MCP Anda.
+2. **Mulai ulang klien MCP** — setiap kali konfigurasinya berubah, mulai ulang kliennya.
+3. **Pastikan sudah terpasang** — cek bahwa `shadcn-vue` benar-benar terpasang di project Anda.
+4. **Periksa jaringan** — pastikan registry yang diatur memang bisa Anda akses.
 
-### Registry Access Issues
+### Masalah Akses Registry
 
 If components aren't loading from registries:
 
-1. **Check components.json** - Verify registry URLs are correct
-2. **Test Authentication** - Ensure environment variables are set for private registries
-3. **Verify Registry** - Confirm the registry is online and accessible
-4. **Check Namespace** - Ensure namespace syntax is correct (`@namespace/component`)
+1. **Periksa components.json** — pastikan URL registry-nya sudah benar.
+2. **Uji autentikasi** — pastikan variabel lingkungan untuk registry privat sudah terisi.
+3. **Cek registry-nya** — pastikan registry itu memang online dan bisa dijangkau.
+4. **Periksa namespace** — pastikan sintaksnya benar (`@namespace/komponen`).
 
-### Installation Failures
+### Pemasangan Gagal
 
-If components fail to install:
+Kalau komponen gagal dipasang:
 
-1. **Check Project Setup** - Ensure you have a valid `components.json` file
-2. **Verify Paths** - Confirm the target directories exist
-3. **Check Permissions** - Ensure write permissions for component directories
-4. **Review Dependencies** - Check that required dependencies are installed
+1. **Periksa penyiapan project** — pastikan berkas `components.json` Anda sah.
+2. **Cek path-nya** — pastikan folder tujuannya memang ada.
+3. **Periksa izin akses** — pastikan folder komponennya bisa ditulisi.
+4. **Tinjau dependency** — pastikan semua dependency yang dibutuhkan sudah terpasang.
 
-### No Tools or Prompts
+### Tool atau Prompt Tidak Muncul
 
-If you see the `No tools or prompts` message, try the following:
+Kalau muncul pesan `No tools or prompts`, coba langkah berikut:
 
-1. **Clear the npx cache** - Run `npx clear-npx-cache`
-2. **Re-enable the MCP server** - Try to re-enable the MCP server in your MCP client
-3. **Check Logs** - In Cursor, you can see the logs under View -> Output and select `MCP: project-*` in the dropdown.
+1. **Bersihkan cache npx** — jalankan `npx clear-npx-cache`.
+2. **Aktifkan ulang server MCP** — coba nonaktifkan lalu aktifkan lagi di klien MCP Anda.
+3. **Periksa log** — di Cursor, log-nya bisa dilihat lewat View → Output, lalu pilih `MCP: project-*` di dropdown-nya.
 
 ---
 
-## Learn More
+## Bacaan Lanjutan
 
-- [Registry Documentation](/docs/registry) - Complete guide to shadcn registries
+- [Dokumentasi Registry](/docs/registry) — panduan lengkap soal registry
 - [Namespaces](/docs/registry/namespace) - Configure multiple registry sources
-- [Authentication](/docs/registry/authentication) - Secure your private registries
+- [Autentikasi](/docs/registry/authentication) — mengamankan registry privat Anda
 - [MCP Specification](https://modelcontextprotocol.io) - Learn about Model Context Protocol

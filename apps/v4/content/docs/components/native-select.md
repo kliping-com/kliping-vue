@@ -1,6 +1,6 @@
 ---
 title: Native Select
-description: A styled native HTML select element with consistent design system integration.
+description: Elemen select bawaan HTML yang di-style agar menyatu dengan design system Anda.
 component: true
 ---
 
@@ -8,7 +8,7 @@ component: true
 ---
 icon: true
 ---
-For a styled select component, see the [Select](/docs/components/select) component.
+Kalau Anda butuh select yang di-style penuh, lihat komponen [Select](/docs/components/select).
 ::
 
 ::component-preview
@@ -17,7 +17,7 @@ name: NativeSelectDemo
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -44,7 +44,7 @@ npx shadcn-vue@latest add native-select
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -52,18 +52,18 @@ npx shadcn-vue@latest add native-select
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/native-select) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/native-select) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -98,11 +98,11 @@ import {
 </template>
 ```
 
-## Examples
+## Contoh
 
-### With Groups
+### Dengan Grup
 
-Organize options using `NativeSelectOptGroup` for better categorization.
+Kelompokkan pilihan memakai `NativeSelectOptGroup` agar lebih tertata.
 
 ::component-preview
 ---
@@ -142,9 +142,9 @@ name: NativeSelectGroupsDemo
 </template>
 ```
 
-### Disabled State
+### Keadaan Nonaktif
 
-Disable individual options or the entire select component.
+Nonaktifkan satu pilihan tertentu, atau seluruh komponen select sekaligus.
 
 ::component-preview
 ---
@@ -152,9 +152,9 @@ name: NativeSelectDisabledDemo
 ---
 ::
 
-### Invalid State
+### Keadaan Tidak Valid
 
-Show validation errors with the `aria-invalid` attribute and error styling.
+Tampilkan kesalahan validasi lewat atribut `aria-invalid` beserta style error-nya.
 
 ::component-preview
 ---
@@ -181,9 +181,9 @@ name: NativeSelectInvalidDemo
 </template>
 ```
 
-### Form Integration
+### Integrasi dengan Form
 
-Use with form libraries like VeeValidate for controlled components.
+Bisa dipakai bersama library form seperti VeeValidate untuk komponen yang dikendalikan dari luar.
 
 ::component-preview
 ---
@@ -193,7 +193,7 @@ name: NativeSelectFormDemo
 
 <!-- ### Input Group Integration
 
-Combine with `InputGroup` for complex input layouts.
+Padukan dengan `InputGroup` untuk susunan input yang lebih rumit.
 
 ::component-preview
 ---
@@ -201,19 +201,19 @@ name: NativeSelectInputGroupDemo
 ---
 :: -->
 
-## Native Select vs Select
+## Native Select dibanding Select
 
-- Use `NativeSelect` when you need native browser behavior, better performance, or mobile-optimized dropdowns.
-- Use `Select` when you need custom styling, animations, or complex interactions.
+- Pakai `NativeSelect` kalau Anda butuh perilaku asli browser, performa lebih ringan, atau dropdown yang nyaman di mobile.
+- Pakai `Select` kalau Anda butuh style kustom, animasi, atau interaksi yang lebih rumit.
 
-The `NativeSelect` component provides native HTML select functionality with consistent styling that matches your design system.
+Komponen `NativeSelect` menyediakan fungsi select bawaan HTML dengan tampilan yang selaras dengan design system Anda.
 
-## Accessibility
+## Aksesibilitas
 
-- The component maintains all native HTML select accessibility features.
-- Screen readers can navigate through options using arrow keys.
-- The chevron icon is marked as `aria-hidden="true"` to avoid duplication.
-- Use `aria-label` or `aria-labelledby` for additional context when needed.
+- Komponen ini mempertahankan seluruh fitur aksesibilitas select bawaan HTML.
+- Pembaca layar bisa menelusuri pilihan memakai tombol panah.
+- Ikon panahnya ditandai `aria-hidden="true"` supaya tidak dibacakan dua kali.
+- Pakai `aria-label` atau `aria-labelledby` kalau butuh konteks tambahan.
 
 ```vue showLineNumbers
 <template>
@@ -231,17 +231,17 @@ The `NativeSelect` component provides native HTML select functionality with cons
 </template>
 ```
 
-## API Reference
+## Referensi API
 
 ### NativeSelect
 
-The main select component that wraps the native HTML select element.
+Komponen select utama yang membungkus elemen select bawaan HTML.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class` | `string` |         |
 
-All other props are passed through to the underlying `<select>` element.
+Semua prop lain diteruskan ke elemen `<select>` di baliknya.
 
 ```vue
 <NativeSelect>
@@ -252,7 +252,7 @@ All other props are passed through to the underlying `<select>` element.
 
 ### NativeSelectOption
 
-Represents an individual option within the select.
+Mewakili satu pilihan di dalam select.
 
 | Prop        | Type      | Default |
 | ----------- | --------- | ------- |
@@ -260,7 +260,7 @@ Represents an individual option within the select.
 | `disabled`  | `boolean` | `false` |
 | `class` | `string`  |         |
 
-All other props are passed through to the underlying `<option>` element.
+Semua prop lain diteruskan ke elemen `<option>` di baliknya.
 
 ```vue
 <template>
@@ -275,7 +275,7 @@ All other props are passed through to the underlying `<option>` element.
 
 ### NativeSelectOptGroup
 
-Groups related options together for better organization.
+Mengelompokkan pilihan-pilihan yang berkaitan agar lebih tertata.
 
 | Prop        | Type      | Default |
 | ----------- | --------- | ------- |
@@ -283,7 +283,7 @@ Groups related options together for better organization.
 | `disabled`  | `boolean` | `false` |
 | `class` | `string`  |         |
 
-All other props are passed through to the underlying `<optgroup>` element.
+Semua prop lain diteruskan ke elemen `<optgroup>` di baliknya.
 
 ```vue
 <template>

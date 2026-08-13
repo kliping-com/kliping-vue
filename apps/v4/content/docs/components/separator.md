@@ -1,6 +1,6 @@
 ---
 title: Separator
-description: Visually or semantically separates content.
+description: Memisahkan konten, baik secara visual maupun secara makna.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/separator
@@ -10,11 +10,11 @@ links:
 ::component-preview
 ---
 name: SeparatorDemo
-description: A separator component.
+description: Komponen pemisah.
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -41,7 +41,7 @@ npx shadcn-vue@latest add separator
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -49,18 +49,18 @@ npx shadcn-vue@latest add separator
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/separator) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/separator) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">

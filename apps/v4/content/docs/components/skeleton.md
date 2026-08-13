@@ -1,17 +1,17 @@
 ---
 title: Skeleton
-description: Use to show a placeholder while content is loading.
+description: Menampilkan kerangka sementara selagi konten sesungguhnya masih dimuat.
 component: true
 ---
 
 ::component-preview
 ---
 name: SkeletonDemo
-description: A skeleton component.
+description: Komponen skeleton.
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -38,18 +38,18 @@ npx shadcn-vue@latest add skeleton
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/skeleton) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/skeleton) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">

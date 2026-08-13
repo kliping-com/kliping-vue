@@ -1,6 +1,6 @@
 ---
 title: Drawer
-description: A drawer component for mobile devices.
+description: Komponen laci geser yang dirancang untuk perangkat mobile.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/drawer
@@ -10,11 +10,11 @@ links:
 ::component-preview
 ---
 name: DrawerDemo
-description: A drawer component.
+description: Komponen drawer.
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -41,7 +41,7 @@ npx shadcn-vue@latest add drawer
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -49,18 +49,18 @@ npx shadcn-vue@latest add drawer
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/drawer) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/drawer) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -99,11 +99,11 @@ import {
 </template>
 ```
 
-## Example
+## Contoh
 
-### Scrollable Content
+### Konten yang Bisa Digulir
 
-Keep actions visible while the content scrolls.
+Menjaga tombol aksi tetap terlihat selagi kontennya digulir.
 
 ::component-preview
 ---
@@ -111,9 +111,9 @@ name: DrawerScrollableContent
 ---
 ::
 
-### Sides
+### Sisi
 
-Use the `swipe-direction` prop to set the direction the drawer swipes toward to dismiss. The drawer is anchored to the edge it dismisses toward, so `up` opens a drawer along the top edge and `down` opens one along the bottom edge. Available options are `up`, `right`, `down`, and `left`.
+Pakai prop `swipe-direction` untuk menentukan ke arah mana drawer digeser saat ditutup. Drawer menempel pada sisi yang jadi arah penutupannya — `up` membuka drawer di sisi atas, `down` di sisi bawah. Pilihannya: `up`, `right`, `down`, dan `left`.
 
 ::component-preview
 ---
@@ -121,9 +121,9 @@ name: DrawerSides
 ---
 ::
 
-### Responsive Modal (Dialog & Drawer)
+### Modal Responsif (Dialog & Drawer)
 
-Use a `Drawer` component for smaller viewport sizes and a `Dialog` component otherwise. This can be further made reusable by using slots for various parts of the modal.
+Pakai komponen `Drawer` untuk layar kecil, dan `Dialog` untuk layar yang lebih lebar. Pola ini bisa Anda jadikan komponen pakai-ulang dengan memanfaatkan slot untuk tiap bagian modal.
 
 ::component-preview
 ---

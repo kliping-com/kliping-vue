@@ -1,11 +1,11 @@
 ---
-title: Forms
-description: Build forms with Vue and shadcn-vue.
+title: Form
+description: Membangun form dengan Vue dan komponen Kliping.
 ---
 
-## Pick Your Framework
+## Pilih Framework Anda
 
-Start by selecting your framework. Then follow the instructions to learn how to build forms with shadcn-vue and the form library of your choice.
+Mulai dengan memilih framework yang Anda pakai, lalu ikuti panduannya untuk membangun form dengan Kliping bersama library form pilihan Anda.
 
 <div class="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-6">
   <linked-card href="/docs/forms/vee-validate">

@@ -1,6 +1,6 @@
 ---
 title: Tooltip
-description: A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.
+description: Kotak kecil berisi keterangan sebuah elemen, muncul saat elemen itu di-hover atau menerima fokus keyboard.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/tooltip
@@ -10,11 +10,11 @@ links:
 ::component-preview
 ---
 name: TooltipDemo
-description: A tooltip component.
+description: Komponen tooltip.
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -41,7 +41,7 @@ npx shadcn-vue@latest add tooltip
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -49,18 +49,18 @@ npx shadcn-vue@latest add tooltip
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/tooltip) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/tooltip) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">

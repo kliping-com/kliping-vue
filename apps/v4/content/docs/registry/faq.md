@@ -3,11 +3,11 @@ title: FAQ
 description: Frequently asked questions about running a registry.
 ---
 
-## Frequently asked questions
+## Pertanyaan yang Sering Diajukan
 
-### What does a complex component look like?
+### Seperti apa bentuk komponen yang rumit?
 
-Here's an example of a complex component that installs a page, two components, a composable, a format date utils and a config file.
+Berikut contoh komponen rumit yang sekaligus memasang satu halaman, dua komponen, satu composable, satu utilitas format tanggal, dan satu berkas konfigurasi.
 
 ```json showLineNumbers
 {
@@ -47,9 +47,9 @@ Here's an example of a complex component that installs a page, two components, a
 }
 ```
 
-### How do I add a new Tailwind color?
+### Bagaimana cara menambahkan warna Tailwind baru?
 
-To add a new color you need to add it to `cssVars` and `tailwind.config.theme.extend.colors`.
+Untuk menambahkan warna baru, daftarkan di `cssVars` dan `tailwind.config.theme.extend.colors`.
 
 ```json showLineNumbers  {10-19} {24-29}
 {
@@ -88,11 +88,11 @@ To add a new color you need to add it to `cssVars` and `tailwind.config.theme.ex
 }
 ```
 
-The CLI will update the project CSS file and tailwind.config.js file. Once updated, the new colors will be available to be used as utility classes: `bg-brand` and `text-brand-accent`.
+CLI akan memperbarui berkas CSS project beserta `tailwind.config.js`. Setelah itu warna barunya bisa dipakai sebagai utility class: `bg-brand` dan `text-brand-accent`.
 
-### How do I add a Tailwind animation?
+### Bagaimana cara menambahkan animasi Tailwind?
 
-To add a new animation you add it to `tailwind.config.theme.extend.animation` and `tailwind.config.theme.extend.keyframes`.
+Untuk menambahkan animasi baru, daftarkan di `tailwind.config.theme.extend.animation` dan `tailwind.config.theme.extend.keyframes`.
 
 ```json showLineNumbers  {14-22}
 {

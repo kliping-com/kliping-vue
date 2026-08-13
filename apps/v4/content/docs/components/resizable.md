@@ -1,6 +1,6 @@
 ---
 title: Resizable
-description: Accessible resizable panel groups and layouts with keyboard support.
+description: Kelompok panel yang bisa diubah ukurannya, mudah diakses, dan mendukung navigasi keyboard.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/splitter
@@ -10,11 +10,11 @@ links:
 ::component-preview
 ---
 name: ResizableDemo
-description: A resizable component.
+description: Komponen panel yang bisa diubah ukurannya.
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -41,7 +41,7 @@ npx shadcn-vue@latest add resizable
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -49,18 +49,18 @@ npx shadcn-vue@latest add resizable
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/resizable) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/resizable) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">

@@ -1,6 +1,6 @@
 ---
 title: Empty
-description: Use the Empty component to display an empty state.
+description: Menampilkan keadaan saat belum ada data yang bisa ditampilkan.
 component: true
 ---
 
@@ -11,7 +11,7 @@ class: '[&_.preview]:p-0'
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -38,18 +38,18 @@ npx shadcn-vue@latest add empty
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/empty) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/empty) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -81,11 +81,11 @@ import {
 </template>
 ```
 
-## Examples
+## Contoh
 
 ### Outline
 
-Use the `border` utility class to create an outline empty state.
+Pakai utility class `border` untuk membuat empty state bergaris tepi.
 
 ::component-preview
 ---
@@ -94,9 +94,9 @@ class: '[&_.preview]:p-6 md:[&_.preview]:p-10'
 ---
 ::
 
-### Background
+### Latar
 
-Use the `bg-*` and `bg-gradient-*` utilities to add a background to the empty state.
+Pakai utility `bg-*` dan `bg-gradient-*` untuk memberi latar pada empty state.
 
 ::component-preview
 ---
@@ -107,7 +107,7 @@ class: '[&_.preview]:p-0'
 
 ### Avatar
 
-Use the `EmptyMedia` component to display an avatar in the empty state.
+Pakai komponen `EmptyMedia` untuk menampilkan avatar di dalam empty state.
 
 ::component-preview
 ---
@@ -116,9 +116,9 @@ class: '[&_.preview]:p-0'
 ---
 ::
 
-### Avatar Group
+### Grup Avatar
 
-Use the `EmptyMedia` component to display an avatar group in the empty state.
+Pakai komponen `EmptyMedia` untuk menampilkan sekelompok avatar di dalam empty state.
 
 ::component-preview
 ---
@@ -129,7 +129,7 @@ class: '[&_.preview]:p-0'
 
 ### InputGroup
 
-You can add an `InputGroup` component to the `EmptyContent` component.
+Anda bisa menyisipkan komponen `InputGroup` ke dalam `EmptyContent`.
 
 ::component-preview
 ---
@@ -138,13 +138,13 @@ class: '[&_.preview]:p-0'
 ---
 ::
 
-## API Reference
+## Referensi API
 
 ### Empty
 
-The main component of the empty state. Wraps the `EmptyHeader` and `EmptyContent` components.
+Komponen utama empty state. Membungkus komponen `EmptyHeader` dan `EmptyContent`.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class` | `string` |         |
 
@@ -159,9 +159,9 @@ The main component of the empty state. Wraps the `EmptyHeader` and `EmptyContent
 
 ### EmptyHeader
 
-The `EmptyHeader` component wraps the empty media, title, and description.
+Komponen `EmptyHeader` membungkus media, judul, dan keterangan empty state.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class` | `string` |         |
 
@@ -177,9 +177,9 @@ The `EmptyHeader` component wraps the empty media, title, and description.
 
 ### EmptyMedia
 
-Use the `EmptyMedia` component to display the media of the empty state such as an icon or an image. You can also use it to display other components such as an avatar.
+Pakai komponen `EmptyMedia` untuk menampilkan media empty state, misalnya ikon atau gambar. Komponen lain seperti avatar juga bisa diletakkan di sini.
 
-| Prop        | Type                  | Default   |
+| Prop        | Tipe                  | Bawaan    |
 | ----------- | --------------------- | --------- |
 | `variant`   | `"default" \| "icon"` | `default` |
 | `class` | `string`              |           |
@@ -205,9 +205,9 @@ Use the `EmptyMedia` component to display the media of the empty state such as a
 
 ### EmptyTitle
 
-Use the `EmptyTitle` component to display the title of the empty state.
+Pakai komponen `EmptyTitle` untuk menampilkan judul empty state.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class` | `string` |         |
 
@@ -219,9 +219,9 @@ Use the `EmptyTitle` component to display the title of the empty state.
 
 ### EmptyDescription
 
-Use the `EmptyDescription` component to display the description of the empty state.
+Pakai komponen `EmptyDescription` untuk menampilkan keterangan empty state.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class` | `string` |         |
 
@@ -233,9 +233,9 @@ Use the `EmptyDescription` component to display the description of the empty sta
 
 ### EmptyContent
 
-Use the `EmptyContent` component to display the content of the empty state such as a button, input or a link.
+Pakai komponen `EmptyContent` untuk menampilkan isi empty state, misalnya tombol, input, atau tautan.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class` | `string` |         |
 

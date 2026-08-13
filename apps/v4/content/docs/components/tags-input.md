@@ -1,6 +1,6 @@
 ---
 title: Tags Input
-description: Tag inputs render tags inside an input, followed by an actual text input.
+description: Isian yang menampilkan tag di dalamnya, diikuti isian teks sungguhan.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/tags-input
@@ -13,7 +13,7 @@ name: TagsInputDemo
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -40,7 +40,7 @@ npx shadcn-vue@latest add tags-input
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -48,20 +48,20 @@ npx shadcn-vue@latest add tags-input
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/tags-input) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/tags-input) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Examples
+## Contoh
 
-### Tags with Listbox
+### Tags dengan Listbox
 
 ::component-preview
 ---

@@ -1,6 +1,6 @@
 ---
 title: shimmer
-description: Utilities for adding a shimmer effect to text elements.
+description: Utility untuk memberi efek kilat berjalan pada teks.
 ---
 
 ::component-preview
@@ -10,17 +10,17 @@ name: ShimmerDemo
 ::
 
 
-## Installation
+## Instalasi
 
-If your project was set up with `npx shadcn-vue@latest init`, you already have `shimmer`. It ships with the `shadcn-vue` package, which the CLI imports in your global CSS file.
+Kalau project Anda disiapkan lewat `npx shadcn-vue@latest init`, `shimmer` sudah tersedia. Utility ini ikut dalam paket `shadcn-vue`, yang di-import CLI ke file CSS global Anda.
 
-Otherwise, install the `shadcn-vue` package:
+Kalau belum, pasang paket `shadcn-vue`:
 
 ```bash
 npm install shadcn-vue
 ```
 
-Then import the shared utilities in your global CSS file:
+Lalu import utility bersamanya di file CSS global Anda:
 
 ```css
 @import "tailwindcss";
@@ -28,9 +28,9 @@ Then import the shared utilities in your global CSS file:
 ```
 
 
-## Usage
+## Penggunaan
 
-| Class                         | Styles                                                                                               |
+| Class                         | Style                                                                                                |
 | ----------------------------- | ---------------------------------------------------------------------------------------------------- |
 | `shimmer`                     | `background-clip: text;` <br /> `animation: tw-shimmer var(--shimmer-duration, 2s) linear infinite;` |
 | `shimmer-once`                | `animation-iteration-count: 1;`                                                                      |
@@ -44,24 +44,24 @@ Then import the shared utilities in your global CSS file:
 | `shimmer-spread-[<value>]`    | `--shimmer-spread: <value>;`                                                                         |
 | `shimmer-angle-<number>`      | `--shimmer-angle: calc(<number> * 1deg);`                                                            |
 
-Add `shimmer` to a text element.
+Tambahkan `shimmer` pada sebuah elemen teks.
 
 ```tsx
 <p class="shimmer text-muted-foreground">Generating response&hellip;</p>
 ```
 
-The shimmer is built on `currentColor`, so it adapts to the element:
+Efek shimmer dibangun di atas `currentColor`, jadi ia menyesuaikan elemennya:
 
-- The highlight is derived from the text color, with no configuration needed.
-- It works on any color, from `text-muted-foreground` to brand colors.
-- In dark mode, the highlight automatically brightens to stay visible.
+- Warna kilatnya diturunkan dari warna teks, tanpa perlu diatur.
+- Berfungsi pada warna apa pun, dari `text-muted-foreground` sampai warna brand Anda.
+- Di mode gelap, kilatnya otomatis dicerahkan supaya tetap terlihat.
 
-The effect is pure CSS. The text is painted with `background-clip: text`, and the highlight sweeps across it in a seamless loop.
+Efeknya murni CSS. Teksnya digambar memakai `background-clip: text`, lalu kilatnya menyapu melintasi teks dalam putaran yang mulus.
 
 
-## Color
+## Warna
 
-Use `shimmer-color-<color>` to set the highlight color explicitly. It accepts theme colors with an optional opacity modifier, or any arbitrary color value.
+Pakai `shimmer-color-<warna>` untuk menentukan warna kilatnya secara langsung. Ia menerima warna tema, boleh disertai modifier opasitas, atau nilai warna bebas.
 
 ::component-preview
 ---
@@ -70,9 +70,9 @@ name: ShimmerColorDemo
 ::
 
 
-## Duration
+## Durasi
 
-Use `shimmer-duration-<number>` to set the duration of one sweep in milliseconds. The default is `2000`, i.e. `2s`.
+Pakai `shimmer-duration-<angka>` untuk menentukan lama satu sapuan dalam milidetik. Bawaannya `2000`, alias `2s`.
 
 ::component-preview
 ---
@@ -81,9 +81,9 @@ name: ShimmerDurationDemo
 ::
 
 
-## Spread
+## Lebar Kilat
 
-Use `shimmer-spread-<number>` to set the width of the highlight band using the spacing scale. The default is `calc(3ch + 40px)`: a fixed base plus a `3ch` term that scales with the font size.
+Pakai `shimmer-spread-<angka>` untuk menentukan lebar pita kilatnya memakai skala spacing. Bawaannya `calc(3ch + 40px)` — nilai dasar tetap ditambah bagian `3ch` yang ikut membesar bersama ukuran font.
 
 ::component-preview
 ---
@@ -91,16 +91,16 @@ name: ShimmerSpreadDemo
 ---
 ::
 
-For one-off values, use an arbitrary length or percentage:
+Untuk nilai sekali pakai, gunakan panjang atau persentase bebas:
 
 ```tsx
 <p class="shimmer shimmer-spread-[5rem]">Generating response&hellip;</p>
 ```
 
 
-## Angle
+## Kemiringan
 
-Use `shimmer-angle-<number>` to set the tilt of the highlight band in degrees. The default is `20`.
+Pakai `shimmer-angle-<angka>` untuk menentukan kemiringan pita kilatnya dalam derajat. Bawaannya `20`.
 
 ::component-preview
 ---
@@ -109,14 +109,14 @@ name: ShimmerAngleDemo
 ::
 
 
-## Reverse
+## Arah Berlawanan
 
-Use `shimmer-reverse` to sweep the highlight in the opposite direction. In RTL layouts the sweep already follows the reading direction. See [RTL](#rtl).
+Pakai `shimmer-reverse` untuk menyapukan kilatnya ke arah sebaliknya. Pada tata letak RTL, sapuannya memang sudah mengikuti arah baca. Lihat [RTL](#rtl).
 
 
-## Play Once
+## Sekali Jalan
 
-Use `shimmer-once` to play a single sweep instead of looping, useful as a reveal when streaming completes. Pair it with `shimmer-duration-<number>` to control how long the sweep takes.
+Pakai `shimmer-once` supaya kilatnya menyapu sekali saja, bukan berulang — berguna sebagai penanda saat proses streaming selesai. Padukan dengan `shimmer-duration-<angka>` untuk mengatur lama sapuannya.
 
 ::component-preview
 ---
@@ -125,9 +125,9 @@ name: ShimmerPlayOnceDemo
 ::
 
 
-## Disabling the Shimmer
+## Mematikan Efek Shimmer
 
-Use `shimmer-none` to turn the effect off and render the text normally. It works in any class order, so the typical use is responsive or stateful:
+Pakai `shimmer-none` untuk mematikan efeknya dan menampilkan teks seperti biasa. Urutan class-nya tidak berpengaruh, jadi biasanya dipakai secara responsif atau bergantung state:
 
 ::component-preview
 ---
@@ -136,9 +136,9 @@ name: ShimmerDisablingDemo
 ::
 
 
-## Fallback
+## Kalau Browser Belum Mendukung
 
-The shimmer is built on modern color features, [relative color syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_colors/Relative_colors) and `color-mix()`, which are available in all current browsers. In older browsers without support, the highlight gradient is dropped and the text can render transparent. If you target older browsers, apply `shimmer` conditionally with a `supports-*` variant:
+Efek shimmer dibangun di atas fitur warna modern — [relative color syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_colors/Relative_colors) dan `color-mix()` — yang sudah tersedia di semua browser terkini. Di browser lama yang belum mendukungnya, gradasi kilatnya dilepas dan teksnya bisa tampil transparan. Kalau Anda menyasar browser lama, pasang `shimmer` secara bersyarat lewat varian `supports-*`:
 
 ```vue
 <p class="supports-[color:oklch(from_white_l_c_h)]:shimmer">
@@ -147,14 +147,14 @@ The shimmer is built on modern color features, [relative color syntax](https://d
 ```
 
 
-## Reduced Motion
+## Saat Pengguna Membatasi Animasi
 
-When the user prefers reduced motion, the animation is disabled automatically and the text renders normally. There is nothing to configure.
+Kalau pengguna memilih membatasi animasi, efeknya otomatis dimatikan dan teksnya tampil seperti biasa. Tidak ada yang perlu Anda atur.
 
 
 ## RTL
 
-The sweep follows the reading direction, left to right in LTR and right to left in RTL, with no extra classes. Use `shimmer-reverse` to flip the direction manually.
+Sapuannya mengikuti arah baca — kiri ke kanan pada LTR, kanan ke kiri pada RTL — tanpa class tambahan. Pakai `shimmer-reverse` kalau ingin membalik arahnya secara manual.
 
 ::component-preview
 ---

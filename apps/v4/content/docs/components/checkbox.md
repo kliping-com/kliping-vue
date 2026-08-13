@@ -1,6 +1,6 @@
 ---
 title: Checkbox
-description: A control that allows the user to toggle between checked and not checked.
+description: Kontrol yang memungkinkan pengguna berpindah antara tercentang dan tidak.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/checkbox
@@ -10,11 +10,11 @@ links:
 ::component-preview
 ---
 name: CheckboxDemo
-description: A checkbox
+description: Sebuah checkbox.
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -41,7 +41,7 @@ npx shadcn-vue@latest add checkbox
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -49,18 +49,18 @@ npx shadcn-vue@latest add checkbox
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/checkbox) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/checkbox) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">

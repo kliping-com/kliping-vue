@@ -1,6 +1,6 @@
 ---
 title: Bubble
-description: Displays conversational content in a message bubble. Supports variants, alignment, grouping, reactions, and collapsible content.
+description: Menampilkan isi percakapan dalam gelembung pesan. Mendukung varian, perataan, pengelompokan, reaksi, dan konten yang bisa dilipat.
 component: true
 ---
 
@@ -11,12 +11,12 @@ previewClass: h-auto theme-blue
 ---
 ::
 
-The `Bubble` component displays framed conversational content. Use it for chat text, short structured output, quoted replies, suggestions, and reactions.
+Komponen `Bubble` menampilkan isi percakapan dalam bingkai. Cocok untuk teks chat, keluaran terstruktur singkat, balasan berkutip, saran, dan reaksi.
 
-For full-featured chat interfaces, use the [`Message`](/docs/components/message) component. `Bubble` is intentionally scoped to the bubble surface. Place avatars, names, timestamps, metadata, and message-level actions in [`Message`](/docs/components/message).
+Untuk antarmuka chat yang lengkap, pakai komponen [`Message`](/docs/components/message). `Bubble` memang sengaja dibatasi pada badan gelembungnya saja. Avatar, nama, waktu, metadata, dan aksi tingkat pesan diletakkan di [`Message`](/docs/components/message).
 
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -43,18 +43,18 @@ npx shadcn-vue@latest add bubble
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/bubble) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/bubble) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -73,9 +73,9 @@ import { Bubble, BubbleContent, BubbleReactions } from '@/components/ui/bubble'
 </template>
 ```
 
-## Composition
+## Komposisi
 
-Use the following composition to build a bubble:
+Susunan berikut adalah cara membangun sebuah bubble:
 
 ```text
 Bubble
@@ -83,7 +83,7 @@ Bubble
 └── BubbleReactions
 ```
 
-Use `BubbleGroup` to group consecutive bubbles from the same sender:
+Pakai `BubbleGroup` untuk mengelompokkan bubble berurutan dari pengirim yang sama:
 
 ```text
 BubbleGroup
@@ -93,20 +93,20 @@ BubbleGroup
     └── BubbleContent
 ```
 
-## Features
+## Fitur
 
-- Seven visual variants, from a strong primary bubble to unframed ghost content
-- Start and end alignment for sender and receiver bubbles
-- Reactions that anchor to the bubble edge with configurable side and alignment
-- Bubbles size to their content, up to 80% of the container width
-- Polymorphic content via `as` or `as-child` for link and button bubbles
-- Customizable styling through the `class` prop on every part
+- Tujuh varian tampilan, dari bubble primary yang tegas sampai konten ghost tanpa bingkai.
+- Perataan awal dan akhir untuk bubble pengirim dan penerima.
+- Reaksi yang menempel di tepi bubble, dengan sisi dan perataan yang bisa diatur.
+- Ukuran bubble menyesuaikan isinya, maksimal 80% dari lebar container.
+- Konten polimorfik lewat `as` atau `as-child` untuk bubble berupa tautan dan tombol.
+- Style tiap bagian bisa disesuaikan lewat prop `class`.
 
-## Examples
+## Contoh
 
-### Variants
+### Varian
 
-Use `variant` to change the visual treatment of the bubble.
+Pakai `variant` untuk mengubah tampilan bubble.
 
 ::component-preview
 ---
@@ -125,11 +125,11 @@ previewClass: h-auto theme-blue
 | `ghost`       | Unframed content for assistant text or rich content.   |
 | `destructive` | A destructive bubble for error or failed actions.      |
 
-A bubble sizes to its content, up to 80% of the container width. The `ghost` variant removes the max-width so assistant text and rich content can span the full row.
+Ukuran bubble menyesuaikan isinya, maksimal 80% dari lebar container. Varian `ghost` melepas batas lebar itu, sehingga teks asisten dan konten kaya bisa memenuhi satu baris penuh.
 
-### Alignment
+### Perataan
 
-Use `align` on `Bubble` to align the bubble to the start or end of the conversation.
+Pakai `align` pada `Bubble` untuk menaruhnya di sisi awal atau akhir percakapan.
 
 ::component-preview
 ---
@@ -143,11 +143,11 @@ previewClass: h-auto theme-blue
 | `start` | Align the bubble to the start of the conversation. |
 | `end`   | Align the bubble to the end of the conversation.   |
 
-**Note:** When building chat interfaces, you probably want to set `align` on the `Message` component itself. Bubbles inside `MessageContent` automatically follow the message alignment.
+**Catatan:** saat membangun antarmuka chat, `align` biasanya lebih tepat diatur di komponen `Message`. Bubble di dalam `MessageContent` otomatis mengikuti perataan pesannya.
 
 ### Bubble Group
 
-Use `BubbleGroup` to group consecutive bubbles from the same sender. Note the `align` prop should be set on the `Bubble` component itself, not the `BubbleGroup` component.
+Pakai `BubbleGroup` untuk mengelompokkan bubble berurutan dari pengirim yang sama. Perlu dicatat, prop `align` diatur pada komponen `Bubble`, bukan pada `BubbleGroup`.
 
 ```text
 BubbleGroup
@@ -164,9 +164,9 @@ previewClass: h-auto theme-blue
 ---
 ::
 
-### Links and Buttons
+### Tautan dan Tombol
 
-Use `as-child` to merge `BubbleContent` styling and attributes onto a link or button passed through its default slot.
+Pakai `as-child` untuk menggabungkan style dan atribut `BubbleContent` ke tautan atau tombol yang Anda taruh di slot bawaannya.
 
 ::component-preview
 ---
@@ -191,7 +191,7 @@ import { Bubble, BubbleContent } from '@/components/ui/bubble'
 
 ### Reactions
 
-Use `BubbleReactions` for bubble reactions. You can use it to display reactions or quick action buttons. Use `side` and `align` to position the row — `side="top"` anchors it to the upper edge. Reactions overlap the bubble edge, so leave vertical space between rows — the examples below use a larger `gap` for this reason.
+Pakai `BubbleReactions` untuk menampilkan reaksi pada bubble, atau tombol aksi cepat. Posisinya diatur lewat `side` dan `align` — `side="top"` menempelkannya di tepi atas. Karena reaksi menumpuk di tepi bubble, sisakan jarak vertikal antar baris; contoh di bawah memakai `gap` yang lebih besar untuk alasan itu.
 
 ::component-preview
 ---
@@ -200,9 +200,9 @@ previewClass: h-auto theme-blue
 ---
 ::
 
-### Show More / Collapsible
+### Tampilkan Selengkapnya
 
-Long bubble content can be composed with [`Collapsible`](/docs/components/collapsible) to allow for a show more or show less interaction. Use the `CollapsibleTrigger` component to trigger the collapsible content.
+Isi bubble yang panjang bisa dipadukan dengan [`Collapsible`](/docs/components/collapsible) agar bisa dibuka dan ditutup. Pakai komponen `CollapsibleTrigger` sebagai pemicunya.
 
 ::component-preview
 ---
@@ -213,7 +213,7 @@ previewClass: h-auto theme-blue
 
 ### Tooltip
 
-Wrap a bubble in a [`Tooltip`](/docs/components/tooltip) to reveal metadata on hover, such as when a message was read.
+Bungkus bubble dengan [`Tooltip`](/docs/components/tooltip) untuk memunculkan metadata saat di-hover, misalnya kapan pesan itu dibaca.
 
 ::component-preview
 ---
@@ -224,7 +224,7 @@ previewClass: h-auto theme-blue
 
 ### Popover
 
-Pair a bubble with a [`Popover`](/docs/components/popover) to surface more information on demand, such as the full error message for a failed action.
+Padukan bubble dengan [`Popover`](/docs/components/popover) untuk memunculkan keterangan tambahan saat diminta, misalnya pesan error lengkap dari aksi yang gagal.
 
 ::component-preview
 ---
@@ -233,13 +233,13 @@ previewClass: h-auto theme-blue
 ---
 ::
 
-## Accessibility
+## Aksesibilitas
 
-`Bubble` renders the presentational message surface. Keep conversation-level semantics on the surrounding container and follow the guidelines below.
+`Bubble` hanya menampilkan badan pesannya. Makna di tingkat percakapan sebaiknya tetap dipegang container di sekelilingnya. Ikuti panduan di bawah ini.
 
-### Labeling Reactions
+### Memberi Label pada Reaksi
 
-Reactions render as a row of emoji. A screen reader reads each glyph with no context, and counters like `+8` are announced as "plus eight". Group the row as a single image with a descriptive `aria-label` so it announces once. `role="img"` also hides the individual emoji from assistive tech, so no `aria-hidden` is needed.
+Reaksi ditampilkan sebagai deretan emoji. Pembaca layar membacakan tiap emoji tanpa konteks, dan penghitung seperti `+8` dibaca sebagai "plus delapan". Jadikan deretan itu satu gambar utuh dengan `aria-label` yang jelas supaya dibacakan sekali saja. `role="img"` sekaligus menyembunyikan emoji satu per satu dari teknologi bantu, jadi `aria-hidden` tidak diperlukan.
 
 ```vue showLineNumbers
 <BubbleReactions role="img" aria-label="Reactions: thumbs up, fire, and 8 more">
@@ -249,7 +249,7 @@ Reactions render as a row of emoji. A screen reader reads each glyph with no con
 </BubbleReactions>
 ```
 
-When reactions are interactive, render buttons instead and give icon-only buttons an `aria-label`.
+Kalau reaksinya bisa diklik, tampilkan sebagai tombol, dan beri `aria-label` pada tombol yang hanya berupa ikon.
 
 ```vue showLineNumbers
 <BubbleReactions>
@@ -259,9 +259,9 @@ When reactions are interactive, render buttons instead and give icon-only button
 </BubbleReactions>
 ```
 
-### Interactive Bubbles
+### Bubble yang Interaktif
 
-When a bubble is clickable, pass a real `<button>` or `<a>` through `BubbleContent` with `as-child` so it is focusable and exposes the correct role. `BubbleContent` ships a visible focus ring for interactive elements, and the accessible name comes from the bubble text. No extra label is needed.
+Kalau bubble bisa diklik, teruskan elemen `<button>` atau `<a>` sungguhan lewat `BubbleContent` dengan `as-child`, supaya bisa di-focus dan punya role yang benar. `BubbleContent` sudah menyediakan cincin focus yang terlihat untuk elemen interaktif, dan nama aksesibelnya diambil dari teks bubble — tidak perlu label tambahan.
 
 ```vue showLineNumbers
 <Bubble variant="muted" align="end">
@@ -273,17 +273,17 @@ When a bubble is clickable, pass a real `<button>` or `<a>` through `BubbleConte
 </Bubble>
 ```
 
-### Meaning Beyond Color
+### Makna yang Tidak Bergantung Warna
 
-Bubble variants signal role and tone with color. Pair them with text, alignment, or icons so meaning is not conveyed by color alone. For a `destructive` bubble, keep the error context in the message text rather than relying on the color treatment.
+Varian bubble menandakan peran dan nada lewat warna. Padukan dengan teks, perataan, atau ikon supaya maknanya tidak bergantung pada warna semata. Untuk bubble `destructive`, jelaskan konteks error-nya di dalam teks pesan, bukan mengandalkan warnanya.
 
-## API Reference
+## Referensi API
 
-All Bubble parts render a `<div>` by default. Use `as` to choose another element, or `as-child` to merge the component's attributes and styles onto the single element or component in its default slot.
+Semua bagian Bubble menghasilkan `<div>` secara bawaan. Pakai `as` untuk memilih elemen lain, atau `as-child` untuk menggabungkan atribut dan style komponen ke satu elemen atau komponen di dalam slot bawaannya.
 
 ### Bubble
 
-The root bubble wrapper.
+Pembungkus terluar bubble.
 
 | Prop       | Type                                                                                       | Default     | Description                                                     |
 | ---------- | ------------------------------------------------------------------------------------------ | ----------- | --------------------------------------------------------------- |
@@ -295,7 +295,7 @@ The root bubble wrapper.
 
 ### BubbleContent
 
-The bubble content wrapper.
+Pembungkus isi bubble.
 
 | Prop       | Type                 | Default | Description                                                  |
 | ---------- | -------------------- | ------- | ------------------------------------------------------------ |
@@ -305,7 +305,7 @@ The bubble content wrapper.
 
 ### BubbleReactions
 
-Displays overlapped reactions for a bubble.
+Menampilkan reaksi yang menumpuk di tepi bubble.
 
 | Prop       | Type                 | Default    | Description                                                  |
 | ---------- | -------------------- | ---------- | ------------------------------------------------------------ |
@@ -317,7 +317,7 @@ Displays overlapped reactions for a bubble.
 
 ### BubbleGroup
 
-Groups consecutive bubbles from the same sender.
+Mengelompokkan bubble berurutan dari pengirim yang sama.
 
 | Prop       | Type                 | Default | Description                                                  |
 | ---------- | -------------------- | ------- | ------------------------------------------------------------ |

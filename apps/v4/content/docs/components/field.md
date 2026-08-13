@@ -1,6 +1,6 @@
 ---
 title: Field
-description: Combine labels, controls, and help text to compose accessible form fields and grouped inputs.
+description: Menggabungkan label, kontrol, dan teks bantuan menjadi satu baris form yang mudah diakses.
 component: true
 ---
 
@@ -11,13 +11,13 @@ class: '[&_.preview]:h-[800px] [&_.preview]:p-6 md:[&_.preview]:h-[850px]'
 ---
 ::
 
-## Installation
+## Instalasi
 
 ```bash
 npx shadcn-vue@latest add field
 ```
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -65,9 +65,9 @@ import {
 </template>
 ```
 
-## Anatomy
+## Anatomi
 
-The `Field` family is designed for composing accessible forms. A typical field is structured as follows:
+Keluarga komponen `Field` dirancang untuk menyusun form yang mudah diakses. Susunan satu field pada umumnya seperti ini:
 
 ```vue showLineNumbers
 <template>
@@ -82,11 +82,11 @@ The `Field` family is designed for composing accessible forms. A typical field i
 </template>
 ```
 
-- `Field` is the core wrapper for a single field.
-- `FieldContent` is a flex column that groups label and description. Not required if you have no description.
-- Wrap related fields with `FieldGroup`, and use `FieldSet` with `FieldLegend` for semantic grouping.
+- `Field` adalah pembungkus inti untuk satu field.
+- `FieldContent` adalah kolom flex yang menyatukan label dan keterangan. Tidak perlu dipakai kalau field Anda tanpa keterangan.
+- Bungkus field-field yang berkaitan dengan `FieldGroup`, dan pakai `FieldSet` bersama `FieldLegend` untuk pengelompokan yang bermakna.
 
-## Examples
+## Contoh
 
 ### Input
 
@@ -160,9 +160,9 @@ class: '!mb-4 [&_.preview]:p-6'
 ---
 ::
 
-### Choice Card
+### Kartu Pilihan
 
-Wrap `Field` components inside `FieldLabel` to create selectable field groups. This works with `RadioItem`, `Checkbox` and `Switch` components.
+Bungkus komponen `Field` di dalam `FieldLabel` untuk membuat kelompok field yang bisa dipilih. Cara ini berlaku untuk komponen `RadioItem`, `Checkbox`, dan `Switch`.
 
 ::component-preview
 ---
@@ -173,7 +173,7 @@ class: '!mb-4 [&_.preview]:p-6'
 
 ### Field Group
 
-Stack `Field` components with `FieldGroup`. Add `FieldSeparator` to divide them.
+Tumpuk komponen `Field` memakai `FieldGroup`. Tambahkan `FieldSeparator` untuk memisahkannya.
 
 ::component-preview
 ---
@@ -182,13 +182,13 @@ class: '!mb-4 [&_.preview]:p-6'
 ---
 ::
 
-## Responsive Layout
+## Tata Letak Responsif
 
-If you are in tailwindcss v3 you need to install [`@tailwindcss/container-queries`](https://github.com/tailwindlabs/tailwindcss-container-queries)
+Kalau Anda memakai Tailwind CSS v3, Anda perlu memasang [`@tailwindcss/container-queries`](https://github.com/tailwindlabs/tailwindcss-container-queries).
 
-- **Vertical fields:** Default orientation stacks label, control, and helper text—ideal for mobile-first layouts.
-- **Horizontal fields:** Set `orientation="horizontal"` on `Field` to align the label and control side-by-side. Pair with `FieldContent` to keep descriptions aligned.
-- **Responsive fields:** Set `orientation="responsive"` for automatic column layouts inside container-aware parents. Apply `@container/field-group` classes on `FieldGroup` to switch orientations at specific breakpoints.
+- **Field tegak:** orientasi bawaan menumpuk label, kontrol, dan teks bantuan — cocok untuk tata letak yang mengutamakan mobile.
+- **Field mendatar:** isi `orientation="horizontal"` pada `Field` agar label dan kontrolnya bersebelahan. Padukan dengan `FieldContent` supaya keterangannya tetap sejajar.
+- **Field responsif:** isi `orientation="responsive"` agar susunan kolomnya menyesuaikan otomatis di dalam induk yang sadar ukuran container. Pakai class `@container/field-group` pada `FieldGroup` untuk berganti orientasi di breakpoint tertentu.
 
 ::component-preview
 ---
@@ -197,11 +197,11 @@ class: '!mb-4 [&_.preview]:h-[650px] [&_.preview]:p-6 [&_.preview]:md:h-[500px] 
 ---
 ::
 
-## Validation and Errors
+## Validasi dan Pesan Error
 
-- Add `data-invalid` to `Field` to switch the entire block into an error state.
-- Add `aria-invalid` on the input itself for assistive technologies.
-- Render `FieldError` immediately after the control or inside `FieldContent` to keep error messages aligned with the field.
+- Tambahkan `data-invalid` pada `Field` untuk mengubah seluruh blok menjadi keadaan error.
+- Tambahkan `aria-invalid` pada input-nya sendiri demi teknologi bantu.
+- Tempatkan `FieldError` tepat setelah kontrolnya, atau di dalam `FieldContent`, supaya pesan error tetap sejajar dengan field-nya.
 
 ```vue showLineNumbers /data-invalid/ /aria-invalid/
 <template>
@@ -215,19 +215,19 @@ class: '!mb-4 [&_.preview]:h-[650px] [&_.preview]:p-6 [&_.preview]:md:h-[500px] 
 </template>
 ```
 
-## Accessibility
+## Aksesibilitas
 
-  - `FieldSet` and `FieldLegend` keep related controls grouped for keyboard and assistive tech users.
-  - `Field` outputs `role="group"` so nested controls inherit labeling from `FieldLabel` and `FieldLegend` when combined.
-  - Apply `FieldSeparator` sparingly to ensure screen readers encounter clear section boundaries.
+  - `FieldSet` dan `FieldLegend` menjaga kontrol yang berkaitan tetap satu kelompok bagi pengguna keyboard dan teknologi bantu.
+  - `Field` menghasilkan `role="group"`, sehingga kontrol di dalamnya mewarisi pelabelan dari `FieldLabel` dan `FieldLegend`.
+  - Pakai `FieldSeparator` seperlunya saja, supaya batas antar bagian tetap jelas terbaca pembaca layar.
 
-## API Reference
+## Referensi API
 
 ### FieldSet
 
-Container that renders a semantic `fieldset` with spacing presets.
+Wadah yang menghasilkan `fieldset` bermakna, lengkap dengan pengaturan jarak bawaan.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class` | `string` |         |
 
@@ -244,7 +244,7 @@ Container that renders a semantic `fieldset` with spacing presets.
 
 ### FieldLegend
 
-Legend element for a `FieldSet`. Switch to the `label` variant to align with label sizing.
+Elemen legend untuk sebuah `FieldSet`. Ganti ke varian `label` agar ukurannya selaras dengan label.
 
 | Prop        | Type                  | Default    |
 | ----------- | --------------------- | ---------- |
@@ -257,13 +257,13 @@ Notification Preferences
 </FieldLegend>
 ```
 
-The `FieldLegend` has two variants: `legend` and `label`. The `label` variant applies label sizing and alignment. Handy if you have nested `FieldSet`.
+`FieldLegend` punya dua varian: `legend` dan `label`. Varian `label` memakai ukuran dan perataan seperti label — berguna kalau `FieldSet` Anda bersarang.
 
 ### FieldGroup
 
-Layout wrapper that stacks `Field` components and enables container queries for responsive orientations.
+Pembungkus tata letak yang menumpuk komponen `Field` dan mengaktifkan container query untuk orientasi responsif.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class` | `string` |         |
 
@@ -278,7 +278,7 @@ Layout wrapper that stacks `Field` components and enables container queries for 
 
 ### Field
 
-The core wrapper for a single field. Provides orientation control, invalid state styling, and spacing.
+Pembungkus inti untuk satu field. Mengatur orientasi, style keadaan tidak valid, dan jarak antar elemen.
 
 | Prop           | Type                                         | Default      |
 | -------------- | -------------------------------------------- | ------------ |
@@ -295,9 +295,9 @@ The core wrapper for a single field. Provides orientation control, invalid state
 
 ### FieldContent
 
-Flex column that groups control and descriptions when the label sits beside the control. Not required if you have no description.
+Kolom flex yang menyatukan kontrol dan keterangannya saat label berada di samping kontrol. Tidak perlu dipakai kalau field Anda tanpa keterangan.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class` | `string` |         |
 
@@ -313,7 +313,7 @@ Flex column that groups control and descriptions when the label sits beside the 
 
 ### FieldLabel
 
-Label styled for both direct inputs and nested `Field` children.
+Label yang style-nya cocok baik untuk input langsung maupun `Field` yang bersarang di dalamnya.
 
 | Prop        | Type      | Default |
 | ----------- | --------- | ------- |
@@ -328,9 +328,9 @@ Email
 
 ### FieldTitle
 
-Renders a title with label styling inside `FieldContent`.
+Menampilkan judul bergaya label di dalam `FieldContent`.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class` | `string` |         |
 
@@ -343,9 +343,9 @@ Renders a title with label styling inside `FieldContent`.
 
 ### FieldDescription
 
-Helper text slot that automatically balances long lines in horizontal layouts.
+Slot teks bantuan yang otomatis menyeimbangkan baris panjang pada tata letak mendatar.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class` | `string` |         |
 
@@ -357,9 +357,9 @@ We never share your email with anyone.
 
 ### FieldSeparator
 
-Visual divider to separate sections inside a `FieldGroup`. Accepts optional inline content.
+Pembatas visual antar bagian di dalam `FieldGroup`. Bisa diisi konten sebaris kalau perlu.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class` | `string` |         |
 
@@ -371,7 +371,7 @@ Or continue with
 
 ### FieldError
 
-Accessible error container that accepts children or an `errors` array (e.g., from `vee-validate`).
+Wadah pesan error yang mudah diakses. Bisa diisi langsung, atau menerima array `errors` — misalnya dari `vee-validate`.
 
 | Prop        | Type                                       | Default |
 | ----------- | ------------------------------------------ | ------- |
@@ -382,6 +382,6 @@ Accessible error container that accepts children or an `errors` array (e.g., fro
 <FieldError :errors="errors.username" />
 ```
 
-When the `errors` array contains multiple messages, the component renders a list automatically.
+Kalau array `errors` memuat lebih dari satu pesan, komponen ini otomatis menampilkannya sebagai daftar.
 
-`FieldError` also accepts issues produced by any validator that implements [Standard Schema](https://standardschema.dev/), including Zod, Valibot, and ArkType. Pass the `issues` array from the schema result directly to render a unified error list across libraries.
+`FieldError` juga menerima issue dari validator mana pun yang menerapkan [Standard Schema](https://standardschema.dev/), termasuk Zod, Valibot, dan ArkType. Teruskan array `issues` dari hasil validasi skema untuk menampilkan daftar error yang seragam lintas library.

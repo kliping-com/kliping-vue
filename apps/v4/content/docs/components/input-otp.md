@@ -1,6 +1,6 @@
 ---
 title: Input OTP
-description: Accessible one-time password component with copy paste functionality.
+description: Komponen kode sekali pakai yang mudah diakses, lengkap dengan dukungan salin-tempel.
 component: true
 links:
   doc: https://vue-input-otp.vercel.app/
@@ -9,11 +9,11 @@ links:
 ::component-preview
 ---
 name: InputOTPDemo
-description: An input OTP component.
+description: Komponen input OTP.
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -40,7 +40,7 @@ npx shadcn-vue@latest add input-otp
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -48,18 +48,18 @@ npx shadcn-vue@latest add input-otp
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/input-otp) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/input-otp) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -88,16 +88,16 @@ import {
 </template>
 ```
 
-## Examples
+## Contoh
 
-### Pattern
+### Pola
 
-Use the `pattern` prop to define a custom pattern for the OTP input.
+Pakai prop `pattern` untuk menentukan pola kustom pada input OTP.
 
 ::component-preview
 ---
 name: InputOTPPatternDemo
-description: An input OTP component with a custom pattern.
+description: Komponen input OTP dengan pola kustom.
 ---
 ::
 
@@ -121,12 +121,12 @@ import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'vue-input-otp'
 ```
 
 ### Separator
-You can use the `<InputOTPSeparator />` component to add a separator between the input groups.
+Pakai komponen `<InputOTPSeparator />` untuk menyisipkan pemisah di antara kelompok input.
 
 ::component-preview
 ---
 name: InputOTPSeparatorDemo
-description: An input OTP component with a separator.
+description: Komponen input OTP dengan pemisah.
 ---
 ::
 
@@ -156,23 +156,23 @@ import {
 </template>
 ```
 
-### Controlled
-You can use the `v-model` directive to control the input value.
+### Dikendalikan dari Luar
+Pakai direktif `v-model` untuk mengendalikan nilai input dari luar.
 
 ::component-preview
 ---
 name: InputOTPControlledDemo
-description: A controlled input OTP component.
+description: Komponen input OTP yang nilainya dikendalikan dari luar.
 ---
 ::
 
 ### Form
 
-You can use the InputOTP component within a form, for example with VeeValidate.
+Komponen InputOTP bisa dipakai di dalam form, misalnya bersama VeeValidate.
 
 ::component-preview
 ---
 name: InputOTPFormDemo
-description: An input OTP component used within a form.
+description: Komponen input OTP yang dipakai di dalam form.
 ---
 ::

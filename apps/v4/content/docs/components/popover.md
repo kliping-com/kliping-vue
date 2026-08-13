@@ -1,6 +1,6 @@
 ---
 title: Popover
-description: Displays rich content in a portal, triggered by a button.
+description: Menampilkan konten kaya di dalam portal, dipicu lewat sebuah tombol.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/popover
@@ -10,11 +10,11 @@ links:
 ::component-preview
 ---
 name: PopoverDemo
-description: A popover component.
+description: Komponen popover.
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -41,7 +41,7 @@ npx shadcn-vue@latest add popover
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -49,18 +49,18 @@ npx shadcn-vue@latest add popover
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/popover) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/popover) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">

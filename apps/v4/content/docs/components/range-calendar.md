@@ -1,6 +1,6 @@
 ---
 title: Range Calendar
-description: Presents a calendar view tailored for selecting date ranges.
+description: Tampilan kalender yang dirancang khusus untuk memilih rentang tanggal.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/range-calendar
@@ -13,13 +13,13 @@ name: CalendarRangeDemo
 ---
 ::
 
-## About
+## Tentang
 
-The `<RangeCalendar />` component is built on top of the [Reka UI Range Calendar](https://www.reka-ui.com/docs/components/date-range-picker.html) component, which uses the [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/index.html) package to handle dates.
+Komponen `<RangeCalendar />` dibangun di atas [Range Calendar milik Reka UI](https://www.reka-ui.com/docs/components/date-range-picker.html), yang memakai paket [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/index.html) untuk mengurus tanggal.
 
-If you're looking for a normal calendar, check out the [Calendar](./calendar.md) component.
+Kalau yang Anda butuhkan kalender biasa, lihat komponen [Calendar](./calendar.md).
 
-## Installation
+## Instalasi
 :::::code-tabs
 
 :::tabs-list
@@ -45,7 +45,7 @@ npx shadcn-vue@latest add range-calendar
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -53,18 +53,18 @@ npx shadcn-vue@latest add range-calendar
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/range-calendar) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/range-calendar) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 ```vue
 <script setup lang="ts">
 import { RangeCalendar } from "@/components/ui/range-calendar";

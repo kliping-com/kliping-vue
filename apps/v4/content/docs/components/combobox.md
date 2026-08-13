@@ -1,6 +1,6 @@
 ---
 title: Combobox
-description: Autocomplete input and command palette with a list of suggestions.
+description: Isian dengan pelengkapan otomatis dan command palette berisi daftar saran.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/combobox
@@ -10,16 +10,16 @@ links:
 ::component-preview
 ---
 name: ComboboxDemo
-description: A combobox with a list of frameworks.
+description: Combobox berisi daftar framework.
 ---
 ::
 
-A combobox can be built in two ways:
+Combobox bisa dibangun lewat dua cara:
 
-- Using the `Combobox` components, built on top of the [Reka UI Combobox](https://reka-ui.com/docs/components/combobox).
-- Composing the `Popover` and the `Command` components as a listbox.
+- Memakai komponen `Combobox`, yang dibangun di atas [Combobox milik Reka UI](https://reka-ui.com/docs/components/combobox).
+- Memadukan komponen `Popover` dan `Command` menjadi sebuah listbox.
 
-## Installation
+## Instalasi
 
 ### Combobox
 
@@ -48,7 +48,7 @@ npx shadcn-vue@latest add combobox
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -56,11 +56,11 @@ npx shadcn-vue@latest add combobox
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/combobox) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/combobox) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
@@ -68,13 +68,13 @@ npx shadcn-vue@latest add combobox
 :::::
 
 
-### Popover and Command
+### Popover dan Command
 
-The listbox variant is built using a composition of the `Popover` and the `Command` components.
+Varian listbox dibangun dari perpaduan komponen `Popover` dan `Command`.
 
-See installation instructions for the [Popover](/docs/components/popover#installation) and the [Command](/docs/components/command#installation) components.
+Ikuti langkah pemasangan komponen [Popover](/docs/components/popover#instalasi) dan [Command](/docs/components/command#instalasi) terlebih dahulu.
 
-## Usage
+## Penggunaan
 
 ### Combobox
 
@@ -137,7 +137,7 @@ const selectedFramework = ref<(typeof frameworks)[number]>()
 </template>
 ```
 
-### Popover and Command
+### Popover dan Command
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -219,48 +219,48 @@ const value = ref('')
 </template>
 ```
 
-## Examples
+## Contoh
 
 ### User
 
-A combobox with custom item rendering and an action item.
+Combobox dengan tampilan item kustom dan satu item aksi.
 
 ::component-preview
 ---
 name: ComboboxUserDemo
-description: A combobox with a list of users.
+description: Combobox berisi daftar pengguna.
 ---
 ::
 
-### Timezone
+### Zona Waktu
 
-A combobox with grouped items and a scrollable viewport.
+Combobox dengan item berkelompok dan area yang bisa digulir.
 
 ::component-preview
 ---
 name: ComboboxTimezoneDemo
-description: A combobox with a list of timezones.
+description: Combobox berisi daftar zona waktu.
 ---
 ::
 
-### Multiple
+### Pilihan Ganda
 
-A combobox with multiple selection.
+Combobox yang bisa memilih lebih dari satu.
 
 ::component-preview
 ---
 name: ComboboxMultipleDemo
-description: A combobox with multiple selection.
+description: Combobox yang bisa memilih lebih dari satu.
 ---
 ::
 
-### With Listbox
+### Dengan Listbox
 
-A combobox built with the `Popover` and the `Command` components.
+Combobox yang dibangun dari komponen `Popover` dan `Command`.
 
 ::component-preview
 ---
 name: ComboboxWithListboxDemo
-description: A combobox built with the Popover and Command components.
+description: Combobox yang dibangun dari komponen Popover dan Command.
 ---
 ::

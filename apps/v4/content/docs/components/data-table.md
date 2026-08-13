@@ -1,63 +1,59 @@
 ---
 title: Data Table
-description: Powerful table and datagrids built using TanStack Table.
+description: Tabel dan datagrid bertenaga, dibangun memakai TanStack Table.
 component: true
 ---
 
 ::component-preview
 ---
 name: DataTableDemo
-description: A data table with sorting, filtering, and pagination.
+description: Data table dengan pengurutan, penyaringan, dan navigasi halaman.
 align: start
 previewClass: items-start h-auto px-4 md:px-8
 ---
 ::
 
-::vue-school-link{class="mt-6" lesson="data-tables-and-sonner-in-shadcn-vue" placement="top"}
-Watch a Vue School video about data tables in shadcn-vue.
-::
+## Pengantar
 
-## Introduction
+Setiap data table atau datagrid yang pernah dibuat selalu punya kebutuhan berbeda: perilakunya lain, aturan pengurutan dan penyaringannya khas, dan sumber datanya pun beragam.
 
-Every data table or datagrid I've created has been unique. They all behave differently, have specific sorting and filtering requirements, and work with different data sources.
+Menyatukan semua variasi itu ke dalam satu komponen justru tidak masuk akal. Kalau dipaksakan, keluwesan yang ditawarkan [headless UI](https://tanstack.com/table/latest/docs/introduction#what-is-headless-ui) malah hilang.
 
-It doesn't make sense to combine all of these variations into a single component. If we do that, we'll lose the flexibility that [headless UI](https://tanstack.com/table/latest/docs/introduction#what-is-headless-ui) provides.
+Jadi alih-alih menyediakan komponen data table jadi, halaman ini berisi panduan membangun data table Anda sendiri.
 
-So instead of a data-table component, I thought it would be more helpful to provide a guide on how to build your own.
-
-We'll start with the basic `<Table />` component and build a complex data table from scratch.
+Kita mulai dari komponen `<Table />` yang sederhana, lalu membangun data table yang rumit dari nol.
 
 ::callout{class="mt-4"}
 
-**Tip:** If you find yourself using the same table in multiple places in your app, you can always extract it into a reusable component.
+**Tips:** kalau tabel yang sama Anda pakai di beberapa tempat, pisahkan saja menjadi komponen yang bisa dipakai ulang.
 
 ::
 
-## Table of Contents
+## Daftar Isi
 
-This guide will show you how to use [TanStack Table](https://tanstack.com/table) and the `<Table />` component to build your own custom data table. We'll cover the following topics:
+Panduan ini menunjukkan cara memakai [TanStack Table](https://tanstack.com/table) bersama komponen `<Table />` untuk membangun data table Anda sendiri. Yang akan kita bahas:
 
-- [Set up Table Features](#set-up-table-features)
-- [Basic Table](#basic-table)
-- [Row Actions](#row-actions)
-- [Pagination](#pagination)
-- [Sorting](#sorting)
-- [Filtering](#filtering)
-- [Visibility](#visibility)
-- [Row Selection](#row-selection)
-- [Expanding](#expanding)
-- [Reusable Components](#reusable-components)
+- [Menyiapkan fitur tabel](#menyiapkan-fitur-tabel)
+- [Tabel dasar](#tabel-dasar)
+- [Aksi per baris](#aksi-per-baris)
+- [Navigasi halaman](#navigasi-halaman)
+- [Pengurutan](#pengurutan)
+- [Penyaringan](#penyaringan)
+- [Visibilitas kolom](#visibilitas-kolom)
+- [Pemilihan baris](#pemilihan-baris)
+- [Baris yang bisa dibuka](#baris-yang-bisa-dibuka)
+- [Komponen pakai-ulang](#komponen-pakai-ulang)
 
 
-## Installation
+## Instalasi
 
-1. Add the `<Table />` component to your project:
+1. Tambahkan komponen `<Table />` ke project Anda:
 
 ```bash
 npx shadcn-vue@latest add table
 ```
 
-2. Add the `@tanstack/vue-table` dependency. This guide uses **TanStack Table v9**:
+2. Pasang dependensi `@tanstack/vue-table`. Panduan ini memakai **TanStack Table v9**:
 
 ```bash
 npm install @tanstack/vue-table
@@ -65,9 +61,9 @@ npm install @tanstack/vue-table
 
 
 
-## Prerequisites
+## Persiapan
 
-We are going to build a table to show recent payments. Here's what our data looks like:
+Kita akan membangun tabel yang menampilkan pembayaran terbaru. Bentuk datanya seperti ini:
 
 ```ts showLineNumbers
 interface Payment {
@@ -94,9 +90,9 @@ export const payments: Payment[] = [
 ]
 ```
 
-## Project Structure
+## Struktur Berkas
 
-Start by creating the following file structure:
+Mulai dengan membuat susunan berkas berikut:
 
 ```ansi
  components
@@ -108,19 +104,19 @@ Start by creating the following file structure:
 └── app.vue
 ```
 
-I'm using a Nuxt example here but this works for any other Vue framework.
+Contoh di sini memakai Nuxt, tapi caranya berlaku untuk framework Vue mana pun.
 
-- `columns.ts` It will contain our column definitions.
-- `features.ts` It will contain the shared `features` object that tells TanStack Table which behavior to enable.
-- `data-table.vue` It will contain our `<DataTable />` component.
-- `data-table-dropdown.vue` It will contain our `<DropdownAction />` component.
-- `app.vue` This is where we'll fetch data and render our table.
+- `columns.ts` — berisi definisi kolom.
+- `features.ts` — berisi objek `features` bersama yang memberi tahu TanStack Table perilaku mana saja yang diaktifkan.
+- `data-table.vue` — berisi komponen `<DataTable />`.
+- `data-table-dropdown.vue` — berisi komponen `<DropdownAction />`.
+- `app.vue` — tempat kita mengambil data dan menampilkan tabelnya.
 
-## Set up Table Features
+## Menyiapkan Fitur Tabel
 
-TanStack Table v9 is feature-based: you opt into the behavior you want — sorting, filtering, pagination, and so on — by declaring it with `tableFeatures()`. Anything you don't register is tree-shaken out of your bundle. That includes the built-in filter and sort functions: register the ones your columns rely on under `filterFns` and `sortFns`. Our email filter uses `includesString`, and string columns sort with `alphanumeric` / `text`.
+TanStack Table v9 berbasis fitur: perilaku yang Anda inginkan — pengurutan, penyaringan, navigasi halaman, dan seterusnya — dinyatakan lewat `tableFeatures()`. Apa pun yang tidak Anda daftarkan akan dibuang dari bundle. Termasuk fungsi filter dan sort bawaannya: daftarkan yang dipakai kolom Anda di bawah `filterFns` dan `sortFns`. Filter email di sini memakai `includesString`, sedangkan kolom teks diurutkan dengan `alphanumeric` / `text`.
 
-We'll define the `features` object once in `features.ts` and share it between our column definitions and the `<DataTable />` component.
+Objek `features` kita definisikan sekali di `features.ts`, lalu dipakai bersama oleh definisi kolom dan komponen `<DataTable />`.
 
 ```ts showLineNumbers
 // components/payments/features.ts
@@ -165,19 +161,19 @@ export type DataTableFeatures = typeof features
 
 ::callout{class="mt-4"}
 
-**Note:** The core row model is always included, so you never register it yourself. Row models for optional features are created with `create*RowModel()` and registered on the features object — there are no more `get*RowModel` table options.
+**Catatan:** row model inti selalu disertakan, jadi Anda tidak perlu mendaftarkannya sendiri. Row model untuk fitur opsional dibuat lewat `create*RowModel()` dan didaftarkan pada objek features — opsi `get*RowModel` sudah tidak ada lagi.
 
 ::
 
-## Basic Table
+## Tabel Dasar
 
-Let's start by building a basic table.
+Mari mulai dengan membangun tabel sederhana.
 
 <Steps>
 
-### Column Definitions
+### Definisi Kolom
 
-First, we'll define our columns in the `columns.ts` file using a column helper typed with our features.
+Pertama, definisikan kolom-kolomnya di berkas `columns.ts` memakai column helper yang bertipe sesuai objek features kita.
 
 ```ts showLineNumbers
 // components/payments/columns.ts
@@ -211,17 +207,17 @@ export const columns = columnHelper.columns([
 
 ::callout{class="mt-4"}
 
-**Note:** Columns are where you define the core of what your table
-will look like. They define the data that will be displayed, how it will be
-formatted, sorted and filtered.
+**Catatan:** kolom adalah tempat Anda menentukan inti tampilan tabel
+Anda. Di sanalah ditentukan data apa yang ditampilkan, serta bagaimana data itu
+diformat, diurutkan, dan disaring.
 
 ::
 
-### `<DataTable />` component
+### Komponen `<DataTable />`
 
-Next, we'll create a `<DataTable />` component to render our table.
+Berikutnya, kita buat komponen `<DataTable />` untuk menampilkan tabelnya.
 
-`useTable` must be called during component setup so it can wire itself into Vue's reactivity. From there the table manages its own state: reads like `table.getRowModel()` in your template are reactive, so your markup updates automatically — no refs or change handlers required. We pass `data` and `columns` through getters so the table always reads the current prop values.
+`useTable` harus dipanggil saat setup komponen supaya bisa menyatu dengan sistem reaktivitas Vue. Setelah itu tabelnya mengurus state-nya sendiri: pembacaan seperti `table.getRowModel()` di template bersifat reaktif, jadi markup Anda otomatis ikut diperbarui — tanpa perlu ref atau handler perubahan. `data` dan `columns` kita teruskan lewat getter supaya tabel selalu membaca nilai prop terkini.
 
 ```vue
 <script setup lang="ts" generic="TData">
@@ -284,11 +280,11 @@ const table = useTable({
 </template>
 ```
 
-`<FlexRender />` takes the `header` or `cell` instance you pass it and renders whatever the column definition provides — a plain string, a render function, or a component.
+`<FlexRender />` menerima instance `header` atau `cell` yang Anda berikan, lalu menampilkan apa pun yang disediakan definisi kolomnya — teks biasa, render function, atau sebuah komponen.
 
 ::callout
 
-**Tip**: If you find yourself using `<DataTable />` in multiple places, this is the component you could make reusable by extracting it to `components/ui/data-table.vue`.
+**Tips:** kalau `<DataTable />` Anda pakai di beberapa tempat, komponen inilah yang sebaiknya dijadikan pakai-ulang dengan memindahkannya ke `components/ui/data-table.vue`.
 
 `<DataTable :columns="columns" :data="data" />`
 
@@ -296,13 +292,13 @@ const table = useTable({
 
 ::callout{class="mt-4"}
 
-**Controlled state:** because v9 owns table state internally, you won't write refs or `on*Change` handlers for most of this guide. If something outside the table needs to own a state slice (syncing filters to the URL, server-driven pagination, etc.), controlled state still exists — we'll manage the row selection slice externally in the [Row Selection](#row-selection) section. See the [migration guide](https://tanstack.com/table/latest/docs/framework/vue/guide/migrating) for details.
+**State terkendali:** karena v9 memegang state tabel secara internal, hampir sepanjang panduan ini Anda tidak perlu menulis ref atau handler `on*Change`. Kalau ada bagian di luar tabel yang perlu memegang sepotong state — misalnya menyelaraskan filter dengan URL, atau navigasi halaman dari server — state terkendali tetap tersedia. Kita akan mengelola bagian pemilihan baris dari luar di bagian [Pemilihan baris](#pemilihan-baris). Detailnya ada di [panduan migrasi](https://tanstack.com/table/latest/docs/framework/vue/guide/migrating).
 
 ::
 
-### Render the table
+### Tampilkan tabelnya
 
-Finally, we'll render our table in our index component.
+Terakhir, kita tampilkan tabelnya di komponen halaman utama.
 
 ```vue
 <script setup lang="ts">
@@ -340,15 +336,15 @@ onMounted(async () => {
 
 </Steps>
 
-## Cell Formatting
+## Memformat Isi Sel
 
-Let's format the amount cell to display the dollar amount. We'll also align the cell to the right.
+Mari format sel jumlah agar menampilkan nilai mata uang, sekaligus meratakannya ke kanan.
 
 <Steps>
 
-### Update columns definition
+### Perbarui definisi kolom
 
-Update the `header` and `cell` definitions for amount as follows:
+Perbarui definisi `header` dan `cell` untuk kolom jumlah seperti berikut:
 
 ```ts
 // components/payments/columns.ts
@@ -372,16 +368,16 @@ export const columns = columnHelper.columns([
   }),
 ])
 ```
-You can use the same approach to format other cells and headers.
+Cara yang sama bisa Anda pakai untuk memformat sel dan header lainnya.
 </Steps>
 
-## Row Actions
+## Aksi per Baris
 
-Let's add row actions to our table. We'll use a `<Dropdown />` component for this.
+Mari tambahkan aksi di tiap baris tabel. Untuk ini kita pakai komponen `<Dropdown />`.
 
 <Steps>
 
-### Add the following into your `DataTableDropDown.vue` component
+### Tambahkan kode berikut ke komponen `DataTableDropDown.vue` Anda
 
 ```vue
 <script setup lang="ts">
@@ -421,9 +417,9 @@ function copy(id: string) {
 </template>
 ```
 
-### Update columns definition
+### Perbarui definisi kolom
 
-Update our columns definition to add a new `actions` column. The `actions` cell returns a `<Dropdown />` component. Because the column doesn't read a data field, we define it with `columnHelper.display`.
+Perbarui definisi kolom untuk menambahkan kolom `actions` baru. Sel `actions` mengembalikan komponen `<Dropdown />`. Karena kolom ini tidak membaca field data mana pun, kita definisikan lewat `columnHelper.display`.
 
 ```ts
 // components/payments/columns.ts
@@ -445,23 +441,23 @@ export const columns = columnHelper.columns([
 ])
 ```
 
-You can access the row data using `row.original` in the `cell` function. Use this to handle actions for your row eg. use the `id` to make a DELETE call to your API.
+Data barisnya bisa Anda akses lewat `row.original` di dalam fungsi `cell`. Pakai itu untuk menangani aksi per baris — misalnya memakai `id` untuk memanggil DELETE ke API Anda.
 
 </Steps>
 
-## Pagination
+## Navigasi Halaman
 
-Next, we'll add pagination to our table.
+Berikutnya, kita tambahkan navigasi halaman ke tabel.
 
 <Steps>
 
-### Pagination is already enabled
+### Navigasi halaman sudah aktif
 
-Because our features object registers `rowPaginationFeature` and `createPaginatedRowModel()`, the table automatically paginates rows into pages of 10 — there's nothing to add to `useTable`. See the [pagination docs](https://tanstack.com/table/latest/docs/framework/vue/guide/pagination) for more information on customizing page size and implementing manual pagination.
+Karena objek features kita sudah mendaftarkan `rowPaginationFeature` dan `createPaginatedRowModel()`, tabelnya otomatis membagi baris menjadi halaman berisi 10 baris — tidak ada yang perlu ditambahkan ke `useTable`. Keterangan soal mengubah jumlah baris per halaman dan navigasi halaman manual ada di [dokumentasi pagination](https://tanstack.com/table/latest/docs/framework/vue/guide/pagination).
 
-### Add pagination controls
+### Tambahkan tombol navigasinya
 
-We can add pagination controls to our table using the `<Button />` component and the `table.previousPage()`, `table.nextPage()` API methods.
+Tombol navigasi halaman bisa kita tambahkan memakai komponen `<Button />` bersama method `table.previousPage()` dan `table.nextPage()`.
 
 ```vue
 <script setup lang="ts" generic="TData">
@@ -499,11 +495,11 @@ import { Button } from '@/components/ui/button'
 </template>
 ```
 
-See [Reusable Components](#reusable-components) section for a more advanced pagination component.
+Lihat bagian [Komponen pakai-ulang](#komponen-pakai-ulang) untuk komponen navigasi halaman yang lebih lengkap.
 
-### Change the page size
+### Mengubah jumlah baris per halaman
 
-To change the page size, call `table.setPageSize()`. To read the current pagination state — say, for a page indicator — read `table.atoms.pagination.get()`.
+Untuk mengubah jumlah baris per halaman, panggil `table.setPageSize()`. Untuk membaca state navigasi saat ini — misalnya untuk indikator halaman — baca `table.atoms.pagination.get()`.
 
 ```vue
 <script setup lang="ts">
@@ -526,23 +522,23 @@ const pagination = computed(() => table.atoms.pagination.get())
 
 ::callout{class="mt-4"}
 
-**Note:** Atom reads like `table.atoms.pagination.get()` are reactive inside Vue tracking scopes — a template expression or a `computed`. A bare `.get()` at the top level of `<script setup>` is a one-time snapshot, so wrap script-side reads in `computed()`.
+**Catatan:** pembacaan atom seperti `table.atoms.pagination.get()` bersifat reaktif di dalam lingkup pelacakan Vue — yaitu ekspresi template atau `computed`. Memanggil `.get()` langsung di tingkat teratas `<script setup>` hanya menghasilkan potret sesaat, jadi bungkus pembacaan di sisi script dengan `computed()`.
 
 ::
 
 </Steps>
 
-## Sorting
+## Pengurutan
 
-Let's make the email column sortable.
+Mari buat kolom email bisa diurutkan.
 
-The `rowSortingFeature` and sorted row model are already registered in our features object — along with the `alphanumeric` and `text` sort functions that string columns resolve through the default `auto` setting — so there's nothing to change in `<DataTable />`. We just add the UI.
+`rowSortingFeature` beserta row model terurutnya sudah terdaftar di objek features kita — begitu pula fungsi sort `alphanumeric` dan `text` yang dipakai kolom teks lewat pengaturan bawaan `auto` — jadi tidak ada yang perlu diubah di `<DataTable />`. Kita tinggal menambahkan tampilannya.
 
 <Steps>
 
-### Make header cell sortable
+### Buat sel header bisa diurutkan
 
-We can update the `email` header cell to add sorting controls.
+Kita perbarui sel header `email` untuk menambahkan kendali pengurutan.
 
 ```ts showLineNumbers {2-3,8-13}
 // components/payments/columns.ts
@@ -563,19 +559,19 @@ export const columns = columnHelper.columns([
 ])
 ```
 
-This will automatically sort the table (asc and desc) when the user toggles on the header cell. The table owns the sorting state — no wiring required.
+Tabel akan terurut otomatis, naik maupun turun, saat pengguna mengklik sel header itu. State pengurutannya dipegang tabel sendiri — tidak perlu Anda sambungkan.
 
 </Steps>
 
-## Filtering
+## Penyaringan
 
-Let's add a search input to filter emails in our table.
+Mari tambahkan kolom pencarian untuk menyaring email di tabel kita.
 
-The `columnFilteringFeature`, filtered row model, and the `includesString` filter function are already registered in our features object, so the only work left is rendering an input.
+`columnFilteringFeature`, row model tersaring, dan fungsi filter `includesString` sudah terdaftar di objek features kita, jadi yang tersisa hanya menampilkan input-nya.
 
 <Steps>
 
-### Add the search input
+### Tambahkan kolom pencarian
 
 ```vue
 <script setup lang="ts" generic="TData">
@@ -601,17 +597,17 @@ import { Input } from '@/components/ui/input'
 </template>
 ```
 
-Filtering is now enabled for the `email` column. You can add filters to other columns as well — just remember that string-based filter references only resolve functions you've registered, so if another column needs a different built-in filter, add it to `filterFns` in `features.ts` first. See the [filtering docs](https://tanstack.com/table/latest/docs/framework/vue/guide/column-filtering) for more information on customizing filters.
+Penyaringan kini aktif untuk kolom `email`. Kolom lain juga bisa diberi filter — hanya perlu diingat, rujukan filter berupa teks hanya bisa menemukan fungsi yang sudah Anda daftarkan. Jadi kalau kolom lain butuh filter bawaan yang berbeda, tambahkan dulu ke `filterFns` di `features.ts`. Keterangan lengkapnya ada di [dokumentasi filtering](https://tanstack.com/table/latest/docs/framework/vue/guide/column-filtering).
 
 </Steps>
 
-## Visibility
+## Visibilitas Kolom
 
-Adding column visibility is fairly simple using `@tanstack/vue-table` visibility API. The `columnVisibilityFeature` is already registered in our features object, so we only need to add the dropdown.
+Mengatur visibilitas kolom cukup mudah lewat API visibility milik `@tanstack/vue-table`. `columnVisibilityFeature` sudah terdaftar di objek features kita, jadi kita tinggal menambahkan dropdown-nya.
 
 <Steps>
 
-### Add the column toggle dropdown
+### Tambahkan dropdown pengatur kolom
 
 ```vue
 <script setup lang="ts" generic="TData">
@@ -663,17 +659,17 @@ import {
 </template>
 ```
 
-This adds a dropdown menu that you can use to toggle column visibility.
+Ini menambahkan menu dropdown untuk menyembunyikan dan memunculkan kolom.
 
 </Steps>
 
-## Row Selection
+## Pemilihan Baris
 
-Next, we're going to add row selection to our table. The `rowSelectionFeature` is already registered in our features object, so the table tracks selection for us — we just render the checkboxes.
+Berikutnya kita tambahkan pemilihan baris. `rowSelectionFeature` sudah terdaftar di objek features kita, jadi tabelnya sudah melacak pilihan pengguna — kita tinggal menampilkan checkbox-nya.
 
 <Steps>
 
-### Update column definitions
+### Perbarui definisi kolom
 
 ```ts showLineNumbers {2,5-19}
 // components/payments/columns.ts
@@ -699,17 +695,17 @@ export const columns = columnHelper.columns([
 ])
 ```
 
-This adds a checkbox to each row and a checkbox in the header to select all rows.
+Ini menambahkan checkbox di tiap baris, plus satu checkbox di header untuk memilih semua baris sekaligus.
 
 ::callout{class="mt-4"}
 
-**Note:** In v9, `table.getIsSomePageRowsSelected()` returns `true` whenever at least one page row is selected — even when all are. The header checkbox still works because `table.getIsAllPageRowsSelected() || ...` short-circuits to `true` at full selection before the `'indeterminate'` branch is reached.
+**Catatan:** di v9, `table.getIsSomePageRowsSelected()` mengembalikan `true` selama ada minimal satu baris terpilih di halaman itu — termasuk saat semuanya terpilih. Checkbox header tetap bekerja karena `table.getIsAllPageRowsSelected() || ...` sudah menghasilkan `true` lebih dulu saat semua terpilih, sebelum cabang `'indeterminate'` sempat dievaluasi.
 
 ::
 
-### Manage the selection state externally
+### Mengelola state pemilihan dari luar
 
-The table tracks selection internally by default. To show how a slice can live outside the table — handy when your page needs to read or drive the selection — we'll own just this one slice with a Vue `ref` and leave everything else internal. Expose the current value with a `state` getter, and resolve the updater in the matching callback:
+Secara bawaan tabel melacak pilihan secara internal. Untuk menunjukkan bagaimana sepotong state bisa hidup di luar tabel — berguna kalau halaman Anda perlu membaca atau mengendalikan pilihan itu — kita akan memegang bagian ini saja lewat `ref` Vue, sementara sisanya tetap internal. Sediakan nilainya lewat getter `state`, lalu tangani pembaruannya di callback yang sesuai:
 
 ```ts showLineNumbers {2-3,5-7,13-18}
 // components/payments/data-table.vue
@@ -732,11 +728,11 @@ const table = useTable({
 })
 ```
 
-`rowSelection.value` can now be read or written anywhere in the component, and the table stays in sync.
+`rowSelection.value` kini bisa dibaca maupun ditulis dari mana saja di dalam komponen, dan tabelnya tetap ikut menyesuaikan.
 
-### Show selected rows
+### Tampilkan jumlah baris terpilih
 
-You can show the number of selected rows using the `table.getFilteredSelectedRowModel()` API.
+Jumlah baris yang terpilih bisa Anda tampilkan lewat API `table.getFilteredSelectedRowModel()`.
 
 ```vue showLineNumbers {8-11}
 <template>
@@ -760,15 +756,15 @@ You can show the number of selected rows using the `table.getFilteredSelectedRow
 
 </Steps>
 
-## Expanding
+## Baris yang Bisa Dibuka
 
-Let's make rows expandable. The `rowExpandingFeature` and expanded row model are already registered in our features object, so the table tracks expanded state for us — we just add the UI.
+Mari buat barisnya bisa dibuka. `rowExpandingFeature` beserta row model-nya sudah terdaftar di objek features kita, jadi tabelnya sudah melacak baris mana yang terbuka — kita tinggal menambahkan tampilannya.
 
 <Steps>
 
-### Update `<DataTable>`
+### Perbarui `<DataTable>`
 
-Update the `<TableBody>` to render an extra row whenever a row is expanded:
+Perbarui `<TableBody>` supaya menampilkan baris tambahan setiap kali sebuah baris dibuka:
 
 ```vue showLineNumbers {3,9-13}
 <TableBody>
@@ -796,7 +792,7 @@ Update the `<TableBody>` to render an extra row whenever a row is expanded:
 </TableBody>
 ```
 
-### Add the expand action to the `DataTableDropDown.vue` component
+### Tambahkan aksi buka-baris ke komponen `DataTableDropDown.vue`
 
 ```vue showLineNumbers {12-14,34-36}
 <script setup lang="ts">
@@ -843,9 +839,9 @@ function copy(id: string) {
 </template>
 ```
 
-### Make rows expandable
+### Buat barisnya bisa dibuka
 
-Now we can update the action cell to add the expand control.
+Sekarang kita perbarui sel aksinya untuk menambahkan kendali buka-baris.
 
 ```ts showLineNumbers {12}
 // components/payments/columns.ts
@@ -868,13 +864,13 @@ export const columns = columnHelper.columns([
 
 </Steps>
 
-## Reusable Components
+## Komponen Pakai-Ulang
 
-Here are some components you can use to build your data tables. This is from the [Tasks](/examples/tasks) demo.
+Berikut beberapa komponen yang bisa Anda pakai untuk membangun data table. Semuanya diambil dari demo [Tasks](/examples/tasks).
 
-### Column header
+### Header kolom
 
-Make any column header sortable and hideable.
+Membuat header kolom mana pun bisa diurutkan dan disembunyikan.
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -963,9 +959,9 @@ export const columns = columnHelper.columns([
 ])
 ```
 
-### Pagination
+### Navigasi Halaman
 
-Add pagination controls to your table including page size and selection count.
+Menambahkan kendali navigasi halaman ke tabel Anda, lengkap dengan jumlah baris per halaman dan hitungan baris terpilih.
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -1073,9 +1069,9 @@ const pagination = computed(() => props.table.atoms.pagination.get())
 <DataTablePagination :table="table" />
 ```
 
-### Column toggle
+### Pengatur kolom
 
-A component to toggle column visibility.
+Komponen untuk menyembunyikan dan memunculkan kolom.
 
 ```vue showLineNumbers
 <script setup lang="ts">

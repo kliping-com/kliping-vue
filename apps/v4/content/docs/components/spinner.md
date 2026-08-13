@@ -1,6 +1,6 @@
 ---
 title: Spinner
-description: An indicator that can be used to show a loading state.
+description: Indikator untuk menunjukkan bahwa sesuatu sedang dimuat.
 component: true
 ---
 
@@ -11,7 +11,7 @@ class: '[&_.preview]:p-6'
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -38,7 +38,7 @@ npx shadcn-vue@latest add spinner
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -46,18 +46,18 @@ npx shadcn-vue@latest add spinner
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/spinner) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/spinner) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -69,9 +69,9 @@ import { Spinner } from '@/components/ui/Spinner'
 </template>
 ```
 
-## Customization
+## Kustomisasi
 
-You can replace the default spinner icon with any other icon by editing the `Spinner` component.
+Anda bisa mengganti ikon spinner bawaan dengan ikon lain, cukup dengan menyunting komponen `Spinner`.
 
 ::component-preview
 ---
@@ -79,11 +79,11 @@ name: SpinnerCustomDemo
 ---
 ::
 
-## Examples
+## Contoh
 
-### Size
+### Ukuran
 
-Use the `size-*` utility class to change the size of the spinner.
+Pakai utility class `size-*` untuk mengubah ukuran spinner.
 
 ::component-preview
 ---
@@ -91,9 +91,9 @@ name: SpinnerSizeDemo
 ---
 ::
 
-### Color
+### Warna
 
-Use the `text-*` utility class to change the color of the spinner.
+Pakai utility class `text-*` untuk mengubah warna spinner.
 
 ::component-preview
 ---
@@ -103,7 +103,7 @@ name: SpinnerColorDemo
 
 ### Button
 
-Add a spinner to a button to indicate a loading state. The `<Button />` will handle the spacing between the spinner and the text.
+Sisipkan spinner ke dalam tombol untuk menandakan proses sedang berjalan. Jarak antara spinner dan teks sudah diurus otomatis oleh `<Button />`.
 
 ::component-preview
 ---
@@ -113,7 +113,7 @@ name: SpinnerButtonDemo
 
 ### Badge
 
-You can also use a spinner inside a badge.
+Spinner juga bisa diletakkan di dalam badge.
 
 ::component-preview
 ---
@@ -123,7 +123,7 @@ name: SpinnerBadgeDemo
 
 ### Input Group
 
-Input Group can have spinners inside `<InputGroupAddon>`.
+Input Group bisa memuat spinner di dalam `<InputGroupAddon>`.
 
 ::component-preview
 ---
@@ -133,7 +133,7 @@ name: SpinnerInputGroupDemo
 
 ### Empty
 
-You can place a spinner inside an empty state.
+Spinner juga bisa diletakkan di dalam tampilan empty state.
 
 ::component-preview
 ---
@@ -143,7 +143,7 @@ name: SpinnerEmptyDemo
 
 ### Item
 
-Use the spinner inside `<ItemMedia>` to indicate a loading state.
+Letakkan spinner di dalam `<ItemMedia>` untuk menandakan proses sedang berjalan.
 
 ::component-preview
 ---
@@ -151,13 +151,13 @@ name: SpinnerItemDemo
 ---
 ::
 
-## API Reference
+## Referensi API
 
 ### Spinner
 
-Use the `Spinner` component to display a spinner.
+Pakai komponen `Spinner` untuk menampilkan indikator pemuatan.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class`     | `string` |         |
 

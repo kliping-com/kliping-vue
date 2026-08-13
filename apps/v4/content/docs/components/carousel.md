@@ -1,6 +1,6 @@
 ---
 title: Carousel
-description: A carousel with motion and swipe built using Embla.
+description: Carousel dengan animasi dan gestur geser, dibangun memakai Embla.
 component: true
 ---
 
@@ -8,11 +8,11 @@ component: true
 ---
 name: CarouselDemo
 title: Carousel
-description: A carousel component.
+description: Komponen carousel.
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -39,7 +39,7 @@ npx shadcn-vue@latest add carousel
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -47,18 +47,18 @@ npx shadcn-vue@latest add carousel
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/carousel) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/carousel) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -84,17 +84,17 @@ import {
 </template>
 ```
 
-## Examples
+## Contoh
 
-### Sizes
+### Ukuran
 
-To set the size of the items, you can use the `basis` utility class on the `<CarouselItem />`.
+Untuk mengatur ukuran item, pakai utility class `basis` pada `<CarouselItem />`.
 
 ::component-preview
 ---
 name: CarouselSize
 title: Carousel
-description: A carousel with 3 active items of equal size.
+description: Carousel dengan 3 item aktif berukuran sama.
 ---
 ::
 
@@ -136,17 +136,17 @@ description: A carousel with 3 active items of equal size.
 </template>
 ```
 
-### Spacing
+### Jarak Antar Item
 
-To set the spacing between the items, we use a `pl-[VALUE]` utility on the `<CarouselItem />` and a negative `-ml-[VALUE]` on the `<CarouselContent />`.
+Untuk mengatur jarak antar item, kami memakai utility `pl-[NILAI]` pada `<CarouselItem />` dan `-ml-[NILAI]` bernilai negatif pada `<CarouselContent />`.
 
 ::callout{class="mt-6"}
-  **Why:** I tried to use the `gap` property or a `grid` layout on the `
-  <CarouselContent />` but it required a lot of math and mental effort to get the
-  spacing right. I found `pl-[VALUE]` and `-ml-[VALUE]` utilities much easier to
-  use.
+  **Kenapa begitu:** kami sempat mencoba properti `gap` atau layout `grid` pada `
+  <CarouselContent />`, tapi itu menuntut perhitungan dan pikiran ekstra untuk
+  mendapatkan jarak yang pas. Utility `pl-[NILAI]` dan `-ml-[NILAI]` ternyata
+  jauh lebih mudah dipakai.
 
-You can always adjust this in your own project if you need to.
+Anda bebas mengubahnya di project sendiri kalau memang perlu.
 
 ::
 
@@ -154,7 +154,7 @@ You can always adjust this in your own project if you need to.
 ---
 name: CarouselSpacing
 title: Carousel
-description: A carousel with 3 items with a spacing of 1rem.
+description: Carousel dengan 3 item berjarak 1rem.
 ---
 ::
 
@@ -194,15 +194,15 @@ description: A carousel with 3 items with a spacing of 1rem.
 </template>
 ```
 
-### Orientation
+### Orientasi
 
-Use the `orientation` prop to set the orientation of the carousel.
+Pakai prop `orientation` untuk menentukan arah carousel.
 
 ::component-preview
 ---
 name: CarouselOrientation
 title: Carousel
-description: A vertical carousel.
+description: Carousel tegak.
 ---
 ::
 
@@ -212,9 +212,9 @@ description: A vertical carousel.
 </Carousel>
 ```
 
-## Options
+## Opsi
 
-You can pass options to the carousel using the `opts` prop. See the [Embla Carousel docs](https://www.embla-carousel.com/api/options/) for more information.
+Opsi bisa diteruskan ke carousel lewat prop `opts`. Keterangan lengkapnya ada di [dokumentasi Embla Carousel](https://www.embla-carousel.com/api/options/).
 
 ```vue showLineNumbers {3-6}
 <template>
@@ -235,21 +235,21 @@ You can pass options to the carousel using the `opts` prop. See the [Embla Carou
 
 ## API
 
-### Method 1
+### Cara 1
 
-Use the `@init-api` emit method on `<Carousel />` component to set the instance of the API.
+Pakai emit `@init-api` pada komponen `<Carousel />` untuk menangkap instance API-nya.
 
 ::component-preview
 ---
 name: CarouselApi
 title: Carousel
-description: A carousel with a slide counter.
+description: Carousel dengan penghitung slide.
 ---
 ::
 
-### Method 2
+### Cara 2
 
-You can access it through setting a template ref on the `<Carousel />` component.
+Bisa juga diakses lewat template ref pada komponen `<Carousel />`.
 
 ```vue showLineNumbers {2,5,10}
 <script setup lang="ts">
@@ -267,9 +267,9 @@ function accessApi() {
 </template>
 ```
 
-## Events
+## Event
 
-You can listen to events using the API. To get the API instance use the `@init-api` emit method on the `<Carousel />` component
+Event bisa didengarkan lewat API. Untuk mendapatkan instance API-nya, pakai emit `@init-api` pada komponen `<Carousel />`.
 
 ```vue showLineNumbers {5,7-9,25}
 <script setup lang="ts">
@@ -302,11 +302,11 @@ const stop = watch(api, (api) => {
 </template>
 ```
 
-See the [Embla Carousel docs](https://www.embla-carousel.com/api/events/) for more information on using events.
+Keterangan lengkap soal event ada di [dokumentasi Embla Carousel](https://www.embla-carousel.com/api/events/).
 
 ## Slot Props
 
-You can get the reactive slot props like `carouselRef, canScrollNext..Prev, scrollNext..Prev` using the `v-slot` directive in the `<Carousel v-slot="slotProps" />` component to extend the functionality.
+Slot props yang reaktif seperti `carouselRef, canScrollNext..Prev, scrollNext..Prev` bisa Anda ambil lewat direktif `v-slot` pada `<Carousel v-slot="slotProps" />` untuk memperluas fungsinya.
 
 ```vue showLineNumbers {2}
 <template>
@@ -320,7 +320,7 @@ You can get the reactive slot props like `carouselRef, canScrollNext..Prev, scro
 
 ## Plugins
 
-You can use the `plugins` prop to add plugins to the carousel.
+Pakai prop `plugins` untuk menambahkan plugin ke carousel.
 
 ```bash
 npm install embla-carousel-autoplay
@@ -347,8 +347,8 @@ import Autoplay from 'embla-carousel-autoplay'
 ---
 name: CarouselPlugin
 title: Carousel
-description: A carousel with the autoplay plugin.
+description: Carousel dengan plugin autoplay.
 ---
 ::
 
-See the [Embla Carousel docs](https://www.embla-carousel.com/api/plugins/) for more information on using plugins.
+Keterangan lengkap soal plugin ada di [dokumentasi Embla Carousel](https://www.embla-carousel.com/api/plugins/).

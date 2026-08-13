@@ -1,6 +1,6 @@
 ---
 title: Dialog
-description: A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
+description: Jendela yang menumpuk di atas jendela utama atau dialog lain, membuat konten di bawahnya tidak bisa disentuh.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/dialog
@@ -10,15 +10,11 @@ links:
 ::component-preview
 ---
 name: DialogDemo
-description: A dialog with a form.
+description: Dialog berisi form.
 ---
 ::
 
-::vue-school-link{class="mt-6" lesson="dialogs-and-alerts-with-shadcn-vue" placement="top"}
-Watch a Vue School video about dialogs and alerts in shadcn-vue.
-::
-
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -45,7 +41,7 @@ npx shadcn-vue@latest add dialog
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -53,18 +49,18 @@ npx shadcn-vue@latest add dialog
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/dialog) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/dialog) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -95,9 +91,9 @@ import {
 </template>
 ```
 
-## Example
+## Contoh
 
-### Custom close button
+### Tombol Tutup Kustom
 
 ::component-preview
 ---
@@ -105,9 +101,9 @@ name: DialogCloseButton
 ---
 ::
 
-### Dialog with form
+### Dialog dengan Form
 
-To keep field value after `Dialog` unmounts
+Agar nilai isian tidak hilang setelah `Dialog` ditutup.
 
 ::component-preview
 ---
@@ -115,9 +111,9 @@ name: DialogForm
 ---
 ::
 
-### Responsive Modal (Dialog & Drawer)
+### Modal Responsif (Dialog & Drawer)
 
-Use a `Drawer` component for smaller viewport sizes and a `Dialog` component otherwise. This can be further made reusable by using slots for various parts of the modal.
+Pakai komponen `Drawer` untuk layar kecil, dan `Dialog` untuk layar yang lebih lebar. Pola ini bisa Anda jadikan komponen pakai-ulang dengan memanfaatkan slot untuk tiap bagian modal.
 
 ::component-preview
 ---
@@ -125,10 +121,10 @@ name: DialogResponsive
 ---
 ::
 
-## Notes
+## Catatan
 
-To use the `Dialog` component from within a `Context Menu` or `Dropdown Menu`, you must encase the `Context Menu` or
-`Dropdown Menu` component in the `Dialog` component.
+Untuk memakai komponen `Dialog` dari dalam `Context Menu` atau `Dropdown Menu`, Anda harus membungkus komponen `Context Menu` atau
+`Dropdown Menu` tersebut di dalam komponen `Dialog`.
 
 ```vue showLineNumbers title="components/EampleDialogContext.vue" {2, 29}
 <template>

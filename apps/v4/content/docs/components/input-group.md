@@ -1,6 +1,6 @@
 ---
 title: Input Group
-description: Display additional information or actions to an input or textarea.
+description: Menyisipkan informasi atau aksi tambahan ke dalam input maupun textarea.
 component: true
 ---
 
@@ -11,7 +11,7 @@ class: '[&_.preview]:p-4'
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -38,7 +38,7 @@ npx shadcn-vue@latest add input-group
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -46,18 +46,18 @@ npx shadcn-vue@latest add input-group
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/input-group) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/input-group) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -84,7 +84,7 @@ import {
 </template>
 ```
 
-## Examples
+## Contoh
 
 ### Icon
 
@@ -97,7 +97,7 @@ class: '[&_.preview]:p-4'
 
 ### Text
 
-Display additional text information alongside inputs.
+Menampilkan keterangan teks tambahan di samping input.
 
 ::component-preview
 ---
@@ -108,7 +108,7 @@ class: '[&_.preview]:p-4'
 
 ### Button
 
-Add buttons to perform actions within the input group.
+Menambahkan tombol untuk menjalankan aksi di dalam input group.
 
 ::component-preview
 ---
@@ -119,7 +119,7 @@ class: '[&_.preview]:p-4'
 
 ### Tooltip
 
-Add tooltips to provide additional context or help.
+Menambahkan tooltip untuk memberi konteks atau bantuan tambahan.
 
 ::component-preview
 ---
@@ -130,7 +130,7 @@ class: '[&_.preview]:p-4'
 
 ### Textarea
 
-Input groups also work with textarea components. Use `block-start` or `block-end` for alignment.
+Input group juga bisa dipakai bersama textarea. Untuk perataannya, gunakan `block-start` atau `block-end`.
 
 ::component-preview
 ---
@@ -141,7 +141,7 @@ class: '[&_.preview]:p-4'
 
 ### Spinner
 
-Show loading indicators while processing input.
+Menampilkan indikator pemuatan selagi input diproses.
 
 ::component-preview
 ---
@@ -152,7 +152,7 @@ class: '[&_.preview]:p-4'
 
 ### Label
 
-Add labels within input groups to improve accessibility.
+Menambahkan label di dalam input group agar lebih mudah diakses.
 
 ::component-preview
 ---
@@ -163,7 +163,7 @@ class: '[&_.preview]:p-4'
 
 ### Dropdown
 
-Pair input groups with dropdown menus for complex interactions.
+Memadukan input group dengan dropdown menu untuk interaksi yang lebih rumit.
 
 ::component-preview
 ---
@@ -174,7 +174,7 @@ class: '[&_.preview]:p-4'
 
 ### Button Group
 
-Wrap input groups with button groups to create prefixes and suffixes.
+Membungkus input group dengan button group untuk membuat awalan dan akhiran.
 
 ::component-preview
 ---
@@ -183,11 +183,11 @@ class: '[&_.preview]:p-4'
 ---
 ::
 
-### Custom Input
+### Input Kustom
 
-Add the `data-slot="input-group-control"` attribute to your custom input for automatic behavior and focus state handling.
+Tambahkan atribut `data-slot="input-group-control"` pada input kustom Anda agar perilaku dan state focus-nya ditangani otomatis.
 
-No style is applied to the custom input. Apply your own styles using the `class` prop.
+Tidak ada style bawaan yang diterapkan ke input kustom. Style-nya Anda atur sendiri lewat prop `class`.
 
 ::component-preview
 ---
@@ -219,13 +219,13 @@ import { InputGroup, InputGroupAddon, InputGroupButton } from '@/components/ui/i
 </template>
 ```
 
-## API Reference
+## Referensi API
 
 ### InputGroup
 
-The main component that wraps inputs and addons.
+Komponen utama yang membungkus input dan addon.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class` | `string` |         |
 
@@ -238,14 +238,14 @@ The main component that wraps inputs and addons.
 
 ### InputGroupAddon
 
-Displays icons, text, buttons, or other content alongside inputs.
+Menampilkan ikon, teks, tombol, atau konten lain di samping input.
 
 ::callout{title="Focus Navigation"}
-For proper focus navigation, the `InputGroupAddon` component should be placed
-after the input. Set the `align` prop to position the addon.
+Agar navigasi focus berjalan benar, komponen `InputGroupAddon` sebaiknya diletakkan
+setelah input. Posisinya diatur lewat prop `align`.
 ::
 
-| Prop        | Type                                                             | Default          |
+| Prop        | Tipe                                                             | Bawaan           |
 | ----------- | ---------------------------------------------------------------- | ---------------- |
 | `align`     | `"inline-start" \| "inline-end" \| "block-start" \| "block-end"` | `"inline-start"` |
 | `class` | `string`                                                         |                  |
@@ -256,9 +256,9 @@ after the input. Set the `align` prop to position the addon.
 </InputGroupAddon>
 ```
 
-**For `<InputGroupInput />`, use the `inline-start` or `inline-end` alignment. For `<InputGroupTextarea />`, use the `block-start` or `block-end` alignment.**
+**Untuk `<InputGroupInput />`, pakai perataan `inline-start` atau `inline-end`. Untuk `<InputGroupTextarea />`, pakai `block-start` atau `block-end`.**
 
-The `InputGroupAddon` component can have multiple `InputGroupButton` components and icons.
+Satu `InputGroupAddon` bisa memuat beberapa `InputGroupButton` sekaligus beserta ikon.
 
 ```vue
 <InputGroupAddon>
@@ -269,9 +269,9 @@ The `InputGroupAddon` component can have multiple `InputGroupButton` components 
 
 ### InputGroupButton
 
-Displays buttons within input groups.
+Menampilkan tombol di dalam input group.
 
-| Prop        | Type                                                                          | Default   |
+| Prop        | Tipe                                                                          | Bawaan    |
 | ----------- | ----------------------------------------------------------------------------- | --------- |
 | `size`      | `"xs" \| "icon-xs" \| "sm" \| "icon-sm"`                                      | `"xs"`    |
 | `variant`   | `"default" \| "destructive" \| "outline" \| "secondary" \| "ghost" \| "link"` | `"ghost"` |
@@ -289,13 +289,13 @@ Button
 
 ### InputGroupInput
 
-Replacement for `<Input />` when building input groups. This component has the input group styles pre-applied and uses the unified `data-slot="input-group-control"` for focus state handling.
+Pengganti `<Input />` saat membangun input group. Style input group-nya sudah diterapkan, dan komponen ini memakai `data-slot="input-group-control"` yang seragam untuk menangani state focus.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class` | `string` |         |
 
-All other props are passed through to the underlying `<Input />` component.
+Semua prop lain diteruskan ke komponen `<Input />` di baliknya.
 
 ```vue
 <InputGroup>
@@ -308,13 +308,13 @@ All other props are passed through to the underlying `<Input />` component.
 
 ### InputGroupTextarea
 
-Replacement for `<Textarea />` when building input groups. This component has the textarea group styles pre-applied and uses the unified `data-slot="input-group-control"` for focus state handling.
+Pengganti `<Textarea />` saat membangun input group. Style-nya sudah diterapkan, dan komponen ini memakai `data-slot="input-group-control"` yang seragam untuk menangani state focus.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class` | `string` |         |
 
-All other props are passed through to the underlying `<Textarea />` component.
+Semua prop lain diteruskan ke komponen `<Textarea />` di baliknya.
 
 ```vue
 <InputGroup>

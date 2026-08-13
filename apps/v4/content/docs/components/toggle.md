@@ -1,6 +1,6 @@
 ---
 title: Toggle
-description: A two-state button that can be either on or off.
+description: Tombol dua keadaan yang bisa dinyalakan atau dimatikan.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/toggle
@@ -10,11 +10,11 @@ links:
 ::component-preview
 ---
 name: ToggleDemo
-description: A toggle component.
+description: Komponen toggle.
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -41,7 +41,7 @@ npx shadcn-vue@latest add toggle
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -49,18 +49,18 @@ npx shadcn-vue@latest add toggle
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/toggle) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/toggle) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -72,9 +72,9 @@ import { Toggle } from '@/components/ui/toggle'
 </template>
 ```
 
-## Examples
+## Contoh
 
-### Default
+### Bawaan
 
 ::component-preview
 ---
@@ -90,7 +90,7 @@ name: ToggleOutlineDemo
 ---
 ::
 
-### With Text
+### Dengan Teks
 
 ::component-preview
 ---
@@ -98,7 +98,7 @@ name: ToggleTextDemo
 ---
 ::
 
-### Small
+### Kecil
 
 ::component-preview
 ---
@@ -106,7 +106,7 @@ name: ToggleSmallDemo
 ---
 ::
 
-### Large
+### Besar
 
 ::component-preview
 ---
@@ -114,7 +114,7 @@ name: ToggleLargeDemo
 ---
 ::
 
-### Disabled
+### Nonaktif
 
 ::component-preview
 ---

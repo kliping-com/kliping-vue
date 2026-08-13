@@ -1,6 +1,6 @@
 ---
 title: Accordion
-description: A vertically stacked set of interactive headings that each reveal a section of content.
+description: Sekumpulan heading bertumpuk vertikal yang masing-masing membuka satu bagian konten.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/accordion
@@ -11,12 +11,12 @@ links:
 ---
 name: AccordionDemo
 class: '[&_.preview>div]:sm:max-w-[80%] **:[.preview]:min-h-[400px]'
-description: An accordion with three items
+description: Accordion dengan tiga item.
 align: start
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -43,7 +43,7 @@ npx shadcn-vue@latest add accordion
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -51,18 +51,18 @@ npx shadcn-vue@latest add accordion
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/accordion) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/accordion) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">

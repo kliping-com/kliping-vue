@@ -1,12 +1,12 @@
 ---
 title: Item
-description: A versatile component that you can use to display any content.
+description: Komponen serbaguna untuk menampilkan konten apa pun dalam satu baris.
 component: true
 ---
 
-The `Item` component is a straightforward flex container that can house nearly any type of content. Use it to display a title, description, and actions. Group it with the `ItemGroup` component to create a list of items.
+Komponen `Item` pada dasarnya adalah wadah flex sederhana yang bisa memuat konten apa pun. Pakai untuk menampilkan judul, keterangan, dan aksi. Kelompokkan dengan `ItemGroup` untuk membentuk daftar item.
 
-You can pretty much achieve the same result with the `div` element and some classes, but I've built this so many times that I decided to create a component for it. Now I use it all the time.
+Hasil serupa sebenarnya bisa dicapai dengan elemen `div` dan beberapa class. Tapi pola ini terlalu sering dipakai, jadi lebih praktis kalau sudah tersedia sebagai komponen siap pakai.
 
 ::component-preview
 ---
@@ -15,7 +15,7 @@ class: '[&_.preview]:p-0'
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -42,18 +42,18 @@ npx shadcn-vue@latest add item
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/item) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/item) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -81,9 +81,9 @@ import {
 </template>
 ```
 
-## Examples
+## Contoh
 
-### Variants
+### Varian
 
 ::component-preview
 ---
@@ -91,9 +91,9 @@ name: ItemVariantDemo
 ---
 ::
 
-### Size
+### Ukuran
 
-The `Item` component has different sizes for different use cases. For example, you can use the `sm` size for a compact item or the `default` size for a standard item.
+Komponen `Item` punya beberapa ukuran untuk kebutuhan berbeda. Ukuran `sm` cocok untuk item ringkas, sedangkan `default` untuk item biasa.
 
 ::component-preview
 ---
@@ -125,7 +125,7 @@ name: ItemImageDemo
 ---
 ::
 
-### Group
+### Grup
 
 ::component-preview
 ---
@@ -143,7 +143,7 @@ name: ItemHeaderDemo
 
 ### Link
 
-To render an item as a link, use the `as-child` prop. The hover and focus states will be applied to the anchor element.
+Untuk menampilkan item sebagai tautan, pakai prop `as-child`. State hover dan focus akan diterapkan pada elemen anchor-nya.
 
 ::component-preview
 ---
@@ -159,13 +159,13 @@ name: ItemDropdownDemo
 ---
 ::
 
-## API Reference
+## Referensi API
 
 ### Item
 
-The main component for displaying content with media, title, description, and actions.
+Komponen utama untuk menampilkan konten beserta media, judul, keterangan, dan aksinya.
 
-| Prop       | Type                                | Default     |
+| Prop       | Tipe                                | Bawaan      |
 | ---------- | ----------------------------------- | ----------- |
 | `variant`  | `"default" \| "outline" \| "muted"` | `"default"` |
 | `size`     | `"default" \| "sm"`                 | `"default"` |
@@ -184,7 +184,7 @@ The main component for displaying content with media, title, description, and ac
 </template>
 ```
 
-You can use the `as-child` prop to render a custom component as the item, for example a link. The hover and focus states will be applied to the custom component.
+Pakai prop `as-child` untuk menampilkan komponen Anda sendiri sebagai item, misalnya sebuah tautan. State hover dan focus akan diterapkan pada komponen tersebut.
 
 ```vue
 <script setup lang="ts">
@@ -216,9 +216,9 @@ import {
 
 ### ItemGroup
 
-The `ItemGroup` component is a container that groups related items together with consistent styling.
+Komponen `ItemGroup` adalah wadah yang menyatukan item-item terkait dengan tampilan seragam.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class`     | `string` |         |
 
@@ -233,9 +233,9 @@ The `ItemGroup` component is a container that groups related items together with
 
 ### ItemSeparator
 
-The `ItemSeparator` component is a separator that separates items in the item group.
+Komponen `ItemSeparator` adalah pemisah antar item di dalam sebuah item group.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class`     | `string` |         |
 
@@ -251,9 +251,9 @@ The `ItemSeparator` component is a separator that separates items in the item gr
 
 ### ItemMedia
 
-Use the `ItemMedia` component to display media content such as icons, images, or avatars.
+Pakai komponen `ItemMedia` untuk menampilkan media seperti ikon, gambar, atau avatar.
 
-| Prop        | Type                             | Default     |
+| Prop        | Tipe                             | Bawaan      |
 | ----------- | -------------------------------- | ----------- |
 | `variant`   | `"default" \| "icon" \| "image"` | `"default"` |
 | `class`     | `string`                         |             |
@@ -276,11 +276,11 @@ Use the `ItemMedia` component to display media content such as icons, images, or
 
 ### ItemContent
 
-The `ItemContent` component wraps the title and description of the item.
+Komponen `ItemContent` membungkus judul dan keterangan item.
 
-You can skip `ItemContent` if you only need a title.
+`ItemContent` boleh dilewati kalau Anda hanya butuh judul saja.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class`     | `string` |         |
 
@@ -295,9 +295,9 @@ You can skip `ItemContent` if you only need a title.
 
 ### ItemTitle
 
-Use the `ItemTitle` component to display the title of the item.
+Pakai komponen `ItemTitle` untuk menampilkan judul item.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class`     | `string` |         |
 
@@ -309,9 +309,9 @@ Use the `ItemTitle` component to display the title of the item.
 
 ### ItemDescription
 
-Use the `ItemDescription` component to display the description of the item.
+Pakai komponen `ItemDescription` untuk menampilkan keterangan item.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class`     | `string` |         |
 
@@ -323,9 +323,9 @@ Use the `ItemDescription` component to display the description of the item.
 
 ### ItemActions
 
-Use the `ItemActions` component to display action buttons or other interactive elements.
+Pakai komponen `ItemActions` untuk menampilkan tombol aksi atau elemen interaktif lainnya.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class`     | `string` |         |
 
@@ -340,9 +340,9 @@ Use the `ItemActions` component to display action buttons or other interactive e
 
 ### ItemHeader
 
-Use the `ItemHeader` component to display a header in the item.
+Pakai komponen `ItemHeader` untuk menampilkan header di dalam item.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class`     | `string` |         |
 
@@ -354,9 +354,9 @@ Use the `ItemHeader` component to display a header in the item.
 
 ### ItemFooter
 
-Use the `ItemFooter` component to display a footer in the item.
+Pakai komponen `ItemFooter` untuk menampilkan footer di dalam item.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class`     | `string` |         |
 

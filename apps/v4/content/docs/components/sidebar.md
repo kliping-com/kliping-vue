@@ -1,6 +1,6 @@
 ---
 title: Sidebar
-description: A composable, themeable and customizable sidebar component.
+description: Komponen sidebar yang bisa dikomposisikan, diberi tema, dan disesuaikan.
 component: true
 ---
 
@@ -10,28 +10,24 @@ component: true
 ---
 title: Sidebar
 name: sidebar-07
-description: A composable, themeable and customizable sidebar component built using shadcn/vue
+description: Komponen sidebar yang bisa dikomposisikan, diberi tema, dan disesuaikan.
 class: 'w-full'
 type: block
 ---
 ::
 
-::vue-school-link{class="mt-6" lesson="sidebars-in-shadcn-vue" placement="top"}
-Watch a Vue School video about building sidebars with shadcn-vue.
-::
+Sidebar termasuk komponen yang paling rumit dibangun. Ia jadi pusat hampir
+setiap aplikasi, dan biasanya memuat banyak bagian yang saling bergerak.
 
-Sidebars are one of the most complex components to build. They are central
-to any application and often contain a lot of moving parts.
+Membangun sidebar itu melelahkan. Karena itu upstream membangunnya 30 kali lebih,
+dalam berbagai konfigurasi, lalu menyaring bagian intinya menjadi `Sidebar*.vue`.
 
-I don't like building sidebars. So I built 30+ of them. All kinds of
-configurations. Then I extracted the core components into `Sidebar*.vue`.
+Hasilnya adalah fondasi yang kokoh untuk Anda kembangkan. Bisa dikomposisikan,
+diberi tema, dan disesuaikan.
 
-We now have a solid foundation to build on top of. Composable. Themeable.
-Customizable.
+[Jelajahi koleksi block-nya](/blocks).
 
-[Browse the Blocks Library](/blocks).
-
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -59,7 +55,7 @@ npx shadcn-vue@latest add sidebar
 
   :::steps
     ::step
-    Install this component
+    Pasang komponen ini
     ::
 
     ```bash
@@ -67,10 +63,10 @@ npx shadcn-vue@latest add sidebar
     ```
 
     ::step
-    Add the following colors to your CSS file
+    Tambahkan warna-warna berikut ke file CSS Anda
     ::
 
-    The command above should install the colors for you. If not, copy and paste the following in your CSS file.
+    Perintah di atas semestinya sudah memasang warnanya untuk Anda. Kalau belum, salin dan tempel isi berikut ke file CSS Anda.
 
     ```css
     @layer base {
@@ -103,33 +99,33 @@ npx shadcn-vue@latest add sidebar
 
 :::::
 
-## Structure
+## Struktur
 
-A `Sidebar` component is composed of the following parts:
+Komponen `Sidebar` tersusun dari bagian-bagian berikut:
 
-- `SidebarProvider` - Handles collapsible state.
-- `Sidebar` - The sidebar container.
-- `SidebarHeader` and SidebarFooter - Sticky at the top and bottom of the sidebar
-- `SidebarContent` - Scrollable content.
-- `SidebarGroup` - Section within the SidebarContent.
-- `SidebarTrigger` - Trigger for the Sidebar
+- `SidebarProvider` — mengurus state buka-tutup.
+- `Sidebar` — wadah sidebar-nya.
+- `SidebarHeader` dan `SidebarFooter` — menempel di bagian atas dan bawah sidebar.
+- `SidebarContent` — isi yang bisa digulir.
+- `SidebarGroup` — bagian di dalam `SidebarContent`.
+- `SidebarTrigger` — pemicu untuk membuka dan menutup sidebar.
 
 <img
   src="/images/sidebar-structure.png"
   width="716"
   height="420"
-  alt="Sidebar Structure"
+  alt="Struktur Sidebar"
   class="border dark:hidden rounded-lg overflow-hidden mt-6 w-full"
 />
 <img
   src="/images/sidebar-structure-dark.png"
   width="716"
   height="420"
-  alt="Sidebar Structure"
+  alt="Struktur Sidebar"
   class="border hidden dark:block rounded-lg overflow-hidden mt-6 w-full"
 />
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -208,14 +204,14 @@ import {
 </template>
 ```
 
-## Your First Sidebar
+## Sidebar Pertama Anda
 
-Let's start with the most basic sidebar A collapsible sidebar with a menu.
+Mari mulai dari sidebar paling sederhana: sidebar yang bisa dilipat dan berisi menu.
 
 :::steps
 
   ::step
-  Add a `SidebarProvider` and `SidebarTrigger` at the root of your application
+  Tambahkan `SidebarProvider` dan `SidebarTrigger` di bagian terluar aplikasi Anda
   ::
 
   ```vue showLineNumbers
@@ -236,7 +232,7 @@ Let's start with the most basic sidebar A collapsible sidebar with a menu.
   ```
 
   ::step
-  Create a new sidebar component at `@/components/AppSidebar.vue`
+  Buat komponen sidebar baru di `@/components/AppSidebar.vue`
   ::
 
   ```vue showLineNumbers
@@ -252,10 +248,10 @@ Let's start with the most basic sidebar A collapsible sidebar with a menu.
   ```
 
   ::step
-  Now, let's add a `SidebarMenu` to the sidebar
+  Sekarang tambahkan `SidebarMenu` ke dalam sidebar
   ::
 
-  We'll use the `SidebarMenu` component in a `SidebarGroup`.
+  Komponen `SidebarMenu` akan kita letakkan di dalam `SidebarGroup`.
 
   ```vue showLineNumbers
   <script setup lang="ts">
@@ -325,10 +321,10 @@ Let's start with the most basic sidebar A collapsible sidebar with a menu.
   ```
 
   ::step
-  You've created your first sidebar.
+  Sidebar pertama Anda sudah jadi.
   ::
 
-  You should see something like this:
+  Hasilnya kurang lebih seperti ini:
 
 <figure class="flex flex-col gap-4">
 
@@ -336,36 +332,36 @@ Let's start with the most basic sidebar A collapsible sidebar with a menu.
   ---
   title: Sidebar
   name: sidebar-demo
-  description: Your first sidebar.
+  description: Sidebar pertama Anda.
   class: 'w-full'
   type: block
   ---
   ::
 
   <figcaption class="text-center text-sm text-gray-500">
-    Your first sidebar
+    Sidebar pertama Anda
   </figcaption>
 </figure>
 
 :::
 
-## Components
+## Komponennya
 
-The components in the `Sidebar*.vue` files are built to be composable i.e you build your sidebar by putting the provided components together. They also compose well with other shadcn-vue components such as `DropdownMenu`, `Collapsible`, `Dialog`, etc.
+Komponen di berkas `Sidebar*.vue` dirancang agar bisa dikomposisikan — Anda menyusun sidebar dengan merangkai komponen yang tersedia. Semuanya juga menyatu baik dengan komponen lain seperti `DropdownMenu`, `Collapsible`, `Dialog`, dan sebagainya.
 
-**If you need to change the code in the `Sidebar*.vue` files, you are encourage to do so. The code is yours. Use the provided components as a starting point to build your own**
+**Kalau Anda perlu mengubah kode di berkas `Sidebar*.vue`, silakan saja. Kodenya milik Anda. Pakai komponen yang tersedia sebagai titik awal untuk membangun versi Anda sendiri.**
 
 ## SidebarProvider
 
-The `SidebarProvider` component is used to provide the sidebar context to all its children.
+Komponen `SidebarProvider` menyediakan konteks sidebar untuk semua komponen di dalamnya.
 
 ### Props
 
-The `SidebarProvider` component accepts the following props:
+Komponen `SidebarProvider` menerima prop berikut:
 
-### Width
+### Lebar
 
-Use the `defaultOpen`, `open`, and `onOpenChange` props to control the open state of the sidebar.
+Pakai prop `defaultOpen`, `open`, dan `onOpenChange` untuk mengendalikan keadaan buka-tutup sidebar.
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -381,9 +377,9 @@ const open = ref(false)
 </template>
 ```
 
-### Keyboard Shortcut
+### Pintasan Keyboard
 
-The `SidebarProvider` component supports keyboard shortcuts to toggle the sidebar. The default shortcut is `cmd+b` or `ctrl+b`.
+Komponen `SidebarProvider` mendukung pintasan keyboard untuk membuka dan menutup sidebar. Pintasan bawaannya `cmd+b` atau `ctrl+b`.
 
 ```vue showLineNumbers
 <SidebarProvider>
@@ -391,9 +387,9 @@ The `SidebarProvider` component supports keyboard shortcuts to toggle the sideba
 </SidebarProvider>
 ```
 
-### Persisted State
+### State yang Tersimpan
 
-To persist the sidebar state, you can use the `storageKey` prop on the `SidebarProvider` component.
+Untuk menyimpan keadaan sidebar, pakai prop `storageKey` pada komponen `SidebarProvider`.
 
 ```vue showLineNumbers
 <SidebarProvider storage-key="sidebar">
@@ -413,7 +409,7 @@ To persist the sidebar state, you can use the `storageKey` prop on the `SidebarP
 
 ## Sidebar
 
-The main sidebar component.
+Komponen sidebar utamanya.
 
 ```vue showLineNumbers
 <Sidebar>
@@ -425,11 +421,11 @@ The main sidebar component.
 
 ### Props
 
-The `Sidebar` component accepts the following props:
+Komponen `Sidebar` menerima prop berikut:
 
 ### side
 
-Use the `side` prop to set the side of the sidebar.
+Pakai prop `side` untuk menentukan di sisi mana sidebar berada.
 
 ```vue showLineNumbers
 <Sidebar side="left">
@@ -439,7 +435,7 @@ Use the `side` prop to set the side of the sidebar.
 
 ### variant
 
-Use the `variant` prop to set the variant of the sidebar.
+Pakai prop `variant` untuk menentukan varian sidebar.
 
 ```vue showLineNumbers
 <!-- Default variant -->
@@ -464,7 +460,7 @@ Use the `variant` prop to set the variant of the sidebar.
 
 ### collapsible
 
-Use the `collapsible` prop to make the sidebar collapsible.
+Pakai prop `collapsible` supaya sidebar bisa dilipat.
 
 ```vue showLineNumbers
 <Sidebar collapsible="icon">
@@ -480,7 +476,7 @@ Use the `collapsible` prop to make the sidebar collapsible.
 
 ## useSidebar
 
-The `useSidebar` hook is used to control the sidebar.
+Composable `useSidebar` dipakai untuk mengendalikan sidebar.
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -500,7 +496,7 @@ const {
 
 ## SidebarHeader
 
-Used to render the sidebar header.
+Menampilkan bagian header sidebar.
 
 ```vue showLineNumbers
 <Sidebar>
@@ -524,7 +520,7 @@ Used to render the sidebar header.
 
 ## SidebarFooter
 
-Used to render the sidebar footer.
+Menampilkan bagian footer sidebar.
 
 ```vue showLineNumbers
 <Sidebar>
@@ -561,7 +557,7 @@ Used to render the sidebar footer.
 
 ## SidebarContent
 
-The scrollable content area of the sidebar.
+Area isi sidebar yang bisa digulir.
 
 ```vue showLineNumbers
 <Sidebar>
@@ -574,7 +570,7 @@ The scrollable content area of the sidebar.
 
 ## SidebarGroup
 
-Used to group sidebar menu items.
+Mengelompokkan item menu di dalam sidebar.
 
 ```vue showLineNumbers
 <SidebarContent>
@@ -587,9 +583,9 @@ Used to group sidebar menu items.
 </SidebarContent>
 ```
 
-## Collapsible SidebarGroup
+## SidebarGroup yang Bisa Dilipat
 
-To make a `SidebarGroup` collapsible, wrap it in a `Collapsible` component.
+Untuk membuat `SidebarGroup` bisa dilipat, bungkus dengan komponen `Collapsible`.
 
 ```vue showLineNumbers
 <SidebarGroup as-child>
@@ -613,7 +609,7 @@ To make a `SidebarGroup` collapsible, wrap it in a `Collapsible` component.
 
 ## SidebarGroupAction
 
-The `SidebarGroupAction` component is used to render an action button in the sidebar group header.
+Komponen `SidebarGroupAction` menampilkan tombol aksi di header sebuah grup sidebar.
 
 ```vue showLineNumbers
 <SidebarGroup>
@@ -629,7 +625,7 @@ The `SidebarGroupAction` component is used to render an action button in the sid
 
 ## SidebarMenu
 
-The `SidebarMenu` component is used to render a menu in the sidebar.
+Komponen `SidebarMenu` menampilkan menu di dalam sidebar.
 
 ```vue showLineNumbers
 <SidebarGroupContent>
@@ -656,11 +652,11 @@ The `SidebarMenu` component is used to render a menu in the sidebar.
 
 ## SidebarMenuButton
 
-The `SidebarMenuButton` component is used to render a menu button in the sidebar.
+Komponen `SidebarMenuButton` menampilkan tombol menu di dalam sidebar.
 
-### Link or Anchor
+### Tautan atau Anchor
 
-Use the `as-child` prop to render the `SidebarMenuButton` as a link or anchor.
+Pakai prop `as-child` untuk menampilkan `SidebarMenuButton` sebagai tautan atau elemen anchor.
 
 ```vue showLineNumbers
 <SidebarMenuButton as-child>
@@ -671,9 +667,9 @@ Use the `as-child` prop to render the `SidebarMenuButton` as a link or anchor.
 </SidebarMenuButton>
 ```
 
-### Icon and Label
+### Ikon dan Label
 
-You can render an icon and label in the `SidebarMenuButton` component.
+Komponen `SidebarMenuButton` bisa memuat ikon sekaligus label.
 
 ```vue showLineNumbers
 <SidebarMenuButton>
@@ -684,7 +680,7 @@ You can render an icon and label in the `SidebarMenuButton` component.
 
 ### isActive
 
-Use the `isActive` prop to mark a menu button as active.
+Pakai prop `isActive` untuk menandai tombol menu yang sedang aktif.
 
 ```vue showLineNumbers
 <SidebarMenuButton :is-active="true">
@@ -695,7 +691,7 @@ Use the `isActive` prop to mark a menu button as active.
 
 ## SidebarMenuAction
 
-The `SidebarMenuAction` component is used to render a menu action in the sidebar.
+Komponen `SidebarMenuAction` menampilkan aksi menu di dalam sidebar.
 
 ```vue showLineNumbers
 <SidebarMenuItem>
@@ -711,7 +707,7 @@ The `SidebarMenuAction` component is used to render a menu action in the sidebar
 
 ### DropdownMenu
 
-You can use the `SidebarMenuAction` component with a `DropdownMenu` component.
+Komponen `SidebarMenuAction` bisa dipadukan dengan `DropdownMenu`.
 
 ```vue showLineNumbers
 <SidebarMenuItem>
@@ -739,7 +735,7 @@ You can use the `SidebarMenuAction` component with a `DropdownMenu` component.
 
 ## SidebarMenuSub
 
-The `SidebarMenuSub` component is used to render a submenu in the sidebar.
+Komponen `SidebarMenuSub` menampilkan submenu di dalam sidebar.
 
 ```vue showLineNumbers
 <SidebarMenuItem>
@@ -763,9 +759,9 @@ The `SidebarMenuSub` component is used to render a submenu in the sidebar.
 </SidebarMenuItem>
 ```
 
-## Collapsible SidebarMenu
+## SidebarMenu yang Bisa Dilipat
 
-To make a `SidebarMenu` collapsible, wrap it in a `Collapsible` component.
+Untuk membuat `SidebarMenu` bisa dilipat, bungkus dengan komponen `Collapsible`.
 
 ```vue showLineNumbers
 <SidebarMenuItem>
@@ -798,7 +794,7 @@ To make a `SidebarMenu` collapsible, wrap it in a `Collapsible` component.
 
 ## SidebarMenuBadge
 
-The `SidebarMenuBadge` component is used to render a badge in the sidebar menu.
+Komponen `SidebarMenuBadge` menampilkan badge di dalam menu sidebar.
 
 ```vue showLineNumbers
 <SidebarMenuButton>
@@ -810,7 +806,7 @@ The `SidebarMenuBadge` component is used to render a badge in the sidebar menu.
 
 ## SidebarMenuSkeleton
 
-You can use the `SidebarMenuSkeleton` component to render a skeleton loader in the sidebar menu.
+Komponen `SidebarMenuSkeleton` bisa Anda pakai untuk menampilkan kerangka pemuatan di dalam menu sidebar.
 
 ```vue showLineNumbers
 <SidebarMenu>
@@ -822,7 +818,7 @@ You can use the `SidebarMenuSkeleton` component to render a skeleton loader in t
 
 ## SidebarSeparator
 
-The `SidebarSeparator` component is used to render a separator in the sidebar.
+Komponen `SidebarSeparator` menampilkan pemisah di dalam sidebar.
 
 ```vue showLineNumbers
 <SidebarContent>
@@ -834,15 +830,15 @@ The `SidebarSeparator` component is used to render a separator in the sidebar.
 
 ## SidebarTrigger
 
-The `SidebarTrigger` component is used to render a trigger button for the sidebar.
+Komponen `SidebarTrigger` menampilkan tombol pemicu untuk sidebar.
 
 ```vue showLineNumbers
 <SidebarTrigger />
 ```
 
-## Custom Trigger
+## Pemicu Buatan Sendiri
 
-You can create a custom trigger using the `useSidebar` hook.
+Anda bisa membuat pemicu sendiri memakai composable `useSidebar`.
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -860,7 +856,7 @@ const { toggleSidebar } = useSidebar()
 
 ## SidebarRail
 
-The `SidebarRail` component is used to render a rail in the sidebar. This is usually used to toggle the sidebar on hover when the sidebar is collapsed.
+Komponen `SidebarRail` menampilkan bilah tipis di sisi sidebar. Biasanya dipakai untuk membuka sidebar saat di-hover dalam keadaan terlipat.
 
 ```vue showLineNumbers
 <Sidebar collapsible="icon">
@@ -871,9 +867,9 @@ The `SidebarRail` component is used to render a rail in the sidebar. This is usu
 </Sidebar>
 ```
 
-## Controlled Sidebar
+## Sidebar yang Dikendalikan dari Luar
 
-Use the `open` and `onOpenChange` props to control the sidebar.
+Pakai prop `open` dan `onOpenChange` untuk mengendalikan sidebar dari luar.
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -889,9 +885,9 @@ const open = ref(false)
 </template>
 ```
 
-## Theming
+## Tema
 
-You can theme the sidebar using CSS variables.
+Tema sidebar bisa Anda atur lewat CSS variable.
 
 ```css
 @layer base {
@@ -919,9 +915,9 @@ You can theme the sidebar using CSS variables.
 }
 ```
 
-## Styling
+## Pemberian Style
 
-Here are some tips for styling the sidebar:
+Beberapa tips untuk men-style sidebar:
 
-- Use the `data-sidebar` and `data-state` attributes to style the sidebar.
-- The sidebar automatically sets the `--sidebar-width` CSS variable. You can use this to adjust the layout of your main content.
+- Pakai atribut `data-sidebar` dan `data-state` untuk men-style sidebar.
+- Sidebar otomatis mengatur CSS variable `--sidebar-width`. Nilai itu bisa Anda pakai untuk menyesuaikan tata letak konten utama.
