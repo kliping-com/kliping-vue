@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# hasil build dan cache VitePress
+docs/.vitepress/dist
+docs/.vitepress/cache
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -22,3 +26,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# cache Python dari skrip konversi
+__pycache__/

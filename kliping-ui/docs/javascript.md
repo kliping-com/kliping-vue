@@ -1,0 +1,43 @@
+---
+title: JavaScript
+description: Cara memakai Kliping tanpa TypeScript.
+---
+
+Komponen di Kliping ditulis dalam TypeScript, dan kami menyarankan Anda memakai
+TypeScript juga di project Anda. Tipe yang jelas membuat props dan emit setiap komponen
+langsung terbaca oleh editor, tanpa perlu bolak-balik membuka dokumentasi.
+
+Meski begitu, versi JavaScript tetap tersedia. CLI bisa mengonversi komponen ke
+JavaScript saat menambahkannya ke project Anda — lihat halaman [CLI](/cli).
+
+Untuk keluar dari TypeScript, atur flag `typescript` di file `components.json`:
+
+```json {9} title="components.json" showLineNumbers
+{
+  "style": "default",
+  "tailwind": {
+    "config": "tailwind.config.js",
+    "css": "src/app/globals.css",
+    "baseColor": "zinc",
+    "cssVariables": true
+  },
+  "typescript": false,
+  "aliases": {
+    "utils": "~/lib/utils",
+    "components": "~/components"
+  }
+}
+```
+
+Alias import tetap perlu didaftarkan supaya path seperti `@/components/ui/button` bisa
+diselesaikan. Tanpa TypeScript, tempatnya di `jsconfig.json`:
+
+```json {4} title="jsconfig.json" showLineNumbers
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./*"]
+    }
+  }
+}
+```

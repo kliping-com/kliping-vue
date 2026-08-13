@@ -1,0 +1,9 @@
+/* Pratinjau memakai token tema Kliping, sementara sisa halaman memakai token
+   bawaan VitePress. Keduanya hidup berdampingan tanpa saling menimpa. */
+.kliping-preview {
+  border-color: var(--vp-c-divider);
+}
+
+.kliping-preview .flex {
+  background: var(--vp-c-bg);
+}

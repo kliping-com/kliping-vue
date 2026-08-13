@@ -1,0 +1,209 @@
+---
+title: components.json
+description: File konfigurasi untuk project Anda.
+---
+
+File `components.json` menyimpan konfigurasi project Anda.
+
+Isinya dipakai untuk memahami bagaimana project Anda disusun, supaya komponen yang
+dihasilkan langsung menyesuaikan struktur folder dan gaya penulisan Anda.
+
+::: tip Catatan: file `components.json` sifatnya opsional
+File ini **hanya diperlukan kalau Anda memakai CLI** untuk menambahkan komponen. Kalau
+  Anda memilih cara gunting-tempel manual, file ini tidak dibutuhkan.
+:::
+
+Anda bisa membuat `components.json` dengan menjalankan perintah berikut:
+
+```bash
+npx shadcn-vue@latest init
+```
+
+Lihat [bagian CLI](/cli) untuk penjelasan lengkapnya.
+
+## $schema
+
+JSON Schema untuk `components.json` bisa Anda lihat [di sini](https://kliping.pro/schema.json).
+Menautkannya membuat editor Anda bisa melakukan autocomplete dan validasi saat mengedit file ini.
+
+```json title="components.json"
+{
+  "$schema": "https://kliping.pro/schema.json"
+}
+```
+
+## style
+
+Style yang dipakai komponen Anda. **Nilai ini tidak bisa diubah setelah inisialisasi.**
+
+```json title="components.json"
+{
+  "style": "new-york"
+}
+```
+
+Style `default` sudah tidak digunakan lagi. Pakai `new-york`.
+
+## tailwind
+
+Konfigurasi yang membantu CLI memahami bagaimana Tailwind CSS dipasang di project Anda.
+
+Lihat <a href="/docs/installation">bagian instalasi</a> untuk cara memasang Tailwind CSS.
+
+### tailwind.config
+
+Lokasi file `tailwind.config.js` Anda. **Untuk Tailwind CSS v4, kosongkan saja.**
+
+```json title="components.json"
+{
+  "tailwind": {
+    "config": "tailwind.config.js" | "tailwind.config.ts"
+  }
+}
+```
+
+### tailwind.css
+
+Lokasi file CSS tempat Tailwind CSS di-import ke project Anda.
+
+```json title="components.json"
+{
+  "tailwind": {
+    "css": "styles/global.css"
+  }
+}
+```
+
+### tailwind.baseColor
+
+Dipakai untuk membentuk palet warna bawaan komponen Anda. **Nilai ini tidak bisa diubah
+setelah inisialisasi.**
+
+```json title="components.json"
+{
+  "tailwind": {
+    "baseColor": "gray" | "neutral" | "slate" | "stone" | "zinc"
+  }
+}
+```
+
+### tailwind.cssVariables
+
+Anda bisa memilih antara memakai CSS variable atau utility class Tailwind CSS untuk theming.
+
+Untuk memakai utility class, isi `tailwind.cssVariables` dengan `false`. Untuk CSS variable,
+isi dengan `true`.
+
+```json title="components.json"
+{
+  "tailwind": {
+    "cssVariables": `true` | `false`
+  }
+}
+```
+
+Penjelasan lebih jauh ada di <Link href="/docs/theming">dokumentasi tema</Link>.
+
+**Nilai ini tidak bisa diubah setelah inisialisasi.** Untuk berpindah antara CSS variable
+dan utility class, Anda harus menghapus lalu memasang ulang komponen-komponen Anda.
+
+### tailwind.prefix
+
+Prefix yang dipakai untuk utility class Tailwind CSS Anda. Komponen akan ditambahkan
+dengan prefix ini.
+
+```json title="components.json"
+{
+  "tailwind": {
+    "prefix": "tw-"
+  }
+}
+```
+
+## typescript
+
+Memilih antara komponen TypeScript atau JavaScript.
+
+Mengisi opsi ini dengan `false` membuat komponen ditambahkan sebagai JavaScript di dalam
+file `.vue`.
+
+```json title="components.json"
+{
+  "typescript": `true` | `false`
+}
+```
+
+## aliases
+
+CLI memakai nilai-nilai ini bersama konfigurasi `paths` di `tsconfig.json` atau
+`jsconfig.json` Anda untuk menempatkan komponen di folder yang tepat.
+
+Alias path harus sudah didaftarkan di `tsconfig.json` atau `jsconfig.json` Anda terlebih dahulu.
+
+::: tip 
+**Penting:** Kalau Anda memakai folder `src`, pastikan folder itu ikut tercantum di
+  bagian `paths` pada `tsconfig.json` atau `jsconfig.json` Anda.
+:::
+
+### aliases.utils
+
+Alias import untuk fungsi utilitas Anda.
+
+```json title="components.json"
+{
+  "aliases": {
+    "utils": "@/lib/utils"
+  }
+}
+```
+
+### aliases.components
+
+Alias import untuk komponen Anda.
+
+```json title="components.json"
+{
+  "aliases": {
+    "components": "@/components"
+  }
+}
+```
+
+### aliases.ui
+
+Alias import untuk komponen `ui`.
+
+CLI memakai nilai `aliases.ui` untuk menentukan di mana komponen `ui` diletakkan. Pakai
+konfigurasi ini kalau Anda ingin mengubah folder tujuan pemasangan komponen `ui`.
+
+```json title="components.json"
+{
+  "aliases": {
+    "ui": "@/app/ui"
+  }
+}
+```
+
+### aliases.lib
+
+Alias import untuk fungsi `lib` seperti `cn`.
+
+```json title="components.json"
+{
+  "aliases": {
+    "lib": "@/lib"
+  }
+}
+```
+
+### aliases.composables
+
+Alias import untuk `composables` seperti `useMediaQuery` atau `useToast`.
+
+```json title="components.json"
+{
+  "aliases": {
+    "composables": "@/composables"
+  }
+}
+```
