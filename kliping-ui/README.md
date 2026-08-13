@@ -19,18 +19,28 @@ Vite + Vue 3 + TypeScript + Tailwind v4. Tanpa Nuxt, tanpa server, tanpa databas
 
 ```bash
 npm install
-npm run dev        # aplikasi contoh, http://localhost:5173
-npm run docs:dev   # dokumentasi, http://localhost:5173
+npm run docs:dev   # situs Kliping — http://localhost:5174
+npm run dev        # halaman uji coba komponen — http://localhost:5173
 ```
+
+Ada dua hal yang bisa dijalankan di sini, dan keduanya berbeda:
+
+- **`docs:dev`** menjalankan situs Kliping — beranda, 109 halaman dokumentasi,
+  galeri blocks. Ini yang dimaksud "situsnya".
+- **`dev`** menjalankan aplikasi Vite di `src/App.vue`: satu halaman kecil untuk
+  mencoba komponen dengan cepat, bukan bagian dari situs.
+
+Port-nya sengaja dipisah supaya keduanya bisa jalan berbarengan dan tidak
+tertukar — VitePress dan Vite sama-sama memakai 5173 kalau dibiarkan.
 
 Perintah lain:
 
 ```bash
 npm run typecheck    # vue-tsc, tanpa emit
 npm run build        # typecheck lalu build produksi
-npm run preview      # cek hasil build aplikasi
-npm run docs:build   # build dokumentasi statis
-npm run docs:preview # cek hasil build dokumentasi
+npm run preview      # cek hasil build halaman uji coba
+npm run docs:build   # build situs statis
+npm run docs:preview # cek hasil build situs
 ```
 
 ## Struktur
