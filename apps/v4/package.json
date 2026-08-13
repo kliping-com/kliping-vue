@@ -4,7 +4,7 @@
   "private": true,
   "description": "Website, dokumentasi, dan registry komponen Kliping.",
   "scripts": {
-    "build": "NODE_OPTIONS=--max-old-space-size=16384 nuxt build",
+    "build": "NODE_OPTIONS=--max-old-space-size=6144 nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
