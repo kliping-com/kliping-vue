@@ -1,6 +1,6 @@
 ---
 title: Calendar
-description: A date field component that allows users to enter and edit date.
+description: Komponen isian tanggal yang memungkinkan pengguna memasukkan dan menyunting tanggal.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/calendar
@@ -10,17 +10,17 @@ links:
 ::component-preview
 ---
 name: CalendarDemo
-description: A calendar component.
+description: Komponen kalender.
 ---
 ::
 
-## About
+## Tentang
 
-The `<Calendar />` component is built on top of the [Reka UI Calendar](https://www.reka-ui.com/docs/components/calendar) component, which uses the [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/index.html) package to handle dates.
+Komponen `<Calendar />` dibangun di atas [Calendar milik Reka UI](https://www.reka-ui.com/docs/components/calendar), yang memakai paket [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/index.html) untuk mengurus tanggal.
 
-If you're looking for a range calendar, check out the [Range Calendar](./range-calendar.md) component.
+Kalau yang Anda butuhkan kalender rentang tanggal, lihat komponen [Range Calendar](./range-calendar.md).
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -47,7 +47,7 @@ npx shadcn-vue@latest add calendar
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -55,18 +55,18 @@ npx shadcn-vue@latest add calendar
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/calendar) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/calendar) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -78,15 +78,15 @@ import { Calendar } from '@/components/ui/calendar'
 </template>
 ```
 
-## Calendar Systems (Persian / Hijri / Jalali for example)
+## Sistem Penanggalan (Persia / Hijriah / Jalali, misalnya)
 
-[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/index.html) Supports 13 calendar systems
-Here, we'll use the Persian calendar as an example to show how to use calendar systems with the `<Calendar />` component or any other Calendar components.
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/index.html) mendukung 13 sistem penanggalan.
+Di sini kami memakai kalender Persia sebagai contoh, untuk menunjukkan cara memakai sistem penanggalan pada `<Calendar />` maupun komponen kalender lainnya.
 
-The default calendar system is `gregory`.<br/>
-To use a different calendar system, you need to provide a value with the desired system through the **`defaultPlaceholder`** or **`placeholder`** props.
+Sistem penanggalan bawaannya adalah `gregory`.<br/>
+Untuk memakai sistem penanggalan lain, berikan nilai bersistem tersebut lewat prop **`defaultPlaceholder`** atau **`placeholder`**.
 
-It's recommended to add either the `placeholder` or `defaultPlaceholder` to the component even if you don't use any other calendar system
+Sebaiknya prop `placeholder` atau `defaultPlaceholder` tetap Anda isi, meski Anda tidak memakai sistem penanggalan lain.
 
 ```vue
 <script setup lang="ts">
@@ -116,11 +116,11 @@ const defaultPlaceholder = toCalendar(today(getLocalTimeZone()))
 </template>
 ```
 
-If none of these props are provided, the emitted dates will use the `gregorian` calendar by default, since it is the most widely used system.
+Kalau keduanya dikosongkan, tanggal yang dikeluarkan akan memakai kalender `gregorian`, karena sistem itu yang paling umum dipakai.
 
-The emitted value from the Calendar component will vary depending on the specified calendar system identifier. <br />
+Nilai yang dikeluarkan komponen Calendar berbeda-beda tergantung pengenal sistem penanggalan yang Anda tentukan. <br />
 
-You can also change the locale using the `locale` prop to match the calendar system interface.
+Anda juga bisa mengubah locale lewat prop `locale` agar tampilannya sesuai dengan sistem penanggalan yang dipakai.
 
 ::code-collapsible-wrapper
 
@@ -165,17 +165,17 @@ const placeholder = ref(toCalendar(today(getLocalTimeZone()), new PersianCalenda
 ::component-preview
 ---
 name: CalendarPersianDemo
-description: A Persian calendar.
+description: Kalender Persia.
 ---
 ::
 
-## Examples
+## Contoh
 
-### Calendar Systems
+### Sistem Penanggalan
 
-importing `createCalendar` into your project will result in all available calendars being included in your bundle. If you wish to limit the supported calendars to reduce bundle sizes, you can create your own implementation that only imports the desired classes. This way, your bundler can tree-shake the unused calendar implementations.
+Meng-import `createCalendar` akan menyertakan seluruh kalender yang tersedia ke dalam bundle Anda. Kalau Anda ingin membatasi kalender yang didukung demi memperkecil ukuran bundle, buatlah implementasi sendiri yang hanya meng-import kelas yang Anda butuhkan. Dengan begitu bundler bisa membuang implementasi kalender yang tidak terpakai.
 
-Check [`@internationalized/date`](https://react-spectrum.adobe.com/internationalized/date/), especially the section on [**Calendar Identifiers**](https://react-spectrum.adobe.com/internationalized/date/Calendar.html#calendar-identifiers).
+Lihat [`@internationalized/date`](https://react-spectrum.adobe.com/internationalized/date/), terutama bagian [**Calendar Identifiers**](https://react-spectrum.adobe.com/internationalized/date/Calendar.html#calendar-identifiers).
 
 ```ts
 import { GregorianCalendar, JapaneseCalendar } from '@internationalized/date'
@@ -196,62 +196,62 @@ function createCalendar(identifier) {
 ---
 name: CalendarSystems
 title: Calendar systems
-description: A calendar with multiple calendar systems
+description: Kalender dengan beberapa sistem penanggalan.
 class: '**:[.preview]:h-[560px] mt-8'
 ---
 ::
 
-### Month and Year Selector
+### Pemilih Bulan dan Tahun
 
-Make sure to pass either the `placeholder` or `defaultPlaceholder` prop when using this feature.
+Pastikan Anda mengisi prop `placeholder` atau `defaultPlaceholder` saat memakai fitur ini.
 
 ::component-preview
 ---
 name: CalendarYearAndMonthSelector
 title: Month and Year Selector
-description: A calendar with month and year dropdowns.
+description: Kalender dengan dropdown bulan dan tahun.
 ---
 ::
 
-### Date of Birth Picker
+### Pemilih Tanggal Lahir
 
 ::component-preview
 ---
 name: CalendarDateBirth
 title: Date of Birth Picker
-description: A calendar with date of birth picker.
+description: Kalender dengan pemilih tanggal lahir.
 ---
 ::
 
-### Date and Time Picker
+### Pemilih Tanggal dan Waktu
 
 ::component-preview
 ---
 name: CalendarDateAndTimePicker
 title: Date and Time Picker
-description: A calendar with date and time picker.
+description: Kalender dengan pemilih tanggal dan waktu.
 ---
 ::
 
-### Natural Language Picker
+### Pemilih Berbahasa Alami
 
-This component uses the `chrono-node` library to parse natural language dates.
+Komponen ini memakai library `chrono-node` untuk membaca tanggal yang ditulis dalam bahasa sehari-hari.
 
 ::component-preview
 ---
 name: CalendarNaturalLanguagePicker
 title: Natural Language Picker
-description: A calendar with natural language picker.
+description: Kalender dengan pemilih berbahasa alami.
 ---
 ::
 
-### Custom Heading and Cell Size
+### Heading dan Ukuran Sel Kustom
 
 ::component-preview
 ---
 name: CalendarCustomCellSize
 title: Custom Heading and Cell Size
-description: A calendar with custom cell size that's responsive.
+description: Kalender dengan ukuran sel kustom yang responsif.
 class: '**:[.preview]:h-[560px]'
 ---
 ::

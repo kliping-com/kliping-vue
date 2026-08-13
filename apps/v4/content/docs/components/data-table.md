@@ -1,20 +1,16 @@
 ---
 title: Data Table
-description: Powerful table and datagrids built using TanStack Table.
+description: Tabel dan datagrid bertenaga, dibangun memakai TanStack Table.
 component: true
 ---
 
 ::component-preview
 ---
 name: DataTableDemo
-description: A data table with sorting, filtering, and pagination.
+description: Data table dengan pengurutan, penyaringan, dan navigasi halaman.
 align: start
 previewClass: items-start h-auto px-4 md:px-8
 ---
-::
-
-::vue-school-link{class="mt-6" lesson="data-tables-and-sonner-in-shadcn-vue" placement="top"}
-Watch a Vue School video about data tables in shadcn-vue.
 ::
 
 ## Introduction
@@ -49,7 +45,7 @@ This guide will show you how to use [TanStack Table](https://tanstack.com/table)
 - [Reusable Components](#reusable-components)
 
 
-## Installation
+## Instalasi
 
 1. Add the `<Table />` component to your project:
 
@@ -532,7 +528,7 @@ const pagination = computed(() => table.atoms.pagination.get())
 
 </Steps>
 
-## Sorting
+## Pengurutan
 
 Let's make the email column sortable.
 
@@ -605,7 +601,7 @@ Filtering is now enabled for the `email` column. You can add filters to other co
 
 </Steps>
 
-## Visibility
+## Visibilitas
 
 Adding column visibility is fairly simple using `@tanstack/vue-table` visibility API. The `columnVisibilityFeature` is already registered in our features object, so we only need to add the dropdown.
 

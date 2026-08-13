@@ -1,15 +1,15 @@
 ---
 title: Typography
-description: Styles for headings, paragraphs, lists...etc
+description: Style untuk heading, paragraf, list, dan elemen teks lainnya.
 component: true
 ---
 
-We do not ship any typography styles by default. This page is an example of how you can use utility classes to style your text.
+Kami tidak menyertakan style tipografi apa pun secara bawaan. Halaman ini contoh bagaimana Anda bisa menata teks memakai utility class.
 
 ::component-preview
 ---
 name: TypographyDemo
-description: A collection of typographic elements.
+description: Kumpulan elemen tipografi.
 class: "[&_.preview]:!h-auto"
 hideCode: true
 ---
@@ -79,7 +79,7 @@ name: TypographyList
 ---
 ::
 
-## Inline code
+## Kode sebaris
 
 ::component-preview
 ---
@@ -87,7 +87,7 @@ name: TypographyInlineCode
 ---
 ::
 
-## Lead
+## Paragraf pembuka
 
 ::component-preview
 ---
@@ -95,7 +95,7 @@ name: TypographyLead
 ---
 ::
 
-## Large
+## Besar
 
 ::component-preview
 ---
@@ -103,7 +103,7 @@ name: TypographyLarge
 ---
 ::
 
-## Small
+## Kecil
 
 ::component-preview
 ---
@@ -111,7 +111,7 @@ name: TypographySmall
 ---
 ::
 
-## Muted
+## Redup
 
 ::component-preview
 ---

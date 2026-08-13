@@ -1,6 +1,6 @@
 ---
 title: Attachment
-description: Displays a file or image attachment with media, metadata, upload state, and actions.
+description: Menampilkan lampiran berupa berkas atau gambar, lengkap dengan media, metadata, status unggah, dan aksinya.
 component: true
 ---
 
@@ -14,7 +14,7 @@ previewClass: h-auto theme-blue bg-surface dark:bg-background
 The `Attachment` component displays a file or image attachment, its media, name, and metadata, with optional actions and upload state. Use it for files and images in chat composers, message threads, and upload lists.
 
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -41,11 +41,11 @@ npx shadcn-vue@latest add attachment
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/bases/reka/ui/attachment) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/bases/reka/ui/attachment) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
@@ -53,7 +53,7 @@ npx shadcn-vue@latest add attachment
 :::::
 
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -87,7 +87,7 @@ import {
 </template>
 ```
 
-## Composition
+## Komposisi
 
 Use the following composition to build an attachment:
 
@@ -110,7 +110,7 @@ AttachmentGroup
 └── Attachment
 ```
 
-## Features
+## Fitur
 
 - Icon and image media through `AttachmentMedia`
 - Upload states: `idle`, `uploading`, `processing`, `error`, and `done` with built-in styling and a shimmer while in progress
@@ -119,7 +119,7 @@ AttachmentGroup
 - Scrollable, snapping `AttachmentGroup` with an edge fade
 - Customizable styling through the Vue `class` attribute on every part
 
-## Examples
+## Contoh
 
 ### Image
 
@@ -143,7 +143,7 @@ previewClass: h-auto theme-blue bg-surface dark:bg-background
 ---
 ::
 
-### Sizes
+### Ukuran
 
 Use `size` to switch between `default`, `sm`, and `xs`.
 
@@ -154,7 +154,7 @@ previewClass: h-auto theme-blue bg-surface dark:bg-background
 ---
 ::
 
-### Group
+### Grup
 
 Wrap attachments in `AttachmentGroup` to lay them out in a horizontally scrollable, snapping row with an edge fade.
 
@@ -193,7 +193,7 @@ previewClass: h-auto theme-blue bg-surface dark:bg-background
 </template>
 ```
 
-## Accessibility
+## Aksesibilitas
 
 `AttachmentAction` renders a `Button`, and `AttachmentTrigger` renders a real `<button>` (or your element via `as-child`). Follow the guidance below so both are operable and announced.
 
@@ -236,7 +236,7 @@ An `AttachmentGroup` scrolls horizontally. When its attachments are interactive:
 
 The `error` state uses a destructive color. Keep the failure reason in `AttachmentDescription` so the state is not conveyed by color alone.
 
-## API Reference
+## Referensi API
 
 ### Attachment
 
@@ -262,7 +262,7 @@ The media slot for an icon or image preview.
 
 Wraps the title and description.
 
-| Prop        | Type     | Default | Description                                      |
+| Prop        | Tipe     | Bawaan  | Description                                      |
 | ----------- | -------- | ------- | ------------------------------------------------ |
 | `class` | `HTMLAttributes["class"]` | -       | Additional classes to apply to the content slot. |
 
@@ -270,7 +270,7 @@ Wraps the title and description.
 
 The attachment name. Shimmers while the attachment is `uploading` or `processing`.
 
-| Prop        | Type     | Default | Description                               |
+| Prop        | Tipe     | Bawaan  | Description                               |
 | ----------- | -------- | ------- | ----------------------------------------- |
 | `class` | `HTMLAttributes["class"]` | -       | Additional classes to apply to the title. |
 
@@ -278,7 +278,7 @@ The attachment name. Shimmers while the attachment is `uploading` or `processing
 
 Secondary metadata such as the file type, size, or upload status.
 
-| Prop        | Type     | Default | Description                                     |
+| Prop        | Tipe     | Bawaan  | Description                                     |
 | ----------- | -------- | ------- | ----------------------------------------------- |
 | `class` | `HTMLAttributes["class"]` | -       | Additional classes to apply to the description. |
 
@@ -286,7 +286,7 @@ Secondary metadata such as the file type, size, or upload status.
 
 A container for one or more actions, aligned to the end of the attachment.
 
-| Prop        | Type     | Default | Description                                 |
+| Prop        | Tipe     | Bawaan  | Description                                 |
 | ----------- | -------- | ------- | ------------------------------------------- |
 | `class` | `HTMLAttributes["class"]` | -       | Additional classes to apply to the actions. |
 
@@ -314,6 +314,6 @@ A full-card overlay that activates the attachment. Renders a `<button>` by defau
 
 Lays out attachments in a horizontally scrollable, snapping row.
 
-| Prop        | Type     | Default | Description                               |
+| Prop        | Tipe     | Bawaan  | Description                               |
 | ----------- | -------- | ------- | ----------------------------------------- |
 | `class` | `HTMLAttributes["class"]` | -       | Additional classes to apply to the group. |

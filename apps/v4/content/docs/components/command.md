@@ -1,6 +1,6 @@
 ---
 title: Command
-description: Fast, composable, unstyled command menu for Vue.
+description: Menu perintah untuk Vue yang cepat, bisa dikomposisikan, dan tanpa style bawaan.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/listbox
@@ -10,12 +10,12 @@ links:
 ::component-preview
 ---
 name: CommandDemo
-description: A command component.
+description: Komponen command.
 class: "[&_.preview>div]:max-w-[450px]"
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -42,7 +42,7 @@ npx shadcn-vue@latest add command
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -50,18 +50,18 @@ npx shadcn-vue@latest add command
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/command) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/command) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">

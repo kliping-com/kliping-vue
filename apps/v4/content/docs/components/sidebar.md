@@ -1,6 +1,6 @@
 ---
 title: Sidebar
-description: A composable, themeable and customizable sidebar component.
+description: Komponen sidebar yang bisa dikomposisikan, diberi tema, dan disesuaikan.
 component: true
 ---
 
@@ -10,14 +10,10 @@ component: true
 ---
 title: Sidebar
 name: sidebar-07
-description: A composable, themeable and customizable sidebar component built using shadcn/vue
+description: Komponen sidebar yang bisa dikomposisikan, diberi tema, dan disesuaikan.
 class: 'w-full'
 type: block
 ---
-::
-
-::vue-school-link{class="mt-6" lesson="sidebars-in-shadcn-vue" placement="top"}
-Watch a Vue School video about building sidebars with shadcn-vue.
 ::
 
 Sidebars are one of the most complex components to build. They are central
@@ -31,7 +27,7 @@ Customizable.
 
 [Browse the Blocks Library](/blocks).
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -103,7 +99,7 @@ npx shadcn-vue@latest add sidebar
 
 :::::
 
-## Structure
+## Struktur
 
 A `Sidebar` component is composed of the following parts:
 
@@ -129,7 +125,7 @@ A `Sidebar` component is composed of the following parts:
   class="border hidden dark:block rounded-lg overflow-hidden mt-6 w-full"
 />
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -363,7 +359,7 @@ The `SidebarProvider` component is used to provide the sidebar context to all it
 
 The `SidebarProvider` component accepts the following props:
 
-### Width
+### Lebar
 
 Use the `defaultOpen`, `open`, and `onOpenChange` props to control the open state of the sidebar.
 
@@ -889,7 +885,7 @@ const open = ref(false)
 </template>
 ```
 
-## Theming
+## Tema
 
 You can theme the sidebar using CSS variables.
 
@@ -919,7 +915,7 @@ You can theme the sidebar using CSS variables.
 }
 ```
 
-## Styling
+## Pemberian Style
 
 Here are some tips for styling the sidebar:
 

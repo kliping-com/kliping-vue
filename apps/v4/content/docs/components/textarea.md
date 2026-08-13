@@ -1,17 +1,17 @@
 ---
 title: Textarea
-description: Displays a form textarea or a component that looks like a textarea.
+description: Menampilkan textarea, atau komponen lain yang tampil seperti textarea.
 component: true
 ---
 
 ::component-preview
 ---
 name: TextareaDemo
-description: A textarea component.
+description: Komponen textarea.
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -38,18 +38,18 @@ npx shadcn-vue@latest add textarea
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/textarea) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/textarea) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">

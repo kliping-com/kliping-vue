@@ -1,6 +1,6 @@
 ---
 title: Kbd
-description: Used to display textual user input from keyboard.
+description: Menampilkan tombol keyboard yang ditekan pengguna.
 component: true
 ---
 
@@ -10,7 +10,7 @@ name: KbdDemo
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -37,7 +37,7 @@ npx shadcn-vue@latest add kbd
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -45,18 +45,18 @@ npx shadcn-vue@latest add kbd
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/kbd) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/kbd) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue
 <script setup lang="ts">
@@ -68,11 +68,11 @@ import { Kbd } from '@/components/ui/kbd'
 </template>
 ```
 
-## Examples
+## Contoh
 
-### Group
+### Grup
 
-Use the `KbdGroup` component to group keyboard keys together.
+Pakai komponen `KbdGroup` untuk mengelompokkan beberapa tombol keyboard.
 
 ::component-preview
 ---
@@ -82,7 +82,7 @@ name: KbdGroupDemo
 
 ### Button
 
-Use the `Kbd` component inside a `Button` component to display a keyboard key inside a button.
+Letakkan komponen `Kbd` di dalam `Button` untuk menampilkan tombol keyboard di dalam tombol.
 
 ::component-preview
 ---
@@ -92,7 +92,7 @@ name: KbdWithButton
 
 ### Tooltip
 
-You can use the `Kbd` component inside a `Tooltip` component to display a tooltip with a keyboard key.
+Letakkan komponen `Kbd` di dalam `Tooltip` untuk menampilkan tooltip yang memuat tombol keyboard.
 
 ::component-preview
 ---
@@ -102,7 +102,7 @@ name: KbdWithTooltip
 
 ### Input Group
 
-You can use the `Kbd` component inside a `InputGroupAddon` component to display a keyboard key inside an input group.
+Letakkan komponen `Kbd` di dalam `InputGroupAddon` untuk menampilkan tombol keyboard di dalam input group.
 
 ::component-preview
 ---
@@ -110,13 +110,13 @@ name: KbdWithInputGroup
 ---
 ::
 
-## API Reference
+## Referensi API
 
 ### Kbd
 
-Use the `Kbd` component to display a keyboard key.
+Pakai komponen `Kbd` untuk menampilkan satu tombol keyboard.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class` | `string` | ``      |
 
@@ -128,9 +128,9 @@ Ctrl
 
 ### KbdGroup
 
-Use the `KbdGroup` component to group `Kbd` components together.
+Pakai komponen `KbdGroup` untuk mengelompokkan beberapa komponen `Kbd`.
 
-| Prop        | Type     | Default |
+| Prop        | Tipe     | Bawaan  |
 | ----------- | -------- | ------- |
 | `class` | `string` | ``      |
 

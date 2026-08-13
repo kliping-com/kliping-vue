@@ -1,6 +1,6 @@
 ---
 title: Avatar
-description: An image element with a fallback for representing the user.
+description: Elemen gambar dengan cadangan tampilan untuk mewakili pengguna.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/avatar
@@ -11,11 +11,11 @@ links:
 ---
 name: AvatarDemo
 class: '[&_.preview]:min-h-[200px]'
-description: An avatar with a fallback.
+description: Avatar dengan tampilan cadangan.
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -42,7 +42,7 @@ npx shadcn-vue@latest add avatar
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -50,18 +50,18 @@ npx shadcn-vue@latest add avatar
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/avatar) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/avatar) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">

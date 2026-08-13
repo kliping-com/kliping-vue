@@ -1,6 +1,6 @@
 ---
 title: Sonner
-description: An opinionated toast component for Vue.
+description: Komponen notifikasi toast untuk Vue dengan pilihan desain yang sudah ditentukan.
 component: true
 links:
   doc: https://vue-sonner.vercel.app/
@@ -9,15 +9,11 @@ links:
 ::component-preview
 ---
 name: SonnerDemo
-description: A sonner toast component.
+description: Komponen notifikasi toast Sonner.
 ---
 ::
 
-::vue-school-link{class="mt-6" lesson="data-tables-and-sonner-in-shadcn-vue" placement="top"}
-Watch a Vue School video about data tables and Sonner in shadcn-vue.
-::
-
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -44,7 +40,7 @@ npx shadcn-vue@latest add sonner
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -52,18 +48,18 @@ npx shadcn-vue@latest add sonner
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/sonner) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/sonner) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -78,9 +74,9 @@ import { Button } from '@/components/ui/button'
 </template>
 ```
 
-## Installation
+## Instalasi
 
-The `<Toaster />` component and its specific CSS are required to display toasts. Add them to your root layout.
+Komponen `<Toaster />` beserta CSS-nya wajib ada supaya toast bisa tampil. Pasang keduanya di layout paling luar aplikasi Anda.
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -98,9 +94,9 @@ import { Toaster } from '@/components/ui/sonner'
 </template>
 ```
 
-## Examples
+## Contoh
 
-### Types
+### Tipe
 
 ::component-preview
 ---
@@ -108,7 +104,7 @@ name: SonnerTypesDemo
 ---
 ::
 
-### With Dialog
+### Dengan Dialog
 
 ::component-preview
 ---

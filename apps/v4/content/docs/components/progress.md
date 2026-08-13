@@ -1,6 +1,6 @@
 ---
 title: Progress
-description: Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
+description: Menampilkan indikator kemajuan sebuah proses, biasanya berbentuk bilah progres.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/progress
@@ -10,11 +10,11 @@ links:
 ::component-preview
 ---
 name: ProgressDemo
-description: A progress component.
+description: Komponen bilah progres.
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -41,7 +41,7 @@ npx shadcn-vue@latest add progress
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -49,18 +49,18 @@ npx shadcn-vue@latest add progress
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/progress) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/progress) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">

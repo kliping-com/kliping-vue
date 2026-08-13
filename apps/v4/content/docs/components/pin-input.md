@@ -1,6 +1,6 @@
 ---
 title: Pin Input
-description: Accessible pin input component with copy paste functionality.
+description: Komponen isian PIN yang mudah diakses, lengkap dengan dukungan salin-tempel.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/pin-input
@@ -9,8 +9,8 @@ links:
 
 <Callout title="The pin input component has been deprecated." class="mt-0">
 
-  See the [input otp](/docs/components/input-otp) documentation for more information.
+  Lihat dokumentasi [input otp](/docs/components/input-otp) untuk keterangan lebih lanjut.
 
 </Callout>
 
-If you're looking for the old pin input component, see the [old docs](https://v3.shadcn-vue.com/docs/components/pin-input) for more information.
+Kalau yang Anda cari komponen pin input versi lama, keterangannya ada di [arsip dokumentasi shadcn-vue](https://v3.shadcn-vue.com/docs/components/pin-input).

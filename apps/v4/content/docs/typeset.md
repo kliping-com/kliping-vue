@@ -34,7 +34,7 @@ So we sat down and condensed everything into three controls: size, leading, and 
 
 ---
 
-## Features
+## Fitur
 
 - **It fits its container.** Put it in a chat bubble and it follows the smaller type around it. Put it in an article and it scales up with the page. On smaller screens, it gets a small bump for readability.
 - **It uses your theme.** Colors, fonts, and radius come from your app. Dark mode follows the same tokens.

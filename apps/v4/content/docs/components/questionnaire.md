@@ -1,6 +1,6 @@
 ---
 title: Questionnaire
-description: A multi-step questionnaire with single-choice, multiple-choice, freeform, and skippable questions.
+description: Kuesioner bertahap dengan pertanyaan pilihan tunggal, pilihan ganda, isian bebas, dan pertanyaan yang boleh dilewati.
 component: true
 new: true
 ---
@@ -14,7 +14,7 @@ previewClass: min-h-[560px] p-4 sm:p-8
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -41,18 +41,18 @@ npx shadcn-vue@latest add questionnaire
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/bases/reka/ui/questionnaire) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/bases/reka/ui/questionnaire) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -118,7 +118,7 @@ function handleSubmit(event: Event) {
 </template>
 ```
 
-## Composition
+## Komposisi
 
 Use the following composition to build a questionnaire:
 
@@ -146,7 +146,7 @@ Questionnaire
 
 Pass `items` to server-render the active item, progress, actions, and answer shortcuts. Without it the questionnaire only learns its order once the items have mounted on the client.
 
-## Features
+## Fitur
 
 - One question at a time, with progress, navigation, and validation handled for you
 - Single-choice, multiple-choice, freeform, and intentionally skipped answers
@@ -155,7 +155,7 @@ Pass `items` to server-render the active item, progress, actions, and answer sho
 - Controlled navigation with `v-model:item` for custom validation flows
 - Native form reset restores the answers you marked as defaults
 
-## Examples
+## Contoh
 
 ### Multiple Selection
 
@@ -232,7 +232,7 @@ previewClass: min-h-[520px] p-4 sm:p-8
 </QuestionnaireError>
 ```
 
-### Controlled
+### Dikendalikan dari Luar
 
 Control the active item from host state, such as returning to an invalid step. Use `v-model:item`.
 
@@ -356,7 +356,7 @@ previewClass: min-h-[320px] p-4 sm:p-8
 | `Meta+Enter` / `Ctrl+Enter` | Confirms the active question from anywhere in the form.      |
 | `A` – `Z` / `1` – `9`  | Selects the matching choice when `shortcuts` is set.              |
 
-## Accessibility
+## Aksesibilitas
 
 `QuestionnaireItem` renders a `fieldset` with a `legend`, so every question is announced with its answers. Descriptions and errors are associated with the item through `aria-describedby`, and an invalid item exposes `aria-invalid`.
 
@@ -364,7 +364,7 @@ previewClass: min-h-[320px] p-4 sm:p-8
 
 Navigation actions are real buttons. `QuestionnaireSubmit` submits the form, so a questionnaire keeps working with browser autofill and native form submission.
 
-## API Reference
+## Referensi API
 
 ### Questionnaire
 

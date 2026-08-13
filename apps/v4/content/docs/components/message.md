@@ -1,6 +1,6 @@
 ---
 title: Message
-description: Displays a message in a conversation, with optional avatar, header, footer, and alignment.
+description: Menampilkan satu pesan dalam percakapan, lengkap dengan avatar, header, footer, dan perataan yang bisa diatur.
 component: true
 ---
 
@@ -15,7 +15,7 @@ The `Message` component lays out a single message in a conversation. It handles 
 
 For AI apps, you can render reasoning steps, tool calls and assistant messages using the `Message` component.
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -42,18 +42,18 @@ npx shadcn-vue@latest add message
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/message) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/message) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -84,7 +84,7 @@ import { Message, MessageAvatar, MessageContent } from "@/components/ui/message"
 Render the visible message surface inside it with
 [`Bubble`](/docs/components/bubble).
 
-## Composition
+## Komposisi
 
 Use the following composition to build a message:
 
@@ -105,7 +105,7 @@ MessageGroup
 └── Message
 ```
 
-## Features
+## Fitur
 
 - Start and end alignment for sender and receiver rows via the `align` prop
 - Avatar slot that anchors to the bottom of the message and stays clear of the footer
@@ -115,7 +115,7 @@ MessageGroup
 - Polymorphic wrappers via `as` or `as-child`
 - Customizable styling through the `class` prop on every part
 
-## Examples
+## Contoh
 
 ### Avatar
 
@@ -133,7 +133,7 @@ previewClass: h-auto theme-blue
 | `start` | Align the message to the start of the conversation. |
 | `end`   | Align the message to the end of the conversation.   |
 
-### Group
+### Grup
 
 Use `MessageGroup` to stack consecutive messages from the same sender. Render an empty `MessageAvatar` on the earlier messages to keep them aligned with the avatar on the last one.
 
@@ -166,7 +166,7 @@ previewClass: h-auto theme-blue
 ---
 ::
 
-## Accessibility
+## Aksesibilitas
 
 `Message` is a presentational layout wrapper. Accessibility comes from the content you place inside it.
 
@@ -197,7 +197,7 @@ For in-progress messages, use a [`Marker`](/docs/components/marker) with `role="
 </Message>
 ```
 
-## API Reference
+## Referensi API
 
 All Message parts render a `<div>` by default. Use `as` to choose another element, or `as-child` to merge the component's attributes and styles onto the single element or component in its default slot.
 

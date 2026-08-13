@@ -1,6 +1,6 @@
 ---
 title: Button
-description: Displays a button or a component that looks like a button.
+description: Menampilkan tombol, atau komponen lain yang tampil seperti tombol.
 featured: true
 component: true
 ---
@@ -8,15 +8,11 @@ component: true
 ::component-preview
 ---
 name: ButtonDemo
-description: A button
+description: Sebuah tombol.
 ---
 ::
 
-::vue-school-link{class="mt-6" lesson="buttons-variants-and-the-as-child-prop-with-shadcn-vue" placement="top"}
-Watch a Vue School video about buttons, variants, and the as-child prop in shadcn-vue.
-::
-
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -43,7 +39,7 @@ npx shadcn-vue@latest add button
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -51,18 +47,18 @@ npx shadcn-vue@latest add button
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/button) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/button) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -78,11 +74,11 @@ import { Button } from '@/components/ui/button'
 
 ## Cursor
 
-Tailwind v4 [switched](https://tailwindcss.com/docs/upgrade-guide#buttons-use-the-default-cursor) from `cursor: pointer` to `cursor: default` for the button component.
+Tailwind v4 [berganti](https://tailwindcss.com/docs/upgrade-guide#buttons-use-the-default-cursor) dari `cursor: pointer` ke `cursor: default` untuk komponen tombol.
 
-If you want to keep the `cursor: pointer` behavior, add the following code to your CSS file:
+Kalau Anda ingin mempertahankan perilaku `cursor: pointer`, tambahkan kode berikut ke file CSS Anda:
 
-You can also enable this during project setup with `npx shadcn-vue@latest init --pointer`.
+Perilaku ini juga bisa diaktifkan saat menyiapkan project lewat `npx shadcn-vue@latest init --pointer`.
 
 ```css showLineNumbers title="tailwind.css"
 @layer base {
@@ -93,9 +89,9 @@ You can also enable this during project setup with `npx shadcn-vue@latest init -
 }
 ```
 
-## Examples
+## Contoh
 
-### Size
+### Ukuran
 
 ::component-preview
 ---
@@ -104,7 +100,7 @@ class: mb-4
 ---
 ::
 
-### Default
+### Bawaan
 
 ::component-preview
 ---
@@ -175,9 +171,9 @@ class: mb-4
 </template>
 ```
 
-### With Icon
+### Dengan Ikon
 
-The spacing between the icon and the text is automatically adjusted based on the size of the button. You do not need any margin on the icon.
+Jarak antara ikon dan teks menyesuaikan otomatis dengan ukuran tombol. Anda tidak perlu menambahkan margin pada ikonnya.
 
 ::component-preview
 ---
@@ -186,9 +182,9 @@ class: mb-4
 ---
 ::
 
-### Rounded
+### Sudut Membulat
 
-Use the `rounded-full` class to make the button rounded.
+Pakai class `rounded-full` untuk membuat tombol berbentuk bulat penuh.
 
 ::component-preview
 ---
@@ -215,11 +211,11 @@ class: mb-4
 ---
 ::
 
-To create a button group, use the `ButtonGroup` component. See the [Button Group](/docs/components/button-group) documentation for more details.
+Untuk membuat kelompok tombol, pakai komponen `ButtonGroup`. Keterangan lengkapnya ada di dokumentasi [Button Group](/docs/components/button-group).
 
 ### Link (asChild)
 
-You can use the `as-child` prop to make another component look like a button. Here's an example of a link that looks like a button.
+Pakai prop `as-child` untuk membuat komponen lain tampil seperti tombol. Berikut contoh tautan yang tampil seperti tombol.
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -233,13 +229,13 @@ import { Button } from '@/components/ui/button'
 </template>
 ```
 
-## API Reference
+## Referensi API
 
 ### Button
 
-The `Button` component is a wrapper around the `button` element that adds a variety of styles and functionality.
+Komponen `Button` adalah pembungkus elemen `button` yang menambahkan beragam style dan fungsi.
 
-| Prop      | Type                                                                          | Default     |
+| Prop      | Tipe                                                                          | Bawaan      |
 | --------- | ----------------------------------------------------------------------------- | ----------- |
 | `variant` | `"default" \| "outline" \| "ghost" \| "destructive" \| "secondary" \| "link"` | `"default"` |
 | `size`    | `"default" \| "sm" \| "lg" \| "icon" \| "icon-sm" \| "icon-lg"`               | `"default"` |

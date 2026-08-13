@@ -1,6 +1,6 @@
 ---
 title: Navigation Menu
-description: A collection of links for navigating websites.
+description: Kumpulan tautan untuk menavigasi situs.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/navigation-menu
@@ -10,12 +10,12 @@ links:
 ::component-preview
 ---
 name: NavigationMenuDemo
-description: A navigation menu component.
+description: Komponen navigation menu.
 class: '[&_.preview]:!items-start [&_.preview]:p-4 [&_.preview]:pt-8 md:[&_.preview]:pt-16'
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -42,7 +42,7 @@ npx shadcn-vue@latest add navigation-menu
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -50,18 +50,18 @@ npx shadcn-vue@latest add navigation-menu
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/navigation-menu) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/navigation-menu) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">

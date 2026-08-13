@@ -10,7 +10,7 @@ name: ShimmerDemo
 ::
 
 
-## Installation
+## Instalasi
 
 If your project was set up with `npx shadcn-vue@latest init`, you already have `shimmer`. It ships with the `shadcn-vue` package, which the CLI imports in your global CSS file.
 
@@ -28,7 +28,7 @@ Then import the shared utilities in your global CSS file:
 ```
 
 
-## Usage
+## Penggunaan
 
 | Class                         | Styles                                                                                               |
 | ----------------------------- | ---------------------------------------------------------------------------------------------------- |

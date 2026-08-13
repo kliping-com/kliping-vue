@@ -1,6 +1,6 @@
 ---
 title: Input
-description: Displays a form input field or a component that looks like an input field.
+description: Menampilkan isian form, atau komponen lain yang tampil seperti isian form.
 component: true
 ---
 
@@ -8,11 +8,11 @@ component: true
 ---
 name: InputDemo
 class: '[&_input]:max-w-xs'
-description: A form input component.
+description: Komponen input di dalam form.
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -39,18 +39,18 @@ npx shadcn-vue@latest add input
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/input) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/input) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -62,51 +62,51 @@ import { Input } from '@/components/ui/input'
 </template>
 ```
 
-## Examples
+## Contoh
 
-### Default
+### Bawaan
 
 ::component-preview
 ---
 name: InputDemo
 class: '[&_input]:max-w-xs'
-description: A default input component.
+description: Komponen input bawaan.
 ---
 ::
 
-### File
+### Berkas
 
 ::component-preview
 ---
 name: InputFile
-description: An input with a file upload field.
+description: Input dengan isian unggah berkas.
 ---
 ::
 
-### Disabled
+### Nonaktif
 
 ::component-preview
 ---
 name: InputDisabled
 class: '[&_input]:max-w-xs'
-description: A disabled input component.
+description: Komponen input yang dinonaktifkan.
 ---
 ::
 
-### With Label
+### Dengan Label
 
 ::component-preview
 ---
 name: InputWithLabel
-description: An input with a label.
+description: Input yang disertai label.
 ---
 ::
 
-### With Button
+### Dengan Tombol
 
 ::component-preview
 ---
 name: InputWithButton
-description: An input with a button.
+description: Input yang disandingkan dengan tombol.
 ---
 ::

@@ -1,6 +1,6 @@
 ---
 title: Menubar
-description: A visually persistent menu common in desktop applications that provides quick access to a consistent set of commands.
+description: Menu yang menetap di layar, umum dipakai di aplikasi desktop untuk mengakses sekumpulan perintah.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/menubar
@@ -10,11 +10,11 @@ links:
 ::component-preview
 ---
 name: MenubarDemo
-description: A menubar component.
+description: Komponen menubar.
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -41,7 +41,7 @@ npx shadcn-vue@latest add menubar
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -49,18 +49,18 @@ npx shadcn-vue@latest add menubar
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/menubar) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/menubar) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">

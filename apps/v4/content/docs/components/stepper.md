@@ -1,6 +1,6 @@
 ---
 title: Stepper
-description: A set of steps that are used to indicate progress through a multi-step process.
+description: Rangkaian langkah untuk menunjukkan kemajuan dalam proses bertahap.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/stepper
@@ -10,11 +10,11 @@ links:
 ::component-preview
 ---
 name: StepperDemo
-description: A stepper component.
+description: Komponen stepper.
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -41,7 +41,7 @@ npx shadcn-vue@latest add stepper
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -49,18 +49,18 @@ npx shadcn-vue@latest add stepper
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/stepper) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/stepper) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue
 <script setup lang="ts">
@@ -96,23 +96,23 @@ import {
 </template>
 ```
 
-## Examples
+## Contoh
 
-### Horizontal
+### Mendatar
 
 ::component-preview
 ---
 name: StepperHorizental
-description: A horizental stepper component.
+description: Komponen stepper mendatar.
 ---
 ::
 
-### Vertical
+### Tegak
 
 ::component-preview
 ---
 name: StepperVertical
-description: A vertical stepper component.
+description: Komponen stepper tegak.
 ---
 ::
 
@@ -121,6 +121,6 @@ description: A vertical stepper component.
 ::component-preview
 ---
 name: StepperForm
-description: A form stepper component.
+description: Komponen stepper di dalam form.
 ---
 ::

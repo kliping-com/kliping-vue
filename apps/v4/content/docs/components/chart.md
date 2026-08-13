@@ -1,6 +1,6 @@
 ---
 title: Chart
-description: Beautiful charts. Built using Unovis. Copy and paste into your apps.
+description: Grafik yang rapi, dibangun memakai Unovis. Tinggal salin dan tempel ke aplikasi Anda.
 component: true
 ---
 
@@ -44,7 +44,7 @@ We do not wrap Unovis. This means you're not locked into an abstraction. When a 
 
 **The components are yours**.
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -80,7 +80,7 @@ npx shadcn-vue@latest add chart
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/chart) into your project
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/chart) into your project
     ::
 
     ::step
@@ -116,7 +116,7 @@ npx shadcn-vue@latest add chart
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -394,7 +394,7 @@ const chartConfig = {
 </script>
 ```
 
-## Theming
+## Tema
 
 Charts has built-in support for theming. You can use css variables (recommended) or color values in any color format, such as hex, hsl or oklch.
 
@@ -452,7 +452,7 @@ const chartConfig = {
 } satisfies ChartConfig
 ```
 
-### Using Colors
+### Memakai Warna
 
 To use the theme colors in your chart, reference the colors using the format `var(--color-KEY)`.
 
@@ -510,11 +510,11 @@ Use the following props to customize the tooltip.
 | `hideLabel`     | boolean                  | Whether to hide the label.                   |
 | `hideIndicator` | boolean                  | Whether to hide the indicator.               |
 
-### Colors
+### Warna
 
 Colors are automatically referenced from the chart config.
 
-### Custom
+### Kustom
 
 To use a custom key for tooltip label and names, use the `labelKey` and `nameKey` props.
 
@@ -566,11 +566,11 @@ import { ChartLegendContent } from '@/components/ui/chart'
 </template>
 ```
 
-### Colors
+### Warna
 
 Colors are automatically referenced from the chart config.
 
-### Custom
+### Kustom
 
 To use a custom key for legend names, use the `nameKey` prop.
 

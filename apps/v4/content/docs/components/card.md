@@ -1,17 +1,17 @@
 ---
 title: Card
-description: Displays a card with header, content, and footer.
+description: Menampilkan kartu dengan bagian header, konten, dan footer.
 component: true
 ---
 
 ::component-preview
 ---
 name: CardDemo
-description: A card with a form
+description: Kartu berisi form.
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -38,18 +38,18 @@ npx shadcn-vue@latest add card
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/card) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/card) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">

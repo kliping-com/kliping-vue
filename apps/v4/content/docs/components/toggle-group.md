@@ -1,6 +1,6 @@
 ---
 title: Toggle Group
-description: A set of two-state buttons that can be toggled on or off.
+description: Sekumpulan tombol dua keadaan yang bisa dinyalakan atau dimatikan.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/toggle-group
@@ -10,11 +10,11 @@ links:
 ::component-preview
 ---
 name: ToggleGroupDemo
-description: A toggle group component.
+description: Komponen toggle group.
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -41,7 +41,7 @@ npx shadcn-vue@latest add toggle-group
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -49,18 +49,18 @@ npx shadcn-vue@latest add toggle-group
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/toggle-group) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/toggle-group) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -82,9 +82,9 @@ import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 </template>
 ```
 
-## Examples
+## Contoh
 
-### Default
+### Bawaan
 
 ::component-preview
 ---
@@ -108,7 +108,7 @@ name: ToggleGroupSingleDemo
 ---
 ::
 
-### Small
+### Kecil
 
 ::component-preview
 ---
@@ -116,7 +116,7 @@ name: ToggleGroupSmallDemo
 ---
 ::
 
-### Large
+### Besar
 
 ::component-preview
 ---
@@ -124,7 +124,7 @@ name: ToggleGroupLargeDemo
 ---
 ::
 
-### Disabled
+### Nonaktif
 
 ::component-preview
 ---

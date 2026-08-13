@@ -1,6 +1,6 @@
 ---
 title: Alert Dialog
-description: A modal dialog that interrupts the user with important content and expects a response.
+description: Dialog modal yang menyela pengguna dengan pesan penting dan menunggu tanggapan.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/alert-dialog
@@ -11,15 +11,11 @@ links:
 ---
 name: AlertDialogDemo
 class: '[&_.preview]:min-h-[400px]'
-description: An alert dialog that asks for user confirmation
+description: Dialog peringatan yang meminta konfirmasi pengguna.
 ---
 ::
 
-::vue-school-link{class="mt-6" lesson="dialogs-and-alerts-with-shadcn-vue" placement="top"}
-Watch a Vue School video about dialogs and alerts in shadcn-vue.
-::
-
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -46,7 +42,7 @@ npx shadcn-vue@latest add alert-dialog
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -54,18 +50,18 @@ npx shadcn-vue@latest add alert-dialog
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/alert-dialog) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/alert-dialog) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">

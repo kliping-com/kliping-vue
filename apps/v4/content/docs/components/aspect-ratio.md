@@ -1,6 +1,6 @@
 ---
 title: Aspect Ratio
-description: Displays content within a desired ratio.
+description: Menampilkan konten dengan rasio lebar-tinggi yang Anda tentukan.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/aspect-ratio
@@ -10,11 +10,11 @@ links:
 ::component-preview
 ---
 name: AspectRatioDemo
-description: A component that displays an image with a 16:9 aspect ratio.
+description: Komponen yang menampilkan gambar dengan rasio 16:9.
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -41,7 +41,7 @@ npx shadcn-vue@latest add aspect-ratio
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -49,18 +49,18 @@ npx shadcn-vue@latest add aspect-ratio
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/aspect-ratio) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/aspect-ratio) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script lang="ts">

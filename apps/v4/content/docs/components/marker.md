@@ -1,6 +1,6 @@
 ---
 title: Marker
-description: Displays an inline status, system note, bordered row, or labeled separator in a conversation.
+description: Menampilkan status sebaris, catatan sistem, baris berbingkai, atau pemisah berlabel di dalam percakapan.
 component: true 
 ---
 
@@ -12,7 +12,7 @@ previewClass: h-auto theme-blue
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -39,18 +39,18 @@ npx shadcn-vue@latest add marker
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/bases/reka/ui/marker) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/bases/reka/ui/marker) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -68,7 +68,7 @@ import { Marker, MarkerContent, MarkerIcon, } from '@/components/ui/marker'
 ```
 
 
-## Composition
+## Komposisi
 
 Use the following composition to build a marker:
 
@@ -78,7 +78,7 @@ Marker
 └── MarkerContent
 ```
 
-## Features
+## Fitur
 
 - Inline marker, bordered row, and labeled separator variants
 - Decorative icon slot that is hidden from assistive tech
@@ -86,9 +86,9 @@ Marker
 - Pairs with the [`shimmer`](/docs/utilities/shimmer) utility for streaming status text
 - Customizable styling through the `class` prop on every part
 
-## Examples
+## Contoh
 
-### Variants
+### Varian
 
 Use `variant` to switch between an inline marker, bordered row, and labeled separator.
 
@@ -157,7 +157,7 @@ previewClass: h-auto theme-blue
 ---
 ::
 
-### With Icon
+### Dengan Ikon
 
 Use `MarkerIcon` to render an icon alongside the content. Use `flex-col` to stack the icon above the content.
 
@@ -198,7 +198,7 @@ import { Marker, MarkerContent } from "@/components/ui/marker"
 </template>
 ```
 
-## Accessibility
+## Aksesibilitas
 
 `Marker` is presentational by default. The correct semantics depend on how you use it, so choose the role based on intent rather than relying on a single default.
 
@@ -272,7 +272,7 @@ When a marker links or triggers an action, render it as a real `<button>` or `<a
 </Marker>
 ```
 
-## API Reference
+## Referensi API
 
 ### Marker
 
@@ -288,7 +288,7 @@ The root marker element. The file also exports `markerVariants` for composing th
 
 A decorative icon slot. Hidden from assistive tech with `aria-hidden`.
 
-| Prop        | Type     | Default | Description                                   |
+| Prop        | Tipe     | Bawaan  | Description                                   |
 | ----------- | -------- | ------- | --------------------------------------------- |
 | `class` | `string` | -       | Additional classes to apply to the icon slot. |
 
@@ -296,6 +296,6 @@ A decorative icon slot. Hidden from assistive tech with `aria-hidden`.
 
 The marker text content.
 
-| Prop        | Type     | Default | Description                                      |
+| Prop        | Tipe     | Bawaan  | Description                                      |
 | ----------- | -------- | ------- | ------------------------------------------------ |
 | `class` | `string` | -       | Additional classes to apply to the content slot. |

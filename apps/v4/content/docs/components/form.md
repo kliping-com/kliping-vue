@@ -1,45 +1,45 @@
 ---
 title: Form
-description: Building forms with VeeValidate and Zod.
+description: Membangun form memakai VeeValidate dan Zod.
 primitive: https://vee-validate.logaretm.com/v4/guide/overview/
 component: true
 ---
 
 ::callout{title="We are not actively developing this component anymore."}
 
-The Form component is an abstraction over the `vee-validate` library. Going forward, we recommend using the [`<Field />`](/docs/components/field) component to build forms. See the [Form](/docs/forms) documentation for more information.
+Komponen Form adalah lapisan abstraksi di atas library `vee-validate`. Ke depannya, kami menyarankan Anda memakai komponen [`<Field />`](/docs/components/field) untuk membangun form. Keterangan lengkapnya ada di dokumentasi [Form](/docs/forms).
 
 ::
 
-Forms are tricky. They are one of the most common things you'll build in a web application, but also one of the most complex.
+Form itu rumit. Ia salah satu hal yang paling sering Anda bangun di aplikasi web, sekaligus salah satu yang paling ruwet.
 
-Well-designed HTML forms are:
+Form HTML yang dirancang dengan baik punya ciri-ciri berikut:
 
-- Well-structured and semantically correct.
-- Easy to use and navigate (keyboard).
-- Accessible with ARIA attributes and proper labels.
-- Has support for client and server side validation.
-- Well-styled and consistent with the rest of the application.
+- Terstruktur rapi dan bermakna secara semantik.
+- Mudah dipakai dan dinavigasi, termasuk lewat keyboard.
+- Mudah diakses lewat atribut ARIA dan label yang benar.
+- Mendukung validasi di sisi klien maupun server.
+- Tampilannya rapi dan selaras dengan sisa aplikasi.
 
-In this guide, we will take a look at building forms with [`vee-validate`](https://vee-validate.logaretm.com/v4/) and [`zod`](https://zod.dev). We're going to use a `<FormField>` component to compose accessible forms using Reka UI components.
+Di panduan ini kita akan membangun form memakai [`vee-validate`](https://vee-validate.logaretm.com/v4/) dan [`zod`](https://zod.dev). Komponen `<FormField>` akan kita pakai untuk menyusun form yang mudah diakses dari komponen Reka UI.
 
-## Features
+## Fitur
 
-The `<Form />` component is a wrapper around the `vee-validate` library. It provides a few things:
+Komponen `<Form />` adalah pembungkus library `vee-validate`. Ia menyediakan beberapa hal:
 
-- Composable components for building forms.
-- A `<FormField />` component for building controlled form fields.
-- Form validation using `zod`.
-- Applies the correct `aria` attributes to form fields based on states, handle unique IDs
-- Built to work with all Reka UI components.
-- Bring your own schema library. We use `zod` but you can use any other supported schema validation you want, like [`yup`](https://github.com/jquense/yup) or [`valibot`](https://valibot.dev/).
-- **You have full control over the markup and styling.**
+- Komponen yang bisa dikomposisikan untuk membangun form.
+- Komponen `<FormField />` untuk membangun field yang nilainya dikendalikan.
+- Validasi form memakai `zod`.
+- Menerapkan atribut `aria` yang tepat pada tiap field sesuai keadaannya, sekaligus mengurus ID yang unik.
+- Dirancang agar bekerja dengan semua komponen Reka UI.
+- Bebas memilih library skema. Kami memakai `zod`, tapi Anda bisa memakai library validasi lain yang didukung, seperti [`yup`](https://github.com/jquense/yup) atau [`valibot`](https://valibot.dev/).
+- **Markup dan style-nya sepenuhnya di tangan Anda.**
 
-[`vee-validate`](https://vee-validate.logaretm.com/v4/) makes use of two flavors to add validation to your forms.
+[`vee-validate`](https://vee-validate.logaretm.com/v4/) menyediakan dua gaya penulisan untuk menambahkan validasi ke form Anda.
 - Composition API
-- Higher-order components (HOC)
+- Higher-order component (HOC)
 
-## Anatomy
+## Anatomi
 
 ```vue
 <template>
@@ -58,7 +58,7 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
 </template>
 ```
 
-## Example
+## Contoh
 
 ::::tabs{default-value="component"}
 
@@ -76,7 +76,7 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
 
   ::tabs-content{value="component"}
 
-  #### `Input` Component
+  #### Komponen `Input`
 
   ```vue showLineNumbers
   <template>
@@ -97,7 +97,7 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
 
   ::tabs-content{value="native"}
 
-  #### native `input` element
+  #### Elemen `input` bawaan
 
   ```vue showLineNumbers
   <template>
@@ -117,7 +117,7 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
   ::
 ::::
 
-## Installation
+## Instalasi
 
 :::::tabs{default-value="cli"}
 
@@ -145,7 +145,7 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
 
     :::steps
       ::step
-      Install the following dependency:
+      Pasang dependensi berikut:
       ::
 
       ```bash
@@ -153,11 +153,11 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
       ```
 
       ::step
-      Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/form) into your project.
+      Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/form) ke project Anda.
       ::
 
       ::step
-      Update the import paths to match your project setup.
+      Sesuaikan path import dengan struktur project Anda.
       ::
     :::
 
@@ -165,7 +165,7 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -195,13 +195,13 @@ import {
 </template>
 ```
 
-### Create a form schema
+### Buat skema form
 
-  Define the shape of your form using a Zod schema. You can read more about using Zod in the [Zod documentation](https://zod.dev).
+  Tentukan bentuk form Anda memakai skema Zod. Penjelasan lengkap soal Zod ada di [dokumentasi Zod](https://zod.dev).
 
-  Use `@vee-validate/zod` to integrate Zod schema validation with `vee-validate`
+  Pakai `@vee-validate/zod` untuk menyambungkan validasi skema Zod dengan `vee-validate`.
 
-  `toTypedSchema` also makes the form values and submitted values typed automatically and caters for both input and output types of that schema.
+  `toTypedSchema` sekaligus membuat nilai form dan nilai yang dikirim bertipe otomatis, mencakup tipe masukan maupun keluaran skema tersebut.
 
   ```vue showLineNumbers {2-3,5-7}
   <script setup lang="ts">
@@ -214,9 +214,9 @@ import {
   </script>
   ```
 
-### Define a form
+### Definisikan form
 
-  Use the `useForm` composable from `vee-validate` or use `<Form />` component to create a form.
+  Buat form memakai composable `useForm` dari `vee-validate`, atau memakai komponen `<Form />`.
 
   ::::tabs{default-value="composition"}
 
@@ -305,10 +305,10 @@ import {
 
     ::
 
-### Build your form
+### Susun form Anda
 
-  Based on last step we can either use `<Form />` component or `useForm` composable
-  `useForm` is recommended because values are typed automatically
+  Melanjutkan langkah sebelumnya, Anda bisa memakai komponen `<Form />` atau composable `useForm`.
+  `useForm` lebih disarankan karena nilainya otomatis bertipe.
 
   ```vue showLineNumbers {2}
   <script setup lang="ts">
@@ -361,9 +361,9 @@ import {
   </template>
   ```
 
-### Done
+### Selesai
 
-  That's it. You now have a fully accessible form that is type-safe with client-side validation.
+  Selesai. Sekarang Anda punya form yang mudah diakses, aman secara tipe, dan tervalidasi di sisi klien.
 
   ::component-preview
   ---
@@ -376,9 +376,9 @@ import {
 
 <!-- ## Extras
 
-This example shows how to add motion to your forms with [Formkit AutoAnimate](https://auto-animate.formkit.com/)
+Contoh ini menunjukkan cara menambahkan animasi ke form Anda memakai [Formkit AutoAnimate](https://auto-animate.formkit.com/).
 
-**Note:** You need to install `@formkit/auto-animate` to use this feature:
+**Catatan:** Anda perlu memasang `@formkit/auto-animate` untuk memakai fitur ini:
 
 ```bash
 npm install @formkit/auto-animate

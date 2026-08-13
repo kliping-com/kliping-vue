@@ -1,6 +1,6 @@
 ---
 title: Bubble
-description: Displays conversational content in a message bubble. Supports variants, alignment, grouping, reactions, and collapsible content.
+description: Menampilkan isi percakapan dalam gelembung pesan. Mendukung varian, perataan, pengelompokan, reaksi, dan konten yang bisa dilipat.
 component: true
 ---
 
@@ -16,7 +16,7 @@ The `Bubble` component displays framed conversational content. Use it for chat t
 For full-featured chat interfaces, use the [`Message`](/docs/components/message) component. `Bubble` is intentionally scoped to the bubble surface. Place avatars, names, timestamps, metadata, and message-level actions in [`Message`](/docs/components/message).
 
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -43,18 +43,18 @@ npx shadcn-vue@latest add bubble
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/bubble) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/bubble) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -73,7 +73,7 @@ import { Bubble, BubbleContent, BubbleReactions } from '@/components/ui/bubble'
 </template>
 ```
 
-## Composition
+## Komposisi
 
 Use the following composition to build a bubble:
 
@@ -93,7 +93,7 @@ BubbleGroup
     └── BubbleContent
 ```
 
-## Features
+## Fitur
 
 - Seven visual variants, from a strong primary bubble to unframed ghost content
 - Start and end alignment for sender and receiver bubbles
@@ -102,9 +102,9 @@ BubbleGroup
 - Polymorphic content via `as` or `as-child` for link and button bubbles
 - Customizable styling through the `class` prop on every part
 
-## Examples
+## Contoh
 
-### Variants
+### Varian
 
 Use `variant` to change the visual treatment of the bubble.
 
@@ -233,7 +233,7 @@ previewClass: h-auto theme-blue
 ---
 ::
 
-## Accessibility
+## Aksesibilitas
 
 `Bubble` renders the presentational message surface. Keep conversation-level semantics on the surrounding container and follow the guidelines below.
 
@@ -277,7 +277,7 @@ When a bubble is clickable, pass a real `<button>` or `<a>` through `BubbleConte
 
 Bubble variants signal role and tone with color. Pair them with text, alignment, or icons so meaning is not conveyed by color alone. For a `destructive` bubble, keep the error context in the message text rather than relying on the color treatment.
 
-## API Reference
+## Referensi API
 
 All Bubble parts render a `<div>` by default. Use `as` to choose another element, or `as-child` to merge the component's attributes and styles onto the single element or component in its default slot.
 

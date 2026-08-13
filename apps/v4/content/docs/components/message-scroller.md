@@ -1,6 +1,6 @@
 ---
 title: Message Scroller
-description: A scroll container for chat transcripts that anchors turns, follows streamed replies, restores prepended history, and jumps to messages.
+description: Wadah gulir untuk transkrip percakapan: menahan posisi giliran bicara, mengikuti balasan yang mengalir, memulihkan riwayat yang disisipkan di atas, dan melompat ke pesan tertentu.
 component: true
 ---
 
@@ -18,7 +18,7 @@ A great streaming chat scroller has to juggle a lot at once: pin to the live edg
 
 It does **not** own your messages, AI state, transport, or model — it is a headless scroll container you compose around your own rows.
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -45,18 +45,18 @@ npx shadcn-vue@latest add message-scroller
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/bases/reka/ui/message-scroller) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/bases/reka/ui/message-scroller) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -93,7 +93,7 @@ import {
 
 The provider must have a constrained height (or a height-bounded parent) so the viewport can scroll.
 
-## Composition
+## Komposisi
 
 ```text
 MessageScrollerProvider
@@ -221,7 +221,7 @@ previewClass: h-auto theme-green bg-surface dark:bg-background p-4 min-[480px]:p
 ---
 ::
 
-### Tracking the Reader's Position
+### Melacak Posisi Baca Pengguna
 
 Use `useMessageScrollerVisibility` to track the reader's position — a table-of-contents or jump menu that highlights the current anchored turn. `currentAnchorId` answers "where am I" and stays set after that anchor scrolls above the viewport; `visibleMessageIds` answers "what is on screen", in document order.
 
@@ -245,7 +245,7 @@ previewClass: h-auto theme-green bg-surface dark:bg-background p-4 min-[480px]:p
 ---
 ::
 
-## API Reference
+## Referensi API
 
 ### MessageScrollerProvider
 
@@ -276,7 +276,7 @@ Rendered as a `role="region"`, `aria-label="Messages"`, focusable (`tabindex="0"
 
 ### MessageScrollerButton
 
-| Prop        | Type                  | Default   | Description                              |
+| Prop        | Tipe                  | Bawaan    | Description                              |
 | ----------- | --------------------- | --------- | ---------------------------------------- |
 | `direction` | `'start' \| 'end'`    | `'end'`   | Direction the button scrolls toward.     |
 | `behavior`  | `ScrollBehavior`      | `'smooth'`| Scroll behavior for the jump.            |

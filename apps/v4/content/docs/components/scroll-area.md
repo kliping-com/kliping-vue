@@ -1,6 +1,6 @@
 ---
 title: Scroll Area
-description: Augments native scroll functionality for custom, cross-browser styling.
+description: Menyempurnakan gulir bawaan browser agar tampilannya bisa di-style dan konsisten lintas browser.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/scroll-area
@@ -10,11 +10,11 @@ links:
 ::component-preview
 ---
 name: ScrollAreaDemo
-description: A scroll area component.
+description: Komponen area gulir.
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -41,7 +41,7 @@ npx shadcn-vue@latest add scroll-area
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -49,18 +49,18 @@ npx shadcn-vue@latest add scroll-area
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/scroll-area) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/scroll-area) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">

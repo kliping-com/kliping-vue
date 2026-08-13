@@ -1,6 +1,6 @@
 ---
 title: Number Field
-description: A number field allows a user to enter a number and increment or decrement the value using stepper buttons.
+description: Isian angka yang memungkinkan pengguna mengetik nilai atau menaik-turunkannya lewat tombol stepper.
 component: true
 links:
   doc: https://reka-ui.com/docs/components/number-field
@@ -10,11 +10,11 @@ links:
 ::component-preview
 ---
 name: NumberFieldDemo
-description: An default Number Field
+description: Number Field bawaan.
 ---
 ::
 
-## Installation
+## Instalasi
 
 :::::code-tabs
 
@@ -41,7 +41,7 @@ npx shadcn-vue@latest add number-field
 ::::tabs-content{value="manual"}
   :::steps
     ::step
-    Install the following dependencies:
+    Pasang dependensi berikut:
     ::
 
     ```bash
@@ -49,18 +49,18 @@ npx shadcn-vue@latest add number-field
     ```
 
     ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/number-field) into your project.
+    Salin dan tempel [kode sumber di GitHub](https://github.com/kliping-com/kliping-vue/tree/dev/apps/v4/registry/new-york-v4/ui/number-field) ke project Anda.
     ::
 
     ::step
-    Update the import paths to match your project setup.
+    Sesuaikan path import dengan struktur project Anda.
     ::
   :::
 ::::
 
 :::::
 
-### Disabled
+### Nonaktif
 ::component-preview
 ---
 name: NumberFieldDisabledDemo
@@ -100,7 +100,7 @@ description: Number Field inside a form
 ---
 ::
 
-## Usage
+## Penggunaan
 
 ```vue showLineNumbers
 <script setup lang="ts">
