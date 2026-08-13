@@ -12,7 +12,8 @@ Vite + Vue 3 + TypeScript + Tailwind v4. Tanpa Nuxt, tanpa server, tanpa databas
 | Block siap pakai (`src/blocks/`) | 34 |
 | Grafik (`src/charts/`) | 23 |
 | Contoh untuk dokumentasi (`src/demo/`) | 319 |
-| Halaman dokumentasi (`docs/`) | 109 + 35 halaman blocks |
+| Kartu beranda (`src/examples/cards/`) | 15 |
+| Halaman dokumentasi (`docs/`) | 109 + beranda + 35 halaman blocks |
 
 ## Menjalankan
 
@@ -46,6 +47,7 @@ src/
 ├── blocks/               34 block siap pakai
 ├── charts/               23 grafik
 ├── demo/                 319 contoh yang dipakai dokumentasi
+├── examples/cards/       15 kartu yang menyusun beranda
 ├── assets/
 │   ├── main.css          token tema
 │   └── utilities.css     scroll-fade, shimmer, scrollbar, animasi pesan
@@ -53,11 +55,12 @@ src/
 └── main.ts
 
 docs/                     109 halaman, Bahasa Indonesia
+├── index.md              beranda
 ├── blocks.md             galeri 34 block
 ├── blocks/               satu halaman per block, tanpa kerangka docs
 └── .vitepress/
     ├── config.ts         sidebar, nav, alias, penyisip kode sumber
-    ├── theme/            ComponentPreview, BlockGallery, BlockCanvas, Steps, Layout
+    ├── theme/            Beranda, ComponentPreview, BlockGallery, BlockCanvas, Steps, Layout
     └── konversi-mdc.py   catatan konversi dari sintaks Nuxt Content
 ```
 
@@ -98,8 +101,18 @@ sendiri di `/blocks/<nama>`, yang dirender tanpa kerangka dokumentasi
 (`layout: false`). Block adalah tata letak selebar halaman; dirender langsung di
 dalam kolom dokumentasi yang sempit, semuanya patah.
 
+Beranda di `/` menyusun ulang halaman muka repo asal: hero, lalu petak kartu
+yang isinya komponen yang sungguh berjalan, bukan tangkapan layar.
+
 Pencarian memakai indeks lokal VitePress — dibangun ikut situsnya, tidak
 menghubungi layanan luar.
+
+Satu hal yang perlu diketahui kalau menyentuh `src/assets/main.css`: utility
+Tailwind sengaja dikeluarkan dari cascade layer. CSS bawaan VitePress tidak
+berada di layer mana pun, dan aturan tanpa layer selalu menang atas aturan di
+dalam layer berapa pun spesifisitasnya — selama utility ada di layer `utilities`,
+reset VitePress untuk `h1`..`h6` menimpanya dan judul beranda keluar seukuran
+teks biasa.
 
 ## Asal komponen
 

@@ -25,9 +25,9 @@ npx shadcn-vue@latest add sonner
 
 Pasang dependensi berikut:
 
-    ```bash
-    npm install vue-sonner
-    ```
+```bash
+npm install vue-sonner
+```
 
 </div>
 

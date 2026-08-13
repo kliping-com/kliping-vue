@@ -62,47 +62,47 @@ Komponen `<Form />` adalah pembungkus library `vee-validate`. Ia menyediakan beb
 
 #### Komponen `Input`
 
-  ```vue showLineNumbers
-  <template>
-    <FormField v-slot="{ componentField }">
-      <FormItem>
-        <FormLabel>Username</FormLabel>
-        <FormControl>
-          <Input placeholder="shadcn" v-bind="componentField" />
-        </FormControl>
-        <FormDescription />
-        <FormMessage />
-      </FormItem>
-    </FormField>
-  </template>
-  ```
+```vue showLineNumbers
+<template>
+  <FormField v-slot="{ componentField }">
+    <FormItem>
+      <FormLabel>Username</FormLabel>
+      <FormControl>
+        <Input placeholder="shadcn" v-bind="componentField" />
+      </FormControl>
+      <FormDescription />
+      <FormMessage />
+    </FormItem>
+  </FormField>
+</template>
+```
 
 **Native**
 
 #### Elemen `input` bawaan
 
-  ```vue showLineNumbers
-  <template>
-    <FormField v-slot="{ field }">
-      <FormItem>
-        <FormLabel>Username</FormLabel>
-        <FormControl>
-          <input placeholder="shadcn" v-bind="field">
-        </FormControl>
-        <FormDescription />
-        <FormMessage />
-      </FormItem>
-    </FormField>
-  </template>
-  ```
+```vue showLineNumbers
+<template>
+  <FormField v-slot="{ field }">
+    <FormItem>
+      <FormLabel>Username</FormLabel>
+      <FormControl>
+        <input placeholder="shadcn" v-bind="field">
+      </FormControl>
+      <FormDescription />
+      <FormMessage />
+    </FormItem>
+  </FormField>
+</template>
+```
 
 ## Instalasi
 
 **CLI**
 
-  ```bash
-  npx shadcn-vue@latest add form
-  ```
+```bash
+npx shadcn-vue@latest add form
+```
 
 **Manual**
 
@@ -112,9 +112,9 @@ Komponen `<Form />` adalah pembungkus library `vee-validate`. Ia menyediakan beb
 
 Pasang dependensi berikut:
 
-      ```bash
-      npm install reka-ui vee-validate @vee-validate/zod zod
-      ```
+```bash
+npm install reka-ui vee-validate @vee-validate/zod zod
+```
 
 </div>
 
@@ -187,72 +187,72 @@ import {
 
 **Composition**
 
-    ```vue showLineNumbers {2,19-21}
-    <script setup lang="ts">
-    import { useForm } from 'vee-validate'
-    import { toTypedSchema } from '@vee-validate/zod'
-    import * as z from 'zod'
+```vue showLineNumbers {2,19-21}
+<script setup lang="ts">
+import { useForm } from 'vee-validate'
+import { toTypedSchema } from '@vee-validate/zod'
+import * as z from 'zod'
 
-    import {
-      FormControl,
-      FormDescription,
-      FormField,
-      FormItem,
-      FormLabel,
-      FormMessage
-    } from '@/components/ui/form'
+import {
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage
+} from '@/components/ui/form'
 
-    const formSchema = toTypedSchema(z.object({
-      username: z.string().min(2).max(50),
-    }))
+const formSchema = toTypedSchema(z.object({
+  username: z.string().min(2).max(50),
+}))
 
-    const form = useForm({
-      validationSchema: formSchema,
-    })
+const form = useForm({
+  validationSchema: formSchema,
+})
 
-    const onSubmit = form.handleSubmit((values) => {
-      console.log('Form submitted!', values)
-    })
-    </script>
+const onSubmit = form.handleSubmit((values) => {
+  console.log('Form submitted!', values)
+})
+</script>
 
-    <template>
-      <form @submit="onSubmit">
-        ...
-      </form>
-    </template>
-    ```
+<template>
+  <form @submit="onSubmit">
+    ...
+  </form>
+</template>
+```
 
 **Component**
 
-    ```vue showLineNumbers {5,24-26}
-    <script setup lang="ts">
-    import { toTypedSchema } from '@vee-validate/zod'
-    import * as z from 'zod'
-    import {
-      Form,
-      FormControl,
-      FormDescription,
-      FormField,
-      FormItem,
-      FormLabel,
-      FormMessage
-    } from '@/components/ui/form'
+```vue showLineNumbers {5,24-26}
+<script setup lang="ts">
+import { toTypedSchema } from '@vee-validate/zod'
+import * as z from 'zod'
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage
+} from '@/components/ui/form'
 
-    const formSchema = toTypedSchema(z.object({
-      username: z.string().min(2).max(50),
-    }))
+const formSchema = toTypedSchema(z.object({
+  username: z.string().min(2).max(50),
+}))
 
-    function onSubmit(values) {
-      console.log('Form submitted!', values)
-    }
-    </script>
+function onSubmit(values) {
+  console.log('Form submitted!', values)
+}
+</script>
 
-    <template>
-      <Form :validation-schema="formSchema" @submit="onSubmit">
-        ...
-      </Form>
-    </template>
-    ```
+<template>
+  <Form :validation-schema="formSchema" @submit="onSubmit">
+    ...
+  </Form>
+</template>
+```
 
 ### Susun form Anda
 

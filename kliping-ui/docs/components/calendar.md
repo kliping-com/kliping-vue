@@ -32,9 +32,9 @@ npx shadcn-vue@latest add calendar
 
 Pasang dependensi berikut:
 
-    ```bash
-    npm install reka-ui
-    ```
+```bash
+npm install reka-ui
+```
 
 </div>
 

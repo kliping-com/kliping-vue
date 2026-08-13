@@ -27,50 +27,50 @@ Ada dua cara memasang Tailwind CSS di Nuxt. Pilih salah satu.
 
 **Vite**
 
-    ```bash
-    npm install tailwindcss @tailwindcss/vite -D
-    ```
+```bash
+npm install tailwindcss @tailwindcss/vite -D
+```
 
   Ganti seluruh isi `app/assets/css/tailwind.css` dengan baris berikut:
 
-    ```css title="app/assets/css/tailwind.css"
-    @import "tailwindcss";
-    ```
+  ```css title="app/assets/css/tailwind.css"
+  @import "tailwindcss";
+  ```
 
   Perbarui `nuxt.config.ts` seperti ini:
 
-    ```ts
-    import tailwindcss from '@tailwindcss/vite'
+  ```ts
+  import tailwindcss from '@tailwindcss/vite'
 
-    export default defineNuxtConfig({
-      // ...
-      css: ['~/assets/css/tailwind.css'],
-      vite: {
-        plugins: [
-          tailwindcss(),
-        ],
-      },
-    })
-    ```
+  export default defineNuxtConfig({
+    // ...
+    css: ['~/assets/css/tailwind.css'],
+    vite: {
+      plugins: [
+        tailwindcss(),
+      ],
+    },
+  })
+  ```
 
 **Nuxt Module**
 
-     ```bash
-    npm install tailwindcss @nuxtjs/tailwindcss@7.0.0-beta.1 -D
-    ```
+  ```bash
+ npm install tailwindcss @nuxtjs/tailwindcss@7.0.0-beta.1 -D
+ ```
 
   Ganti seluruh isi `app/assets/css/tailwind.css` dengan baris berikut:
 
-    ```css title="app/assets/css/tailwind.css"
-    @import "tailwindcss";
-    ```
+  ```css title="app/assets/css/tailwind.css"
+  @import "tailwindcss";
+  ```
 
-    ```ts
-    export default defineNuxtConfig({
-      // ...
-      modules: ['@nuxtjs/tailwindcss'],
-    })
-    ```
+  ```ts
+  export default defineNuxtConfig({
+    // ...
+    modules: ['@nuxtjs/tailwindcss'],
+  })
+  ```
 
 ### Pasang module `Nuxt`
 
@@ -80,96 +80,96 @@ Kalau langkah ini dilewati, console Anda akan dipenuhi peringatan akibat fitur a
 
 Pasang paket berikut.
 
-    ```bash
-  npx nuxi@latest module add shadcn-nuxt
-    ```
+```bash
+npx nuxi@latest module add shadcn-nuxt
+```
 
 **Manual**
 
 Pasang `@types/node` terlebih dahulu.
 
-  ```bash
-  npm install -D @types/node
-  ```
+```bash
+npm install -D @types/node
+```
 
 Lalu tambahkan kode berikut ke `modules/shadcn.ts`.
 
-  ```ts
-  import { readdirSync } from 'node:fs'
-  import { join } from 'node:path'
-  import {
-    addComponentExports,
-    addComponentsDir,
-    createResolver,
-    defineNuxtModule,
-  } from 'nuxt/kit'
+```ts
+import { readdirSync } from 'node:fs'
+import { join } from 'node:path'
+import {
+  addComponentExports,
+  addComponentsDir,
+  createResolver,
+  defineNuxtModule,
+} from 'nuxt/kit'
 
-  export interface ShadcnVueOptions {
-    /**
-     * Prefix for all the imported component
-     * @default "Ui"
-     */
-    prefix: string
+export interface ShadcnVueOptions {
+  /**
+   * Prefix for all the imported component
+   * @default "Ui"
+   */
+  prefix: string
 
-    /**
-     * Directory that the component lives in.
-     * @default "@/components/ui"
-     */
-    componentDir: string
-  }
+  /**
+   * Directory that the component lives in.
+   * @default "@/components/ui"
+   */
+  componentDir: string
+}
 
-  export default defineNuxtModule<ShadcnVueOptions>({
-    defaults: {
-      prefix: 'Ui',
-      componentDir: '@/components/ui',
+export default defineNuxtModule<ShadcnVueOptions>({
+  defaults: {
+    prefix: 'Ui',
+    componentDir: '@/components/ui',
+  },
+  meta: {
+    name: 'ShadcnVue',
+    configKey: 'shadcn',
+    version: '0.0.1',
+    compatibility: {
+      nuxt: '>=3.17.0',
     },
-    meta: {
-      name: 'ShadcnVue',
-      configKey: 'shadcn',
-      version: '0.0.1',
-      compatibility: {
-        nuxt: '>=3.17.0',
-      },
-    },
-    async setup({ componentDir, prefix }, nuxt) {
-      const COMPONENT_DIR_PATH = componentDir!
-      const ROOT_DIR_PATH = nuxt.options.rootDir
-      const { resolve, resolvePath } = createResolver(ROOT_DIR_PATH)
+  },
+  async setup({ componentDir, prefix }, nuxt) {
+    const COMPONENT_DIR_PATH = componentDir!
+    const ROOT_DIR_PATH = nuxt.options.rootDir
+    const { resolve, resolvePath } = createResolver(ROOT_DIR_PATH)
 
-      const componentsPath = await resolvePath(COMPONENT_DIR_PATH)
+    const componentsPath = await resolvePath(COMPONENT_DIR_PATH)
 
-      addComponentsDir({
-        path: componentsPath,
-        extensions: [],
-        ignore: ['**/*'],
-      }, {
-        prepend: true,
-      })
+    addComponentsDir({
+      path: componentsPath,
+      extensions: [],
+      ignore: ['**/*'],
+    }, {
+      prepend: true,
+    })
 
-      try {
-        await Promise.all(readdirSync(componentsPath).map(async (dir) => {
-          try {
-            const filePath = await resolvePath(join(COMPONENT_DIR_PATH, dir, 'index'), { extensions: ['.ts', '.js'] })
+    try {
+      await Promise.all(readdirSync(componentsPath).map(async (dir) => {
+        try {
+          const filePath = await resolvePath(join(COMPONENT_DIR_PATH, dir, 'index'), { extensions: ['.ts', '.js'] })
 
-            addComponentExports({
-              prefix,
-              filePath: resolve(filePath),
-              priority: 1,
-            })
-          }
-          catch (err) {
-            if (err instanceof Error)
-              console.warn('Module error: ', err.message)
-          }
-        }))
-      }
-      catch (err) {
-        if (err instanceof Error)
-          console.warn(err.message)
-      }
-    },
-  })
-  ```
+          addComponentExports({
+            prefix,
+            filePath: resolve(filePath),
+            priority: 1,
+          })
+        }
+        catch (err) {
+          if (err instanceof Error)
+            console.warn('Module error: ', err.message)
+        }
+      }))
+    }
+    catch (err) {
+      if (err instanceof Error)
+        console.warn(err.message)
+    }
+  },
+})
+```
 
 ### Atur `nuxt.config.ts`
 

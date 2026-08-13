@@ -18,7 +18,7 @@ dalam berbagai konfigurasi, lalu menyaring bagian intinya menjadi `Sidebar*.vue`
 Hasilnya adalah fondasi yang kokoh untuk Anda kembangkan. Bisa dikomposisikan,
 diberi tema, dan disesuaikan.
 
-Jelajahi koleksi block-nya.
+[Jelajahi koleksi block-nya](/blocks).
 
 ## Instalasi
 
@@ -36,9 +36,9 @@ npx shadcn-vue@latest add sidebar
 
 Pasang komponen ini
 
-    ```bash
-    npx shadcn-vue@latest add sidebar
-    ```
+```bash
+npx shadcn-vue@latest add sidebar
+```
 
 </div>
 
@@ -48,31 +48,31 @@ Tambahkan warna-warna berikut ke file CSS Anda
 
 Perintah di atas semestinya sudah memasang warnanya untuk Anda. Kalau belum, salin dan tempel isi berikut ke file CSS Anda.
 
-    ```css
-    @layer base {
-      :root {
-        --sidebar-background: 0 0% 98%;
-        --sidebar-foreground: 240 5.3% 26.1%;
-        --sidebar-primary: 240 5.9% 10%;
-        --sidebar-primary-foreground: 0 0% 98%;
-        --sidebar-accent: 240 4.8% 95.9%;
-        --sidebar-accent-foreground: 240 5.9% 10%;
-        --sidebar-border: 220 13% 91%;
-        --sidebar-ring: 217.2 91.2% 59.8%;
-     }
+```css
+@layer base {
+  :root {
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+ }
 
-      .dark {
-        --sidebar-background: 240 5.9% 10%;
-        --sidebar-foreground: 240 4.8% 95.9%;
-        --sidebar-primary: 224.3 76.3% 48%;
-        --sidebar-primary-foreground: 0 0% 100%;
-        --sidebar-accent: 240 3.7% 15.9%;
-        --sidebar-accent-foreground: 240 4.8% 95.9%;
-        --sidebar-border: 240 3.7% 15.9%;
-        --sidebar-ring: 217.2 91.2% 59.8%;
-      }
-    }
-    ```
+  .dark {
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+```
 
 </div>
 

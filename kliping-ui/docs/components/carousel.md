@@ -23,9 +23,9 @@ npx shadcn-vue@latest add carousel
 
 Pasang dependensi berikut:
 
-    ```bash
-    npm install embla-carousel-vue
-    ```
+```bash
+npm install embla-carousel-vue
+```
 
 </div>
 

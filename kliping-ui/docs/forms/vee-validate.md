@@ -42,55 +42,55 @@ Pakai `componentField` kalau kontrolnya berupa komponen Vue ber-`v-model`, misal
 
 #### `Input` Component
 
-  ```vue showLineNumbers {2,9}
-  <template>
-    <VeeField v-slot="{ componentField, errors }" name="title">
-      <Field :data-invalid="!!errors.length">
-        <FieldLabel for="title">
-          Bug Title
-        </FieldLabel>
-        <Input
-          id="title"
-          v-bind="componentField"
-          placeholder="Login button not working on mobile"
-          autocomplete="off"
-          :aria-invalid="!!errors.length"
-        />
-        <FieldDescription>
-          Provide a concise title for your bug report.
-        </FieldDescription>
-        <FieldError v-if="errors.length" :errors="errors" />
-      </Field>
-    </VeeField>
-  </template>
-  ```
+```vue showLineNumbers {2,9}
+<template>
+  <VeeField v-slot="{ componentField, errors }" name="title">
+    <Field :data-invalid="!!errors.length">
+      <FieldLabel for="title">
+        Bug Title
+      </FieldLabel>
+      <Input
+        id="title"
+        v-bind="componentField"
+        placeholder="Login button not working on mobile"
+        autocomplete="off"
+        :aria-invalid="!!errors.length"
+      />
+      <FieldDescription>
+        Provide a concise title for your bug report.
+      </FieldDescription>
+      <FieldError v-if="errors.length" :errors="errors" />
+    </Field>
+  </VeeField>
+</template>
+```
 
 **Native**
 
 #### native `input` element
 
-  ```vue showLineNumbers {2,9}
-  <template>
-    <VeeField v-slot="{ field, errors }" name="title">
-      <Field :data-invalid="!!errors.length">
-        <FieldLabel for="title">
-          Bug Title
-        </FieldLabel>
-        <input
-          id="title"
-          v-bind="field"
-          placeholder="Login button not working on mobile"
-          autocomplete="off"
-          :aria-invalid="!!errors.length"
-        >
-        <FieldDescription>
-          Provide a concise title for your bug report.
-        </FieldDescription>
-        <FieldError v-if="errors.length" :errors="errors" />
-      </Field>
-    </VeeField>
-  </template>
-  ```
+```vue showLineNumbers {2,9}
+<template>
+  <VeeField v-slot="{ field, errors }" name="title">
+    <Field :data-invalid="!!errors.length">
+      <FieldLabel for="title">
+        Bug Title
+      </FieldLabel>
+      <input
+        id="title"
+        v-bind="field"
+        placeholder="Login button not working on mobile"
+        autocomplete="off"
+        :aria-invalid="!!errors.length"
+      >
+      <FieldDescription>
+        Provide a concise title for your bug report.
+      </FieldDescription>
+      <FieldError v-if="errors.length" :errors="errors" />
+    </Field>
+  </VeeField>
+</template>
+```
 
 ## Form
 

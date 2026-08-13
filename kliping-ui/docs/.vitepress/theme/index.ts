@@ -1,5 +1,6 @@
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
+import Beranda from './Beranda.vue'
 import BlockCanvas from './BlockCanvas.vue'
 import BlockGallery from './BlockGallery.vue'
 import ComponentPreview from './ComponentPreview.vue'
@@ -20,5 +21,6 @@ export default {
     app.component('Steps', Steps)
     app.component('BlockCanvas', BlockCanvas)
     app.component('BlockGallery', BlockGallery)
+    app.component('Beranda', Beranda)
   },
 } satisfies Theme
