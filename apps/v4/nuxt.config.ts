@@ -1,4 +1,37 @@
+import { readdirSync } from 'node:fs'
+import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import tailwindcss from '@tailwindcss/vite'
+
+/**
+ * Concrete URLs for every docs page.
+ *
+ * Nitro cannot expand a `/docs/**` route rule into real URLs by itself: it only
+ * prerenders routes it was handed or found by crawling. Crawling is off (it
+ * wandered into /view and /preview for every registry item and never finished),
+ * and @nuxt/content registers only its sql dump for prerendering, not the pages.
+ * Without this list the docs would quietly fall back to SSR.
+ */
+function docsRoutes(dir: string = fileURLToPath(new URL('./content/docs', import.meta.url)), base = '/docs'): string[] {
+  return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    // Dot-prefixed files are excluded from the collection in content.config.ts.
+    if (entry.name.startsWith('.'))
+      return []
+
+    // Ordering prefixes are stripped from the URL: `01.introduction.md` is
+    // served as `introduction`, and `index.md` stands in for its own folder.
+    const name = entry.name.replace(/^\d+\./, '')
+
+    if (entry.isDirectory())
+      return docsRoutes(join(dir, entry.name), `${base}/${name}`)
+
+    if (!name.endsWith('.md'))
+      return []
+
+    const slug = name.slice(0, -3)
+    return [slug === 'index' ? base : `${base}/${slug}`]
+  })
+}
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -6,7 +39,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   srcDir: '.',
   css: ['~/assets/css/main.css', 'vue-sonner/style.css'],
-  modules: ['@nuxtjs/color-mode', '@nuxt/content', 'nuxt-shiki', 'nuxt-og-image', '@nuxt/image', '@nuxt/fonts'],
+  modules: ['@nuxtjs/color-mode', '@nuxt/content', 'nuxt-shiki', '@nuxt/image', '@nuxt/fonts'],
   components: [
     { path: '~/components', ignore: ['_internal/*', '_internal/**/*', 'examples/*', 'examples/**/*'] },
     { path: '~/components/demo', pathPrefix: false },
@@ -79,26 +112,13 @@ export default defineNuxtConfig({
   routeRules: {
     // Static assets - immutable, long cache
     '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
-    // Pages - edge-cached at CF (SSR on first hit, cached after)
-    // Dihapus: prerender: true karena menyebabkan build timeout 30 menit
-    '/docs/**': {
-      headers: { 'cache-control': 'public, s-maxage=3600, stale-while-revalidate=86400' },
-    },
-    '/blocks/**': {
-      headers: { 'cache-control': 'public, s-maxage=3600, stale-while-revalidate=86400' },
-    },
-    '/charts/**': {
-      headers: { 'cache-control': 'public, s-maxage=3600, stale-while-revalidate=86400' },
-    },
-    '/examples/**': {
-      headers: { 'cache-control': 'public, s-maxage=3600, stale-while-revalidate=86400' },
-    },
-    '/colors/**': {
-      headers: { 'cache-control': 'public, s-maxage=3600, stale-while-revalidate=86400' },
-    },
-    '/themes': {
-      headers: { 'cache-control': 'public, s-maxage=3600, stale-while-revalidate=86400' },
-    },
+    // Pages - prerender as static (reset on each deploy)
+    '/docs/**': { prerender: true },
+    '/blocks/**': { prerender: true },
+    '/charts/**': { prerender: true },
+    '/examples/**': { prerender: true },
+    '/colors/**': { prerender: true },
+    '/themes': { prerender: true },
     // JSON API - edge-cached at CF, survives across Worker invocations
     '/api/**': {
       headers: {
@@ -116,7 +136,7 @@ export default defineNuxtConfig({
     preset: 'cloudflare-module',
     compressPublicAssets: true,
     prerender: {
-      crawlLinks: false, // Diubah: true -> false untuk fix build timeout
+      crawlLinks: true,
       routes: ['/'],
       failOnError: false,
       autoSubfolderIndex: false,
@@ -164,9 +184,8 @@ export default defineNuxtConfig({
       subsets: ['latin'],
       styles: ['normal'],
     },
-    // `global: true` emits the @font-face into nuxt-fonts-global.css, which is both
-    // how the docs get Geist without a render-blocking external stylesheet and how
-    // nuxt-og-image discovers the family at build time.
+    // `global: true` emits the @font-face into nuxt-fonts-global.css, which is how
+    // the docs get Geist without a render-blocking external stylesheet.
     families: [
       { name: 'Geist', weights: [400, 500, 600, 700], global: true },
       { name: 'Geist Mono', weights: [400, 500], global: true },
