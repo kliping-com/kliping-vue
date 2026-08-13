@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   srcDir: '.',
   css: ['~/assets/css/main.css', 'vue-sonner/style.css'],
-  modules: ['@nuxtjs/color-mode', '@nuxt/content', 'nuxt-shiki', 'nuxt-og-image', '@nuxt/image', '@nuxt/fonts'],
+  modules: ['@nuxtjs/color-mode', '@nuxt/content', 'nuxt-shiki', '@nuxt/image', '@nuxt/fonts'],
   components: [
     { path: '~/components', ignore: ['_internal/*', '_internal/**/*', 'examples/*', 'examples/**/*'] },
     { path: '~/components/demo', pathPrefix: false },
@@ -79,13 +79,20 @@ export default defineNuxtConfig({
   routeRules: {
     // Static assets - immutable, long cache
     '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
-    // Pages - prerender as static (reset on each deploy)
+    // Docs are the one surface worth paying build time for: they are the bulk of
+    // the site, they rarely change between deploys, and they are what search
+    // engines index. Everything else renders on demand.
     '/docs/**': { prerender: true },
-    '/blocks/**': { prerender: true },
-    '/charts/**': { prerender: true },
-    '/examples/**': { prerender: true },
-    '/colors/**': { prerender: true },
-    '/themes': { prerender: true },
+    // Rendered per request and cached at the edge. Prerendering these meant
+    // crawling into /view and /preview for all 138 registry items, which is what
+    // pushed the Cloudflare build past its time limit.
+    '/blocks/**': { swr: 3600 },
+    '/charts/**': { swr: 3600 },
+    '/examples/**': { swr: 3600 },
+    '/colors/**': { swr: 3600 },
+    '/themes': { swr: 3600 },
+    '/view/**': { swr: 3600 },
+    '/preview/**': { swr: 3600 },
     // JSON API - edge-cached at CF, survives across Worker invocations
     '/api/**': {
       headers: {
@@ -103,7 +110,10 @@ export default defineNuxtConfig({
     preset: 'cloudflare-module',
     compressPublicAssets: true,
     prerender: {
-      crawlLinks: true,
+      // Off on purpose. The crawler followed links into /view/[name] and
+      // /preview/[base]/[name], one route per registry item per base, and the
+      // build never finished. Routes to prerender are declared explicitly above.
+      crawlLinks: false,
       routes: ['/'],
       failOnError: false,
       autoSubfolderIndex: false,
@@ -151,9 +161,8 @@ export default defineNuxtConfig({
       subsets: ['latin'],
       styles: ['normal'],
     },
-    // `global: true` emits the @font-face into nuxt-fonts-global.css, which is both
-    // how the docs get Geist without a render-blocking external stylesheet and how
-    // nuxt-og-image discovers the family at build time.
+    // `global: true` emits the @font-face into nuxt-fonts-global.css, which is how
+    // the docs get Geist without a render-blocking external stylesheet.
     families: [
       { name: 'Geist', weights: [400, 500, 600, 700], global: true },
       { name: 'Geist Mono', weights: [400, 500], global: true },
