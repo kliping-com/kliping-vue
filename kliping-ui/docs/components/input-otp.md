@@ -25,9 +25,9 @@ npx shadcn-vue@latest add input-otp
 
 Pasang dependensi berikut:
 
-    ```bash
-    npm install vue-input-otp
-    ```
+```bash
+npm install vue-input-otp
+```
 
 </div>
 

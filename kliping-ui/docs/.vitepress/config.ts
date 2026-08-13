@@ -49,6 +49,31 @@ function berkasSumber(nama: string) {
  * Berjalan sebelum markdown diurai: yang disisipkan adalah teks markdown, jadi
  * sisa pipeline memperlakukannya persis seperti blok kode yang ditulis tangan.
  */
+/**
+ * Beri tiap halaman judul dan deskripsi dari frontmatter-nya.
+ *
+ * Di aplikasi Nuxt asalnya, judul dan deskripsi digambar oleh layout dokumentasi
+ * dari frontmatter, jadi tidak pernah ditulis di badan markdown. VitePress tidak
+ * melakukan itu, dan hasilnya tiap halaman komponen langsung dimulai dari
+ * pratinjau tanpa pernah menyebutkan namanya. Disisipkan di sini, bukan ditulis
+ * ke berkasnya, supaya judulnya tetap satu sumber — frontmatter yang sama yang
+ * dibaca daftar sidebar.
+ */
+function judulHalaman(md: any) {
+  md.core.ruler.before('normalize', 'kliping-judul-halaman', (state: any) => {
+    const fm = state.env?.frontmatter
+    // Halaman dengan layout sendiri — beranda dan kanvas block — menggambar
+    // judulnya sendiri, atau memang tidak ingin punya judul.
+    if (!fm?.title || fm.layout !== undefined)
+      return
+    if (/^#\s/m.test(state.src))
+      return
+
+    const deskripsi = fm.description ? `\n${fm.description}\n` : ''
+    state.src = `# ${fm.title}\n${deskripsi}\n${state.src}`
+  })
+}
+
 function sumberPratinjau(md: any) {
   md.core.ruler.before('normalize', 'kliping-sumber-pratinjau', (state: any) => {
     state.src = state.src.replace(/<ComponentPreview\s([^>]*)\/>/g, (cocok: string, ruangAtribut: string) => {
@@ -77,7 +102,12 @@ export default defineConfig({
   // Yang masih relevan sudah dinamai ulang, sisanya dihapus.
   srcExclude: ['**/.*.md'],
 
-  markdown: { config: sumberPratinjau },
+  markdown: {
+    config: (md) => {
+      judulHalaman(md)
+      sumberPratinjau(md)
+    },
+  },
 
   // VitePress menjalankan Vite-nya sendiri dan tidak membaca vite.config.ts di
   // root, jadi alias dan Tailwind harus didaftarkan ulang di sini. Tanpa ini

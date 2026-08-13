@@ -76,44 +76,44 @@ Tambahkan kode berikut ke `tsconfig.app.json` supaya path bisa diselesaikan deng
 
 Tambahkan kode berikut ke `vite.config.ts` supaya aplikasi Anda bisa menyelesaikan path tanpa error:
 
-    ```bash
-    npm install -D @types/node
-    ```
+  ```bash
+  npm install -D @types/node
+  ```
 
-    ```typescript
-    import path from 'node:path'
-    import { defineConfig } from 'vite'
-    import tailwindcss from '@tailwindcss/vite'
-    import vue from '@vitejs/plugin-vue'
+  ```typescript
+  import path from 'node:path'
+  import { defineConfig } from 'vite'
+  import tailwindcss from '@tailwindcss/vite'
+  import vue from '@vitejs/plugin-vue'
 
-    export default defineConfig({
-      plugins: [vue(), tailwindcss()],
-      resolve: {
-        alias: {
-          '@': path.resolve(__dirname, './src'),
-        },
+  export default defineConfig({
+    plugins: [vue(), tailwindcss()],
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src'),
       },
-    })
-    ```
+    },
+  })
+  ```
 
 **Vite Tsconfig Paths**
 
 Pakai `vite-tsconfig-paths` untuk menyelesaikan import lewat path mapping milik TypeScript.
 
-    ```bash
-    npm install -D vite-tsconfig-paths
-    ```
+  ```bash
+  npm install -D vite-tsconfig-paths
+  ```
 
-    ```typescript
-    import { defineConfig } from 'vite'
-    import vue from '@vitejs/plugin-vue'
-    import tailwindcss from '@tailwindcss/vite'
-    import tsconfigPaths from 'vite-tsconfig-paths'
+  ```typescript
+  import { defineConfig } from 'vite'
+  import vue from '@vitejs/plugin-vue'
+  import tailwindcss from '@tailwindcss/vite'
+  import tsconfigPaths from 'vite-tsconfig-paths'
 
-    export default defineConfig({
-      plugins: [vue(), tailwindcss(), tsconfigPaths()],
-    })
-    ```
+  export default defineConfig({
+    plugins: [vue(), tailwindcss(), tsconfigPaths()],
+  })
+  ```
 
 ### Jalankan CLI
 

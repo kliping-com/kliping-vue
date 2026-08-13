@@ -26,9 +26,9 @@ npx shadcn-vue@latest add select
 
 Pasang dependensi berikut:
 
-    ```bash
-    npm install reka-ui
-    ```
+```bash
+npm install reka-ui
+```
 
 </div>
 

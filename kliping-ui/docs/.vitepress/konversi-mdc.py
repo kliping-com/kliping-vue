@@ -51,8 +51,20 @@ def lindungi_blok_kode(teks):
             indent, ch, panjang = penutup
             m = re.match(r'^([ \t]*)(' + re.escape(ch) + r'{3,})[ \t]*$', baris)
             if m and len(m.group(2)) >= panjang:
-                blok.append('\n'.join(tampung))
-                hasil.append(f'\u0000BLOK{len(blok) - 1}\u0000')
+                # Disimpan tanpa indentasi asalnya; indentasi baru ditentukan
+                # penanda. Direktif yang membungkusnya diratakan saat dikonversi,
+                # dan blok kode harus ikut rata: pagar yang tertinggal menjorok
+                # empat spasi dibaca markdown sebagai kode berindentasi, jadi
+                # yang tampil justru backtick-nya, bukan isinya.
+                # Diratakan memakai indentasi terkecil di dalam bloknya, bukan
+                # indentasi pagar pembukanya: di berkas asalnya ada blok yang
+                # pagar pembuka dan penutupnya berbeda satu spasi, dan memakai
+                # yang pembuka membuat isinya tertinggal menjorok sendirian.
+                lekuk = min((len(b) - len(b.lstrip()) for b in tampung if b.strip()),
+                            default=0)
+                blok.append('\n'.join(b[lekuk:] if b[:lekuk].strip() == '' else b
+                                      for b in tampung))
+                hasil.append(f'{indent}\u0000BLOK{len(blok) - 1}\u0000')
                 penutup = None
                 tampung = []
 
@@ -62,7 +74,12 @@ def lindungi_blok_kode(teks):
 
 
 def kembalikan_blok_kode(teks, blok):
-    return re.sub(r'\u0000BLOK(\d+)\u0000', lambda m: blok[int(m.group(1))], teks)
+    def ganti(m):
+        indent = m.group(1)
+        return '\n'.join(indent + b if b.strip() else b
+                         for b in blok[int(m.group(2))].split('\n'))
+
+    return re.sub(r'^([ \t]*)\u0000BLOK(\d+)\u0000', ganti, teks, flags=re.M)
 
 
 def baca_frontmatter(blok):

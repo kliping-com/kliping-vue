@@ -92,3 +92,18 @@
 .kliping-blok-kartu:hover .kliping-blok-nama {
   color: var(--vp-c-brand-1);
 }
+
+/* Beranda memakai seluruh lebar layar: petak kartunya memang dirancang melebar
+   sampai ujung, bukan mengikuti kolom teks dokumentasi. */
+.kliping-beranda {
+  margin: 0 auto;
+}
+
+.VPPage:has(.kliping-beranda),
+.VPContent.is-home:has(.kliping-beranda) {
+  padding: 0;
+}
+
+.kliping-beranda .bg-muted {
+  border-top: 1px solid var(--vp-c-divider);
+}

@@ -33,9 +33,9 @@ npx shadcn-vue@latest add combobox
 
 Pasang dependensi berikut:
 
-    ```bash
-    npm install reka-ui @vueuse/core
-    ```
+```bash
+npm install reka-ui @vueuse/core
+```
 
 </div>
 
