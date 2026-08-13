@@ -22,6 +22,7 @@ import {
   useMessageScroller,
   useMessageScrollerVisibility,
 } from '@/components/ui/message-scroller'
+import MessageAnimated from '@/demo/MessageAnimated.vue'
 
 const messages: DemoMessage[] = [
   {

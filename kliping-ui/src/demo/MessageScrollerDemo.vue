@@ -10,7 +10,6 @@ import {
   TelescopeIcon,
 } from '@lucide/vue'
 import { computed } from 'vue'
-import { createDemoChat, useDemoChat } from '@/lib/message-scroller-demo'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -52,6 +51,8 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
+import MessageAnimated from '@/demo/MessageAnimated.vue'
+import { createDemoChat, useDemoChat } from '@/lib/message-scroller-demo'
 
 const chat = createDemoChat()
   .user('I\'m building a chat for our app and the scroll behavior is driving me nuts. Every time the AI streams a reply, the whole thread jumps around.')

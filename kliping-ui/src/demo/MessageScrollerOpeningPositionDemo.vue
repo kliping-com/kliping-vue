@@ -18,6 +18,7 @@ import {
   useMessageScroller,
 } from '@/components/ui/message-scroller'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import MessageAnimated from '@/demo/MessageAnimated.vue'
 
 type Position = 'start' | 'end' | 'last-anchor'
 

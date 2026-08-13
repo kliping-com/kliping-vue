@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import type { SidebarProps } from "@/components/ui/sidebar"
+import type { SidebarProps } from '@/components/ui/sidebar'
+// Plus datang dari auto-import Nuxt di repo asalnya; di Vite polos harus dituliskan.
+import { Plus } from '@lucide/vue'
 
-import Calendars from "@/blocks/sidebar-15/components/Calendars.vue"
-import DatePicker from "@/blocks/sidebar-15/components/DatePicker.vue"
-import NavUser from "@/blocks/sidebar-15/components/NavUser.vue"
+import Calendars from '@/blocks/sidebar-15/components/Calendars.vue'
+import DatePicker from '@/blocks/sidebar-15/components/DatePicker.vue'
+import NavUser from '@/blocks/sidebar-15/components/NavUser.vue'
 import {
   Sidebar,
   SidebarContent,
@@ -13,31 +15,31 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarSeparator,
-} from "@/components/ui/sidebar"
+} from '@/components/ui/sidebar'
 
 const props = withDefaults(defineProps<SidebarProps>(), {
-  collapsible: "none",
+  collapsible: 'none',
 })
 
 // This is sample data.
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    name: 'shadcn',
+    email: 'm@example.com',
+    avatar: '/avatars/shadcn.jpg',
   },
   calendars: [
     {
-      name: "My Calendars",
-      items: ["Personal", "Work", "Family"],
+      name: 'My Calendars',
+      items: ['Personal', 'Work', 'Family'],
     },
     {
-      name: "Favorites",
-      items: ["Holidays", "Birthdays"],
+      name: 'Favorites',
+      items: ['Holidays', 'Birthdays'],
     },
     {
-      name: "Other",
-      items: ["Travel", "Reminders", "Deadlines"],
+      name: 'Other',
+      items: ['Travel', 'Reminders', 'Deadlines'],
     },
   ],
 }

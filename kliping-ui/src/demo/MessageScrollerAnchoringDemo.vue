@@ -34,6 +34,7 @@ import {
   ToggleGroup,
   ToggleGroupItem,
 } from '@/components/ui/toggle-group'
+import MessageAnimated from '@/demo/MessageAnimated.vue'
 
 const scriptedMessages: DemoMessage[] = [
   {

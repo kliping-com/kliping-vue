@@ -6,11 +6,6 @@ import {
   RotateCwIcon,
 } from '@lucide/vue'
 import { computed, ref } from 'vue'
-import {
-  createDemoChat,
-  MESSAGE_ANIMATION_PRESETS,
-  useDemoChat,
-} from '@/lib/message-scroller-demo'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -43,6 +38,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import MessageAnimated from '@/demo/MessageAnimated.vue'
+import {
+  createDemoChat,
+  MESSAGE_ANIMATION_PRESETS,
+  useDemoChat,
+} from '@/lib/message-scroller-demo'
 
 const chat = createDemoChat()
   .user('Can user messages pop in like iMessage without breaking anchoring?')

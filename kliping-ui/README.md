@@ -11,7 +11,7 @@ Vite + Vue 3 + TypeScript + Tailwind v4. Tanpa Nuxt, tanpa server, tanpa databas
 | Komponen primitif (`src/components/ui/`) | 66 |
 | Block siap pakai (`src/blocks/`) | 34 |
 | Grafik (`src/charts/`) | 23 |
-| Contoh untuk dokumentasi (`src/demo/`) | 318 |
+| Contoh untuk dokumentasi (`src/demo/`) | 319 |
 | Halaman dokumentasi (`docs/`) | 109 |
 
 ## Menjalankan
@@ -45,9 +45,10 @@ src/
 │           └── index.ts
 ├── blocks/               34 block siap pakai
 ├── charts/               23 grafik
-├── demo/                 318 contoh yang dipakai dokumentasi
+├── demo/                 319 contoh yang dipakai dokumentasi
 ├── assets/
-│   └── main.css          token tema
+│   ├── main.css          token tema
+│   └── utilities.css     scroll-fade, shimmer, scrollbar, animasi pesan
 ├── App.vue
 └── main.ts
 
@@ -98,6 +99,11 @@ repo asalnya — semuanya sudah diberi impor eksplisit di tempatnya:
 - `src/charts/ChartAreaInteractive.vue` — `ref`, `computed`
 - `src/charts/ChartBarInteractive.vue` — `ref`, `computed`
 - `src/charts/ChartLineInteractive.vue` — `ref`, `computed`
+- `src/blocks/sidebar-12/components/AppSidebar.vue` — `Plus`
+- `src/blocks/sidebar-15/components/SidebarRight.vue` — `Plus`
+- `src/components/ui/attachment/AttachmentTrigger.vue` — `Primitive` dari reka-ui
+- 10 demo MessageScroller — `MessageAnimated`, yang di repo asalnya tinggal di
+  folder auto-import Nuxt dan bukan di folder demo
 
 Dokumentasinya sudah diterjemahkan ke Bahasa Indonesia dan sintaks Nuxt Content-nya
 dikonversi ke VitePress. Skrip konversinya disimpan di

@@ -17,6 +17,7 @@ import {
   MessageScrollerViewport,
   useMessageScrollerScrollable,
 } from '@/components/ui/message-scroller'
+import MessageAnimated from '@/demo/MessageAnimated.vue'
 
 const messages: DemoMessage[] = Array.from({ length: 12 }, (_, index) => ({
   id: `scrollable-${index + 1}`,

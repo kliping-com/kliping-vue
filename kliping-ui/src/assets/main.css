@@ -1,5 +1,12 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "./utilities.css";
+
+/* VitePress menjalankan Vite dengan root di folder docs, jadi deteksi otomatis
+   Tailwind berhenti di situ dan kelas yang cuma dipakai komponen tidak pernah
+   dihasilkan — pratinjau tampil separuh jadi. Sumbernya ditunjuk eksplisit
+   supaya kedua build menghasilkan CSS yang sama. */
+@source "../";
 
 @custom-variant dark (&:is(.dark *));
 

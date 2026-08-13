@@ -9,7 +9,6 @@ import {
   TelescopeIcon,
 } from '@lucide/vue'
 import { computed, ref } from 'vue'
-import { createDemoChat, useDemoChat } from '@/lib/message-scroller-demo'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -45,6 +44,8 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
+import MessageAnimated from '@/demo/MessageAnimated.vue'
+import { createDemoChat, useDemoChat } from '@/lib/message-scroller-demo'
 
 const DEFAULT_PEEK = 64
 
