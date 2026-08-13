@@ -120,7 +120,7 @@ function handleSubmit(event: Event) {
 
 ## Komposisi
 
-Use the following composition to build a questionnaire:
+Susunan berikut adalah cara membangun sebuah questionnaire:
 
 ```text
 Questionnaire
@@ -140,26 +140,26 @@ Questionnaire
     └── QuestionnaireSubmit
 ```
 
-`Questionnaire` renders a real `<form>` and every item renders a `<fieldset>` with a `<legend>`, so answers submit with `FormData` and no extra state is needed.
+`Questionnaire` menghasilkan `<form>` sungguhan, dan tiap itemnya menghasilkan `<fieldset>` beserta `<legend>`. Jawabannya terkirim lewat `FormData`, jadi Anda tidak perlu state tambahan.
 
-## Server Rendering
+## Render di Sisi Server
 
-Pass `items` to server-render the active item, progress, actions, and answer shortcuts. Without it the questionnaire only learns its order once the items have mounted on the client.
+Isi prop `items` supaya item aktif, progres, tombol aksi, dan pintasan jawaban ikut dirender di server. Tanpa itu, questionnaire baru mengetahui urutannya setelah semua item ter-mount di klien.
 
 ## Fitur
 
-- One question at a time, with progress, navigation, and validation handled for you
-- Single-choice, multiple-choice, freeform, and intentionally skipped answers
-- Keyboard shortcuts for choices, plus arrow key navigation between questions and answers
-- Declarative `items` for item order, conditional items, and stable shortcut assignment
-- Controlled navigation with `v-model:item` for custom validation flows
-- Native form reset restores the answers you marked as defaults
+- Satu pertanyaan dalam satu waktu, dengan progres, navigasi, dan validasi yang sudah ditangani otomatis.
+- Jawaban pilihan tunggal, pilihan ganda, isian bebas, dan pertanyaan yang sengaja dilewati.
+- Pintasan keyboard untuk memilih jawaban, plus navigasi antar pertanyaan dan jawaban lewat tombol panah.
+- Prop `items` yang deklaratif untuk mengatur urutan, item bersyarat, dan penetapan pintasan yang konsisten.
+- Navigasi yang dikendalikan lewat `v-model:item` untuk alur validasi buatan sendiri.
+- Reset form bawaan browser mengembalikan jawaban ke nilai yang Anda tandai sebagai bawaan.
 
 ## Contoh
 
-### Multiple Selection
+### Pilihan Ganda
 
-Use `multiple` for an item that accepts more than one fixed answer.
+Pakai `multiple` untuk pertanyaan yang menerima lebih dari satu jawaban tetap.
 
 ::component-preview
 ---
@@ -170,9 +170,9 @@ previewClass: min-h-[420px] p-4 sm:p-8
 ---
 ::
 
-### Freeform Answer
+### Jawaban Bebas
 
-Compose `QuestionnaireInput` with fixed choices when the user can provide another answer.
+Padukan `QuestionnaireInput` dengan pilihan tetap kalau pengguna boleh mengisi jawaban lain.
 
 ::component-preview
 ---
@@ -183,9 +183,9 @@ previewClass: min-h-[420px] p-4 sm:p-8
 ---
 ::
 
-### Explicit Skip
+### Melewati Pertanyaan
 
-Add `QuestionnaireSkip` when an optional item may be intentionally left unanswered.
+Tambahkan `QuestionnaireSkip` kalau sebuah pertanyaan opsional boleh sengaja dikosongkan.
 
 ::component-preview
 ---
@@ -196,9 +196,9 @@ previewClass: min-h-[520px] p-4 sm:p-8
 ---
 ::
 
-### Shortcuts
+### Pintasan Keyboard
 
-Assign a letter or number key to each answer with `shortcuts`. Declare `choices` on `items` so the keys stay stable regardless of the render order.
+Tetapkan tombol huruf atau angka untuk tiap jawaban lewat `shortcuts`. Deklarasikan `choices` pada `items` supaya tombolnya tetap konsisten berapa pun urutan tampilnya.
 
 ::component-preview
 ---
@@ -209,9 +209,9 @@ previewClass: min-h-[480px] p-4 sm:p-8
 ---
 ::
 
-### Custom Validation
+### Validasi Buatan Sendiri
 
-Combine controlled navigation with an external schema such as Zod to return to an invalid item and present its error.
+Padukan navigasi terkendali dengan skema eksternal seperti Zod untuk kembali ke pertanyaan yang belum valid dan menampilkan pesan error-nya.
 
 ::component-preview
 ---
@@ -222,7 +222,7 @@ previewClass: min-h-[520px] p-4 sm:p-8
 ---
 ::
 
-`QuestionnaireError` falls back to a built-in message, so only render your own message when you have one:
+`QuestionnaireError` sudah punya pesan bawaan, jadi tampilkan pesan Anda sendiri hanya kalau memang ada:
 
 ```vue showLineNumbers
 <QuestionnaireError>
@@ -234,7 +234,7 @@ previewClass: min-h-[520px] p-4 sm:p-8
 
 ### Dikendalikan dari Luar
 
-Control the active item from host state, such as returning to an invalid step. Use `v-model:item`.
+Kendalikan item aktif dari state induk, misalnya untuk kembali ke langkah yang belum valid. Pakai `v-model:item`.
 
 ::component-preview
 ---
@@ -245,9 +245,9 @@ previewClass: min-h-[520px] p-4 sm:p-8
 ---
 ::
 
-### Resume
+### Melanjutkan Sesi
 
-Restore a saved active item and default answers, then reset changes back to that saved state.
+Pulihkan item aktif dan jawaban bawaan yang tersimpan, lalu kembalikan perubahan ke keadaan simpanan itu.
 
 ::component-preview
 ---
@@ -258,9 +258,9 @@ previewClass: min-h-[520px] p-4 sm:p-8
 ---
 ::
 
-### Conditional Items
+### Pertanyaan Bersyarat
 
-Disable items that do not apply to the user's earlier answers.
+Nonaktifkan pertanyaan yang tidak relevan dengan jawaban pengguna sebelumnya.
 
 ::component-preview
 ---
@@ -271,9 +271,9 @@ previewClass: min-h-[520px] p-4 sm:p-8
 ---
 ::
 
-### Navigation State
+### State Navigasi
 
-Read item status to opt into disabled navigation and custom action styling. Listen to `@update:status` on the items you want to track.
+Baca status tiap item untuk menonaktifkan navigasi dan menyesuaikan style tombol aksi. Dengarkan `@update:status` pada item yang ingin Anda pantau.
 
 ::component-preview
 ---
@@ -284,9 +284,9 @@ previewClass: min-h-[480px] p-4 sm:p-8
 ---
 ::
 
-### Custom Progress
+### Indikator Progres Kustom
 
-Use the progress slot state to build a custom progress indicator. `QuestionnaireProgress` exposes `current`, `total`, `first`, and `last`.
+Pakai state pada slot progres untuk membuat indikator sendiri. `QuestionnaireProgress` menyediakan `current`, `total`, `first`, dan `last`.
 
 ::component-preview
 ---
@@ -297,9 +297,9 @@ previewClass: min-h-[520px] p-4 sm:p-8
 ---
 ::
 
-### Animated Items
+### Item Beranimasi
 
-Animate the active item while keeping progress and navigation stationary. The active item is marked with `data-active`.
+Animasikan item yang sedang aktif sementara progres dan navigasinya tetap diam. Item aktif ditandai dengan `data-active`.
 
 ::component-preview
 ---
@@ -312,7 +312,7 @@ previewClass: min-h-[520px] p-4 sm:p-8
 
 ### Card
 
-Compose Questionnaire with Card slots while keeping the question title and description semantic. Use `as-child` to render a part as another component:
+Padukan Questionnaire dengan slot Card tanpa mengorbankan makna judul dan keterangan pertanyaannya. Pakai `as-child` untuk menampilkan sebuah bagian sebagai komponen lain:
 
 ```vue showLineNumbers
 <QuestionnaireTitle as-child>
@@ -329,11 +329,11 @@ previewClass: min-h-[560px] p-4 sm:p-8
 ---
 ::
 
-`QuestionnaireProgress`, `QuestionnaireTitle`, `QuestionnaireDescription`, `QuestionnaireChoices`, `QuestionnaireError`, `QuestionnaireActions`, and the four navigation buttons all accept `as` and `as-child`. `as-child` on the title replaces the `legend` that names the item, so the item labels itself with the rendered title instead. The title and description keep the id of the child they render.
+`QuestionnaireProgress`, `QuestionnaireTitle`, `QuestionnaireDescription`, `QuestionnaireChoices`, `QuestionnaireError`, `QuestionnaireActions`, dan keempat tombol navigasinya sama-sama menerima `as` dan `as-child`. Memakai `as-child` pada judul akan menggantikan `legend` yang menamai item, sehingga item itu dilabeli oleh judul yang ditampilkan. Judul dan keterangannya tetap mempertahankan id dari anak yang mereka render.
 
 ### Dialog
 
-Compose Questionnaire inside a Dialog while keeping cancellation and dismissal host-owned.
+Padukan Questionnaire di dalam Dialog, sementara urusan membatalkan dan menutupnya tetap dipegang komponen induk.
 
 ::component-preview
 ---
@@ -344,7 +344,7 @@ previewClass: min-h-[320px] p-4 sm:p-8
 ---
 ::
 
-## Keyboard navigation
+## Navigasi Keyboard
 
 | Key                    | Description                                                      |
 | ---------------------- | ---------------------------------------------------------------- |
@@ -358,17 +358,17 @@ previewClass: min-h-[320px] p-4 sm:p-8
 
 ## Aksesibilitas
 
-`QuestionnaireItem` renders a `fieldset` with a `legend`, so every question is announced with its answers. Descriptions and errors are associated with the item through `aria-describedby`, and an invalid item exposes `aria-invalid`.
+`QuestionnaireItem` menghasilkan `fieldset` beserta `legend`, jadi tiap pertanyaan dibacakan bersama jawabannya. Keterangan dan pesan error dikaitkan ke item lewat `aria-describedby`, dan item yang belum valid menyertakan `aria-invalid`.
 
-`QuestionnaireProgress` renders a named `progressbar` that announces the current question. Inactive items are `hidden` and `inert`, so they stay out of the tab order and the accessibility tree.
+`QuestionnaireProgress` menghasilkan `progressbar` bernama yang membacakan pertanyaan saat ini. Item yang tidak aktif diberi `hidden` dan `inert`, jadi tidak ikut urutan Tab maupun pohon aksesibilitas.
 
-Navigation actions are real buttons. `QuestionnaireSubmit` submits the form, so a questionnaire keeps working with browser autofill and native form submission.
+Tombol navigasinya adalah tombol sungguhan. `QuestionnaireSubmit` mengirim form, jadi questionnaire tetap bekerja dengan autofill browser dan pengiriman form bawaan.
 
 ## Referensi API
 
 ### Questionnaire
 
-The root form. Manages the active item, progress, validation, and keyboard navigation.
+Form terluar. Mengurus item aktif, progres, validasi, dan navigasi keyboard.
 
 | Prop          | Type                            | Default | Description                                                                 |
 | ------------- | ------------------------------- | ------- | --------------------------------------------------------------------------- |
@@ -387,7 +387,7 @@ The root form. Manages the active item, progress, validation, and keyboard navig
 
 ### QuestionnaireProgress
 
-A `progressbar` announcing the active question. Exposes `current`, `total`, `first`, and `last` to its default slot.
+Sebuah `progressbar` yang membacakan pertanyaan aktif. Menyediakan `current`, `total`, `first`, dan `last` ke slot bawaannya.
 
 | Prop    | Type                      | Default | Description                                      |
 | ------- | ------------------------- | ------- | ------------------------------------------------ |
@@ -397,7 +397,7 @@ A `progressbar` announcing the active question. Exposes `current`, `total`, `fir
 
 ### QuestionnaireItem
 
-A single question, rendered as a `fieldset`. Only the active item is visible.
+Satu pertanyaan, ditampilkan sebagai `fieldset`. Hanya item yang aktif yang terlihat.
 
 | Prop       | Type                      | Default | Description                                                   |
 | ---------- | ------------------------- | ------- | ------------------------------------------------------------- |
@@ -414,7 +414,7 @@ A single question, rendered as a `fieldset`. Only the active item is visible.
 
 ### QuestionnaireTitle
 
-The question, rendered as a `legend`.
+Teks pertanyaannya, ditampilkan sebagai `legend`.
 
 | Prop    | Type                      | Default | Description                                 |
 | ------- | ------------------------- | ------- | ------------------------------------------- |
@@ -424,7 +424,7 @@ The question, rendered as a `legend`.
 
 ### QuestionnaireDescription
 
-Help text associated with the item through `aria-describedby`.
+Teks bantuan yang dikaitkan ke item lewat `aria-describedby`.
 
 | Prop    | Type                      | Default | Description                                     |
 | ------- | ------------------------- | ------- | ----------------------------------------------- |
@@ -435,7 +435,7 @@ Help text associated with the item through `aria-describedby`.
 
 ### QuestionnaireChoices
 
-The answer list. Wraps choices and an optional freeform input.
+Daftar jawaban. Membungkus pilihan-pilihan beserta isian bebas kalau ada.
 
 | Prop    | Type                      | Default | Description                                 |
 | ------- | ------------------------- | ------- | ------------------------------------------- |
@@ -445,7 +445,7 @@ The answer list. Wraps choices and an optional freeform input.
 
 ### QuestionnaireChoice
 
-A single answer, rendered as a radio or a checkbox depending on the item.
+Satu jawaban, ditampilkan sebagai radio atau checkbox tergantung jenis pertanyaannya.
 
 | Prop             | Type                      | Default | Description                                             |
 | ---------------- | ------------------------- | ------- | ------------------------------------------------------- |
@@ -462,7 +462,7 @@ A single answer, rendered as a radio or a checkbox depending on the item.
 
 ### QuestionnaireChoiceDescription
 
-Secondary text inside a choice.
+Teks tambahan di dalam sebuah pilihan.
 
 | Prop    | Type                      | Default | Description                                     |
 | ------- | ------------------------- | ------- | ----------------------------------------------- |
@@ -470,7 +470,7 @@ Secondary text inside a choice.
 
 ### QuestionnaireInput
 
-A freeform answer. Answers the item while it holds a value, and submits under the item name.
+Jawaban bebas. Dianggap menjawab pertanyaan selama isiannya tidak kosong, dan dikirim memakai nama item tersebut.
 
 | Prop           | Type                      | Default  | Description                                           |
 | -------------- | ------------------------- | -------- | ----------------------------------------------------- |
@@ -482,7 +482,7 @@ A freeform answer. Answers the item while it holds a value, and submits under th
 
 ### QuestionnaireError
 
-The item error. Hidden until the item is invalid, and falls back to a built-in message.
+Pesan error item. Tersembunyi sampai item itu dinyatakan tidak valid, dan memakai pesan bawaan kalau Anda tidak menyediakannya.
 
 | Prop    | Type                      | Default | Description                               |
 | ------- | ------------------------- | ------- | ----------------------------------------- |
@@ -493,7 +493,7 @@ The item error. Hidden until the item is invalid, and falls back to a built-in m
 
 ### QuestionnaireActions
 
-The navigation row.
+Baris tombol navigasi.
 
 | Prop    | Type                      | Default | Description                                 |
 | ------- | ------------------------- | ------- | ------------------------------------------- |
@@ -501,9 +501,9 @@ The navigation row.
 | `as`      | `AsTag \| Component`      | `"div"`   | The element or component to render as.      |
 | `asChild` | `boolean`                 | `false` | Render the child element instead.           |
 
-### QuestionnairePrevious, QuestionnaireSkip, QuestionnaireNext, and QuestionnaireSubmit
+### QuestionnairePrevious, QuestionnaireSkip, QuestionnaireNext, dan QuestionnaireSubmit
 
-Navigation buttons. Each one hides itself when it does not apply: `QuestionnairePrevious` on the first item, `QuestionnaireSkip` on required items, `QuestionnaireNext` on the last item, and `QuestionnaireSubmit` everywhere but the last item.
+Tombol-tombol navigasi. Masing-masing menyembunyikan diri saat tidak relevan: `QuestionnairePrevious` di item pertama, `QuestionnaireSkip` di item wajib, `QuestionnaireNext` di item terakhir, dan `QuestionnaireSubmit` di semua item selain yang terakhir.
 
 | Prop       | Type                            | Default                            | Description                                |
 | ---------- | ------------------------------- | ---------------------------------- | ------------------------------------------ |

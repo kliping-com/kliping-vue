@@ -11,7 +11,7 @@ previewClass: h-auto theme-blue bg-surface dark:bg-background
 ---
 ::
 
-The `Attachment` component displays a file or image attachment, its media, name, and metadata, with optional actions and upload state. Use it for files and images in chat composers, message threads, and upload lists.
+Komponen `Attachment` menampilkan lampiran berupa berkas atau gambar beserta media, nama, dan metadatanya, ditambah aksi dan status unggah kalau diperlukan. Cocok untuk berkas dan gambar di kolom penulisan chat, utas pesan, dan daftar unggahan.
 
 
 ## Instalasi
@@ -89,7 +89,7 @@ import {
 
 ## Komposisi
 
-Use the following composition to build an attachment:
+Susunan berikut adalah cara membangun sebuah attachment:
 
 ```text
 Attachment
@@ -102,7 +102,7 @@ Attachment
 └── AttachmentTrigger
 ```
 
-Use `AttachmentGroup` to lay out multiple attachments in a scrollable row:
+Pakai `AttachmentGroup` untuk menata beberapa lampiran dalam satu baris yang bisa digulir:
 
 ```text
 AttachmentGroup
@@ -112,18 +112,18 @@ AttachmentGroup
 
 ## Fitur
 
-- Icon and image media through `AttachmentMedia`
-- Upload states: `idle`, `uploading`, `processing`, `error`, and `done` with built-in styling and a shimmer while in progress
-- Three sizes and horizontal or vertical orientation
-- A full-card `AttachmentTrigger` that opens a link or dialog while the actions stay independently clickable
-- Scrollable, snapping `AttachmentGroup` with an edge fade
-- Customizable styling through the Vue `class` attribute on every part
+- Media berupa ikon maupun gambar lewat `AttachmentMedia`.
+- Status unggah `idle`, `uploading`, `processing`, `error`, dan `done`, lengkap dengan style bawaan dan efek shimmer selagi berjalan.
+- Tiga pilihan ukuran, dengan orientasi mendatar atau tegak.
+- `AttachmentTrigger` seluas kartu yang membuka tautan atau dialog, tanpa mengganggu tombol aksi yang tetap bisa diklik sendiri.
+- `AttachmentGroup` yang bisa digulir dengan efek snap dan pudar di tepinya.
+- Style tiap bagian bisa disesuaikan lewat atribut `class` Vue.
 
 ## Contoh
 
 ### Image
 
-Set `variant="image"` on `AttachmentMedia` and render an `<img>` inside it. Use `orientation="vertical"` to stack the media above the content.
+Isi `variant="image"` pada `AttachmentMedia` lalu taruh `<img>` di dalamnya. Pakai `orientation="vertical"` kalau medianya ingin ditumpuk di atas konten.
 
 ::component-preview
 ---
@@ -132,9 +132,9 @@ previewClass: h-auto theme-blue bg-surface dark:bg-background
 ---
 ::
 
-### States
+### Status
 
-Set `state` to reflect the upload lifecycle. `uploading` and `processing` shimmer the title, and `error` switches to a destructive treatment.
+Isi `state` sesuai tahapan unggahnya. `uploading` dan `processing` membuat judulnya berkilat, sedangkan `error` mengubah tampilannya jadi bernuansa peringatan.
 
 ::component-preview
 ---
@@ -145,7 +145,7 @@ previewClass: h-auto theme-blue bg-surface dark:bg-background
 
 ### Ukuran
 
-Use `size` to switch between `default`, `sm`, and `xs`.
+Pakai `size` untuk berpindah antara `default`, `sm`, dan `xs`.
 
 ::component-preview
 ---
@@ -156,7 +156,7 @@ previewClass: h-auto theme-blue bg-surface dark:bg-background
 
 ### Grup
 
-Wrap attachments in `AttachmentGroup` to lay them out in a horizontally scrollable, snapping row with an edge fade.
+Bungkus beberapa lampiran dengan `AttachmentGroup` untuk menatanya dalam satu baris mendatar yang bisa digulir, dengan efek snap dan pudar di tepinya.
 
 
 ::component-preview
@@ -168,7 +168,7 @@ previewClass: h-auto theme-blue bg-surface dark:bg-background
 
 ### Trigger
 
-Add an `AttachmentTrigger` to make the whole card open a link or dialog. It fills the card behind the actions, so the actions stay clickable.
+Tambahkan `AttachmentTrigger` supaya seluruh kartu bisa membuka tautan atau dialog. Ia mengisi kartu di belakang tombol aksi, jadi tombolnya tetap bisa diklik.
 
 ::component-preview
 ---
@@ -195,11 +195,11 @@ previewClass: h-auto theme-blue bg-surface dark:bg-background
 
 ## Aksesibilitas
 
-`AttachmentAction` renders a `Button`, and `AttachmentTrigger` renders a real `<button>` (or your element via `as-child`). Follow the guidance below so both are operable and announced.
+`AttachmentAction` menghasilkan `Button`, sedangkan `AttachmentTrigger` menghasilkan `<button>` sungguhan (atau elemen Anda sendiri lewat `as-child`). Ikuti panduan di bawah agar keduanya bisa dioperasikan dan dibacakan dengan benar.
 
-### Label icon-only actions
+### Beri label pada aksi yang hanya berupa ikon
 
-`AttachmentAction` is usually icon-only, so give each one an `aria-label` describing the action and its target.
+`AttachmentAction` biasanya hanya berupa ikon, jadi berilah masing-masing `aria-label` yang menjelaskan aksinya dan sasarannya.
 
 ```vue showLineNumbers
 <template>
@@ -209,9 +209,9 @@ previewClass: h-auto theme-blue bg-surface dark:bg-background
 </template>
 ```
 
-### Label the trigger
+### Beri label pada trigger
 
-`AttachmentTrigger` covers the card with no text of its own, so give it an `aria-label` for what activating it does.
+`AttachmentTrigger` menutupi seluruh kartu tanpa teks sendiri, jadi berilah `aria-label` yang menjelaskan apa yang terjadi saat ia diaktifkan.
 
 ```vue showLineNumbers
 <template>
@@ -226,21 +226,21 @@ previewClass: h-auto theme-blue bg-surface dark:bg-background
 </template>
 ```
 
-The trigger sits behind the actions in the stacking order, so an `AttachmentAction` and the `AttachmentTrigger` never trap each other — both remain separately focusable and clickable.
+Trigger-nya berada di belakang tombol aksi dalam urutan tumpukan, jadi `AttachmentAction` dan `AttachmentTrigger` tidak saling menghalangi — keduanya tetap bisa di-focus dan diklik secara terpisah.
 
-### Keyboard scrolling
+### Menggulir lewat keyboard
 
-An `AttachmentGroup` scrolls horizontally. When its attachments are interactive: a trigger or actions, keyboard users reach off-screen items by tabbing to them. For a row of presentational attachments, make the group itself focusable and scrollable by adding `tabindex="0"`, `role="group"`, and an `aria-label`.
+`AttachmentGroup` bergulir mendatar. Kalau lampirannya interaktif — punya trigger atau tombol aksi — pengguna keyboard bisa menjangkau item di luar layar lewat tombol Tab. Untuk deretan lampiran yang hanya bersifat tampilan, buat grupnya sendiri bisa di-focus dan digulir dengan menambahkan `tabindex="0"`, `role="group"`, dan `aria-label`.
 
-### Meaning beyond color
+### Makna yang tidak bergantung warna
 
-The `error` state uses a destructive color. Keep the failure reason in `AttachmentDescription` so the state is not conveyed by color alone.
+Status `error` memakai warna peringatan. Cantumkan alasan kegagalannya di `AttachmentDescription` supaya maknanya tidak bergantung pada warna semata.
 
 ## Referensi API
 
 ### Attachment
 
-The root attachment container.
+Wadah terluar attachment.
 
 | Prop          | Type                                                         | Default        | Description                                       |
 | ------------- | ------------------------------------------------------------ | -------------- | ------------------------------------------------- |
@@ -251,7 +251,7 @@ The root attachment container.
 
 ### AttachmentMedia
 
-The media slot for an icon or image preview.
+Slot media untuk ikon atau pratinjau gambar.
 
 | Prop        | Type                | Default  | Description                                    |
 | ----------- | ------------------- | -------- | ---------------------------------------------- |
@@ -260,7 +260,7 @@ The media slot for an icon or image preview.
 
 ### AttachmentContent
 
-Wraps the title and description.
+Membungkus judul dan keterangan.
 
 | Prop        | Tipe     | Bawaan  | Description                                      |
 | ----------- | -------- | ------- | ------------------------------------------------ |
@@ -268,7 +268,7 @@ Wraps the title and description.
 
 ### AttachmentTitle
 
-The attachment name. Shimmers while the attachment is `uploading` or `processing`.
+Nama lampirannya. Berkilat selagi statusnya `uploading` atau `processing`.
 
 | Prop        | Tipe     | Bawaan  | Description                               |
 | ----------- | -------- | ------- | ----------------------------------------- |
@@ -276,7 +276,7 @@ The attachment name. Shimmers while the attachment is `uploading` or `processing
 
 ### AttachmentDescription
 
-Secondary metadata such as the file type, size, or upload status.
+Metadata tambahan seperti tipe berkas, ukuran, atau status unggah.
 
 | Prop        | Tipe     | Bawaan  | Description                                     |
 | ----------- | -------- | ------- | ----------------------------------------------- |
@@ -284,7 +284,7 @@ Secondary metadata such as the file type, size, or upload status.
 
 ### AttachmentActions
 
-A container for one or more actions, aligned to the end of the attachment.
+Wadah untuk satu atau beberapa aksi, diratakan ke sisi akhir lampiran.
 
 | Prop        | Tipe     | Bawaan  | Description                                 |
 | ----------- | -------- | ------- | ------------------------------------------- |
@@ -292,7 +292,7 @@ A container for one or more actions, aligned to the end of the attachment.
 
 ### AttachmentAction
 
-An action button. Renders a [`Button`](/docs/components/button) and accepts Vue fallthrough attributes such as `aria-label`.
+Tombol aksi. Menghasilkan [`Button`](/docs/components/button) dan menerima atribut Vue yang diteruskan, misalnya `aria-label`.
 
 | Prop       | Type                       | Default     | Description                                  |
 | ---------- | -------------------------- | ----------- | -------------------------------------------- |
@@ -302,7 +302,7 @@ An action button. Renders a [`Button`](/docs/components/button) and accepts Vue 
 
 ### AttachmentTrigger
 
-A full-card overlay that activates the attachment. Renders a `<button>` by default and accepts Vue fallthrough attributes such as `aria-label`.
+Lapisan seluas kartu yang mengaktifkan lampiran. Menghasilkan `<button>` secara bawaan dan menerima atribut Vue yang diteruskan, misalnya `aria-label`.
 
 | Prop       | Type                             | Default | Description                                  |
 | ---------- | -------------------------------- | ------- | -------------------------------------------- |
@@ -312,7 +312,7 @@ A full-card overlay that activates the attachment. Renders a `<button>` by defau
 
 ### AttachmentGroup
 
-Lays out attachments in a horizontally scrollable, snapping row.
+Menata lampiran dalam satu baris mendatar yang bisa digulir dengan efek snap.
 
 | Prop        | Tipe     | Bawaan  | Description                               |
 | ----------- | -------- | ------- | ----------------------------------------- |

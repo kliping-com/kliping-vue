@@ -11,9 +11,9 @@ previewClass: h-auto theme-blue
 ---
 ::
 
-The `Message` component lays out a single message in a conversation. It handles the avatar, alignment, header, and footer around the message surface.
+Komponen `Message` menata satu pesan di dalam percakapan. Ia mengurus avatar, perataan, header, dan footer yang mengelilingi badan pesan.
 
-For AI apps, you can render reasoning steps, tool calls and assistant messages using the `Message` component.
+Untuk aplikasi AI, komponen `Message` bisa Anda pakai menampilkan langkah penalaran, pemanggilan tool, dan balasan asisten.
 
 ## Instalasi
 
@@ -80,13 +80,13 @@ import { Message, MessageAvatar, MessageContent } from "@/components/ui/message"
 ```
 
 
-**Note:** `Message` owns the row layout—avatar, alignment, header, and footer.
-Render the visible message surface inside it with
+**Catatan:** `Message` yang mengurus tata letak barisnya — avatar, perataan, header, dan footer.
+Badan pesan yang terlihat ditampilkan di dalamnya memakai
 [`Bubble`](/docs/components/bubble).
 
 ## Komposisi
 
-Use the following composition to build a message:
+Susunan berikut adalah cara membangun sebuah message:
 
 ```text
 Message
@@ -97,7 +97,7 @@ Message
     └── MessageFooter
 ```
 
-Use `MessageGroup` to stack consecutive messages from the same sender:
+Pakai `MessageGroup` untuk menumpuk pesan berurutan dari pengirim yang sama:
 
 ```text
 MessageGroup
@@ -107,19 +107,19 @@ MessageGroup
 
 ## Fitur
 
-- Start and end alignment for sender and receiver rows via the `align` prop
-- Avatar slot that anchors to the bottom of the message and stays clear of the footer
-- Header and footer slots for sender names, status, and message actions
-- Footer follows the message side; actions stay aligned on `align="end"` rows
-- Group wrapper for stacking consecutive messages from the same sender
-- Polymorphic wrappers via `as` or `as-child`
-- Customizable styling through the `class` prop on every part
+- Perataan awal dan akhir untuk baris pengirim dan penerima, lewat prop `align`.
+- Slot avatar yang menempel di bagian bawah pesan tanpa bertabrakan dengan footer.
+- Slot header dan footer untuk nama pengirim, status, dan aksi pesan.
+- Footer mengikuti sisi pesan; aksinya tetap sejajar pada baris `align="end"`.
+- Pembungkus grup untuk menumpuk pesan berurutan dari pengirim yang sama.
+- Pembungkus polimorfik lewat `as` atau `as-child`.
+- Style tiap bagian bisa disesuaikan lewat prop `class`.
 
 ## Contoh
 
 ### Avatar
 
-Use `MessageAvatar` to render an avatar next to the message. Set `align="end"` on the message to align the avatar to the end of the message.
+Pakai `MessageAvatar` untuk menampilkan avatar di samping pesan. Isi `align="end"` pada pesan agar avatarnya berada di sisi akhir.
 
 ::component-preview
 ---
@@ -135,7 +135,7 @@ previewClass: h-auto theme-blue
 
 ### Grup
 
-Use `MessageGroup` to stack consecutive messages from the same sender. Render an empty `MessageAvatar` on the earlier messages to keep them aligned with the avatar on the last one.
+Pakai `MessageGroup` untuk menumpuk pesan berurutan dari pengirim yang sama. Tampilkan `MessageAvatar` kosong pada pesan-pesan sebelumnya supaya sejajar dengan avatar di pesan terakhir.
 
 ::component-preview
 ---
@@ -144,9 +144,9 @@ previewClass: h-auto theme-blue
 ---
 ::
 
-### Header and Footer
+### Header dan Footer
 
-Use `MessageHeader` for a sender name and `MessageFooter` for metadata such as a delivery or read status.
+Pakai `MessageHeader` untuk nama pengirim, dan `MessageFooter` untuk metadata seperti status terkirim atau sudah dibaca.
 
 ::component-preview
 ---
@@ -155,9 +155,9 @@ previewClass: h-auto theme-blue
 ---
 ::
 
-### Actions
+### Aksi
 
-Place message-level actions in `MessageFooter`, such as copy, retry, or feedback buttons.
+Letakkan aksi tingkat pesan di dalam `MessageFooter`, misalnya tombol salin, coba lagi, atau umpan balik.
 
 ::component-preview
 ---
@@ -168,11 +168,11 @@ previewClass: h-auto theme-blue
 
 ## Aksesibilitas
 
-`Message` is a presentational layout wrapper. Accessibility comes from the content you place inside it.
+`Message` hanyalah pembungkus tata letak. Aksesibilitasnya datang dari konten yang Anda letakkan di dalamnya.
 
-### Label icon-only actions
+### Beri label pada aksi yang hanya berupa ikon
 
-Action buttons in `MessageFooter` are usually icon-only, so give each one an `aria-label`.
+Tombol aksi di `MessageFooter` biasanya hanya berupa ikon, jadi berilah masing-masing sebuah `aria-label`.
 
 ```vue showLineNumbers
 <MessageFooter>
@@ -182,9 +182,9 @@ Action buttons in `MessageFooter` are usually icon-only, so give each one an `ar
 </MessageFooter>
 ```
 
-### Status updates
+### Pembaruan Status
 
-For in-progress messages, use a [`Marker`](/docs/components/marker) with `role="status"` so assistive tech announces the update as it appears.
+Untuk pesan yang masih berjalan, pakai [`Marker`](/docs/components/marker) dengan `role="status"` supaya teknologi bantu membacakan pembaruannya begitu muncul.
 
 ```vue showLineNumbers
 <Message>
@@ -199,11 +199,11 @@ For in-progress messages, use a [`Marker`](/docs/components/marker) with `role="
 
 ## Referensi API
 
-All Message parts render a `<div>` by default. Use `as` to choose another element, or `as-child` to merge the component's attributes and styles onto the single element or component in its default slot.
+Semua bagian Message menghasilkan `<div>` secara bawaan. Pakai `as` untuk memilih elemen lain, atau `as-child` untuk menggabungkan atribut dan style komponen ke satu elemen atau komponen di dalam slot bawaannya.
 
 ### Message
 
-The message row wrapper.
+Pembungkus baris pesan.
 
 | Prop       | Type                 | Default   | Description                                                  |
 | ---------- | -------------------- | --------- | ------------------------------------------------------------ |
@@ -214,7 +214,7 @@ The message row wrapper.
 
 ### MessageGroup
 
-Groups consecutive messages from the same sender.
+Mengelompokkan pesan berurutan dari pengirim yang sama.
 
 | Prop       | Type                 | Default | Description                                                  |
 | ---------- | -------------------- | ------- | ------------------------------------------------------------ |
@@ -224,7 +224,7 @@ Groups consecutive messages from the same sender.
 
 ### MessageAvatar
 
-The avatar slot, aligned to the bottom of the message. When the message has a `MessageFooter`, the avatar shifts up to stay aligned with the message surface instead of the footer.
+Slot avatar yang menempel di bagian bawah pesan. Kalau pesannya punya `MessageFooter`, avatarnya bergeser naik agar tetap sejajar dengan badan pesan, bukan dengan footer.
 
 | Prop       | Type                 | Default | Description                                                  |
 | ---------- | -------------------- | ------- | ------------------------------------------------------------ |
@@ -234,7 +234,7 @@ The avatar slot, aligned to the bottom of the message. When the message has a `M
 
 ### MessageContent
 
-Wraps the header, message surface, and footer.
+Membungkus header, badan pesan, dan footer.
 
 | Prop       | Type                 | Default | Description                                                  |
 | ---------- | -------------------- | ------- | ------------------------------------------------------------ |
@@ -244,7 +244,7 @@ Wraps the header, message surface, and footer.
 
 ### MessageHeader
 
-Displays content above the message, such as a sender name. Aligns to the message side.
+Menampilkan konten di atas pesan, misalnya nama pengirim. Mengikuti sisi pesannya.
 
 | Prop       | Type                 | Default | Description                                                  |
 | ---------- | -------------------- | ------- | ------------------------------------------------------------ |
@@ -254,7 +254,7 @@ Displays content above the message, such as a sender name. Aligns to the message
 
 ### MessageFooter
 
-Displays content below the message, such as status or actions. Aligns to the message side.
+Menampilkan konten di bawah pesan, misalnya status atau aksi. Mengikuti sisi pesannya.
 
 | Prop       | Type                 | Default | Description                                                  |
 | ---------- | -------------------- | ------- | ------------------------------------------------------------ |

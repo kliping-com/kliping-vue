@@ -72,7 +72,7 @@ import { Button } from '@/components/ui/button'
 </template>
 ```
 
-## Cursor
+## Bentuk Kursor
 
 Tailwind v4 [berganti](https://tailwindcss.com/docs/upgrade-guide#buttons-use-the-default-cursor) dari `cursor: pointer` ke `cursor: default` untuk komponen tombol.
 

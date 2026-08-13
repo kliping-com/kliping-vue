@@ -14,9 +14,9 @@ previewClass: h-auto theme-green bg-surface dark:bg-background p-4 min-[480px]:p
 
 ## MessageScroller
 
-A great streaming chat scroller has to juggle a lot at once: pin to the live edge while a reply streams, but never fight a reader who scrolls up; anchor each new turn near the top with a peek of the previous exchange; preserve position when older history loads above; and expose commands to jump anywhere in the thread. `MessageScroller` owns those hard parts so your message list doesn't have to.
+Area gulir chat yang baik harus mengurus banyak hal sekaligus: menempel di ujung terbaru selagi balasan mengalir, tapi tidak melawan pembaca yang sedang menggulir ke atas; menambatkan tiap giliran bicara baru di dekat bagian atas dengan sedikit sisa percakapan sebelumnya; mempertahankan posisi saat riwayat lama dimuat di atasnya; serta menyediakan perintah untuk melompat ke mana pun di dalam utas. `MessageScroller` menangani bagian-bagian sulit itu, jadi daftar pesan Anda tidak perlu memikirkannya.
 
-It does **not** own your messages, AI state, transport, or model — it is a headless scroll container you compose around your own rows.
+Ia **tidak** mengurus pesan, state AI, transport, atau model Anda — ia sekadar wadah gulir headless yang Anda bungkuskan pada baris-baris buatan Anda sendiri.
 
 ## Instalasi
 
@@ -91,7 +91,7 @@ import {
 </template>
 ```
 
-The provider must have a constrained height (or a height-bounded parent) so the viewport can scroll.
+Provider-nya harus punya tinggi yang dibatasi (atau induk yang tingginya terbatas) supaya area tampilannya bisa digulir.
 
 ## Komposisi
 
@@ -104,11 +104,11 @@ MessageScrollerProvider
     └── MessageScrollerButton
 ```
 
-## Core Concepts
+## Konsep Dasar
 
-### Anchoring Turns
+### Menambatkan Giliran Bicara
 
-A turn is the part of the conversation that starts a new exchange — usually the user's message and the assistant reply that follows. An *anchor* is the row the viewport should treat as the start of that turn. Mark that row with `scrollAnchor`. When a new anchor is appended, the viewport moves it near the top and keeps a peek of the previous item above it, so the new turn does not feel detached from its context.
+Giliran bicara adalah bagian percakapan yang memulai pertukaran baru — biasanya pesan pengguna beserta balasan asisten sesudahnya. *Anchor* adalah baris yang dianggap sebagai awal giliran tersebut. Tandai baris itu dengan `scrollAnchor`. Saat anchor baru ditambahkan, area tampilan memindahkannya ke dekat bagian atas dan menyisakan sedikit item sebelumnya di atasnya, supaya giliran baru itu tidak terasa terputus dari konteksnya.
 
 ```vue
 <MessageScrollerItem
@@ -119,7 +119,7 @@ A turn is the part of the conversation that starts a new exchange — usually th
 </MessageScrollerItem>
 ```
 
-Scroll anchors are not tied to message role. You can turn any row into an anchor: a user message, a system marker, a handoff event, or anything else that starts a meaningful turn.
+Scroll anchor tidak terikat pada peran pesan. Baris apa pun bisa Anda jadikan anchor: pesan pengguna, penanda sistem, peristiwa serah terima, atau apa pun yang memulai giliran bicara yang bermakna.
 
 ::component-preview
 ---
@@ -129,9 +129,9 @@ previewClass: h-auto theme-green bg-surface dark:bg-background p-4 min-[480px]:p
 ---
 ::
 
-### Group Chat
+### Percakapan Grup
 
-In a group chat, the turn boundary is often the message that asks the model to respond, or a marker like "Marcus joined the chat". Typing indicators and history controls usually should not anchor. Because anchoring is role-independent, you can anchor a marker just as easily as a message.
+Di percakapan grup, batas giliran bicara sering berupa pesan yang meminta model membalas, atau penanda seperti "Marcus bergabung ke percakapan". Indikator "sedang mengetik" dan kontrol riwayat biasanya tidak perlu jadi anchor. Karena penambatan tidak bergantung peran, penanda bisa dijadikan anchor semudah pesan biasa.
 
 ::component-preview
 ---
@@ -141,9 +141,9 @@ previewClass: h-auto theme-green bg-surface dark:bg-background p-4 min-[480px]:p
 ---
 ::
 
-### Keeping Context Visible
+### Menjaga Konteks Tetap Terlihat
 
-When a new turn starts, it should still feel like part of the same continuous thread. `scrollPreviousItemPeek` keeps a slice of the previous item visible above the anchor, so the reader keeps their context instead of feeling like the conversation restarted on a blank page.
+Saat giliran bicara baru dimulai, percakapannya harus tetap terasa menyambung. `scrollPreviousItemPeek` menyisakan sepotong item sebelumnya tetap terlihat di atas anchor, supaya pembaca tidak merasa percakapannya dimulai ulang di halaman kosong.
 
 ::component-preview
 ---
@@ -153,9 +153,9 @@ previewClass: h-auto theme-green bg-surface dark:bg-background p-4 min-[480px]:p
 ---
 ::
 
-### Following the Live Edge
+### Mengikuti Ujung Terbaru
 
-When the reader is at the live edge, `autoScroll` keeps streamed replies in view as they grow. Scrolling away from the live edge — by wheel, touch, keyboard, or dragging the scrollbar — releases the view, so new chunks arrive without moving the reader. `autoScroll` composes with turn anchoring: when a new turn anchors near the top, the view stays put while the reply streams into the room below it.
+Saat pembaca berada di ujung terbaru, `autoScroll` menjaga balasan yang mengalir tetap terlihat selagi bertambah panjang. Begitu pembaca menggulir menjauh — lewat roda tetikus, sentuhan, keyboard, atau menyeret scrollbar — tampilannya dilepas, jadi potongan baru tetap datang tanpa menggeser posisi baca. `autoScroll` bekerja berdampingan dengan penambatan giliran: saat giliran baru tertambat di dekat atas, tampilannya diam sementara balasan mengalir ke ruang di bawahnya.
 
 ::component-preview
 ---
@@ -165,9 +165,9 @@ previewClass: h-auto theme-green bg-surface dark:bg-background p-4 min-[480px]:p
 ---
 ::
 
-### Opening Saved Threads
+### Membuka Utas Tersimpan
 
-Reopening a saved thread at the absolute end often drops the reader in without enough context. A better default is `"last-anchor"`: show the last meaningful turn, like the user's latest message, with the reply below it.
+Membuka kembali utas tersimpan tepat di ujung paling akhir sering membuat pembaca kehilangan konteks. Nilai bawaan yang lebih baik adalah `"last-anchor"`: tampilkan giliran bicara bermakna yang terakhir — misalnya pesan terbaru pengguna — beserta balasannya di bawahnya.
 
 ::component-preview
 ---
@@ -177,9 +177,9 @@ previewClass: h-auto theme-green bg-surface dark:bg-background p-4 min-[480px]:p
 ---
 ::
 
-### Loading Earlier Messages
+### Memuat Pesan Sebelumnya
 
-Loading earlier messages should not move the conversation the reader is already looking at. When older rows are prepended above the current transcript, `MessageScrollerViewport` preserves the visible row so the reader stays in the same place while history loads above them. This is enabled by default through `preserveScrollOnPrepend`.
+Memuat pesan lama tidak boleh menggeser percakapan yang sedang dibaca. Saat baris lama disisipkan di atas transkrip, `MessageScrollerViewport` mempertahankan baris yang terlihat supaya posisi baca tidak berubah selagi riwayat dimuat di atasnya. Perilaku ini aktif secara bawaan lewat `preserveScrollOnPrepend`.
 
 ::component-preview
 ---
@@ -189,9 +189,9 @@ previewClass: h-auto theme-green bg-surface dark:bg-background p-4 min-[480px]:p
 ---
 ::
 
-### Animating New Messages
+### Menganimasikan Pesan Baru
 
-A common chat pattern is to animate the user's message when it is sent, then let the assistant reply stream into a regular row below it. Keep `messageId` and `scrollAnchor` on the animated item and use transform and opacity for the entrance — avoid animating height, margin, or padding, which can fight the scroller's positioning.
+Pola yang umum di aplikasi chat adalah menganimasikan pesan pengguna saat dikirim, lalu membiarkan balasan asisten mengalir ke baris biasa di bawahnya. Pertahankan `messageId` dan `scrollAnchor` pada item yang dianimasikan, dan pakai transform serta opacity untuk animasi masuknya — hindari menganimasikan height, margin, atau padding karena bisa berbenturan dengan penempatan posisi oleh scroller.
 
 ::component-preview
 ---
@@ -201,9 +201,9 @@ previewClass: h-auto theme-green bg-surface dark:bg-background p-4 min-[480px]:p
 ---
 ::
 
-### Jumping to Messages
+### Melompat ke Pesan Tertentu
 
-Search results, permalinks, outline items, and toolbar buttons often need to drive the transcript from outside the message list. Use `useMessageScroller` for those controls — the composables read from `MessageScrollerProvider`, so they work in any component inside the provider.
+Hasil pencarian, permalink, daftar isi, dan tombol toolbar sering perlu menggerakkan transkrip dari luar daftar pesan. Pakai `useMessageScroller` untuk kontrol semacam itu — composable-nya membaca dari `MessageScrollerProvider`, jadi bisa dipakai di komponen mana pun di dalam provider tersebut.
 
 ```vue
 <script setup lang="ts">
@@ -223,7 +223,7 @@ previewClass: h-auto theme-green bg-surface dark:bg-background p-4 min-[480px]:p
 
 ### Melacak Posisi Baca Pengguna
 
-Use `useMessageScrollerVisibility` to track the reader's position — a table-of-contents or jump menu that highlights the current anchored turn. `currentAnchorId` answers "where am I" and stays set after that anchor scrolls above the viewport; `visibleMessageIds` answers "what is on screen", in document order.
+Pakai `useMessageScrollerVisibility` untuk melacak posisi baca pengguna — misalnya daftar isi atau menu lompat yang menyorot giliran bicara yang sedang tertambat. `currentAnchorId` menjawab "saya sedang di mana" dan nilainya bertahan meski anchor itu sudah tergulir ke atas layar; `visibleMessageIds` menjawab "apa yang sedang tampil", sesuai urutan dokumen.
 
 ::component-preview
 ---
@@ -233,9 +233,9 @@ previewClass: h-auto theme-green bg-surface dark:bg-background p-4 min-[480px]:p
 ---
 ::
 
-### Reading Scroll State
+### Membaca State Gulir
 
-Use `useMessageScrollerScrollable` when you need scroll state in JavaScript, such as a status indicator or a custom "jump to latest" control. It reports which edges the viewport can still scroll toward.
+Pakai `useMessageScrollerScrollable` kalau Anda butuh state gulir di JavaScript, misalnya untuk indikator status atau tombol "lompat ke terbaru" buatan sendiri. Ia melaporkan ke arah tepi mana saja area tampilan masih bisa digulir.
 
 ::component-preview
 ---
@@ -249,7 +249,7 @@ previewClass: h-auto theme-green bg-surface dark:bg-background p-4 min-[480px]:p
 
 ### MessageScrollerProvider
 
-Owns the scroll state and behavior. Provide it via `provide`/`inject` and expose the scroll composables to descendants.
+Memegang state dan perilaku gulir. Sediakan lewat `provide`/`inject` supaya composable gulirnya bisa dipakai komponen turunan.
 
 | Prop                     | Type                                  | Default        | Description                                                            |
 | ------------------------ | ------------------------------------- | -------------- | -------------------------------------------------------------------- |
@@ -265,7 +265,7 @@ Owns the scroll state and behavior. Provide it via `provide`/`inject` and expose
 | -------------------------- | --------- | ------- | ------------------------------------------------------- |
 | `preserveScrollOnPrepend`  | `boolean` | `true`  | Keep the current view when messages are added above.    |
 
-Rendered as a `role="region"`, `aria-label="Messages"`, focusable (`tabindex="0"`) native scroll container.
+Ditampilkan sebagai wadah gulir bawaan browser dengan `role="region"`, `aria-label="Messages"`, dan bisa di-focus (`tabindex="0"`).
 
 ### MessageScrollerItem
 
@@ -283,9 +283,9 @@ Rendered as a `role="region"`, `aria-label="Messages"`, focusable (`tabindex="0"
 | `variant`   | `ButtonVariants`      | `'secondary'` | Button variant.                      |
 | `size`      | `ButtonVariants`      | `'icon-sm'`   | Button size.                         |
 
-Exposes `data-active` for styling and becomes `inert` with `tabindex="-1"` when there is nothing to scroll toward.
+Menyediakan `data-active` untuk keperluan style, dan menjadi `inert` dengan `tabindex="-1"` saat tidak ada lagi yang bisa digulir.
 
-### Composables
+### Composable
 
 #### useMessageScroller()
 
@@ -293,8 +293,8 @@ Exposes `data-active` for styling and becomes `inert` with `tabindex="-1"` when 
 const { scrollToMessage, scrollToEnd, scrollToStart } = useMessageScroller()
 ```
 
-- `scrollToMessage(id, options?)` — scroll to the item with the matching `messageId`. Returns `true` if handled (queued if the item is not mounted yet), `false` if the id is missing after rows have mounted.
-- `scrollToEnd(options?)` / `scrollToStart(options?)` — scroll to the live edge or the top.
+- `scrollToMessage(id, options?)` — menggulir ke item dengan `messageId` yang cocok. Mengembalikan `true` kalau berhasil ditangani (diantre kalau itemnya belum ter-mount), dan `false` kalau id-nya tidak ditemukan setelah semua baris ter-mount.
+- `scrollToEnd(options?)` / `scrollToStart(options?)` — menggulir ke ujung terbaru atau ke bagian paling atas.
 
 #### useMessageScrollerVisibility()
 
@@ -303,7 +303,7 @@ const visibility = useMessageScrollerVisibility()
 // visibility.value.currentAnchorId, visibility.value.visibleMessageIds
 ```
 
-Tracking only runs while something subscribes, and rows need a `messageId` to participate.
+Pelacakan hanya berjalan selama ada yang berlangganan, dan tiap baris perlu `messageId` supaya ikut terlacak.
 
 #### useMessageScrollerScrollable()
 
@@ -312,4 +312,4 @@ const scrollable = useMessageScrollerScrollable()
 // scrollable.value.start, scrollable.value.end
 ```
 
-Reports which edges the viewport can still scroll toward. For styling the scroller itself, prefer the `data-scrollable` attribute.
+Melaporkan ke arah tepi mana saja area tampilan masih bisa digulir. Untuk men-style scroller-nya sendiri, lebih baik pakai atribut `data-scrollable`.

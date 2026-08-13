@@ -12,17 +12,17 @@ hideCode: true
 ---
 ::
 
-Introducing **Charts**. A collection of chart components that you can copy and paste into your apps.
+Inilah **Charts** — sekumpulan komponen grafik yang bisa Anda salin dan tempel ke aplikasi Anda.
 
-Charts are designed to look great out of the box. They work well with the other components and are fully customizable to fit your project.
+Grafiknya dirancang agar langsung enak dilihat sejak awal, menyatu dengan komponen lain, dan sepenuhnya bisa disesuaikan dengan kebutuhan project Anda.
 
-[Browse the Charts Library](/charts).
+[Jelajahi koleksi grafiknya](/charts).
 
-## Component
+## Komponennya
 
-We use [Unovis](https://unovis.dev/) under the hood.
+Di baliknya kami memakai [Unovis](https://unovis.dev/).
 
-We designed the `chart` component with composition in mind. **You build your charts using Unovis components and only bring in custom components, such as `ChartTooltip`, when and where you need it**.
+Komponen `chart` dirancang dengan prinsip komposisi. **Anda membangun grafik memakai komponen Unovis, lalu menambahkan komponen kustom seperti `ChartTooltip` hanya saat dan di tempat Anda membutuhkannya.**
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -40,9 +40,9 @@ import { ChartContainer, ChartTooltipContent } from '@/components/ui/chart'
 </template>
 ```
 
-We do not wrap Unovis. This means you're not locked into an abstraction. When a new Unovis version is released, you can follow the official upgrade path to upgrade your charts.
+Kami tidak membungkus Unovis. Artinya Anda tidak terkunci dalam sebuah abstraksi. Saat Unovis merilis versi baru, Anda bisa mengikuti panduan pembaruan resminya.
 
-**The components are yours**.
+**Komponennya milik Anda.**
 
 ## Instalasi
 
@@ -72,7 +72,7 @@ npx shadcn-vue@latest add chart
 
   :::steps
     ::step
-    Install the following dependencies
+    Pasang dependensi berikut
     ::
 
     ```bash
@@ -84,11 +84,11 @@ npx shadcn-vue@latest add chart
     ::
 
     ::step
-    Update the import paths to match your project setup
+    Sesuaikan path import dengan struktur project Anda
     ::
 
     ::step
-    Add the following colors to your CSS file
+    Tambahkan warna-warna berikut ke file CSS Anda
     ::
 
     ```css
@@ -174,17 +174,17 @@ const chartConfig = {
 </template>
 ```
 
-## Your First Chart
+## Grafik Pertama Anda
 
-Let's build your first chart. We'll build a bar chart, add a grid, axis, tooltip and legend.
+Mari membangun grafik pertama Anda. Kita akan membuat grafik batang, lalu menambahkan grid, sumbu, tooltip, dan legenda.
 
 :::steps
 
   ::step
-  Start by defining your data
+  Mulai dengan mendefinisikan data Anda
   ::
 
-  The following data represents the number of desktop and mobile users for each month.
+  Data berikut mewakili jumlah pengguna desktop dan mobile per bulan.
 
   ```ts showLineNumbers
   const chartData = [
@@ -198,10 +198,10 @@ Let's build your first chart. We'll build a bar chart, add a grid, axis, tooltip
   ```
 
   ::step
-  Define your chart config
+  Definisikan config grafiknya
   ::
 
-  The chart config holds configuration for the chart. This is where you place human-readable strings, such as labels, icons and color tokens for theming.
+  Config grafik menyimpan pengaturan grafik Anda. Di sinilah Anda menaruh teks yang dibaca manusia, seperti label, ikon, dan token warna untuk theming.
 
   ```ts showLineNumbers
   import type { ChartConfig } from '@/components/ui/chart'
@@ -219,10 +219,10 @@ Let's build your first chart. We'll build a bar chart, add a grid, axis, tooltip
   ```
 
   ::step
-  Build your chart
+  Susun grafik Anda
   ::
 
-  You can now build your chart using Unovis components.
+  Sekarang Anda bisa menyusun grafiknya memakai komponen Unovis.
 
   ::component-source{name="ChartBarDemo" title="components/ExampleChart.vue"}
   ::
@@ -236,14 +236,14 @@ Let's build your first chart. We'll build a bar chart, add a grid, axis, tooltip
 
 :::
 
-### Add an Axis
+### Tambahkan Sumbu
 
-To add axes to the chart, we use the `VisAxis` component.
+Untuk menambahkan sumbu ke grafik, kita pakai komponen `VisAxis`.
 
 :::steps
 
   ::step
-  Import the `VisAxis` component
+  Import komponen `VisAxis`
   ::
 
   ```vue showLineNumbers
@@ -251,7 +251,7 @@ To add axes to the chart, we use the `VisAxis` component.
   ```
 
   ::step
-  Add the `VisAxis` components to your chart
+  Tambahkan komponen `VisAxis` ke grafik Anda
   ::
 
   ```vue showLineNumbers
@@ -289,14 +289,14 @@ To add axes to the chart, we use the `VisAxis` component.
 
 :::
 
-### Add Tooltip
+### Tambahkan Tooltip
 
-To add a tooltip, we'll use the custom `ChartTooltip` and `ChartTooltipContent` components from `chart`.
+Untuk menambahkan tooltip, kita pakai komponen `ChartTooltip` dan `ChartTooltipContent` dari `chart`.
 
 :::steps
 
   ::step
-  Import the `ChartTooltip` and `ChartTooltipContent` components
+  Import komponen `ChartTooltip` dan `ChartTooltipContent`
   ::
 
   ```ts
@@ -304,7 +304,7 @@ To add a tooltip, we'll use the custom `ChartTooltip` and `ChartTooltipContent` 
   ```
 
   ::step
-  Add the components to your chart
+  Tambahkan komponen-komponen itu ke grafik Anda
   ::
 
   ```vue showLineNumbers
@@ -320,18 +320,18 @@ To add a tooltip, we'll use the custom `ChartTooltip` and `ChartTooltipContent` 
   ---
   ::
 
-  Hover to see the tooltips. Easy, right? Two components, and we've got a beautiful tooltip.
+  Arahkan kursor untuk melihat tooltip-nya. Mudah, kan? Cukup dua komponen, dan tooltipnya sudah rapi.
 
 :::
 
-### Add Legend
+### Tambahkan Legenda
 
-We'll do the same for the legend. We'll use the `ChartLegend` and `ChartLegendContent` components from `chart`.
+Untuk legenda caranya sama. Kita pakai komponen `ChartLegend` dan `ChartLegendContent` dari `chart`.
 
 :::steps
 
   ::step
-  Import the `ChartLegendContent` components.
+  Import komponen `ChartLegendContent`.
   ::
 
   ```ts
@@ -339,7 +339,7 @@ We'll do the same for the legend. We'll use the `ChartLegend` and `ChartLegendCo
   ```
 
   ::step
-  Add the components to your chart.
+  Tambahkan komponen-komponen itu ke grafik Anda.
   ::
 
   ```vue showLineNumbers {4}
@@ -359,19 +359,19 @@ We'll do the same for the legend. We'll use the `ChartLegend` and `ChartLegendCo
   ::
 :::
 
-Done. You've built your first chart! What's next?
+Selesai. Grafik pertama Anda sudah jadi! Berikutnya apa?
 
-- [Themes and Colors](/docs/components/chart#theming)
+- [Tema dan Warna](/docs/components/chart#tema)
 - [Tooltip](/docs/components/chart#tooltip)
 - [Legend](/docs/components/chart#legend)
 
-## Chart Config
+## Config Grafik
 
-The chart config is where you define the labels, icons and colors for a chart.
+Config grafik adalah tempat Anda mendefinisikan label, ikon, dan warna sebuah grafik.
 
-It is intentionally decoupled from chart data.
+Ia sengaja dipisahkan dari data grafiknya.
 
-This allows you to share config and color tokens between charts. It can also works independently for cases where your data or color tokens live remotely or in a different format.
+Dengan begitu config dan token warna bisa Anda pakai bersama antar grafik. Ia juga tetap bekerja sendiri kalau data atau token warna Anda tersimpan di tempat lain atau berformat berbeda.
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -396,14 +396,14 @@ const chartConfig = {
 
 ## Tema
 
-Charts has built-in support for theming. You can use css variables (recommended) or color values in any color format, such as hex, hsl or oklch.
+Charts sudah mendukung theming sejak awal. Anda bisa memakai CSS variable (disarankan) atau nilai warna dalam format apa pun, seperti hex, hsl, atau oklch.
 
 ### CSS Variables
 
 :::steps
 
   ::step
-  Define your colors in your css file
+  Definisikan warna Anda di file CSS
   ::
 
   ```css showLineNumbers
@@ -421,7 +421,7 @@ Charts has built-in support for theming. You can use css variables (recommended)
   ```
 
   ::step
-  Add the color to your `chartConfig`
+  Tambahkan warnanya ke `chartConfig` Anda
   ::
 
   ```ts showLineNumbers {4,8}
@@ -441,7 +441,7 @@ Charts has built-in support for theming. You can use css variables (recommended)
 
 ### hex, hsl or oklch
 
-You can also define your colors directly in the chart config. Use the color format you prefer.
+Warna juga bisa Anda definisikan langsung di config grafik, dengan format warna yang Anda sukai.
 
 ```ts showLineNumbers
 const chartConfig = {
@@ -454,9 +454,9 @@ const chartConfig = {
 
 ### Memakai Warna
 
-To use the theme colors in your chart, reference the colors using the format `var(--color-KEY)`.
+Untuk memakai warna tema di grafik Anda, rujuk warnanya dengan format `var(--color-KEY)`.
 
-#### Components
+#### Komponen
 
 ```vue showLineNumbers
 <VisGroupedBar
@@ -466,7 +466,7 @@ To use the theme colors in your chart, reference the colors using the format `va
 />
 ```
 
-#### Chart Data
+#### Data Grafik
 
 ```ts showLineNumbers
 const chartData = [
@@ -477,13 +477,13 @@ const chartData = [
 
 ## Tooltip
 
-A chart tooltip contains a label, name, indicator and value. You can use a combination of these to customize your tooltip.
+Tooltip grafik memuat label, nama, indikator, dan nilai. Anda bisa memadukannya sesuai kebutuhan.
 
-You can turn on/off any of these using the `hideLabel`, `hideIndicator` props and customize the indicator style using the `indicator` prop.
+Masing-masing bisa dinyalakan atau dimatikan lewat prop `hideLabel` dan `hideIndicator`, sedangkan style indikatornya diatur lewat prop `indicator`.
 
-Use `labelKey` and `nameKey` to use a custom key for the tooltip label and name.
+Pakai `labelKey` dan `nameKey` kalau label serta nama tooltip Anda memakai key yang berbeda.
 
-Chart comes with the `ChartTooltip` and `ChartTooltipContent` components. You can use these two components to add custom tooltips to your chart.
+Chart menyertakan komponen `ChartTooltip` dan `ChartTooltipContent`. Keduanya bisa Anda pakai untuk menambahkan tooltip kustom ke grafik.
 
 ```ts showLineNumbers
 import { ChartTooltip, ChartTooltipContent } from '@/components/ui/chart'
@@ -500,7 +500,7 @@ import { ChartTooltip, ChartTooltipContent } from '@/components/ui/chart'
 
 ### Props
 
-Use the following props to customize the tooltip.
+Pakai prop berikut untuk menyesuaikan tooltip.
 
 | Prop            | Type                     | Description                                  |
 | :-------------- | :----------------------- | :------------------------------------------- |
@@ -512,11 +512,11 @@ Use the following props to customize the tooltip.
 
 ### Warna
 
-Colors are automatically referenced from the chart config.
+Warnanya otomatis diambil dari config grafik.
 
 ### Kustom
 
-To use a custom key for tooltip label and names, use the `labelKey` and `nameKey` props.
+Untuk memakai key kustom pada label dan nama tooltip, gunakan prop `labelKey` dan `nameKey`.
 
 ```ts showLineNumbers
 const chartData = [
@@ -550,11 +550,11 @@ const chartConfig = {
 </template>
 ```
 
-This will use `Total Visitors` for label and `Chrome` and `Safari` for the tooltip names.
+Dengan begitu labelnya memakai `Total Visitors`, sedangkan nama tooltip-nya `Chrome` dan `Safari`.
 
 ## Legend
 
-You can use the custom `<ChartLegendContent>` components to add a legend to your chart.
+Pakai komponen `<ChartLegendContent>` untuk menambahkan legenda ke grafik Anda.
 
 ```ts
 import { ChartLegendContent } from '@/components/ui/chart'
@@ -568,11 +568,11 @@ import { ChartLegendContent } from '@/components/ui/chart'
 
 ### Warna
 
-Colors are automatically referenced from the chart config.
+Warnanya otomatis diambil dari config grafik.
 
 ### Kustom
 
-To use a custom key for legend names, use the `nameKey` prop.
+Untuk memakai key kustom pada nama legenda, gunakan prop `nameKey`.
 
 ```tsx showLineNumbers /browser/
 const chartData = [
@@ -598,4 +598,4 @@ const chartConfig = {
 </template>
 ```
 
-This will use `Chrome` and `Safari` for the legend names.
+Dengan begitu nama legendanya menjadi `Chrome` dan `Safari`.

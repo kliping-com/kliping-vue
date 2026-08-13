@@ -70,7 +70,7 @@ import { Marker, MarkerContent, MarkerIcon, } from '@/components/ui/marker'
 
 ## Komposisi
 
-Use the following composition to build a marker:
+Susunan berikut adalah cara membangun sebuah marker:
 
 ```text
 Marker
@@ -80,17 +80,17 @@ Marker
 
 ## Fitur
 
-- Inline marker, bordered row, and labeled separator variants
-- Decorative icon slot that is hidden from assistive tech
-- Polymorphic root via `render` for link and button markers
-- Pairs with the [`shimmer`](/docs/utilities/shimmer) utility for streaming status text
-- Customizable styling through the `class` prop on every part
+- Tersedia varian marker sebaris, baris bergaris tepi, dan pemisah berlabel.
+- Slot ikon dekoratif yang disembunyikan dari teknologi bantu.
+- Elemen akar polimorfik lewat `render`, untuk marker berupa tautan dan tombol.
+- Bisa dipadukan dengan utility [`shimmer`](/docs/utilities/shimmer) untuk teks status yang mengalir.
+- Style tiap bagian bisa disesuaikan lewat prop `class`.
 
 ## Contoh
 
 ### Varian
 
-Use `variant` to switch between an inline marker, bordered row, and labeled separator.
+Pakai `variant` untuk berpindah antara marker sebaris, baris bergaris tepi, dan pemisah berlabel.
 
 ::component-preview
 ---
@@ -108,7 +108,7 @@ previewClass: h-auto theme-blue
 
 ### Status
 
-Set `role="status"` and include a [`Spinner`](/docs/components/spinner) for streaming or in-progress markers so updates are announced.
+Isi `role="status"` dan sertakan [`Spinner`](/docs/components/spinner) pada marker yang sedang berjalan, supaya pembaruannya ikut dibacakan.
 
 ::component-preview
 ---
@@ -121,7 +121,7 @@ previewClass: h-auto theme-blue
 
 ### Shimmer
 
-Add the [`shimmer`](/docs/utils/shimmer) utility class to `MarkerContent` for an animated streaming-text effect. The utility ships with the `shadcn` package — see the shimmer docs for installation.
+Tambahkan utility class [`shimmer`](/docs/utilities/shimmer) pada `MarkerContent` untuk efek teks mengalir. Cara pemasangannya ada di dokumentasi shimmer.
 
 
 
@@ -135,7 +135,7 @@ previewClass: h-auto theme-blue
 
 ### Separator
 
-Use the `separator` variant for labeled dividers, such as dates or section breaks, in a conversation.
+Pakai varian `separator` untuk pembatas berlabel di dalam percakapan, misalnya tanggal atau jeda antar bagian.
 
 ::component-preview
 ---
@@ -145,9 +145,9 @@ previewClass: h-auto theme-blue
 ---
 ::
 
-### Border
+### Garis Tepi
 
-Use the `border` variant for status rows that should keep the default marker alignment while separating the next row.
+Pakai varian `border` untuk baris status yang tetap mengikuti perataan marker bawaan sekaligus memisahkan baris berikutnya.
 
 ::component-preview
 ---
@@ -159,7 +159,7 @@ previewClass: h-auto theme-blue
 
 ### Dengan Ikon
 
-Use `MarkerIcon` to render an icon alongside the content. Use `flex-col` to stack the icon above the content.
+Pakai `MarkerIcon` untuk menampilkan ikon di samping konten. Pakai `flex-col` kalau ikonnya ingin ditumpuk di atas konten.
 
 
 ::component-preview
@@ -170,9 +170,9 @@ previewClass: h-auto theme-blue
 ---
 ::
 
-### Links and Buttons
+### Tautan dan Tombol
 
-Turn a marker into a link or button with the `render` prop on `Marker`.
+Ubah marker menjadi tautan atau tombol lewat prop `render` pada `Marker`.
 
 
 ::component-preview
@@ -200,11 +200,11 @@ import { Marker, MarkerContent } from "@/components/ui/marker"
 
 ## Aksesibilitas
 
-`Marker` is presentational by default. The correct semantics depend on how you use it, so choose the role based on intent rather than relying on a single default.
+`Marker` bersifat presentasional secara bawaan. Makna yang tepat bergantung pada cara Anda memakainya, jadi pilih role sesuai maksudnya, bukan mengandalkan satu nilai bawaan.
 
-### Status and Progress
+### Status dan Progres
 
-For streaming or progress markers such as "Thinking..." or a running tool, set `role="status"` so assistive tech announces the update as it appears. `Marker` forwards `role` to the underlying element.
+Untuk marker yang sedang berjalan seperti "Sedang berpikir..." atau tool yang aktif, isi `role="status"` supaya teknologi bantu membacakan pembaruannya begitu muncul. `Marker` meneruskan `role` ke elemen di baliknya.
 
 ```tsx showLineNumbers
 <Marker role="status">
@@ -215,9 +215,9 @@ For streaming or progress markers such as "Thinking..." or a running tool, set `
 </Marker>
 ```
 
-### Labeled Separators
+### Pemisah Berlabel
 
-A separator that carries text, such as a date or a section label, needs no role. The divider lines are decorative CSS pseudo-elements, and the text is announced as ordinary content.
+Pemisah yang memuat teks — misalnya tanggal atau label bagian — tidak butuh role. Garis pembatasnya hanya pseudo-element CSS yang dekoratif, dan teksnya dibacakan sebagai konten biasa.
 
 ```tsx showLineNumbers
 <Marker variant="separator">
@@ -226,15 +226,15 @@ A separator that carries text, such as a date or a section label, needs no role.
 ```
 
 ::callout
-  **Note:** Do not add `role="separator"` to a labeled divider. A separator
-  takes its accessible name from `aria-label`, not from its text, and its
-  contents are treated as presentational, so the visible label would not be
-  announced. Reserve `role="separator"` for a divider with no meaningful text.
+  **Catatan:** jangan menambahkan `role="separator"` pada pembatas berlabel. Sebuah separator
+  mengambil nama aksesibelnya dari `aria-label`, bukan dari teksnya, dan isinya
+  dianggap presentasional — sehingga label yang terlihat justru tidak akan
+  dibacakan. Simpan `role="separator"` untuk pembatas yang memang tanpa teks bermakna.
 ::
 
-### Bordered Markers
+### Marker Bergaris Tepi
 
-A bordered marker keeps the same semantics as the default marker. The bottom border is decorative, so choose `role="status"`, `render`, or no role based on the marker's purpose.
+Marker bergaris tepi punya makna yang sama dengan marker biasa. Garis bawahnya dekoratif, jadi pilih `role="status"`, `render`, atau tanpa role sama sekali, sesuai tujuan markernya.
 
 ```tsx showLineNumbers
 <Marker variant="border">
@@ -245,9 +245,9 @@ A bordered marker keeps the same semantics as the default marker. The bottom bor
 </Marker>
 ```
 
-### Decorative Icons
+### Ikon Dekoratif
 
-`MarkerIcon` is decorative and hidden from assistive tech with `aria-hidden`, so the adjacent `MarkerContent` carries the meaning. For an icon-only marker, provide an `aria-label` or visible text so it is not announced as empty.
+`MarkerIcon` bersifat dekoratif dan disembunyikan dari teknologi bantu lewat `aria-hidden`, jadi maknanya dipegang `MarkerContent` di sebelahnya. Untuk marker yang hanya berisi ikon, berilah `aria-label` atau teks yang terlihat supaya tidak terbaca kosong.
 
 ```tsx showLineNumbers
 <Marker aria-label="Synced">
@@ -257,9 +257,9 @@ A bordered marker keeps the same semantics as the default marker. The bottom bor
 </Marker>
 ```
 
-### Interactive Markers
+### Marker yang Interaktif
 
-When a marker links or triggers an action, render it as a real `<button>` or `<a>` with the `render` prop so it is focusable and exposes the correct role. The accessible name comes from the marker text.
+Kalau marker berfungsi sebagai tautan atau pemicu aksi, tampilkan sebagai `<button>` atau `<a>` sungguhan lewat prop `render`, supaya bisa di-focus dan punya role yang benar. Nama aksesibelnya diambil dari teks marker.
 
 ```tsx showLineNumbers
 <Marker as-child>
@@ -276,7 +276,7 @@ When a marker links or triggers an action, render it as a real `<button>` or `<a
 
 ### Marker
 
-The root marker element. The file also exports `markerVariants` for composing the marker styles into custom components.
+Elemen akar marker. Berkasnya juga mengekspor `markerVariants` supaya style marker bisa Anda pakai ulang di komponen sendiri.
 
 | Prop        | Type                                   | Default     | Description                                      |
 | ----------- | -------------------------------------- | ----------- | ------------------------------------------------ |
@@ -286,7 +286,7 @@ The root marker element. The file also exports `markerVariants` for composing th
 
 ### MarkerIcon
 
-A decorative icon slot. Hidden from assistive tech with `aria-hidden`.
+Slot ikon dekoratif. Disembunyikan dari teknologi bantu lewat `aria-hidden`.
 
 | Prop        | Tipe     | Bawaan  | Description                                   |
 | ----------- | -------- | ------- | --------------------------------------------- |
@@ -294,7 +294,7 @@ A decorative icon slot. Hidden from assistive tech with `aria-hidden`.
 
 ### MarkerContent
 
-The marker text content.
+Isi teks marker.
 
 | Prop        | Tipe     | Bawaan  | Description                                      |
 | ----------- | -------- | ------- | ------------------------------------------------ |
