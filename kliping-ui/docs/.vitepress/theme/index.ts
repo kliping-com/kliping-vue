@@ -1,5 +1,7 @@
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
+import BlockCanvas from './BlockCanvas.vue'
+import BlockGallery from './BlockGallery.vue'
 import ComponentPreview from './ComponentPreview.vue'
 import Layout from './Layout.vue'
 import Steps from './Steps.vue'
@@ -16,5 +18,7 @@ export default {
     // Didaftarkan global karena markdown memanggilnya langsung tanpa import.
     app.component('ComponentPreview', ComponentPreview)
     app.component('Steps', Steps)
+    app.component('BlockCanvas', BlockCanvas)
+    app.component('BlockGallery', BlockGallery)
   },
 } satisfies Theme

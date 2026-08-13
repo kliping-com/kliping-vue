@@ -12,7 +12,7 @@ Vite + Vue 3 + TypeScript + Tailwind v4. Tanpa Nuxt, tanpa server, tanpa databas
 | Block siap pakai (`src/blocks/`) | 34 |
 | Grafik (`src/charts/`) | 23 |
 | Contoh untuk dokumentasi (`src/demo/`) | 319 |
-| Halaman dokumentasi (`docs/`) | 109 |
+| Halaman dokumentasi (`docs/`) | 109 + 35 halaman blocks |
 
 ## Menjalankan
 
@@ -53,9 +53,11 @@ src/
 └── main.ts
 
 docs/                     109 halaman, Bahasa Indonesia
+├── blocks.md             galeri 34 block
+├── blocks/               satu halaman per block, tanpa kerangka docs
 └── .vitepress/
-    ├── config.ts         sidebar, nav, alias
-    ├── theme/            ComponentPreview, Steps, Layout
+    ├── config.ts         sidebar, nav, alias, penyisip kode sumber
+    ├── theme/            ComponentPreview, BlockGallery, BlockCanvas, Steps, Layout
     └── konversi-mdc.py   catatan konversi dari sintaks Nuxt Content
 ```
 
@@ -84,6 +86,20 @@ memanggil `<ComponentPreview name="ButtonDemo" />`, dan pemetaan nama ke kompone
 disusun dari isi `src/demo/`, `src/charts/`, serta `src/blocks/*/page.vue`. Tidak
 ada daftar impor yang perlu dijaga tetap sinkron; menambah berkas contoh sudah
 cukup.
+
+Tiap pratinjau punya tab **Kode**. Sumbernya disisipkan ke markdown saat build
+lewat aturan markdown-it di `docs/.vitepress/config.ts`, jadi disorot Shiki
+bawaan VitePress dan ikut masuk halaman statis — bukan dimuat ulang di peramban.
+Konsekuensinya: kalau berkas contoh diubah saat `docs:dev` berjalan, halamannya
+perlu di-refresh manual supaya kodenya ikut baru.
+
+Galeri block di `/blocks` membingkai tiap block dengan iframe ke halamannya
+sendiri di `/blocks/<nama>`, yang dirender tanpa kerangka dokumentasi
+(`layout: false`). Block adalah tata letak selebar halaman; dirender langsung di
+dalam kolom dokumentasi yang sempit, semuanya patah.
+
+Pencarian memakai indeks lokal VitePress — dibangun ikut situsnya, tidak
+menghubungi layanan luar.
 
 ## Asal komponen
 

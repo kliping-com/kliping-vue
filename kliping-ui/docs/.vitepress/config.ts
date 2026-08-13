@@ -1,8 +1,10 @@
-import { readdirSync, readFileSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'vitepress'
+
+const akarSrc = path.resolve(fileURLToPath(new URL('../..', import.meta.url)), 'src')
 
 /**
  * Daftar sidebar untuk 65 halaman komponen, dibaca dari isi foldernya.
@@ -25,6 +27,46 @@ function komponenSidebar() {
     .sort((a, b) => a.text.localeCompare(b.text, 'id'))
 }
 
+/** Berkas sumber di balik sebuah nama contoh, dicari di tempat yang sama dengan pratinjaunya. */
+function berkasSumber(nama: string) {
+  const calon = [
+    path.join(akarSrc, 'demo', `${nama}.vue`),
+    path.join(akarSrc, 'charts', `${nama}.vue`),
+    path.join(akarSrc, 'blocks', nama, 'page.vue'),
+  ]
+  return calon.find(existsSync)
+}
+
+/**
+ * Sisipkan kode sumber tiap contoh ke dalam markdown sebelum dirender.
+ *
+ * Halaman komponen memanggil `<ComponentPreview name="..." />`, dan pembaca
+ * yang ingin memakainya perlu melihat kodenya, bukan cuma hasilnya. Sumbernya
+ * disisipkan sebagai blok kode biasa supaya disorot Shiki bawaan VitePress dan
+ * ikut masuk halaman statis — bukan dimuat ulang di peramban, yang berarti
+ * seluruh sumber harus ikut dibundel di tiap halaman.
+ *
+ * Berjalan sebelum markdown diurai: yang disisipkan adalah teks markdown, jadi
+ * sisa pipeline memperlakukannya persis seperti blok kode yang ditulis tangan.
+ */
+function sumberPratinjau(md: any) {
+  md.core.ruler.before('normalize', 'kliping-sumber-pratinjau', (state: any) => {
+    state.src = state.src.replace(/<ComponentPreview\s([^>]*)\/>/g, (cocok: string, ruangAtribut: string) => {
+      const atribut = ruangAtribut.trim()
+      const nama = atribut.match(/name="([^"]+)"/)?.[1]
+      const berkas = nama && berkasSumber(nama)
+      if (!berkas)
+        return cocok
+
+      const kode = readFileSync(berkas, 'utf-8').trimEnd()
+      // Pagar dibuat lebih panjang dari runtun backtick terpanjang di dalamnya,
+      // supaya contoh yang kebetulan memuat blok kode tidak menutup pagarnya.
+      const pagar = '`'.repeat(Math.max(3, ...[...kode.matchAll(/`+/g)].map(m => m[0].length + 1)))
+      return `<ComponentPreview ${atribut}>\n\n${pagar}vue\n${kode}\n${pagar}\n\n</ComponentPreview>`
+    })
+  })
+}
+
 export default defineConfig({
   title: 'Kliping',
   description: 'Komponen Vue siap klip, siap pakai. Dokumentasi Bahasa Indonesia.',
@@ -34,6 +76,8 @@ export default defineConfig({
   // Berkas berawalan titik pernah dipakai upstream untuk menyembunyikan halaman.
   // Yang masih relevan sudah dinamai ulang, sisanya dihapus.
   srcExclude: ['**/.*.md'],
+
+  markdown: { config: sumberPratinjau },
 
   // VitePress menjalankan Vite-nya sendiri dan tidak membaca vite.config.ts di
   // root, jadi alias dan Tailwind harus didaftarkan ulang di sini. Tanpa ini
@@ -49,6 +93,7 @@ export default defineConfig({
     nav: [
       { text: 'Dokumentasi', link: '/introduction' },
       { text: 'Komponen', link: '/components/accordion' },
+      { text: 'Blocks', link: '/blocks' },
     ],
 
     sidebar: [
@@ -112,6 +157,10 @@ export default defineConfig({
         ],
       },
       {
+        text: 'Blocks',
+        items: [{ text: 'Galeri', link: '/blocks' }],
+      },
+      {
         text: 'Utilitas',
         collapsed: true,
         items: [
@@ -136,6 +185,28 @@ export default defineConfig({
         items: komponenSidebar(),
       },
     ],
+
+    // Pencarian dijalankan di sisi pembaca dari indeks yang ikut dibangun, jadi
+    // tidak ada layanan luar yang perlu dihubungi.
+    search: {
+      provider: 'local',
+      options: {
+        translations: {
+          button: { buttonText: 'Cari', buttonAriaLabel: 'Cari dokumentasi' },
+          modal: {
+            displayDetails: 'Tampilkan rincian',
+            resetButtonTitle: 'Kosongkan pencarian',
+            backButtonTitle: 'Tutup pencarian',
+            noResultsText: 'Tidak ada hasil untuk',
+            footer: {
+              selectText: 'untuk memilih',
+              navigateText: 'untuk berpindah',
+              closeText: 'untuk menutup',
+            },
+          },
+        },
+      },
+    },
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/kliping-com/kliping-vue' },
