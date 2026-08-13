@@ -1,15 +1,15 @@
 ---
 title: Typeset
-description: A styling system for HTML and rendered markdown, from blog posts to streaming chat. One CSS file you own.
+description: Sistem penataan untuk HTML dan markdown hasil render — dari tulisan blog sampai chat yang mengalir. Satu berkas CSS yang jadi milik Anda.
 ---
 
-You render markdown and get back plain unstyled HTML: headings, paragraphs, lists, and tables. So you style the elements one by one: font sizes, line heights, spacing.
+Anda me-render markdown, lalu yang keluar HTML polos tanpa style: heading, paragraf, list, tabel. Jadi Anda menata elemennya satu per satu — ukuran font, tinggi baris, jarak antar elemen.
 
-You do it for your blog. Then you do it again for the docs. Then again for the chat app. Every time you're fighting the same thing: sizing and spacing.
+Anda kerjakan itu untuk blog Anda. Lalu diulang lagi untuk dokumentasi. Lalu diulang lagi untuk aplikasi chat. Setiap kali, yang Anda lawan sama saja: ukuran dan jarak.
 
-To fix this, we ported **shadcn/typeset**. It's one CSS file that styles everything inside a `typeset` container. The file lives in your project, so you can change it directly when you need to.
+Untuk mengatasi itu, upstream membuat **Typeset**: satu berkas CSS yang menata semua isi di dalam container `typeset`. Berkasnya ada di project Anda, jadi bisa langsung Anda ubah kapan pun perlu.
 
-A typeset is just a small preset class. You can have multiple typesets in your app, for different contexts.
+Sebuah typeset pada dasarnya cuma class preset kecil. Anda boleh punya beberapa typeset dalam satu aplikasi, untuk konteks yang berbeda-beda.
 
 ```css
 .typeset-docs {
@@ -22,41 +22,41 @@ A typeset is just a small preset class. You can have multiple typesets in your a
 }
 ```
 
-[Build your typeset](/typeset)
+[Susun typeset Anda](/typeset)
 
 ---
 
-## Principles
+## Prinsipnya
 
-We read a lot about type: scale ratios, tracking, kerning, optical sizing, measure, leading, the space above and below every element. We tried exposing all of it, and it was too much. Nobody wants to set a dozen variables to make markdown look right.
+Ada banyak sekali hal soal tipografi: rasio skala, tracking, kerning, optical sizing, measure, leading, sampai jarak di atas dan bawah tiap elemen. Membuka semuanya untuk diatur ternyata berlebihan — tidak ada yang mau mengisi selusin variabel hanya supaya markdown-nya enak dilihat.
 
-So we sat down and condensed everything into three controls: size, leading, and flow. Everything else, heading sizes, list indents, the gap under a heading, the space around a rule, derives from them. Three controls. We called it rhythm.
+Karena itu semuanya diringkas jadi tiga kendali saja: size, leading, dan flow. Sisanya — ukuran heading, indentasi list, jarak di bawah heading, ruang di sekitar garis pemisah — semuanya diturunkan dari ketiganya. Tiga kendali. Namanya rhythm.
 
 ---
 
 ## Fitur
 
-- **It fits its container.** Put it in a chat bubble and it follows the smaller type around it. Put it in an article and it scales up with the page. On smaller screens, it gets a small bump for readability.
-- **It uses your theme.** Colors, fonts, and radius come from your app. Dark mode follows the same tokens.
-- **It's easy to tune.** Three values control the base size, line height, and space between blocks. Change them in a preset and the whole document follows.
-- **It works well with streaming.** When a new block arrives, Typeset doesn't make earlier blocks switch margins, borders, or styles.
+- **Menyesuaikan container-nya.** Ditaruh di gelembung chat, ia mengikuti ukuran teks kecil di sekitarnya. Ditaruh di artikel, ia ikut membesar bersama halamannya. Di layar kecil, ukurannya dinaikkan sedikit demi keterbacaan.
+- **Memakai tema Anda.** Warna, font, dan radius diambil dari aplikasi Anda. Mode gelapnya mengikuti token yang sama.
+- **Mudah disetel.** Tiga nilai mengatur ukuran dasar, tinggi baris, dan jarak antar blok. Ubah di preset, seluruh dokumen ikut menyesuaikan.
+- **Cocok untuk konten yang mengalir.** Saat blok baru datang, Typeset tidak membuat blok sebelumnya berganti margin, garis tepi, atau style.
 
 ---
 
-## Building Your Typeset
+## Menyusun Typeset Anda
 
-Create your typeset in the [typeset builder](/typeset). Pick your fonts and rhythm, then preview them on docs, chat, articles, and other real content.
+Susun typeset Anda di [builder typeset](/typeset). Pilih font dan ritmenya, lalu lihat pratinjaunya pada dokumentasi, chat, artikel, dan konten nyata lainnya.
 
-The panel gives you the `typeset.css` file, the font setup for your framework, a preset class with your choices, and the wrapper to add around your content.
+Panelnya memberi Anda berkas `typeset.css`, pengaturan font untuk framework Anda, class preset berisi pilihan Anda, serta pembungkus yang perlu dipasang di sekeliling konten.
 
-Copy `typeset.css` next to your main CSS file and import it after Tailwind:
+Salin `typeset.css` ke samping berkas CSS utama Anda, lalu import setelah Tailwind:
 
 ```css
 @import "tailwindcss";
 @import "./typeset.css";
 ```
 
-Then wrap your rendered markdown with `typeset` and your preset class:
+Lalu bungkus markdown hasil render Anda dengan `typeset` beserta class preset Anda:
 
 ```vue
 <template>
@@ -66,13 +66,13 @@ Then wrap your rendered markdown with `typeset` and your preset class:
 </template>
 ```
 
-`typeset` turns the styles on. `typeset-docs` is the preset you created in the builder.
+`typeset` yang menyalakan style-nya. `typeset-docs` adalah preset yang Anda buat di builder.
 
 ---
 
-## Custom Typesets
+## Typeset Buatan Sendiri
 
-The file includes defaults, so you can use `typeset` by itself. Most of the reading rhythm comes from three values:
+Berkasnya sudah memuat nilai bawaan, jadi `typeset` bisa dipakai sendirian. Sebagian besar ritme bacanya ditentukan tiga nilai:
 
 ```css
 .typeset {
@@ -86,15 +86,15 @@ The file includes defaults, so you can use `typeset` by itself. Most of the read
 }
 ```
 
-- **`--typeset-size`** sets the base text size. `1em` follows the surrounding layout. On smaller screens, Typeset bumps it up a little.
-- **`--typeset-leading`** sets the space between lines.
-- **`--typeset-flow`** sets the space between blocks. Headings and other elements derive their spacing from it.
+- **`--typeset-size`** menentukan ukuran teks dasar. Nilai `1em` mengikuti tata letak di sekitarnya. Di layar kecil, Typeset menaikkannya sedikit.
+- **`--typeset-leading`** menentukan jarak antar baris.
+- **`--typeset-flow`** menentukan jarak antar blok. Heading dan elemen lain menurunkan jaraknya dari nilai ini.
 
-The font variables tell Typeset which families to use. Leave them alone and it follows your app. Colors and radius come from your theme too.
+Variabel font memberi tahu Typeset keluarga font mana yang dipakai. Biarkan apa adanya, dan ia akan mengikuti aplikasi Anda. Warna dan radius juga diambil dari tema Anda.
 
-Typeset doesn't set a maximum width. Your layout owns that. The Measure control in the builder adds a `max-width` to the wrapper instead of hiding it in the stylesheet.
+Typeset tidak menetapkan lebar maksimum — itu urusan tata letak Anda. Kendali Measure di builder menambahkan `max-width` pada pembungkusnya, bukan menyembunyikannya di dalam stylesheet.
 
-You can keep more than one preset in the same app. Here is a tighter one for chat and a roomier one for docs:
+Anda boleh menyimpan lebih dari satu preset dalam satu aplikasi. Berikut satu preset yang lebih rapat untuk chat, dan satu yang lebih lapang untuk dokumentasi:
 
 ```css
 .typeset-chat {
@@ -115,7 +115,7 @@ You can keep more than one preset in the same app. Here is a tighter one for cha
 </template>
 ```
 
-For a one-off change, skip the preset and set a value on the container:
+Untuk perubahan sekali pakai, lewati presetnya dan atur nilainya langsung di container:
 
 ```vue
 <template>
@@ -125,9 +125,9 @@ For a one-off change, skip the preset and set a value on the container:
 
 ---
 
-## Custom Themes
+## Tema Buatan Sendiri
 
-A preset can change the whole feel of the content, not just the spacing. You can give readers a serif reading mode, a compact UI mode, or any other style that fits your product.
+Sebuah preset bisa mengubah keseluruhan nuansa konten, bukan sekadar jaraknya. Anda bisa memberi pembaca mode baca serif, mode UI ringkas, atau gaya lain apa pun yang cocok dengan produk Anda.
 
 ```css
 /* Reading: serif, larger type, roomy rhythm. */
@@ -151,9 +151,9 @@ A preset can change the whole feel of the content, not just the spacing. You can
 
 ---
 
-## Accessibility and Dark Mode
+## Aksesibilitas dan Mode Gelap
 
-For readers who prefer larger type and more space, create a roomier typeset and expose it as a setting:
+Untuk pembaca yang lebih nyaman dengan teks besar dan ruang lega, buat typeset yang lebih lapang lalu tawarkan sebagai pengaturan:
 
 ```css
 .typeset-large {
@@ -163,7 +163,7 @@ For readers who prefer larger type and more space, create a roomier typeset and 
 }
 ```
 
-Dark mode already follows your theme colors. If the text feels a little tight on a dark surface, you can loosen the leading there:
+Mode gelap sudah mengikuti warna tema Anda. Kalau teksnya terasa agak sesak di atas permukaan gelap, longgarkan saja leading-nya di sana:
 
 ```css
 .dark .typeset {
@@ -173,9 +173,9 @@ Dark mode already follows your theme colors. If the text feels a little tight on
 
 ---
 
-## Responsive Table
+## Tabel Responsif
 
-Tables stay real tables and wrap to fit. To scroll a wide one horizontally instead, wrap it in `typeset-scroll`. The wrapper is styled as part of the content, so it only works *inside* a `typeset` container:
+Tabel tetap tabel sungguhan dan membungkus isinya agar muat. Kalau tabel lebar ingin digulir mendatar, bungkus dengan `typeset-scroll`. Pembungkusnya di-style sebagai bagian dari konten, jadi hanya bekerja *di dalam* container `typeset`:
 
 ```vue
 <template>
@@ -187,13 +187,13 @@ Tables stay real tables and wrap to fit. To scroll a wide one horizontally inste
 </template>
 ```
 
-Do this in your renderer's table component or a small rehype plugin, where the output already sits inside the container. It works for any wide block, not just tables.
+Lakukan ini di komponen tabel renderer Anda, atau lewat plugin rehype kecil, di titik ketika keluarannya sudah berada di dalam container. Cara ini berlaku untuk blok lebar apa pun, bukan hanya tabel.
 
 ---
 
-## Overrides
+## Menimpa Style
 
-Typeset lives in the `components` layer and uses `:where()` for its element selectors. Tailwind utilities on an element win without `!important`:
+Typeset berada di layer `components` dan memakai `:where()` untuk selector elemennya. Utility Tailwind pada sebuah elemen otomatis menang tanpa perlu `!important`:
 
 ```vue
 <template>
@@ -203,13 +203,13 @@ Typeset lives in the `components` layer and uses `:where()` for its element sele
 </template>
 ```
 
-Plain CSS can override Typeset with a normal selector too.
+CSS biasa juga bisa menimpa Typeset lewat selector biasa.
 
 ---
 
-## Opting Out
+## Mengecualikan Bagian Tertentu
 
-To keep a component out of Typeset, add `not-typeset` or `data-not-typeset`:
+Untuk mengeluarkan sebuah komponen dari jangkauan Typeset, tambahkan `not-typeset` atau `data-not-typeset`:
 
 ```vue
 <template>
@@ -222,35 +222,35 @@ To keep a component out of Typeset, add `not-typeset` or `data-not-typeset`:
 </template>
 ```
 
-Both options cover the component and everything inside it. Another `typeset` container inside that subtree stays opted out too.
+Keduanya mencakup komponen itu beserta seluruh isinya. Container `typeset` lain di dalam cabang tersebut juga ikut dikecualikan.
 
 ---
 
-## Streaming
+## Konten yang Mengalir
 
-Typeset is written so that adding a new block does not change the styles of the blocks already on screen.
+Typeset ditulis sedemikian rupa supaya menambahkan blok baru tidak mengubah style blok yang sudah tampil di layar.
 
-- No forward-looking selectors. `:last-child`, `:has()`, and `:empty` are left out of layout rules because their matches can change as content is added.
+- Tanpa selector yang menengok ke depan. `:last-child`, `:has()`, dan `:empty` sengaja tidak dipakai di aturan tata letak, karena kecocokannya bisa berubah begitu konten bertambah.
 - Spacing flows in one direction, using `margin-block-start` only. A new block adds its own space.
-- Table separators live on the cells being added, so a new row does not restyle the row above it.
+- Pemisah tabel menempel pada sel yang sedang ditambahkan, jadi baris baru tidak mengubah style baris di atasnya.
 
-Text that is still streaming can grow and wrap normally. Typeset just avoids restyling the blocks that came before it.
+Teks yang masih mengalir tetap bisa memanjang dan membungkus seperti biasa. Typeset hanya menghindari mengubah style blok yang sudah lebih dulu ada.
 
 ---
 
-## Prior Art
+## Karya Pendahulu
 
-The `prose` class from `@tailwindcss/typography` is excellent at what it was built for: adding beautiful typographic defaults to plain HTML, including content rendered from Markdown or a CMS.
+Class `prose` dari `@tailwindcss/typography` sangat baik untuk tujuan pembuatannya: memberi tipografi bawaan yang rapi pada HTML polos, termasuk konten hasil render dari Markdown atau CMS.
 
-Typeset takes a different approach with container-aware sizing, app theme tokens, presets for different contexts, and streaming stability. Here's where they differ:
+Typeset menempuh jalan berbeda: ukurannya sadar container, memakai token tema aplikasi, menyediakan preset untuk konteks berbeda, dan stabil saat konten mengalir. Berikut perbedaannya:
 
 |              | @tailwindcss/typography                      | Typeset                                          |
 | ------------ | -------------------------------------------- | ------------------------------------------------ |
-| Sizing       | Fixed `rem` scale, `prose-sm` to `prose-2xl` | Relative to the container, any size              |
-| Dark mode    | `prose-invert`, a second palette             | Your tokens flip, nothing to add                 |
-| Theming      | Prose color variables; scale baked in        | Your theme tokens, plus font and rhythm controls |
-| Overrides    | `prose-a:`, `prose-headings:` modifier API   | Plain utilities and CSS win                      |
-| Streaming    | No append-stability contract                 | Designed for stable appends                      |
-| Distribution | npm plugin, generated CSS                    | One CSS file you own                             |
+| Ukuran       | Skala `rem` tetap, `prose-sm` s/d `prose-2xl` | Relatif terhadap container, ukuran apa pun      |
+| Mode gelap   | `prose-invert`, palet kedua                   | Token Anda yang berbalik, tanpa tambahan apa pun |
+| Tema         | Variabel warna prose, skalanya sudah paten    | Token tema Anda, plus kendali font dan ritme    |
+| Menimpa style| API modifier `prose-a:` dan `prose-headings:` | Utility biasa dan CSS langsung menang           |
+| Konten mengalir | Tanpa jaminan stabil saat konten bertambah | Memang dirancang stabil saat konten bertambah   |
+| Distribusi   | Plugin npm, CSS yang dihasilkan otomatis      | Satu berkas CSS yang jadi milik Anda            |
 
-Typeset borrows the two best ideas from the plugin: the zero-specificity `:where()` guard pattern, and the escape-hatch class (`not-typeset`, in the spirit of `not-prose`).
+Typeset meminjam dua gagasan terbaik dari plugin itu: pola penjaga `:where()` yang berspesifisitas nol, dan class jalan keluar (`not-typeset`, meneruskan semangat `not-prose`).

@@ -1,70 +1,70 @@
 ---
 title: Skills
-description: Give your AI assistant deep knowledge of shadcn-vue components, patterns, and best practices.
+description: Membekali asisten AI Anda dengan pemahaman mendalam soal komponen, pola, dan praktik terbaik di Kliping.
 ---
 
-Skills give AI assistants like Claude Code project-aware context about shadcn-vue. When installed, your AI assistant knows how to find, install, compose, and customize components using the correct APIs and patterns for your project.
+Skill memberi asisten AI seperti Claude Code konteks yang sadar-project soal komponen di sini. Setelah dipasang, asisten AI Anda tahu cara menemukan, memasang, menyusun, dan menyesuaikan komponen memakai API dan pola yang tepat untuk project Anda.
 
-For example, you can ask your AI assistant to:
+Contohnya, Anda bisa meminta asisten AI Anda:
 
-- _"Add a login form with email and password fields."_
-- _"Create a settings page with a form for updating profile information."_
-- _"Build a dashboard with a sidebar, stats cards, and a data table."_
-- _"Switch to --preset [CODE]"_
+- _"Tambahkan form login dengan isian email dan kata sandi."_
+- _"Buatkan halaman pengaturan berisi form untuk memperbarui data profil."_
+- _"Bangun dashboard dengan sidebar, kartu statistik, dan data table."_
+- _"Ganti ke --preset [KODE]"_
 
-The skill reads your project's `components.json` and provides the assistant with your framework, aliases, installed components, icon library, and base library so it can generate correct code on the first try.
+Skill ini membaca `components.json` di project Anda lalu memberi tahu asisten soal framework, alias, komponen yang sudah terpasang, library ikon, dan base library Anda — supaya kode yang dihasilkan benar sejak percobaan pertama.
 
 ---
 
-## Install
+## Pemasangan
 
 ```bash
 npx skills add unovue/shadcn-vue
 ```
 
-This installs the shadcn-vue skill into your project. Once installed, your AI assistant automatically loads it when working with shadcn-vue components.
+Perintah ini memasang skill shadcn-vue ke project Anda. Setelah terpasang, asisten AI Anda otomatis memuatnya setiap kali bekerja dengan komponen tersebut.
 
 Learn more about skills at [skills.sh](https://skills.sh).
 
 ---
 
-## What's Included
+## Isinya Apa Saja
 
-The skill provides your AI assistant with the following knowledge:
+Skill ini membekali asisten AI Anda dengan pengetahuan berikut:
 
-### Project Context
+### Konteks Project
 
-On every interaction, the skill runs `shadcn-vue info --json` to get your project's configuration: framework, Tailwind version, aliases, base library (`reka`), icon library, installed components, and resolved file paths.
+Di tiap interaksi, skill menjalankan `shadcn-vue info --json` untuk membaca konfigurasi project Anda: framework, versi Tailwind, alias, base library (`reka`), library ikon, komponen yang terpasang, dan path berkas yang sudah diselesaikan.
 
-### CLI Commands
+### Perintah CLI
 
-Full reference for all CLI commands: `init`, `add`, `search`, `view`, `docs`, `diff`, `info`, and `build`. Includes flags, smart merge workflows, presets, and templates.
+Referensi lengkap semua perintah CLI: `init`, `add`, `search`, `view`, `docs`, `diff`, `info`, dan `build` — beserta flag, alur smart merge, preset, dan template-nya.
 
-### Theming and Customization
+### Tema dan Kustomisasi
 
-How CSS variables, OKLCH colors, dark mode, custom colors, border radius, and component variants work. Includes guidance for both Tailwind v3 and v4.
+Cara kerja CSS variable, warna OKLCH, mode gelap, warna kustom, radius sudut, dan varian komponen — lengkap dengan panduan untuk Tailwind v3 maupun v4.
 
-### Registry Authoring
+### Membuat Registry
 
-How to build and publish custom component registries: `registry.json` format, item types, file objects, dependencies, CSS variables, building, hosting, and user configuration.
+Cara membangun dan menerbitkan registry komponen sendiri: format `registry.json`, jenis item, objek berkas, dependency, CSS variable, proses build, hosting, dan konfigurasi penggunanya.
 
-### MCP Server
+### Server MCP
 
-Setup and tools for the shadcn-vue MCP server, which lets AI assistants search, browse, and install components from registries.
+Cara menyiapkan server MCP shadcn-vue beserta tool-nya, yang memungkinkan asisten AI mencari, menelusuri, dan memasang komponen dari registry.
 
 ---
 
-## How It Works
+## Cara Kerjanya
 
-1. **Project detection** — The skill activates when it finds a `components.json` file in your project.
-2. **Context injection** — It runs `shadcn-vue info --json` to read your project configuration and injects the result into the assistant's context.
-3. **Pattern enforcement** — The assistant follows shadcn-vue composition rules: using `FieldGroup` for forms, `ToggleGroup` for option sets, semantic colors, and correct base-specific APIs.
-4. **Component discovery** — The assistant uses `shadcn-vue docs`, `shadcn-vue search`, or MCP tools to find components and their documentation before generating code.
+1. **Deteksi project** — skill aktif begitu menemukan berkas `components.json` di project Anda.
+2. **Penyuntikan konteks** — skill menjalankan `shadcn-vue info --json` untuk membaca konfigurasi project Anda, lalu menyisipkan hasilnya ke konteks asisten.
+3. **Penegakan pola** — asisten mengikuti aturan komposisi yang berlaku: memakai `FieldGroup` untuk form, `ToggleGroup` untuk kumpulan pilihan, warna bermakna, dan API yang sesuai base-nya.
+4. **Penelusuran komponen** — asisten memakai `shadcn-vue docs`, `shadcn-vue search`, atau tool MCP untuk menemukan komponen beserta dokumentasinya sebelum menulis kode.
 
-## Learn More
+## Bacaan Lanjutan
 
 - [CLI](/docs/06.cli) — Full CLI command reference
-- [MCP Server](/docs/mcp) — Connect the MCP server for registry access
-- [Theming](/docs/04.theming) — CSS variables and customization
-- [Registry](/docs/registry) — Building and publishing custom registries
+- [Server MCP](/docs/mcp) — menyambungkan server MCP untuk mengakses registry
+- [Tema & Kustomisasi](/docs/theming) — CSS variable dan penyesuaian tampilan
+- [Registry](/docs/registry) — membangun dan menerbitkan registry sendiri
 - [skills.sh](https://skills.sh) — Learn more about AI skills

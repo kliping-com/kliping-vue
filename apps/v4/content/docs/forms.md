@@ -1,6 +1,6 @@
 ---
-title: Forms
-description: Build forms with Vue and shadcn-vue.
+title: Form
+description: Membangun form dengan Vue dan komponen Kliping.
 ---
 
 ## Pilih Framework Anda
